@@ -8,16 +8,12 @@
 
 <ion-content padding>
   <div class="contest-container">
-  <ion-grid>
-    <ion-row>
-      <ion-col *ngFor="let option of contest.options; let i = index">
-        <ion-card mode="md" no-margin cdkDragLockAxis="y" cdkDrag>
-          <ion-card-content no-padding>
-            <ion-img style="object-fit: contain" [src]="option.imageUrl"></ion-img>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</div>
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let option of contest.options; let i = index">
+          <app-tinder-card [ImageUrl]="option.imageUrl"></app-tinder-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>
