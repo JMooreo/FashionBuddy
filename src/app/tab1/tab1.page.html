@@ -9,16 +9,12 @@
 <ion-content padding>
   <ion-grid class="contest-container">
     <ion-row>
-      <ion-col *ngFor="let option of contest.options; let i = index">
+      <ion-col *ngFor="let option of contests[0].options">
         <div id="draggable-container" cdkDragLockAxis="y" cdkDrag (cdkDragEnded)="tinderCardDragEnded($event)">
           <tinder-card [currentState]="isContestVoted ? 'invisible' : 'visible'" [imageUrl]="option.imageUrl">
           </tinder-card>
         </div>
       </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-button (click)="closeContest()">Close</ion-button>
-      <ion-button (click)="resetContest()">Reset</ion-button>
     </ion-row>
   </ion-grid>
 </ion-content>
