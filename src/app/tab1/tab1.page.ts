@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Tab1Page implements OnInit {
   isContestVoted = true; // default for animations
+  ANIMATION_DELAY = 500;
 
   contests = [
     {
@@ -52,8 +53,10 @@ export class Tab1Page implements OnInit {
   ];
   constructor() {}
 
-  ngOnInit(){
-    this.isContestVoted = this.contests[0].isVoted;
+  ngOnInit() {
+    setTimeout(() => {
+      this.isContestVoted = this.contests[0].isVoted;
+    }, this.ANIMATION_DELAY);
   }
 
   closeContest() {
@@ -62,8 +65,8 @@ export class Tab1Page implements OnInit {
       this.contests.shift();
       setTimeout(() => {
         this.isContestVoted = false;
-      }, 300);
-    }, 500); // tinder fade-out default 300ms
+      }, this.ANIMATION_DELAY / 2);
+    }, this.ANIMATION_DELAY); // tinder fade-out default 300ms
   }
 
   tinderCardDragEnded(event) {
