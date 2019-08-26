@@ -11,7 +11,7 @@ export class Tab1Page implements OnInit {
   isContestVisible = false; // default invisible for fade in
   ANIMATION_DELAY = 500;
   contests: any;
-  constructor(private contestSrv: ContestService) {}
+  constructor(private ContestSrv: ContestService) {}
 
   ngOnInit() {
     this.pageLoad();
@@ -19,10 +19,22 @@ export class Tab1Page implements OnInit {
 
   async pageLoad() {
     // await contests, then short timeout for fade in
-    this.contests = await this.contestSrv.getAllContests();
+    this.contests = await this.subscribeToContests();
     setTimeout(() => {
       this.isContestVisible = true;
     }, this.ANIMATION_DELAY);
+  }
+
+  subscribeToContests() {
+    this.ContestSrv.getAllContests().subscribe(res => {
+      const contests = res.map(item => {
+        return {
+          ...item.payload.doc.data(),
+          id: item.payload.doc.id,
+        } as Contest;
+      });
+      this.contests = contests;
+    });
   }
 
   hideContest() {
