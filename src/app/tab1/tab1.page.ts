@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page {
-  isContestVoted = false;
+export class Tab1Page implements OnInit {
+  isContestVoted = true; // default for animations
 
   contests = [
     {
@@ -51,6 +51,10 @@ export class Tab1Page {
     }
   ];
   constructor() {}
+
+  ngOnInit(){
+    this.isContestVoted = this.contests[0].isVoted;
+  }
 
   closeContest() {
     this.isContestVoted = true;
