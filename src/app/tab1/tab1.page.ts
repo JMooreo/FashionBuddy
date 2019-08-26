@@ -19,7 +19,7 @@ export class Tab1Page implements OnInit {
 
   async pageLoad() {
     // await contests, then short timeout for fade in
-    this.contests = this.contestSrv.getAllContests();
+    this.contests = await this.contestSrv.getAllContests();
     setTimeout(() => {
       this.isContestVisible = true;
     }, this.ANIMATION_DELAY);
