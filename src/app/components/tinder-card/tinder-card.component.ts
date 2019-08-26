@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
@@ -14,15 +14,11 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
     ])
   ]
 })
-export class TinderCardComponent implements OnInit {
+export class TinderCardComponent {
   @Input() imageUrl: string;
   @Input() currentState = 'invisible';
 
   constructor() {}
-
-  ngOnInit() {
-    console.log('Hello Tinder Card Component');
-  }
 
   changeState(newState: any) {
     this.currentState = newState;

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ContestService } from '../services/contests/contest.service';
+import { Contest } from '../models/contest-model';
 
 @Component({
   selector: 'app-tab1',
@@ -6,52 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page implements OnInit {
-  isContestVoted = true; // default for animations
+  isContestVisible = false; // default invisible for fade in
   ANIMATION_DELAY = 500;
-
-  contests = [
-    {
-      id: 'contest1',
-      isVoted: false,
-      createDateTime: '2019-01-01T12:00:00:000Z',
-      closeDateTime: '2019-01-01T13:00:00:000Z',
-      description: 'going out',
-      style: 'casual',
-      options: [
-        {
-          id: '1',
-          imageUrl: 'https://via.placeholder.com/1080x1920?text=Image_1',
-          votes: 2
-        },
-        {
-          id: '2',
-          imageUrl: 'https://via.placeholder.com/1080x1920?text=Image_2',
-          votes: 6
-        }
-      ]
-    },
-    {
-      id: 'contest2',
-      isVoted: false,
-      createDateTime: '2019-01-01T12:00:00:000Z',
-      closeDateTime: '2019-01-01T13:00:00:000Z',
-      description: 'going out',
-      style: 'casual',
-      options: [
-        {
-          id: '1',
-          imageUrl: 'https://via.placeholder.com/1080x1920?text=Image_3',
-          votes: 3
-        },
-        {
-          id: '2',
-          imageUrl: 'https://via.placeholder.com/1080x1920?text=Image_4',
-          votes: 5
-        }
-      ]
-    }
-  ];
-  constructor() {}
+  contests: any;
+  constructor(private contestSrv: ContestService) {}
 
   ngOnInit() {
     this.pageLoad();
@@ -59,17 +19,18 @@ export class Tab1Page implements OnInit {
 
   async pageLoad() {
     // await contests, then short timeout for fade in
+    this.contests = this.contestSrv.getAllContests();
     setTimeout(() => {
-      this.isContestVoted = this.contests[0].isVoted;
+      this.isContestVisible = true;
     }, this.ANIMATION_DELAY);
   }
 
-  closeContest() {
-    this.isContestVoted = true;
+  hideContest() {
+    this.isContestVisible = false;
     setTimeout(() => {
       this.contests.shift();
       setTimeout(() => {
-        this.isContestVoted = false;
+        this.isContestVisible = true;
       }, this.ANIMATION_DELAY / 2);
     }, this.ANIMATION_DELAY); // tinder fade-out default 300ms
   }
@@ -78,7 +39,7 @@ export class Tab1Page implements OnInit {
     const element = event.source.getRootElement().getBoundingClientRect();
     const elementHeight = element.bottom - element.top;
     if (element.y < -elementHeight / 4) {
-      this.closeContest();
+      this.hideContest();
     } else {
       event.source.reset();
     }
