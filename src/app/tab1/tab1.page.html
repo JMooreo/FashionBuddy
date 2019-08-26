@@ -17,6 +17,9 @@
           </div>
         </ion-col>
       </ng-container>
+      <ion-col *ngIf="contests[0] == null" text-center>
+        <ion-text>No contests to vote on :(</ion-text>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>

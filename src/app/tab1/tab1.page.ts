@@ -54,6 +54,11 @@ export class Tab1Page implements OnInit {
   constructor() {}
 
   ngOnInit() {
+    this.pageLoad();
+  }
+
+  async pageLoad() {
+    // await contests, then short timeout for fade in
     setTimeout(() => {
       this.isContestVoted = this.contests[0].isVoted;
     }, this.ANIMATION_DELAY);
