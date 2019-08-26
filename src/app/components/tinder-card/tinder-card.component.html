@@ -1,5 +1,5 @@
-<ion-card cdkDragLockAxis="y" cdkDrag (cdkDragEnded)="dragEnded($event)" mode="md" no-margin>
+<ion-card [@changeState]="currentState" mode="md" no-margin>
   <ion-card-content no-padding>
-    <ion-img style="object-fit: contain" [src]="ImageUrl"></ion-img>
+    <ion-img style="object-fit: contain" [src]="imageUrl"></ion-img>
   </ion-card-content>
 </ion-card>
