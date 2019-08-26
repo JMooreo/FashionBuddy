@@ -23,7 +23,7 @@ export class TinderCardComponent implements OnInit {
       // animate out
     } else {
       console.log('RESET');
-      // reset position
+      event.source.reset();
     }
   }
 }

@@ -7,13 +7,11 @@
 </ion-header>
 
 <ion-content padding>
-  <div class="contest-container">
-    <ion-grid>
+    <ion-grid class="contest-container">
       <ion-row>
         <ion-col *ngFor="let option of contest.options; let i = index">
           <app-tinder-card [ImageUrl]="option.imageUrl"></app-tinder-card>
         </ion-col>
       </ion-row>
     </ion-grid>
-  </div>
 </ion-content>
