@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ContestService } from '../services/contests/contest.service';
-import { Contest } from '../models/contest-model';
+import { ContestService } from '../../services/contests/contest.service';
+import { Contest } from '../../models/contest-model';
 
 @Component({
   selector: 'app-tab1',
-  templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss']
+  templateUrl: 'home.page.html',
+  styleUrls: ['home.page.scss']
 })
-export class Tab1Page implements OnInit {
+export class HomePage implements OnInit {
   isContestVisible = false; // default invisible for fade in
   ANIMATION_DELAY = 500;
   contests: any;
@@ -18,7 +18,6 @@ export class Tab1Page implements OnInit {
   }
 
   async pageLoad() {
-    // await contests, then short timeout for fade in
     this.contests = await this.subscribeToContests();
     setTimeout(() => {
       this.isContestVisible = true;
