@@ -17,6 +17,12 @@ export class HomePage implements OnInit {
     this.pageLoad();
   }
 
+  async doRefresh(event) {
+    this.isContestVisible = false;
+    await this.pageLoad();
+    event.target.complete();
+  }
+
   async pageLoad() {
     this.contests = await this.subscribeToContests();
     setTimeout(() => {
@@ -29,7 +35,7 @@ export class HomePage implements OnInit {
       const contests = res.map(item => {
         return {
           ...item.payload.doc.data(),
-          id: item.payload.doc.id,
+          id: item.payload.doc.id
         } as Contest;
       });
       this.contests = contests;
