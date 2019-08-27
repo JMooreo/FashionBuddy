@@ -3,7 +3,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { HomePage } from './home.page';
 
-describe('Tab1Page', () => {
+describe('HomePage', () => {
   let component: HomePage;
   let fixture: ComponentFixture<HomePage>;
 

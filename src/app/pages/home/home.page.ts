@@ -3,7 +3,7 @@ import { ContestService } from '../../services/contests/contest.service';
 import { Contest } from '../../models/contest-model';
 
 @Component({
-  selector: 'app-tab1',
+  selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss']
 })
