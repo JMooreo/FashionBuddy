@@ -8,9 +8,14 @@ import { Contest } from '../../models/contest-model';
   styleUrls: ['home.page.scss']
 })
 export class HomePage implements OnInit {
+  // Constants
+  ANIMATION_DELAY = 600;
+  // Booleans
   isContestVisible = false; // default invisible for fade in
-  ANIMATION_DELAY = 500;
-  contests: any;
+  isRefreshing = false;
+  // Objects
+  contests: Array<Contest>;
+
   constructor(private dbSrv: DatabaseService) {}
 
   ngOnInit() {
@@ -18,12 +23,15 @@ export class HomePage implements OnInit {
   }
 
   async doRefresh(event) {
+    this.isRefreshing = true;
     this.isContestVisible = false;
     await this.pageLoad();
-    event.target.complete();
+    await event.target.complete();
+    this.isRefreshing = false;
   }
 
   async pageLoad() {
+    this.isContestVisible = false;
     this.contests = await this.dbSrv.getAllContestsForUser();
     setTimeout(() => {
       this.isContestVisible = true;

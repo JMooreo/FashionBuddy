@@ -23,7 +23,7 @@
           </div>
         </ion-col>
       </ng-container>
-      <ion-col *ngIf="contests && contests[0] == null" text-center>
+      <ion-col *ngIf="contests && !isRefreshing && contests[0] == null" text-center>
         <ion-text>No contests to vote on :(</ion-text>
       </ion-col>
     </ion-row>

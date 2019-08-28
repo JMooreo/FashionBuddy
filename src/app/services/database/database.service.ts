@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Contest } from '../../models/contest-model';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AuthService } from '../auth/auth.service';
-import * as firebase from 'firebase';
+import * as firebase from 'firebase/app';
 
 @Injectable({
   providedIn: 'root'
@@ -25,12 +25,12 @@ export class DatabaseService {
       .get()
       .then(querySnapshot => {
         querySnapshot.forEach(contest => {
-          this.contestsRef.doc(contest.id).collection('Users').doc(this.userId).get()
-            .then(userDoc => {
-              if (!userDoc.exists) { // this user did not vote on contest
+          this.contestsRef.doc(contest.id).collection('Voters').doc(this.userId).get()
+            .then(voter => {
+              if (!voter.exists) { // this user did not vote on contest
                 contests.push(contest.data() as Contest);
               } else {
-                // console.log(userDoc.data());
+                // console.log(voter.data());
               }
             });
         });
