@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ContestService } from '../../services/contests/contest.service';
+import { DatabaseService } from '../../services/database/database.service';
 import { Contest } from '../../models/contest-model';
 
 @Component({
@@ -11,7 +11,7 @@ export class HomePage implements OnInit {
   isContestVisible = false; // default invisible for fade in
   ANIMATION_DELAY = 500;
   contests: any;
-  constructor(private ContestSrv: ContestService) {}
+  constructor(private dbSrv: DatabaseService) {}
 
   ngOnInit() {
     this.pageLoad();
@@ -24,22 +24,10 @@ export class HomePage implements OnInit {
   }
 
   async pageLoad() {
-    this.contests = await this.subscribeToContests();
+    this.contests = await this.dbSrv.getAllContestsForUser();
     setTimeout(() => {
       this.isContestVisible = true;
     }, this.ANIMATION_DELAY);
-  }
-
-  subscribeToContests() {
-    this.ContestSrv.getAllContests().subscribe(res => {
-      const contests = res.map(item => {
-        return {
-          ...item.payload.doc.data(),
-          id: item.payload.doc.id
-        } as Contest;
-      });
-      this.contests = contests;
-    });
   }
 
   hideContest() {

@@ -10,7 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ContestService } from '../app/services/contests/contest.service';
+import { DatabaseService } from './services/database/database.service';
 
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
@@ -63,7 +63,7 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
   providers: [
     StatusBar,
     SplashScreen,
-    ContestService,
+    DatabaseService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
