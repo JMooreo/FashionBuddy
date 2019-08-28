@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Contest } from '../../models/contest-model';
+import { Contest, ContestOption } from '../../models/contest-model';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AuthService } from '../auth/auth.service';
 import * as firebase from 'firebase/app';
@@ -28,7 +28,7 @@ export class DatabaseService {
           this.contestsRef.doc(contest.id).collection('Voters').doc(this.userId).get()
             .then(voter => {
               if (!voter.exists) { // this user did not vote on contest
-                contests.push(contest.data() as Contest);
+                contests.push({...contest.data(), id: contest.id} as Contest);
               } else {
                 // console.log(voter.data());
               }
@@ -42,9 +42,10 @@ export class DatabaseService {
     this.firestore.collection('Contests').add(contest);
   }
 
-  updateUsersSeen(contest: Contest) {
-    this.firestore.doc('Contests/' + contest.id).update({
-      usersSeen: firebase.firestore.FieldValue.arrayUnion(this.userId)
+  addContestVote(contestId: string, option: ContestOption) {
+    this.contestsRef.doc(contestId).collection('Voters').doc(this.userId).set({
+      votedFor: option.id,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
     });
   }
 }

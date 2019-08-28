@@ -48,11 +48,12 @@ export class HomePage implements OnInit {
     }, this.ANIMATION_DELAY); // tinder fade-out default 300ms
   }
 
-  tinderCardDragEnded(event) {
+  tinderCardDragEnded(event, contestId, option) {
     const element = event.source.getRootElement().getBoundingClientRect();
     const elementHeight = element.bottom - element.top;
     if (element.y < -elementHeight / 4) {
       this.hideContest();
+      this.dbSrv.addContestVote(contestId, option);
     } else {
       event.source.reset();
     }

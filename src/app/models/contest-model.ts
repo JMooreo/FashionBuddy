@@ -4,7 +4,11 @@ export interface Contest {
     closeDateTimeUTC: string;
     description: string;
     reportCount: number;
-    options: any;
+    options: Array<ContestOption>;
     style: string;
-    usersSeen: any;
+}
+
+export interface ContestOption {
+    id: string;
+    imageUrl: string;
 }

@@ -17,7 +17,7 @@
     <ion-row>
       <ng-container *ngIf="contests && contests[0] != null">
         <ion-col *ngFor="let option of contests[0].options">
-          <div id="draggable-container" cdkDragLockAxis="y" cdkDrag (cdkDragEnded)="tinderCardDragEnded($event)">
+          <div id="draggable-container" cdkDragLockAxis="y" cdkDrag (cdkDragEnded)="tinderCardDragEnded($event, contests[0].id, option)">
             <tinder-card [currentState]="isContestVisible ? 'visible' : 'invisible'" [imageUrl]="option.imageUrl">
             </tinder-card>
           </div>
