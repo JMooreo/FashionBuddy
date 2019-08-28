@@ -29,8 +29,9 @@ export class DatabaseService {
             .then(voter => {
               if (!voter.exists) { // this user did not vote on contest
                 contests.push({...contest.data(), id: contest.id} as Contest);
+                console.log("GOOD CONTEST", contest.data());
               } else {
-                // console.log(voter.data());
+                console.log("BAD CONTEST", contest.data());
               }
             });
         });
@@ -39,13 +40,18 @@ export class DatabaseService {
   }
 
   createContest(contest: Contest) {
-    this.firestore.collection('Contests').add(contest);
+    this.firestore.collection('Contests').add(contest).then(contestRef => {
+      contestRef.collection('Voters').doc(this.userId).set({
+        contestOwner: true
+      });
+    });
   }
 
   addContestVote(contestId: string, option: ContestOption) {
     this.contestsRef.doc(contestId).collection('Voters').doc(this.userId).set({
+      contestOwner: false,
       votedFor: option.id,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      timestamp: new Date(Date.now()).toISOString()
     });
   }
 }

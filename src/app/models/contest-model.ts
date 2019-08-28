@@ -1,7 +1,7 @@
 export interface Contest {
     id: string;
-    createDateTimeUTC: string;
-    closeDateTimeUTC: string;
+    createDateTime: string;
+    closeDateTime: string;
     description: string;
     reportCount: number;
     options: Array<ContestOption>;
