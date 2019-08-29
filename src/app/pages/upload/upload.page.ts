@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from 'src/app/services/database/database.service';
-import { ContestOption } from 'src/app/models/contest-model';
 
 @Component({
   selector: 'app-upload',
