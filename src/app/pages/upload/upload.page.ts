@@ -8,22 +8,19 @@ import { ContestOption } from 'src/app/models/contest-model';
   styleUrls: ['upload.page.scss']
 })
 export class UploadPage implements OnInit {
-
   constructor(private dbSrv: DatabaseService) {}
 
   ngOnInit() {
     this.pageLoad();
   }
 
-  pageLoad() {
-
-  }
+  pageLoad() {}
 
   createContest() {
-
     const testContestOptions = [
-      {id: 'option_1', imageUrl: 'test' } as ContestOption,
-      {id: 'option_2', imageUrl: 'test'} as ContestOption];
+      { id: 'option_1', imageUrl: 'test' } as ContestOption,
+      { id: 'option_2', imageUrl: 'test' } as ContestOption
+    ];
     const testCreateDateTime = new Date(Date.now());
     const testCloseDateTime = new Date('2020');
 
@@ -34,7 +31,8 @@ export class UploadPage implements OnInit {
       description: 'testContest description',
       reportCount: 0,
       options: testContestOptions,
-      style: 'test Style'};
+      style: 'test Style'
+    };
     this.dbSrv.createContest(contest);
   }
 }

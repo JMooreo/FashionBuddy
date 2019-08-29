@@ -7,8 +7,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class AuthService {
   user: firebase.User;
 
-  constructor(
-    public afAuth: AngularFireAuth) {
+  constructor(public afAuth: AngularFireAuth) {
     this.user = this.afAuth.auth.currentUser;
   }
 
