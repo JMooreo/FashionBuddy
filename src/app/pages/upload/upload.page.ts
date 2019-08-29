@@ -18,8 +18,8 @@ export class UploadPage implements OnInit {
 
   createContest() {
     const testContestOptions = [
-      { id: 'option_1', imageUrl: 'test' } as ContestOption,
-      { id: 'option_2', imageUrl: 'test' } as ContestOption
+      { id: 'option_1', imageUrl: 'https://via.placeholder.com/1080x1920?text=Option_1' },
+      { id: 'option_2', imageUrl: 'https://via.placeholder.com/1080x1920?text=Option_2' }
     ];
     const testCreateDateTime = new Date(Date.now());
     const testCloseDateTime = new Date('2020');
