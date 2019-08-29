@@ -22,20 +22,20 @@ export class HomePage implements OnInit {
     this.pageLoad();
   }
 
-  async doRefresh(event) {
-    this.isRefreshing = true;
-    this.isContestVisible = false;
-    await this.pageLoad();
-    await event.target.complete();
-    this.isRefreshing = false;
-  }
-
   async pageLoad() {
     this.isContestVisible = false;
     this.contests = await this.dbSrv.getAllContestsForUser();
     setTimeout(() => {
       this.isContestVisible = true;
     }, this.ANIMATION_DELAY);
+  }
+
+  async doRefresh(event) {
+    this.isRefreshing = true;
+    this.isContestVisible = false;
+    await this.pageLoad();
+    await event.target.complete();
+    this.isRefreshing = false;
   }
 
   hideContest() {
