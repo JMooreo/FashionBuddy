@@ -18,7 +18,7 @@ export class AuthService {
   }
 
   getUserId() {
-    return 'temporaryUserId';
+    return 'anotherTempUserId';
     // this.user.uid;
   }
 }

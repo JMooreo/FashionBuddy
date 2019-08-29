@@ -12,8 +12,13 @@ export class UploadPage implements OnInit {
   constructor(private dbSrv: DatabaseService) {}
 
   ngOnInit() {
-    this.createContest();
+    this.pageLoad();
   }
+
+  pageLoad() {
+
+  }
+
   createContest() {
 
     const testContestOptions = [
