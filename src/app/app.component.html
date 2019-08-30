@@ -1,3 +1,14 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-router-outlet *ngIf="afAuth.auth.currentUser"></ion-router-outlet>
+  <ng-container *ngIf="!afAuth.auth.currentUser">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Please Login</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <firebase-ui></firebase-ui>
+    </ion-content>
+  </ng-container>
 </ion-app>
