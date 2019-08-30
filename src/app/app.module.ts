@@ -14,7 +14,7 @@ import { DatabaseService } from './services/database/database.service';
 
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
-import { FirebaseUIModule, firebase } from 'firebaseui-angular';
+import { FirebaseUIModule, firebase, firebaseui } from 'firebaseui-angular';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
@@ -36,7 +36,7 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
     // firebase.auth.GithubAuthProvider.PROVIDER_ID,
     {
-      requireDisplayName: true,
+      requireDisplayName: false,
       provider: firebase.auth.EmailAuthProvider.PROVIDER_ID
     },
     // firebase.auth.PhoneAuthProvider.PROVIDER_ID,

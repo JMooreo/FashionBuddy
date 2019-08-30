@@ -7,17 +7,11 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class AuthService {
   user: firebase.User;
 
-  constructor(public afAuth: AngularFireAuth) {
+  constructor(private afAuth: AngularFireAuth) {
     this.user = this.afAuth.auth.currentUser;
   }
 
-  getUserName() {
-    return 'FirstName LastName';
-    // this.user.displayName;
-  }
-
   getUserId() {
-    return 'anotherTempUserId';
-    // this.user.uid;
+    return this.user.uid;
   }
 }
