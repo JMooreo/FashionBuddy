@@ -13,25 +13,25 @@ export class UploadPage implements OnInit {
     this.pageLoad();
   }
 
-  pageLoad() {}
+  pageLoad() {
+    this.createContest();
+  }
 
   createContest() {
     const testContestOptions = [
-      { id: 'option_1', imageUrl: 'https://via.placeholder.com/1080x1920?text=Option_1' },
-      { id: 'option_2', imageUrl: 'https://via.placeholder.com/1080x1920?text=Option_2' }
+      { imageUrl: 'https://via.placeholder.com/1080x1920?text=Option_1', votes: 0 },
+      { imageUrl: 'https://via.placeholder.com/1080x1920?text=Option_2', votes: 0 }
     ];
     const testCreateDateTime = new Date(Date.now());
     const testCloseDateTime = new Date('2020');
 
     const contest = {
-      id: null,
       createDateTime: testCreateDateTime.toISOString(),
       closeDateTime: testCloseDateTime.toISOString(),
-      description: 'testContest description',
+      occasion: 'testContest description',
       reportCount: 0,
-      options: testContestOptions,
       style: 'test Style'
     };
-    this.dbSrv.createContest(contest);
+    this.dbSrv.createContest(contest, testContestOptions);
   }
 }

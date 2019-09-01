@@ -1,14 +1,15 @@
 export interface Contest {
-  id: string;
+  id?: string;
+  options?: Array<ContestOption>;
   createDateTime: string;
   closeDateTime: string;
-  description: string;
+  occasion: string;
   reportCount: number;
-  options: Array<ContestOption>;
   style: string;
 }
 
 export interface ContestOption {
-  id: string;
+  id?: string;
   imageUrl: string;
+  votes: number;
 }

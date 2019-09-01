@@ -25,9 +25,7 @@ export class HomePage implements OnInit {
   async pageLoad() {
     this.isContestVisible = false;
     this.contests = await this.dbSrv.getAllContestsForUser();
-    setTimeout(() => {
-      this.isContestVisible = true;
-    }, this.ANIMATION_DELAY);
+    this.makeContestVisible();
   }
 
   async doRefresh(event) {
@@ -36,6 +34,12 @@ export class HomePage implements OnInit {
     await this.pageLoad();
     await event.target.complete();
     this.isRefreshing = false;
+  }
+
+  makeContestVisible() {
+    setTimeout(() => {
+      this.isContestVisible = true;
+    }, this.ANIMATION_DELAY);
   }
 
   hideContest() {
