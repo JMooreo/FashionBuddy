@@ -17,14 +17,16 @@
     <ion-row>
       <ng-container *ngIf="contests && contests[0] != null">
         <ion-col *ngFor="let option of contests[0].options">
-          <div id="draggable-container" cdkDragLockAxis="y" cdkDrag
+          <div id="draggable-container" *ngIf="isContestVisible" [@inOutAnimation] cdkDragLockAxis="y" cdkDrag
             (cdkDragEnded)="tinderCardDragEnded($event, contests[0].id, option)">
-            <tinder-card [currentState]="isContestVisible ? 'visible' : 'invisible'" [imageUrl]="option.imageUrl">
+            <tinder-card [imageUrl]="option.imageUrl">
             </tinder-card>
           </div>
         </ion-col>
       </ng-container>
-      <ion-col *ngIf="contests && !isRefreshing && contests[0] == null" text-center>
+    </ion-row>
+    <ion-row *ngIf="!(contests && this.contests[0] != null)" [@inOutAnimation]>
+      <ion-col text-center>
         <ion-text>No contests to vote on :(</ion-text>
       </ion-col>
     </ion-row>
