@@ -1,5 +1,5 @@
 {
-  "appId": "io.ionic.starter",
+  "appId": "com.moorelabs.fashionbuddy",
   "appName": "FashionBuddy",
   "bundledWebRuntime": false,
   "npmClient": "npm",
