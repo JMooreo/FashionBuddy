@@ -1,5 +1,7 @@
 {
   "name": "FashionBuddy",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

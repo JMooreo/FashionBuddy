@@ -1,11 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from '../../services/database/database.service';
 import { Contest } from '../../models/contest-model';
+import { trigger, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss']
+  styleUrls: ['home.page.scss'],
+  animations: [
+    trigger('inOutAnimation', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('0.3s ease-out', style({ opacity: 1 }))
+      ]),
+      transition(':leave', [
+        style({ opacity: 1 }),
+        animate('0.3s ease-in', style({ opacity: 0 }))
+      ])
+    ])
+  ]
 })
 export class HomePage implements OnInit {
   // Constants
@@ -23,29 +36,30 @@ export class HomePage implements OnInit {
   }
 
   async pageLoad() {
-    this.isContestVisible = false;
+    this.setContestVisibility(false);
     this.contests = await this.dbSrv.getAllContestsForUser();
-    setTimeout(() => {
-      this.isContestVisible = true;
-    }, this.ANIMATION_DELAY);
+    this.setContestVisibility(true);
   }
 
   async doRefresh(event) {
     this.isRefreshing = true;
-    this.isContestVisible = false;
     await this.pageLoad();
     await event.target.complete();
     this.isRefreshing = false;
   }
 
+  setContestVisibility(visibility: boolean) {
+    this.isContestVisible = visibility;
+  }
+  consoleLog() {
+    console.log('hello');
+  }
+
   hideContest() {
-    this.isContestVisible = false;
+    this.setContestVisibility(false);
     setTimeout(() => {
       this.contests.shift();
-      setTimeout(() => {
-        this.isContestVisible = true;
-      }, this.ANIMATION_DELAY / 2);
-    }, this.ANIMATION_DELAY); // tinder fade-out default 300ms
+    }, this.ANIMATION_DELAY);
   }
 
   tinderCardDragEnded(event, contestId, option) {
