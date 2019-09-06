@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HomePage } from './home.page';
+import { VotingPage } from './voting.page';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { TinderCardComponent } from '../../components/tinder-card/tinder-card.component';
 
@@ -13,8 +13,8 @@ import { TinderCardComponent } from '../../components/tinder-card/tinder-card.co
     IonicModule,
     CommonModule,
     FormsModule,
-    RouterModule.forChild([{ path: '', component: HomePage }])
+    RouterModule.forChild([{ path: '', component: VotingPage }])
   ],
-  declarations: [HomePage, TinderCardComponent]
+  declarations: [VotingPage, TinderCardComponent]
 })
-export class HomePageModule {}
+export class VotingPageModule {}
