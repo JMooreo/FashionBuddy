@@ -4,16 +4,16 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: '',
     component: TabsPage,
     children: [
       {
-        path: 'home',
+        path: 'voting',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../pages/home/home.module').then(m => m.HomePageModule)
+              import('../voting/voting.module').then(m => m.VotingPageModule)
           }
         ]
       },
@@ -23,7 +23,7 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../pages/upload/upload.module').then(m => m.UploadPageModule)
+              import('../upload/upload.module').then(m => m.UploadPageModule)
           }
         ]
       },
@@ -33,20 +33,20 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../pages/results/results.module').then(m => m.ResultsPageModule)
+              import('../results/results.module').then(m => m.ResultsPageModule)
           }
         ]
       },
       {
         path: '',
-        redirectTo: '/tabs/home',
+        redirectTo: '/tabs/voting',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/home',
+    redirectTo: '/tabs/voting',
     pathMatch: 'full'
   }
 ];

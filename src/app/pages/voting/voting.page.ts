@@ -4,9 +4,9 @@ import { Contest } from '../../models/contest-model';
 import { trigger, style, animate, transition } from '@angular/animations';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-voting',
+  templateUrl: 'voting.page.html',
+  styleUrls: ['voting.page.scss'],
   animations: [
     trigger('inOutAnimation', [
       transition(':enter', [
@@ -20,7 +20,7 @@ import { trigger, style, animate, transition } from '@angular/animations';
     ])
   ]
 })
-export class HomePage implements OnInit {
+export class VotingPage implements OnInit {
   // Constants
   ANIMATION_DELAY = 600;
   // Booleans
