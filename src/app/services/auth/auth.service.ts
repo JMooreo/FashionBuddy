@@ -12,6 +12,7 @@ export class AuthService {
   }
 
   getUserId() {
-    return this.user.uid;
+    return 'temporaryUserID';
+    // this.user.uid;
   }
 }

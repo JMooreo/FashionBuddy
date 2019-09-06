@@ -1,14 +1,3 @@
 <ion-app>
-  <ion-router-outlet *ngIf="afAuth.auth.currentUser"></ion-router-outlet>
-  <ng-container *ngIf="!afAuth.auth.currentUser">
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>FashionBuddy</ion-title>
-      </ion-toolbar>
-    </ion-header>
-
-    <ion-content padding>
-      <firebase-ui></firebase-ui>
-    </ion-content>
-  </ng-container>
+  <ion-router-outlet></ion-router-outlet>
 </ion-app>
