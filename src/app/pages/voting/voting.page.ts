@@ -59,6 +59,7 @@ export class VotingPage implements OnInit {
     this.setContestVisibility(false);
     setTimeout(() => {
       this.contests.shift();
+      this.setContestVisibility(true);
     }, this.ANIMATION_DELAY);
   }
 
