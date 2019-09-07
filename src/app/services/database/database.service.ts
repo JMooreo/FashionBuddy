@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Contest, ContestOption } from '../../models/contest-model';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { AuthService } from '../auth/auth.service';
 import * as firebase from 'firebase/app';
 
@@ -12,7 +11,6 @@ export class DatabaseService {
   contestsRef = firebase.firestore().collection('Contests');
 
   constructor(
-    private firestore: AngularFirestore,
     private authSrv: AuthService
   ) {}
 
