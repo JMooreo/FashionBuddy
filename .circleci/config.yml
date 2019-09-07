@@ -1,8 +1,11 @@
- version: 2
- jobs:
-   build:
-     docker:
-       - image: circleci/ruby:2.4.1
-     steps:
-       - checkout
-       - run: npm run test
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.4-node
+    steps:
+      - checkout
+      # Cache to enable faster future jobs
+      - run: npm install
+      # Run tests
+      - run: npm run test
