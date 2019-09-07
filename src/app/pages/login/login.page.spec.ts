@@ -2,6 +2,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginPage } from './login.page';
+import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { UrlSerializer } from '@angular/router';
 
 describe('LoginPage', () => {
   let component: LoginPage;
@@ -9,8 +11,13 @@ describe('LoginPage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      providers: [
+        Location,
+        UrlSerializer,
+        { provide: LocationStrategy, useClass: PathLocationStrategy }
+      ],
       declarations: [ LoginPage ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   }));
