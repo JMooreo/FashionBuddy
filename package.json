@@ -32,8 +32,6 @@
     "@ionic/angular": "^4.7.1",
     "core-js": "^2.5.4",
     "firebase": "^6.4.2",
-    "firebaseui": "^4.1.0",
-    "firebaseui-angular": "^4.0.0",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
