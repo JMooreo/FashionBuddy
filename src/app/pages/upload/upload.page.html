@@ -8,4 +8,23 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <ion-grid class="contest-container">
+    <ion-row>
+      <ng-container *ngFor="let image of imageUrls; let i = index">
+        <ion-col class="contest-column">
+          <div class="image-placeholder">
+            <tinder-card *ngIf="imageUrls[i]" [imageUrl]="imageUrls[i]" (click)="askDeleteImage(i)">
+            </tinder-card>
+            <button clear ion-button class="image-placeholder-icon" (click)="selectUploadMethod()"
+              *ngIf="!imageUrls[i]">
+              <ion-icon name="camera"></ion-icon>
+            </button>
+          </div>
+        </ion-col>
+      </ng-container>
+    </ion-row>
+  </ion-grid>
+
+  <input type="file" (change)="showPreview($event)">
+</ion-content>

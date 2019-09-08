@@ -1,1 +1,28 @@
+.contest-container {
+  max-width: 600px;
+  padding: 20px;
+  margin: auto;
+}
 
+.contest-column {
+	min-height: 42vh;
+}
+
+.image-placeholder{
+	text-align: center;
+	height: 100%;
+	width: 100%;
+}
+
+.image-placeholder-add-icon {
+	font-size: 1.5em;
+}
+
+.image-placeholder-icon {
+	border: 2px #565751 solid;
+	background-color: white;
+	border-radius: 20px;
+	font-size: 2.5em;
+	height: 100%;
+	width: 100%;
+}
