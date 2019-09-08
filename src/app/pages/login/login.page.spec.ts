@@ -4,6 +4,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { LoginPage } from './login.page';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { UrlSerializer } from '@angular/router';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 describe('LoginPage', () => {
   let component: LoginPage;
@@ -14,12 +15,13 @@ describe('LoginPage', () => {
       providers: [
         Location,
         UrlSerializer,
-        { provide: LocationStrategy, useClass: PathLocationStrategy }
+        { provide: LocationStrategy, useClass: PathLocationStrategy },
+        // tslint:disable-next-line: no-use-before-declare
+        { provide: AuthService, useClass: AuthServiceStub }
       ],
-      declarations: [ LoginPage ],
+      declarations: [LoginPage],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
-    })
-    .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -32,3 +34,7 @@ describe('LoginPage', () => {
     expect(component).toBeTruthy();
   });
 });
+
+class AuthServiceStub {
+  createUserWithEmailAndPassword(email: string, password: string) {}
+}

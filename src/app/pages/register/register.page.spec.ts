@@ -4,6 +4,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RegisterPage } from './register.page';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { UrlSerializer } from '@angular/router';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 
 describe('RegisterPage', () => {
@@ -15,7 +16,9 @@ describe('RegisterPage', () => {
       providers: [
         Location,
         UrlSerializer,
-        { provide: LocationStrategy, useClass: PathLocationStrategy }
+        { provide: LocationStrategy, useClass: PathLocationStrategy },
+        // tslint:disable-next-line: no-use-before-declare
+        { provide: AuthService, useClass: AuthServiceStub }
       ],
       declarations: [RegisterPage],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -33,3 +36,7 @@ describe('RegisterPage', () => {
     expect(component).toBeTruthy();
   });
 });
+
+class AuthServiceStub {
+ createUserWithEmailAndPassword(email: string, password: string) {}
+}

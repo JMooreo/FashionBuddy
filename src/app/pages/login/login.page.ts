@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, AlertController } from '@ionic/angular';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +13,7 @@ export class LoginPage implements OnInit {
 
   constructor(
     private navCtrl: NavController,
-    public afAuth: AngularFireAuth,
+    private authSrv: AuthService,
     private alertCtrl: AlertController
   ) {}
 
@@ -23,7 +23,7 @@ export class LoginPage implements OnInit {
     const { email, password } = this;
 
     try {
-      const res = await this.afAuth.auth.signInWithEmailAndPassword(
+      const res = await this.authSrv.signInWithEmailAndPassword(
         email,
         password
       );

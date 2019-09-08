@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, AlertController } from '@ionic/angular';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +14,7 @@ export class RegisterPage implements OnInit {
 
   constructor(
     private navCtrl: NavController,
-    public afAuth: AngularFireAuth,
+    public authSrv: AuthService,
     private alertCtrl: AlertController
   ) {}
 
@@ -29,7 +29,7 @@ export class RegisterPage implements OnInit {
     }
 
     try {
-      const res = await this.afAuth.auth.createUserWithEmailAndPassword(
+      const res = await this.authSrv.createUserWithEmailAndPassword(
         email,
         password
       );
