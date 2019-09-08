@@ -20,29 +20,27 @@ export class RegisterPage implements OnInit {
 
   ngOnInit() {}
 
-  async register() {
+  register() {
     const { email, password, confirmPassword } = this;
 
     if (password !== confirmPassword) {
       this.showAlert('Error', 'Passwords do not match');
       return console.error('Passwords do not match!');
     }
-
-    try {
-      const res = await this.authSrv.createUserWithEmailAndPassword(
-        email,
-        password
-      );
-      console.log(res);
-      this.showAlert('Success', 'Welcome aboard!');
-    } catch (err) {
-      console.dir(err);
-      this.showAlert('Error', err.message);
-    }
+    this.authSrv
+      .createUserWithEmailAndPassword(email, password)
+      .then(callback => {
+        if (callback === true) {
+          this.showAlert('Success', 'Welcome aboard!');
+          this.navigateTo('tabs');
+        } else {
+          this.showAlert('Error', callback.message);
+        }
+      });
   }
 
-  goToLogin() {
-    this.navCtrl.navigateRoot(`/login`);
+  navigateTo(pageName: string) {
+    this.navCtrl.navigateRoot(`/${pageName}`);
   }
 
   async showAlert(header: string, message: string) {

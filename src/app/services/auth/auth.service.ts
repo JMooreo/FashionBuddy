@@ -16,11 +16,21 @@ export class AuthService {
     // this.user.uid;
   }
 
-  createUserWithEmailAndPassword(email: string, password: string) {
-    this.afAuth.auth.createUserWithEmailAndPassword(email, password);
+  async createUserWithEmailAndPassword(email: string, password: string) {
+    try {
+      await this.afAuth.auth.createUserWithEmailAndPassword(email, password);
+      return true; // success callback
+    } catch (err) {
+      return err; // error callback
+    }
   }
 
-  signInWithEmailAndPassword(email: string, password: string) {
-    this.afAuth.auth.signInWithEmailAndPassword(email, password);
+  async signInWithEmailAndPassword(email: string, password: string) {
+    try {
+      await this.afAuth.auth.signInWithEmailAndPassword(email, password);
+      return true; // success callback
+    } catch (err) {
+      return err; // error callback
+    }
   }
 }
