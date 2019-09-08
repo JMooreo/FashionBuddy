@@ -15,4 +15,12 @@ export class AuthService {
     return 'temporaryUserID';
     // this.user.uid;
   }
+
+  createUserWithEmailAndPassword(email: string, password: string) {
+    this.afAuth.auth.createUserWithEmailAndPassword(email, password);
+  }
+
+  signInWithEmailAndPassword(email: string, password: string) {
+    this.afAuth.auth.signInWithEmailAndPassword(email, password);
+  }
 }
