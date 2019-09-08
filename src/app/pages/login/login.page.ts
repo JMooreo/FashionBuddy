@@ -21,22 +21,18 @@ export class LoginPage implements OnInit {
 
   async login() {
     const { email, password } = this;
-
-    try {
-      const res = await this.authSrv.signInWithEmailAndPassword(
-        email,
-        password
-      );
-      console.log(res);
-      this.goToVoting();
-    } catch (err) {
-      console.dir(err);
-      this.showAlert('Error', err.message);
-    }
+    this.authSrv.signInWithEmailAndPassword(email, password).then(callback => {
+      if (callback === true) {
+        this.showAlert('Success', 'You\'re Logged In!');
+        this.navigateTo('tabs');
+      } else {
+        this.showAlert('Error', callback.message);
+      }
+    });
   }
 
-  goToVoting() {
-    this.navCtrl.navigateRoot(`/tabs`);
+  navigateTo(pageName: string) {
+    this.navCtrl.navigateRoot(`/${pageName}`);
   }
 
   async showAlert(header: string, message: string) {
