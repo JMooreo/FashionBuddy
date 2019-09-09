@@ -8,7 +8,7 @@ import { ActionSheetController } from '@ionic/angular';
   styleUrls: ['upload.page.scss']
 })
 export class UploadPage implements OnInit {
-  imageUrls = ['https://via.placeholder.com/420x900?text=Option_1', '']; // placeholder images
+  imageUrls = ['/assets/img/Test_Image_400x900px.png', '']; // placeholder images
 
   constructor(
     private dbSrv: DatabaseService,
@@ -67,7 +67,7 @@ export class UploadPage implements OnInit {
           text: 'Yes, Delete',
           role: 'destructive',
           handler: () => {
-            this.imageUrls.splice(index, 1 , '');
+            this.imageUrls.splice(index, 1, '');
           }
         },
         {
