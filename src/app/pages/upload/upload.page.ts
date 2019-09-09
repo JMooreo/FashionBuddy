@@ -8,7 +8,7 @@ import { ActionSheetController } from '@ionic/angular';
   styleUrls: ['upload.page.scss']
 })
 export class UploadPage implements OnInit {
-  imageUrls = ['/assets/img/Test_Image_400x900px.png', '']; // placeholder images
+  imageUrls = ['https://via.placeholder.com/420x900?text=Option_1', '']; // placeholder images
 
   constructor(
     private dbSrv: DatabaseService,
@@ -23,13 +23,13 @@ export class UploadPage implements OnInit {
     this.createContest();
   }
 
-  showPreview(event, index) {
-    if (event.target.files && event.target.files[0]) {
-      const reader = new FileReader();
-      reader.onload = (e: any) => (this.imageUrls[index] = e.target.result);
-      reader.readAsDataURL(event.target.files[0]);
-    }
-  }
+  // showPreview(event, index) {
+  //   if (event.target.files && event.target.files[0]) {
+  //     const reader = new FileReader();
+  //     reader.onload = (e: any) => (this.imageUrls[index] = e.target.result);
+  //     reader.readAsDataURL(event.target.files[0]);
+  //   }
+  // }
 
   async selectUploadMethod() {
     const actionSheet = await this.actionSheetCtrl.create({
@@ -83,11 +83,11 @@ export class UploadPage implements OnInit {
   createContest() {
     const testContestOptions = [
       {
-        imageUrl: 'https://via.placeholder.com/420x900?text=Option_1',
+        imageUrl: 'https://via.placeholder.com/400x900?text=Option_1',
         votes: 0
       },
       {
-        imageUrl: 'https://via.placeholder.com/420x900?text=Option_2',
+        imageUrl: 'https://via.placeholder.com/400x900?text=Option_2',
         votes: 0
       }
     ];
