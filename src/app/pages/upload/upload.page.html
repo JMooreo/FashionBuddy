@@ -13,14 +13,12 @@
     <ion-row>
       <ng-container *ngFor="let image of imageUrls; let i = index">
         <ion-col class="contest-column">
-          <div class="image-placeholder">
-            <tinder-card *ngIf="imageUrls[i]" [imageUrl]="imageUrls[i]" (click)="askDeleteImage(i)">
-            </tinder-card>
-            <button clear ion-button class="image-placeholder-icon" (click)="selectUploadMethod()"
-              *ngIf="!imageUrls[i]">
-              <ion-icon name="camera"></ion-icon>
-            </button>
-          </div>
+          <tinder-card *ngIf="imageUrls[i]" [imageUrl]="imageUrls[i]" (click)="askDeleteImage(i)">
+          </tinder-card>
+          <ion-button fill="clear" color="dark" class="image-placeholder-icon" (click)="selectUploadMethod()"
+            *ngIf="!imageUrls[i]">
+            <ion-icon name="camera"></ion-icon>
+          </ion-button>
         </ion-col>
       </ng-container>
     </ion-row>
