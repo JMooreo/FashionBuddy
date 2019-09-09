@@ -15,7 +15,7 @@
 				<ion-col class="contest-column">
 					<tinder-card *ngIf="imageUrls[i]" [imageUrl]="imageUrls[i]" (click)="askDeleteImage(i)">
 					</tinder-card>
-					<ion-button fill="clear" color="dark" class="image-placeholder-icon" expand="block"
+					<ion-button fill="clear" color="dark" class="image-placeholder-button" expand="block"
 						(click)="selectUploadMethod()" *ngIf="!imageUrls[i]">
 						<ion-icon name="camera"></ion-icon>
 					</ion-button>
