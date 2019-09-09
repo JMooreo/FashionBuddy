@@ -8,7 +8,7 @@ import { ActionSheetController } from '@ionic/angular';
   styleUrls: ['upload.page.scss']
 })
 export class UploadPage implements OnInit {
-  imageUrls = ['https://via.placeholder.com/1080x1920?text=Option_1', '']; // placeholder images
+  imageUrls = ['https://via.placeholder.com/420x900?text=Option_1', '']; // placeholder images
 
   constructor(
     private dbSrv: DatabaseService,
@@ -83,11 +83,11 @@ export class UploadPage implements OnInit {
   createContest() {
     const testContestOptions = [
       {
-        imageUrl: 'https://via.placeholder.com/1080x1920?text=Option_1',
+        imageUrl: 'https://via.placeholder.com/420x900?text=Option_1',
         votes: 0
       },
       {
-        imageUrl: 'https://via.placeholder.com/1080x1920?text=Option_2',
+        imageUrl: 'https://via.placeholder.com/420x900?text=Option_2',
         votes: 0
       }
     ];
