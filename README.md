@@ -6,7 +6,6 @@ This is the new repo for FashionBuddy that uses Ionic 4+
 * NPM 6.10.0
 * Ionic Framework @ionic/angular 4.7.4
 * Capacitor 1.1.1
-* 
 
 # Getting Started
 1. Clone the repo into your desired folder
