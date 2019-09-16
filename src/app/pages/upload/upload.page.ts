@@ -1,78 +1,109 @@
-import { Component, OnInit } from '@angular/core';
-import { DatabaseService } from 'src/app/services/database/database.service';
-import { ActionSheetController } from '@ionic/angular';
+import { Component, OnInit } from "@angular/core";
+import { DatabaseService } from "src/app/services/database/database.service";
+import { ActionSheetController, ModalController } from "@ionic/angular";
+
+import { Camera, CameraOptions } from "@ionic-native/camera/ngx";
+import { CapturedImageModalPage } from "./captured-image-modal/captured-image-modal.page";
+import { WebView } from "@ionic-native/ionic-webview/ngx";
 
 @Component({
-  selector: 'app-upload',
-  templateUrl: 'upload.page.html',
-  styleUrls: ['upload.page.scss']
+  selector: "app-upload",
+  templateUrl: "upload.page.html",
+  styleUrls: ["upload.page.scss"]
 })
 export class UploadPage implements OnInit {
-  imageUrls = ['https://via.placeholder.com/420x900?text=Option_1', '']; // placeholder images
+  images = [{ file: "", path: "" }, { file: "", path: "" }];
 
   constructor(
     private dbSrv: DatabaseService,
-    private actionSheetCtrl: ActionSheetController
+    private actionSheetCtrl: ActionSheetController,
+    private camera: Camera,
+    private modalCtrl: ModalController,
+    private actionSheetController: ActionSheetController,
+    private webview: WebView
   ) {}
 
-  ngOnInit() {
-    this.pageLoad();
-  }
+  ngOnInit() {}
 
   pageLoad() {
     this.createContest();
   }
 
-  // showPreview(event, index) {
-  //   if (event.target.files && event.target.files[0]) {
-  //     const reader = new FileReader();
-  //     reader.onload = (e: any) => (this.imageUrls[index] = e.target.result);
-  //     reader.readAsDataURL(event.target.files[0]);
-  //   }
-  // }
-
-  async selectUploadMethod() {
-    const actionSheet = await this.actionSheetCtrl.create({
-      header: 'How do you want to upload?',
+  async selectSource(index) {
+    const actionSheet = await this.actionSheetController.create({
+      header: "Select Image source",
       buttons: [
         {
-          text: 'Take Picture',
+          text: "Load from Library",
           handler: () => {
-            console.log('Open Camera');
+            this.captureImage(
+              this.camera.PictureSourceType.PHOTOLIBRARY,
+              index
+            );
           }
         },
         {
-          text: 'Choose from Photos',
+          text: "Use Camera",
           handler: () => {
-            console.log('Choose From Photos');
+            this.captureImage(this.camera.PictureSourceType.CAMERA, index);
           }
         },
         {
-          text: 'Cancel',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
+          text: "Cancel",
+          role: "cancel"
         }
       ]
     });
     await actionSheet.present();
   }
 
+  pushNewImage(path) {
+    console.log("NEW IMAGE", path);
+    console.log("CONVERTED PATH", this.webview.convertFileSrc(path));
+    this.images.push({
+      path: this.webview.convertFileSrc(path),
+      file: path
+    });
+  }
+
+  captureImage(sourceType: number, index: number) {
+    const options: CameraOptions = {
+      quality: 100,
+      sourceType,
+      saveToPhotoAlbum: false,
+      correctOrientation: true
+    };
+
+    this.camera.getPicture(options).then(imagePath => {
+      this.modalCtrl
+        .create({
+          component: CapturedImageModalPage,
+          componentProps: {
+            image: imagePath
+          }
+        })
+        .then(modal => {
+          modal.present();
+
+          modal.onWillDismiss().then(data => {});
+        });
+    });
+  }
+
   async askDeleteImage(index) {
     const actionSheet = await this.actionSheetCtrl.create({
-      header: 'Delete Picture?',
+      header: "Delete Picture?",
       buttons: [
         {
-          text: 'Yes, Delete',
-          role: 'destructive',
+          text: "Yes, Delete",
+          role: "destructive",
           handler: () => {
-            this.imageUrls.splice(index, 1, '');
+            this.images.splice(index, 1);
           }
         },
         {
-          text: 'Cancel',
-          role: 'cancel',
+          text: "Cancel",
+          role: "cancel",
           handler: () => {}
         }
       ]
@@ -83,23 +114,23 @@ export class UploadPage implements OnInit {
   createContest() {
     const testContestOptions = [
       {
-        imageUrl: 'https://via.placeholder.com/400x900?text=Option_1',
+        imageUrl: "https://via.placeholder.com/400x900?text=Option_1",
         votes: 0
       },
       {
-        imageUrl: 'https://via.placeholder.com/400x900?text=Option_2',
+        imageUrl: "https://via.placeholder.com/400x900?text=Option_2",
         votes: 0
       }
     ];
     const testCreateDateTime = new Date(Date.now());
-    const testCloseDateTime = new Date('2020');
+    const testCloseDateTime = new Date("2020");
 
     const contest = {
       createDateTime: testCreateDateTime.toISOString(),
       closeDateTime: testCloseDateTime.toISOString(),
-      occasion: 'testContest occasion',
+      occasion: "testContest occasion",
       reportCount: 0,
-      style: 'test Style'
+      style: "test Style"
     };
     this.dbSrv.createContest(contest, testContestOptions);
   }

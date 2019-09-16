@@ -11,12 +11,12 @@
 <ion-content>
 	<ion-grid class="contest-container">
 		<ion-row justify-content-center>
-			<ng-container *ngFor="let image of imageUrls; let i = index">
+			<ng-container *ngFor="let image of images; let i = index">
 				<ion-col class="contest-column">
-					<tinder-card *ngIf="imageUrls[i]" [imageUrl]="imageUrls[i]" (click)="askDeleteImage(i)">
+					<tinder-card *ngIf="images[i].path != ''" [imageUrl]="images[i].path" (click)="askDeleteImage(i)">
 					</tinder-card>
 					<ion-button fill="clear" color="dark" class="image-placeholder-button" expand="block"
-						(click)="selectUploadMethod()" *ngIf="!imageUrls[i]">
+						(click)="selectSource(i)" *ngIf="images[i].path == ''">
 						<ion-icon name="camera"></ion-icon>
 					</ion-button>
 				</ion-col>

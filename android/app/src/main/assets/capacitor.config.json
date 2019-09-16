@@ -1,7 +1,0 @@
-{
-  "appId": "com.moorelabs.fashionbuddy",
-  "appName": "FashionBuddy",
-  "bundledWebRuntime": false,
-  "npmClient": "npm",
-  "webDir": "www"
-}

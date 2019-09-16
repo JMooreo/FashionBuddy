@@ -17,7 +17,8 @@ const routes: Routes = [
     path: 'tabs',
     loadChildren: () =>
       import('./pages/tabs/tabs.module').then(m => m.TabsPageModule)
-  }
+  },  { path: 'captured-image-modal', loadChildren: './pages/upload/captured-image-modal/captured-image-modal.module#CapturedImageModalPageModule' }
+
 ];
 @NgModule({
   imports: [
