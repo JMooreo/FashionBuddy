@@ -1,9 +1,23 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>captured-image-modal</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <img [src]="image.path" *ngIf="image">
+<ion-item class="close-fake" lines="none" (click)="close()">
+    <ion-icon name="close" color="light"></ion-icon>
+  </ion-item>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="10">
+          <image-cropper
+          [imageBase64]="image"
+          [maintainAspectRatio]="true"
+          [aspectRatio]="4 / 9"
+          [resizeToWidth]="128"
+          format="png"
+      ></image-cropper>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-button (click)="close()" color="primary" expand="block">
+        <ion-icon name="checkmark"></ion-icon>
+      </ion-button>
+    </ion-row>
+  </ion-grid>
 </ion-content>

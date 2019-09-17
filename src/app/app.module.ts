@@ -46,7 +46,7 @@ import { CapturedImageModalPageModule } from "./pages/upload/captured-image-moda
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Camera,
     File,
-    WebView
+    WebView,
   ],
   bootstrap: [AppComponent]
 })

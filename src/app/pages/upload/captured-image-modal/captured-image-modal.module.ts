@@ -4,6 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { Routes, RouterModule } from "@angular/router";
 
 import { IonicModule } from "@ionic/angular";
+import { ImageCropperModule } from "ngx-image-cropper";
 
 import { CapturedImageModalPage } from "./captured-image-modal.page";
 
@@ -19,6 +20,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    ImageCropperModule,
     RouterModule.forChild(routes)
   ],
   declarations: [CapturedImageModalPage]

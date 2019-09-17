@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { NavParams, ModalController } from "@ionic/angular";
-import { WebView } from '@ionic-native/ionic-webview/ngx';
+import { WebView } from "@ionic-native/ionic-webview/ngx";
+import { ImageService } from 'src/app/services/image/image.service';
 
 @Component({
   selector: "app-captured-image-modal",
@@ -13,20 +14,26 @@ export class CapturedImageModalPage implements OnInit {
   constructor(
     private navParams: NavParams,
     private modalCtrl: ModalController,
+    private imageSrv: ImageService,
     private webview: WebView
   ) {}
 
   ngOnInit() {
-    const capturedImage = this.navParams.get("image");
-    this.convertImage(capturedImage);
+    this.image = this.navParams.get("image");
   }
 
-  convertImage(path) {
-    this.image = {
-      path: this.webview.convertFileSrc(path),
-      file: path
-    };
-  }
+  // convertImage(path) {
+  //   return {
+  //     path: this.webview.convertFileSrc(path),
+  //     file: path
+  //   };
+  // }
+
+  // save() {
+  //   this.imageSrv.saveImage(this.image.file).then(res => {
+  //     this.modalCtrl.dismiss();
+  //   });
+  // }
 
   close() {
     this.modalCtrl.dismiss();

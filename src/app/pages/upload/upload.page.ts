@@ -68,10 +68,12 @@ export class UploadPage implements OnInit {
 
   captureImage(sourceType: number, index: number) {
     const options: CameraOptions = {
-      quality: 100,
+      quality: 20,
       sourceType,
       saveToPhotoAlbum: false,
-      correctOrientation: true
+      correctOrientation: true,
+      destinationType: this.camera.DestinationType.DATA_URL
+      // mediaType: this.camera.MediaType.PICTURE
     };
 
     this.camera.getPicture(options).then(imagePath => {
@@ -79,13 +81,17 @@ export class UploadPage implements OnInit {
         .create({
           component: CapturedImageModalPage,
           componentProps: {
-            image: imagePath
+            image: `data:image/png;base64,${imagePath}`
           }
         })
         .then(modal => {
           modal.present();
 
-          modal.onWillDismiss().then(data => {});
+          modal.onWillDismiss().then(res => {
+            if (res.data && res.data["reload"]) {
+              // reload
+            }
+          });
         });
     });
   }
