@@ -4,8 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { Routes, RouterModule } from "@angular/router";
 
 import { IonicModule } from "@ionic/angular";
-import { ImageCropperModule } from "ngx-image-cropper";
-
+import { ImageCropperModule, ImageCropperComponent } from "ngx-image-cropper";
 import { CapturedImageModalPage } from "./captured-image-modal.page";
 
 const routes: Routes = [
@@ -23,6 +22,7 @@ const routes: Routes = [
     ImageCropperModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [CapturedImageModalPage]
+  declarations: [CapturedImageModalPage],
+  providers: [ImageCropperComponent]
 })
 export class CapturedImageModalPageModule {}

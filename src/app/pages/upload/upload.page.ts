@@ -4,7 +4,6 @@ import { ActionSheetController, ModalController } from "@ionic/angular";
 
 import { Camera, CameraOptions } from "@ionic-native/camera/ngx";
 import { CapturedImageModalPage } from "./captured-image-modal/captured-image-modal.page";
-import { WebView } from "@ionic-native/ionic-webview/ngx";
 
 @Component({
   selector: "app-upload",
@@ -12,15 +11,14 @@ import { WebView } from "@ionic-native/ionic-webview/ngx";
   styleUrls: ["upload.page.scss"]
 })
 export class UploadPage implements OnInit {
-  images = [{ file: "", path: "" }, { file: "", path: "" }];
+  images = [null, null];
 
   constructor(
     private dbSrv: DatabaseService,
     private actionSheetCtrl: ActionSheetController,
     private camera: Camera,
     private modalCtrl: ModalController,
-    private actionSheetController: ActionSheetController,
-    private webview: WebView
+    private actionSheetController: ActionSheetController
   ) {}
 
   ngOnInit() {}
@@ -57,23 +55,14 @@ export class UploadPage implements OnInit {
     await actionSheet.present();
   }
 
-  pushNewImage(path) {
-    console.log("NEW IMAGE", path);
-    console.log("CONVERTED PATH", this.webview.convertFileSrc(path));
-    this.images.push({
-      path: this.webview.convertFileSrc(path),
-      file: path
-    });
-  }
-
   captureImage(sourceType: number, index: number) {
     const options: CameraOptions = {
-      quality: 20,
+      quality: 75,
       sourceType,
-      saveToPhotoAlbum: false,
+      saveToPhotoAlbum: true,
       correctOrientation: true,
-      destinationType: this.camera.DestinationType.DATA_URL
-      // mediaType: this.camera.MediaType.PICTURE
+      destinationType: this.camera.DestinationType.FILE_URI,
+      mediaType: this.camera.MediaType.PICTURE
     };
 
     this.camera.getPicture(options).then(imagePath => {
@@ -81,15 +70,15 @@ export class UploadPage implements OnInit {
         .create({
           component: CapturedImageModalPage,
           componentProps: {
-            image: `data:image/png;base64,${imagePath}`
+            image: imagePath
           }
         })
-        .then(modal => {
-          modal.present();
+        .then(capturedImagePage => {
+          capturedImagePage.present();
 
-          modal.onWillDismiss().then(res => {
-            if (res.data && res.data["reload"]) {
-              // reload
+          capturedImagePage.onWillDismiss().then(res => {
+            if (res.data && res.data.croppedImage) {
+              this.images[index] = res.data.croppedImage;
             }
           });
         });
@@ -104,7 +93,7 @@ export class UploadPage implements OnInit {
           text: "Yes, Delete",
           role: "destructive",
           handler: () => {
-            this.images.splice(index, 1);
+            this.images.splice(index, 1, null);
           }
         },
         {

@@ -1,9 +1,12 @@
 ion-row {
   justify-content: center;
+}
+
+ion-col {
   max-height: 80vh
 }
 
-.close-fake {
+.close-button {
 	--background: transparent;
 	ion-icon {
 		font-size: 2rem;
@@ -12,5 +15,5 @@ ion-row {
 }
 
 ion-content {
-  --background: rgba(44,39,45,0.84);
+  --background: rgba(30,20,30,0.84);
 }
