@@ -12,13 +12,13 @@ import { CapturedImageModalPage } from "./captured-image-modal/captured-image-mo
 })
 export class UploadPage implements OnInit {
   images = [null, null];
+  croppedImages = [null, null];
 
   constructor(
     private dbSrv: DatabaseService,
-    private actionSheetCtrl: ActionSheetController,
     private camera: Camera,
     private modalCtrl: ModalController,
-    private actionSheetController: ActionSheetController
+    private actionSheetCtrl: ActionSheetController
   ) {}
 
   ngOnInit() {}
@@ -28,7 +28,7 @@ export class UploadPage implements OnInit {
   }
 
   async selectSource(index: number) {
-    const actionSheet = await this.actionSheetController.create({
+    const actionSheet = await this.actionSheetCtrl.create({
       header: "Select Image source",
       buttons: [
         {
@@ -52,9 +52,36 @@ export class UploadPage implements OnInit {
     await actionSheet.present();
   }
 
+  async selectDeleteOrCrop(index: number) {
+    const actionSheet = await this.actionSheetCtrl.create({
+      header: "Delete this image?",
+      buttons: [
+        {
+          text: "Remove Image",
+          role: "destructive",
+          handler: () => {
+            this.images.splice(index, 1, null);
+            this.croppedImages.splice(index, 1, null);
+          }
+        },
+        {
+          text: "Retry Crop",
+          handler: () => {
+            this.openCropper(this.images[index], index);
+          }
+        },
+        {
+          text: "Cancel",
+          role: "cancel"
+        }
+      ]
+    });
+    await actionSheet.present();
+  }
+
   captureImage(sourceType: number, index: number) {
     const options: CameraOptions = {
-      quality: 75,
+      quality: 30,
       sourceType,
       saveToPhotoAlbum: true,
       correctOrientation: true,
@@ -63,41 +90,26 @@ export class UploadPage implements OnInit {
     };
 
     this.camera.getPicture(options).then(dataUrl => {
-      this.modalCtrl
-        .create({
-          component: CapturedImageModalPage,
-          componentProps: { base64Image: "data:image/jpeg;base64," + dataUrl }
-        })
-        .then(capturedImagePage => {
-          capturedImagePage.present();
-          capturedImagePage.onWillDismiss().then(res => {
-            if (res.data && res.data.croppedImage) {
-              this.images[index] = res.data.croppedImage;
-            }
-          });
-        });
+      const base64Image = "data:image/jpeg;base64," + dataUrl;
+      this.images[index] = base64Image;
+      this.openCropper(base64Image, index);
     });
   }
 
-  async askDeleteImage(index: number) {
-    const actionSheet = await this.actionSheetCtrl.create({
-      header: "Delete Picture?",
-      buttons: [
-        {
-          text: "Yes, Delete",
-          role: "destructive",
-          handler: () => {
-            this.images.splice(index, 1, null);
+  openCropper(base64Image, index: number) {
+    this.modalCtrl
+      .create({
+        component: CapturedImageModalPage,
+        componentProps: { base64Image }
+      })
+      .then(capturedImagePage => {
+        capturedImagePage.present();
+        capturedImagePage.onWillDismiss().then(res => {
+          if (res.data && res.data.croppedImage) {
+            this.croppedImages[index] = res.data.croppedImage;
           }
-        },
-        {
-          text: "Cancel",
-          role: "cancel",
-          handler: () => {}
-        }
-      ]
-    });
-    await actionSheet.present();
+        });
+      });
   }
 
   createContest() {

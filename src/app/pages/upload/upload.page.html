@@ -13,12 +13,10 @@
     <ion-row justify-content-center>
       <ng-container *ngFor="let image of images; let i = index">
         <ion-col class="contest-column">
-          <div>
-            <ion-img *ngIf="images[i] != null" [src]="images[i]" (click)="askDeleteImage(i)">
+            <ion-img *ngIf="croppedImages[i] != null" [src]="croppedImages[i]" (click)="selectDeleteOrCrop(i)">
             </ion-img>
-          </div>
           <ion-button fill="clear" color="dark" class="image-placeholder-button" expand="block"
-            (click)="selectSource(i)" *ngIf="images[i] == null">
+            (click)="selectSource(i)" *ngIf="croppedImages[i] == null">
             <ion-icon name="camera"></ion-icon>
           </ion-button>
         </ion-col>

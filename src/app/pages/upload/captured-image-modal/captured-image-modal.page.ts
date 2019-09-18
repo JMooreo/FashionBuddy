@@ -11,7 +11,8 @@ export class CapturedImageModalPage implements OnInit {
   @ViewChild(ImageCropperComponent, null) imageCropper: ImageCropperComponent;
 
   image = null;
-  showCropper = false;
+  isImageLoaded = false;
+  isCropperReady = false;
 
   constructor(
     private navParams: NavParams,
@@ -19,11 +20,17 @@ export class CapturedImageModalPage implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.isImageLoaded = false;
+    this.isCropperReady = false;
     this.image = this.navParams.get("base64Image");
   }
 
   imageLoaded() {
-    this.showCropper = true;
+    this.isImageLoaded = true;
+  }
+
+  cropperReady() {
+    this.isCropperReady = true;
   }
 
   crop() {
