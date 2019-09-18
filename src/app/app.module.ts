@@ -18,10 +18,6 @@ import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AngularFireStorageModule } from "@angular/fire/storage";
 
 import { Camera } from "@ionic-native/camera/ngx";
-import { File } from "@ionic-native/file/ngx";
-import { WebView } from "@ionic-native/ionic-webview/ngx";
-
-import { IonicStorageModule } from "@ionic/storage";
 import { CapturedImageModalPageModule } from "./pages/upload/captured-image-modal/captured-image-modal.module";
 
 @NgModule({
@@ -36,7 +32,6 @@ import { CapturedImageModalPageModule } from "./pages/upload/captured-image-moda
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
-    IonicStorageModule.forRoot(),
     CapturedImageModalPageModule
   ],
   providers: [
@@ -45,8 +40,6 @@ import { CapturedImageModalPageModule } from "./pages/upload/captured-image-moda
     DatabaseService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Camera,
-    File,
-    WebView,
   ],
   bootstrap: [AppComponent]
 })
