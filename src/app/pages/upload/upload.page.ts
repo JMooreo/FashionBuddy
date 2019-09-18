@@ -34,10 +34,7 @@ export class UploadPage implements OnInit {
         {
           text: "Load from Library",
           handler: () => {
-            this.captureImage(
-              this.camera.PictureSourceType.PHOTOLIBRARY,
-              index
-            );
+            this.captureImage(this.camera.PictureSourceType.PHOTOLIBRARY, index);
           }
         },
         {
