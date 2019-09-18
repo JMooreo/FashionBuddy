@@ -1,8 +1,6 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { NavParams, ModalController } from "@ionic/angular";
-import { File } from "@ionic-native/file/ngx";
 import { ImageCropperComponent, ImageCroppedEvent } from "ngx-image-cropper";
-import { ImageService } from "src/app/services/image/image.service";
 
 @Component({
   selector: "app-captured-image-modal",
@@ -18,25 +16,10 @@ export class CapturedImageModalPage implements OnInit {
   constructor(
     private navParams: NavParams,
     private modalCtrl: ModalController,
-    private imageSrv: ImageService,
-    private file: File
   ) {}
 
   ngOnInit() {
-    const capturedImage = this.navParams.get("image");
-    this.convertImage(capturedImage);
-  }
-
-  convertImage(path) {
-    const currentName = this.imageSrv.getCurrentName(path);
-    const folderPath = this.imageSrv.getFolderPath(path);
-
-    this.file.readAsDataURL(folderPath, currentName).then(dataUrl => {
-      this.image = {
-        base64: dataUrl,
-        filePath: path
-      };
-    });
+    this.image = this.navParams.get("base64Image");
   }
 
   imageLoaded() {
@@ -48,8 +31,7 @@ export class CapturedImageModalPage implements OnInit {
   }
 
   save(event: ImageCroppedEvent) {
-    const croppedImageBase64 = event.base64;
-    this.modalCtrl.dismiss({ croppedImage: croppedImageBase64 });
+    this.modalCtrl.dismiss({ croppedImage: event.base64 });
   }
 
   close() {

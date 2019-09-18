@@ -27,7 +27,7 @@ export class UploadPage implements OnInit {
     this.createContest();
   }
 
-  async selectSource(index) {
+  async selectSource(index: number) {
     const actionSheet = await this.actionSheetController.create({
       header: "Select Image source",
       buttons: [
@@ -61,21 +61,18 @@ export class UploadPage implements OnInit {
       sourceType,
       saveToPhotoAlbum: true,
       correctOrientation: true,
-      destinationType: this.camera.DestinationType.FILE_URI,
+      destinationType: this.camera.DestinationType.DATA_URL,
       mediaType: this.camera.MediaType.PICTURE
     };
 
-    this.camera.getPicture(options).then(imagePath => {
+    this.camera.getPicture(options).then(dataUrl => {
       this.modalCtrl
         .create({
           component: CapturedImageModalPage,
-          componentProps: {
-            image: imagePath
-          }
+          componentProps: { base64Image: "data:image/jpeg;base64," + dataUrl }
         })
         .then(capturedImagePage => {
           capturedImagePage.present();
-
           capturedImagePage.onWillDismiss().then(res => {
             if (res.data && res.data.croppedImage) {
               this.images[index] = res.data.croppedImage;
@@ -85,7 +82,7 @@ export class UploadPage implements OnInit {
     });
   }
 
-  async askDeleteImage(index) {
+  async askDeleteImage(index: number) {
     const actionSheet = await this.actionSheetCtrl.create({
       header: "Delete Picture?",
       buttons: [
