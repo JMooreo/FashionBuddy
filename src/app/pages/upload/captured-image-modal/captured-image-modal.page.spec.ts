@@ -1,18 +1,24 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { NavParams, ModalController, AngularDelegate } from "@ionic/angular";
 
-import { CapturedImageModalPage } from './captured-image-modal.page';
+import { CapturedImageModalPage } from "./captured-image-modal.page";
 
-describe('CapturedImageModalPage', () => {
+describe("CapturedImageModalPage", () => {
   let component: CapturedImageModalPage;
   let fixture: ComponentFixture<CapturedImageModalPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CapturedImageModalPage ],
+      declarations: [CapturedImageModalPage],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    })
-    .compileComponents();
+      providers: [
+        ModalController,
+        AngularDelegate,
+        // tslint:disable-next-line: no-use-before-declare
+        { provide: NavParams, useClass: MockNavParams }
+      ]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -21,7 +27,15 @@ describe('CapturedImageModalPage', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
+
+  class MockNavParams {
+    data = {};
+
+    get(param) {
+      return this.data[param];
+    }
+  }
 });

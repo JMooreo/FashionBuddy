@@ -6,7 +6,7 @@
     <ion-row>
       <ion-col size="10">
         <image-cropper *ngIf="image" [imageBase64]="image" [maintainAspectRatio]="true" [aspectRatio]="4 / 9"
-          [resizeToWidth]="300" [onlyScaleDown]="true" [autoCrop]="false" [style.display]="showCropper ? null : 'none'"
+          [resizeToWidth]="300" onlyScaleDown="true" [autoCrop]="false" [style.display]="showCropper ? null : 'none'"
           (imageLoaded)="imageLoaded()" (imageCropped)="save($event)" format="jpg"></image-cropper>
       </ion-col>
     </ion-row>

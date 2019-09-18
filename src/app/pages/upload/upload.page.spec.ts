@@ -1,12 +1,13 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { IonicModule } from "@ionic/angular";
 
-import { UploadPage } from './upload.page';
-import { DatabaseService } from 'src/app/services/database/database.service';
-import { ContestOption, Contest } from 'src/app/models/contest-model';
-import { SharedComponentsModule } from 'src/app/components/components.module';
+import { UploadPage } from "./upload.page";
+import { DatabaseService } from "src/app/services/database/database.service";
+import { ContestOption, Contest } from "src/app/models/contest-model";
+import { SharedComponentsModule } from "src/app/components/components.module";
+import { Camera, CameraOptions } from "@ionic-native/camera/ngx";
 
-describe('UploadPage', () => {
+describe("UploadPage", () => {
   let component: UploadPage;
   let fixture: ComponentFixture<UploadPage>;
 
@@ -16,7 +17,8 @@ describe('UploadPage', () => {
       imports: [IonicModule.forRoot(), SharedComponentsModule],
       providers: [
         // tslint:disable-next-line: no-use-before-declare
-        { provide: DatabaseService, useClass: DatabaseServiceStub }
+        { provide: DatabaseService, useClass: DatabaseServiceStub },
+        Camera
       ]
     }).compileComponents();
 
@@ -25,7 +27,7 @@ describe('UploadPage', () => {
     fixture.detectChanges();
   }));
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
