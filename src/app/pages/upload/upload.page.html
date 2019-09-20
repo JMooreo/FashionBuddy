@@ -15,8 +15,8 @@
         <ion-col class="contest-column">
           <tinder-card *ngIf="croppedImages[i] != null" [imageUrl]="croppedImages[i]" (click)="selectDeleteOrCrop(i)">
           </tinder-card>
-          <ion-button fill="clear" color="dark" class="image-placeholder-button" expand="block"
-            (click)="selectSource(i)" *ngIf="croppedImages[i] == null">
+          <ion-button *ngIf="croppedImages[i] == null" fill="clear" color="dark" class="image-placeholder-button" expand="block"
+            (click)="selectSource(i)">
             <ion-icon name="camera"></ion-icon>
           </ion-button>
         </ion-col>

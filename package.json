@@ -1,8 +1,8 @@
 {
   "name": "FashionBuddy",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "version": "3.0.0",
+  "author": "Justin Moore",
+  "homepage": "https://fashionbuddyapp.com",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -74,7 +74,7 @@
     "cordova-plugin-ionic-webview": "^4.0.0",
     "cordova-plugin-ionic-keyboard": "^2.0.5"
   },
-  "description": "An Ionic project",
+  "description": "Crowdsourced Fashion Advice",
   "cordova": {
     "plugins": {
       "cordova-plugin-whitelist": {},

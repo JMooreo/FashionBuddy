@@ -17,10 +17,8 @@ export class StorageService implements OnInit {
     const userImagesRef = this.storageRef.child(
       `images/${userId}/${imageName}`
     );
-
     const snapshot = await userImagesRef.putString(imageData, "data_url");
     const downloadUrl = await snapshot.ref.getDownloadURL();
-
     return downloadUrl;
   }
 }

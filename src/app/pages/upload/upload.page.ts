@@ -25,10 +25,6 @@ export class UploadPage implements OnInit {
 
   ngOnInit() {}
 
-  pageLoad() {
-    this.createContest();
-  }
-
   async selectSource(index: number) {
     const actionSheet = await this.actionSheetCtrl.create({
       header: "Select Image source",
@@ -86,7 +82,7 @@ export class UploadPage implements OnInit {
 
   captureImage(sourceType: number, index: number) {
     const options: CameraOptions = {
-      quality: 10,
+      quality: 30,
       sourceType,
       saveToPhotoAlbum: true,
       correctOrientation: true,
@@ -118,14 +114,14 @@ export class UploadPage implements OnInit {
   }
 
   async uploadAllImages(): Promise<string[]> {
-    let promises = [];
+    const promises = [];
     let i = 1;
-    for (let image of this.croppedImages) {
+    this.croppedImages.forEach(image => {
       const imageName = `${Date.now()}_option_${i}`;
       const uploadOneImage = this.storageSrv.uploadImage(image, imageName);
       promises.push(uploadOneImage);
       i++;
-    }
+    });
 
     const result: string[] = await Promise.all(promises);
     return result;
