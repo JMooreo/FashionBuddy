@@ -1,1 +1,17 @@
+.contest-container {
+	max-width: 600px;
+	padding: 20px;
+	margin: auto;
+}
 
+.contest-column {
+	min-height: 95vmin;
+}
+
+.image-placeholder-button {
+	border: 2px solid black;
+	border-radius: 10px;
+	font-size: 2em;
+	height: 100%;
+	margin: 0px !important;
+}

@@ -1,0 +1,19 @@
+ion-row {
+  justify-content: center;
+}
+
+ion-col {
+  max-height: 80vh
+}
+
+.close-button {
+	--background: transparent;
+	ion-icon {
+		font-size: 2rem;
+	}
+	margin-top: 40px;
+}
+
+ion-content {
+  --background: rgba(30,20,30,0.84);
+}

@@ -1,22 +1,27 @@
-import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
 
 const routes: Routes = [
-  { path: '', redirectTo: 'register', pathMatch: 'full' },
+  { path: "", redirectTo: "register", pathMatch: "full" },
   {
-    path: 'register',
+    path: "register",
     loadChildren: () =>
-      import('./pages/register/register.module').then(m => m.RegisterPageModule)
+      import("./pages/register/register.module").then(m => m.RegisterPageModule)
   },
   {
-    path: 'login',
+    path: "login",
     loadChildren: () =>
-      import('./pages/login/login.module').then(m => m.LoginPageModule)
+      import("./pages/login/login.module").then(m => m.LoginPageModule)
   },
   {
-    path: 'tabs',
+    path: "tabs",
     loadChildren: () =>
-      import('./pages/tabs/tabs.module').then(m => m.TabsPageModule)
+      import("./pages/tabs/tabs.module").then(m => m.TabsPageModule)
+  },
+  {
+    path: "captured-image-modal",
+    loadChildren:
+      "./pages/upload/captured-image-modal/captured-image-modal.module#CapturedImageModalPageModule"
   }
 ];
 @NgModule({

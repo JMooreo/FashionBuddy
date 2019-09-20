@@ -8,4 +8,24 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <ion-grid class="contest-container">
+    <ion-row justify-content-center>
+      <ng-container *ngFor="let image of images; let i = index">
+        <ion-col class="contest-column">
+          <tinder-card *ngIf="croppedImages[i] != null" [imageUrl]="croppedImages[i]" (click)="selectDeleteOrCrop(i)">
+          </tinder-card>
+          <ion-button *ngIf="croppedImages[i] == null" fill="clear" color="dark" class="image-placeholder-button" expand="block"
+            (click)="selectSource(i)">
+            <ion-icon name="camera"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ng-container>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" (click)="createContest()">Get Some Votes</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
