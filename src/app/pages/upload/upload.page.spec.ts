@@ -5,7 +5,8 @@ import { UploadPage } from "./upload.page";
 import { DatabaseService } from "src/app/services/database/database.service";
 import { ContestOption, Contest } from "src/app/models/contest-model";
 import { SharedComponentsModule } from "src/app/components/components.module";
-import { Camera, CameraOptions } from "@ionic-native/camera/ngx";
+import { Camera } from "@ionic-native/camera/ngx";
+import { StorageService } from "src/app/services/storage/storage.service";
 
 describe("UploadPage", () => {
   let component: UploadPage;
@@ -18,6 +19,8 @@ describe("UploadPage", () => {
       providers: [
         // tslint:disable-next-line: no-use-before-declare
         { provide: DatabaseService, useClass: DatabaseServiceStub },
+        // tslint:disable-next-line: no-use-before-declare
+        { provide: StorageService, useClass: StorageServiceStub },
         Camera
       ]
     }).compileComponents();
@@ -34,4 +37,8 @@ describe("UploadPage", () => {
 
 class DatabaseServiceStub {
   createContest(contest: Contest, contestOptions: Array<ContestOption>) {}
+}
+
+class StorageServiceStub {
+  uploadImage() {}
 }

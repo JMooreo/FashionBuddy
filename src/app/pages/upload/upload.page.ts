@@ -4,6 +4,7 @@ import { ActionSheetController, ModalController } from "@ionic/angular";
 
 import { Camera, CameraOptions } from "@ionic-native/camera/ngx";
 import { CapturedImageModalPage } from "./captured-image-modal/captured-image-modal.page";
+import { StorageService } from "src/app/services/storage/storage.service";
 
 @Component({
   selector: "app-upload",
@@ -16,6 +17,7 @@ export class UploadPage implements OnInit {
 
   constructor(
     private dbSrv: DatabaseService,
+    private storageSrv: StorageService,
     private camera: Camera,
     private modalCtrl: ModalController,
     private actionSheetCtrl: ActionSheetController
@@ -34,7 +36,10 @@ export class UploadPage implements OnInit {
         {
           text: "Load from Library",
           handler: () => {
-            this.captureImage(this.camera.PictureSourceType.PHOTOLIBRARY, index);
+            this.captureImage(
+              this.camera.PictureSourceType.PHOTOLIBRARY,
+              index
+            );
           }
         },
         {
@@ -81,7 +86,7 @@ export class UploadPage implements OnInit {
 
   captureImage(sourceType: number, index: number) {
     const options: CameraOptions = {
-      quality: 30,
+      quality: 10,
       sourceType,
       saveToPhotoAlbum: true,
       correctOrientation: true,
@@ -96,7 +101,7 @@ export class UploadPage implements OnInit {
     });
   }
 
-  openCropper(base64Image, index: number) {
+  openCropper(base64Image: string, index: number) {
     this.modalCtrl
       .create({
         component: CapturedImageModalPage,
@@ -112,27 +117,39 @@ export class UploadPage implements OnInit {
       });
   }
 
-  createContest() {
-    const testContestOptions = [
-      {
-        imageUrl: "https://via.placeholder.com/400x900?text=Option_1",
-        votes: 0
-      },
-      {
-        imageUrl: "https://via.placeholder.com/400x900?text=Option_2",
-        votes: 0
-      }
-    ];
-    const testCreateDateTime = new Date(Date.now());
-    const testCloseDateTime = new Date("2020");
+  async uploadAllImages(): Promise<string[]> {
+    let promises = [];
+    let i = 1;
+    for (let image of this.croppedImages) {
+      const imageName = `${Date.now()}_option_${i}`;
+      const uploadOneImage = this.storageSrv.uploadImage(image, imageName);
+      promises.push(uploadOneImage);
+      i++;
+    }
 
-    const contest = {
-      createDateTime: testCreateDateTime.toISOString(),
-      closeDateTime: testCloseDateTime.toISOString(),
-      occasion: "testContest occasion",
-      reportCount: 0,
-      style: "test Style"
-    };
-    this.dbSrv.createContest(contest, testContestOptions);
+    const result: string[] = await Promise.all(promises);
+    return result;
+  }
+
+  createContest() {
+    const contestOptions = [];
+    this.uploadAllImages().then(downloadUrls => {
+      downloadUrls.forEach(url => {
+        contestOptions.push({ imageUrl: url, votes: 0 });
+      });
+
+      const testCreateDateTime = new Date(Date.now());
+      const testCloseDateTime = new Date("2020");
+
+      const contest = {
+        createDateTime: testCreateDateTime.toISOString(),
+        closeDateTime: testCloseDateTime.toISOString(),
+        occasion: "testContest occasion",
+        reportCount: 0,
+        style: "test Style"
+      };
+
+      this.dbSrv.createContest(contest, contestOptions);
+    });
   }
 }

@@ -1,31 +1,29 @@
-import { Injectable } from '@angular/core';
-import { Contest, ContestOption } from '../../models/contest-model';
-import { AuthService } from '../auth/auth.service';
-import * as firebase from 'firebase/app';
+import { Injectable } from "@angular/core";
+import { Contest, ContestOption } from "../../models/contest-model";
+import { AuthService } from "../auth/auth.service";
+import * as firebase from "firebase/app";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class DatabaseService {
   userId = this.authSrv.getUserId();
-  contestsRef = firebase.firestore().collection('Contests');
+  contestsRef = firebase.firestore().collection("Contests");
 
-  constructor(
-    private authSrv: AuthService
-  ) {}
+  constructor(private authSrv: AuthService) {}
 
   async getAllContestsForUser() {
     const rightNow = new Date(Date.now());
     const contests = new Array<Contest>();
     await this.contestsRef
-      .where('closeDateTime', '>', rightNow.toISOString())
+      .where("closeDateTime", ">", rightNow.toISOString())
       // .limit(number) if necessary to reduce data download
       .get()
       .then(querySnapshot => {
         querySnapshot.forEach(contest => {
           this.contestsRef
             .doc(contest.id)
-            .collection('Voters')
+            .collection("Voters")
             .doc(this.userId)
             .get()
             .then(voter => {
@@ -34,14 +32,21 @@ export class DatabaseService {
                 const contestOptions = new Array<ContestOption>();
                 this.contestsRef
                   .doc(contest.id)
-                  .collection('Options')
+                  .collection("Options")
                   .get()
                   .then(options => {
                     options.forEach(option => {
-                      contestOptions.push({ ...option.data(), id: option.id } as ContestOption);
+                      contestOptions.push({
+                        ...option.data(),
+                        id: option.id
+                      } as ContestOption);
                     });
                   });
-                contests.push({ ...contest.data(), options: contestOptions, id: contest.id } as Contest);
+                contests.push({
+                  ...contest.data(),
+                  options: contestOptions,
+                  id: contest.id
+                } as Contest);
               }
             });
         });
@@ -65,7 +70,7 @@ export class DatabaseService {
     let i = 1;
     options.forEach(option => {
       docRef
-        .collection('Options')
+        .collection("Options")
         .doc(`option_${i}`)
         .set({ ...option });
       i++;
@@ -74,7 +79,7 @@ export class DatabaseService {
 
   setContestOwner(docRef) {
     docRef
-      .collection('Voters')
+      .collection("Voters")
       .doc(this.userId)
       .set({
         isContestOwner: true
@@ -84,7 +89,7 @@ export class DatabaseService {
   addVoterToContestSubcollection(contestId: string, option: ContestOption) {
     this.contestsRef
       .doc(contestId)
-      .collection('Voters')
+      .collection("Voters")
       .doc(this.userId)
       .set({
         contestOwner: false,
@@ -100,7 +105,7 @@ export class DatabaseService {
   ) {
     this.contestsRef
       .doc(contestId)
-      .collection('Options')
+      .collection("Options")
       .doc(option.id)
       .update({
         votes: firebase.firestore.FieldValue.increment(incrementAmount)
