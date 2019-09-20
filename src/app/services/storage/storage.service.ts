@@ -1,5 +1,5 @@
 import { Injectable, OnInit } from "@angular/core";
-import * as firebase from "firebase";
+import * as firebase from "firebase/app";
 import { AuthService } from "../auth/auth.service";
 
 @Injectable({
@@ -22,23 +22,5 @@ export class StorageService implements OnInit {
     const downloadUrl = await snapshot.ref.getDownloadURL();
 
     return downloadUrl;
-
-    // uploadTask.on(
-    //   firebase.storage.TaskEvent.STATE_CHANGED,
-    //   snapshot => {
-    //     const progress =
-    //       (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-    //     console.log("Upload is " + progress + "% done");
-    //   },
-    //   error => {
-    //     console.error(error);
-    //   },
-    //   () => {
-    //     // Upload completed successfully, now we can get the download URL
-    //     uploadTask.snapshot.ref.getDownloadURL().then(downloadUrl => {
-    //       console.log("downloadUrl", downloadUrl);
-    //     });
-    //   }
-    // );
   }
 }
