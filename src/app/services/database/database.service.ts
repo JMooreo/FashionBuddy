@@ -54,8 +54,8 @@ export class DatabaseService {
     return contests;
   }
 
-  createContest(contest: Contest, options: Array<ContestOption>) {
-    this.contestsRef.add(contest).then(contestDoc => {
+  createContest(contest: Contest, options: Array<ContestOption>): Promise<any> {
+    return this.contestsRef.add(contest).then(contestDoc => {
       this.setContestOptions(contestDoc, options);
       this.setContestOwner(contestDoc);
     });

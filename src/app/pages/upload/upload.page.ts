@@ -1,6 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { DatabaseService } from "src/app/services/database/database.service";
-import { ActionSheetController, ModalController } from "@ionic/angular";
+import {
+  ActionSheetController,
+  ModalController,
+  AlertController
+} from "@ionic/angular";
 
 import { Camera, CameraOptions } from "@ionic-native/camera/ngx";
 import { CapturedImageModalPage } from "./captured-image-modal/captured-image-modal.page";
@@ -20,6 +24,7 @@ export class UploadPage implements OnInit {
     private storageSrv: StorageService,
     private camera: Camera,
     private modalCtrl: ModalController,
+    private alertCtrl: AlertController,
     private actionSheetCtrl: ActionSheetController
   ) {}
 
@@ -145,7 +150,19 @@ export class UploadPage implements OnInit {
         style: "test Style"
       };
 
-      this.dbSrv.createContest(contest, contestOptions);
+      this.dbSrv.createContest(contest, contestOptions).then(() => {
+        this.showAlert("Success", "Uploaded your contest!");
+      });
     });
+  }
+
+  async showAlert(header: string, message: string) {
+    const alert = await this.alertCtrl.create({
+      header,
+      message,
+      buttons: ["OK"]
+    });
+
+    await alert.present();
   }
 }
