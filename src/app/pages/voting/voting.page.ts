@@ -11,18 +11,18 @@ import { trigger, style, animate, transition } from "@angular/animations";
     trigger("inOutAnimation", [
       transition(":enter", [
         style({ opacity: 0 }),
-        animate("0.3s ease-out", style({ opacity: 1 }))
+        animate("0.3s 0.3s ease-in", style({ opacity: 1 }))
       ]),
       transition(":leave", [
         style({ opacity: 1 }),
-        animate("0.3s ease-in", style({ opacity: 0 }))
+        animate("0.3s ease-out", style({ opacity: 0 }))
       ])
     ])
   ]
 })
 export class VotingPage implements OnInit {
   // Constants
-  ANIMATION_DELAY = 600;
+  ANIMATION_DELAY = 800;
   // Booleans
   isContestVisible = false; // default invisible for fade in
   isRefreshing = false;
@@ -63,7 +63,7 @@ export class VotingPage implements OnInit {
   tinderCardDragEnded(event, contestId, option) {
     const element = event.source.getRootElement().getBoundingClientRect();
     const elementHeight = element.bottom - element.top;
-    if (element.y < -elementHeight / 4) {
+    if (element.y < -elementHeight / 100) {
       this.hideContest();
       this.dbSrv.addContestVote(contestId, option);
     } else {

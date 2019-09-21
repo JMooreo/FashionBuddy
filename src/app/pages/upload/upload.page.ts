@@ -118,12 +118,12 @@ export class UploadPage implements OnInit {
       });
   }
 
-  async uploadAllImages(): Promise<string[]> {
+  async uploadAllImages(contestId: string): Promise<string[]> {
     const promises = [];
     let i = 1;
     this.croppedImages.forEach(image => {
-      const imageName = `${Date.now()}_option_${i}`;
-      const uploadOneImage = this.storageSrv.uploadImage(image, imageName);
+      const imageName = `${contestId}_option_${i}`;
+      const uploadOneImage = this.storageSrv.uploadImage(image, imageName, contestId);
       promises.push(uploadOneImage);
       i++;
     });
@@ -133,8 +133,9 @@ export class UploadPage implements OnInit {
   }
 
   createContest() {
+    const contestId = "cid=" + new Date(Date.now()).toISOString();
     const contestOptions = [];
-    this.uploadAllImages().then(downloadUrls => {
+    this.uploadAllImages(contestId).then(downloadUrls => {
       downloadUrls.forEach(url => {
         contestOptions.push({ imageUrl: url, votes: 0 });
       });
@@ -150,7 +151,7 @@ export class UploadPage implements OnInit {
         style: "test Style"
       };
 
-      this.dbSrv.createContest(contest, contestOptions).then(() => {
+      this.dbSrv.createContest(contestId, contest, contestOptions).then(() => {
         this.showAlert("Success", "Uploaded your contest!");
       });
     });

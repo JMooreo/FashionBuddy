@@ -54,10 +54,10 @@ export class DatabaseService {
     return contests;
   }
 
-  createContest(contest: Contest, options: Array<ContestOption>): Promise<any> {
-    return this.contestsRef.add(contest).then(contestDoc => {
-      this.setContestOptions(contestDoc, options);
-      this.setContestOwner(contestDoc);
+  createContest(contestId: string, contest: Contest, options: Array<ContestOption>): Promise<any> {
+    return this.contestsRef.doc(contestId).set({...contest}).then(() => {
+      this.setContestOptions(contestId, options);
+      // this.setContestOwner(contestId);
     });
   }
 
@@ -66,10 +66,10 @@ export class DatabaseService {
     this.incrementOptionVoteCount(1, contestId, option);
   }
 
-  setContestOptions(docRef, options) {
+  setContestOptions(contestId: string, options: Array<ContestOption>) {
     let i = 1;
     options.forEach(option => {
-      docRef
+      this.contestsRef.doc(contestId)
         .collection("Options")
         .doc(`option_${i}`)
         .set({ ...option });
@@ -77,8 +77,8 @@ export class DatabaseService {
     });
   }
 
-  setContestOwner(docRef) {
-    docRef
+  setContestOwner(contestId: string) {
+    this.contestsRef.doc(contestId)
       .collection("Voters")
       .doc(this.userId)
       .set({
