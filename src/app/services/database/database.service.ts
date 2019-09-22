@@ -57,7 +57,7 @@ export class DatabaseService {
   createContest(contestId: string, contest: Contest, options: Array<ContestOption>): Promise<any> {
     return this.contestsRef.doc(contestId).set({...contest}).then(() => {
       this.setContestOptions(contestId, options);
-      // this.setContestOwner(contestId);
+      this.setContestOwner(contestId);
     });
   }
 
