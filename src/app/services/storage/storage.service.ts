@@ -12,10 +12,10 @@ export class StorageService implements OnInit {
 
   ngOnInit() {}
 
-  async uploadImage(imageData: string, imageName: string): Promise<string> {
+  async uploadImage(imageData: string, imageName: string, contestId: string): Promise<string> {
     const userId = this.authSrv.getUserId();
     const userImagesRef = this.storageRef.child(
-      `images/${userId}/${imageName}`
+      `images/${userId}/${contestId}/${imageName}` // important! If this changes, the cloud function that generates thumbnails will break
     );
     const snapshot = await userImagesRef.putString(imageData, "data_url");
     const downloadUrl = await snapshot.ref.getDownloadURL();
