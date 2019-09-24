@@ -7,13 +7,10 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class AuthService {
   user: firebase.User;
 
-  constructor(private afAuth: AngularFireAuth) {
-    this.user = this.afAuth.auth.currentUser;
-  }
+  constructor(private afAuth: AngularFireAuth) {}
 
   getUserId() {
-    return 'temporaryUserID';
-    // this.user.uid;
+    return this.afAuth.auth.currentUser.uid;
   }
 
   async createUserWithEmailAndPassword(email: string, password: string) {
