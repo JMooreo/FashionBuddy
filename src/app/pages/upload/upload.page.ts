@@ -9,6 +9,7 @@ import {
 import { Camera, CameraOptions } from "@ionic-native/camera/ngx";
 import { CapturedImageModalPage } from "./captured-image-modal/captured-image-modal.page";
 import { StorageService } from "src/app/services/storage/storage.service";
+import { AuthService } from "src/app/services/auth/auth.service";
 
 @Component({
   selector: "app-upload",
@@ -22,6 +23,7 @@ export class UploadPage implements OnInit {
   constructor(
     private dbSrv: DatabaseService,
     private storageSrv: StorageService,
+    private authSrv: AuthService,
     private camera: Camera,
     private modalCtrl: ModalController,
     private alertCtrl: AlertController,
@@ -123,7 +125,11 @@ export class UploadPage implements OnInit {
     let i = 1;
     this.croppedImages.forEach(image => {
       const imageName = `${contestId}_option_${i}`;
-      const uploadOneImage = this.storageSrv.uploadImage(image, imageName, contestId);
+      const uploadOneImage = this.storageSrv.uploadImage(
+        image,
+        imageName,
+        contestId
+      );
       promises.push(uploadOneImage);
       i++;
     });
@@ -135,6 +141,7 @@ export class UploadPage implements OnInit {
   createContest() {
     const contestId = "cid=" + new Date(Date.now()).toISOString();
     const contestOptions = [];
+    const userId = this.authSrv.getUserId();
     this.uploadAllImages(contestId).then(downloadUrls => {
       downloadUrls.forEach(url => {
         contestOptions.push({ imageUrl: url, votes: 0 });
@@ -146,6 +153,7 @@ export class UploadPage implements OnInit {
       const contest = {
         createDateTime: testCreateDateTime.toISOString(),
         closeDateTime: testCloseDateTime.toISOString(),
+        contestOwner: userId,
         occasion: "testContest occasion",
         reportCount: 0,
         style: "test Style"

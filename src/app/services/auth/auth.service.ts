@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { Injectable } from "@angular/core";
+import { AngularFireAuth } from "@angular/fire/auth";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class AuthService {
   user: firebase.User;
@@ -10,7 +10,8 @@ export class AuthService {
   constructor(private afAuth: AngularFireAuth) {}
 
   getUserId() {
-    return this.afAuth.auth.currentUser.uid;
+    return "tempUserId";
+    // this.afAuth.auth.currentUser.uid;
   }
 
   async createUserWithEmailAndPassword(email: string, password: string) {

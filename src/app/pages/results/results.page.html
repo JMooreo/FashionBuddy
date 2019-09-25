@@ -8,4 +8,17 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingText="Pull to refresh" refreshingSpinner="crescent" refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-row>
+    <ng-container *ngIf="contests && contests[0] && contests[0].options && contests[0].options[0]">
+      <ion-col size="6" *ngFor="let contest of contests">
+        <tinder-card [imageUrl]="contest.options[0].imageUrl">
+        </tinder-card>
+      </ion-col>
+    </ng-container>
+  </ion-row>
+</ion-content>

@@ -37,7 +37,7 @@ export class VotingPage implements OnInit {
 
   async pageLoad() {
     this.setContestVisibility(false);
-    this.contests = await this.dbSrv.getAllContestsForUser();
+    this.contests = await this.dbSrv.getAllContestsUserHasNotSeenOrVotedOn();
     this.setContestVisibility(true);
   }
 

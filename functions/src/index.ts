@@ -81,7 +81,7 @@ export const generateThumbs = functions.storage
       .doc(contestId)
       .collection("Options")
       .doc(optionName)
-      .set({ imageUrl: signedUrls[0] })
+      .update({ imageUrl: signedUrls[0] })
       .then(
         success => {
           console.log("Successful firebase update");
