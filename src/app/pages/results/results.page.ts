@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { DatabaseService } from "src/app/services/database/database.service";
 import { Contest } from "../../models/contest-model";
+import { ModalController } from "@ionic/angular";
+import { ContestOverlayPage } from "./contest-overlay/contest-overlay.page";
 
 @Component({
   selector: "app-results",
@@ -10,7 +12,10 @@ import { Contest } from "../../models/contest-model";
 export class ResultsPage implements OnInit {
   contests = Array<Contest>();
 
-  constructor(private dbSrv: DatabaseService) {}
+  constructor(
+    private dbSrv: DatabaseService,
+    private modalCtrl: ModalController
+  ) {}
 
   ngOnInit() {
     this.pageLoad();
@@ -26,5 +31,16 @@ export class ResultsPage implements OnInit {
   async doRefresh(event) {
     this.pageLoad();
     await event.target.complete();
+  }
+
+  showOverlay(contest: Contest) {
+    this.modalCtrl
+      .create({
+        component: ContestOverlayPage,
+        componentProps: { contest }
+      })
+      .then(overlayPage => {
+        overlayPage.present();
+      });
   }
 }

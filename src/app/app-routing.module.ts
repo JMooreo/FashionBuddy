@@ -22,7 +22,8 @@ const routes: Routes = [
     path: "captured-image-modal",
     loadChildren:
       "./pages/upload/captured-image-modal/captured-image-modal.module#CapturedImageModalPageModule"
-  }
+  },  { path: 'contest-overlay', loadChildren: './pages/results/contest-overlay/contest-overlay.module#ContestOverlayPageModule' }
+
 ];
 @NgModule({
   imports: [

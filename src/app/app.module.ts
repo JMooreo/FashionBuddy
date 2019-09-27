@@ -19,6 +19,7 @@ import { AngularFireStorageModule } from "@angular/fire/storage";
 
 import { Camera } from "@ionic-native/camera/ngx";
 import { CapturedImageModalPageModule } from "./pages/upload/captured-image-modal/captured-image-modal.module";
+import { ContestOverlayPageModule } from "./pages/results/contest-overlay/contest-overlay.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,14 +33,15 @@ import { CapturedImageModalPageModule } from "./pages/upload/captured-image-moda
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
-    CapturedImageModalPageModule
+    CapturedImageModalPageModule,
+    ContestOverlayPageModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
     DatabaseService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    Camera,
+    Camera
   ],
   bootstrap: [AppComponent]
 })

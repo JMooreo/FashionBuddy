@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title>
       <div text-center>
-        My Results
+        My Closet
       </div>
     </ion-title>
   </ion-toolbar>
@@ -14,9 +14,9 @@
     </ion-refresher-content>
   </ion-refresher>
   <ion-row>
-    <ng-container *ngIf="contests && contests[0] && contests[0].options && contests[0].options[0]">
-      <ion-col size="6" *ngFor="let contest of contests">
-        <tinder-card [imageUrl]="contest.options[0].imageUrl">
+    <ng-container *ngIf="contests">
+      <ion-col style="padding: 20px" size="6" *ngFor="let contest of contests">
+        <tinder-card *ngIf="contest.options[0]?.imageUrl" [imageUrl]="contest.options[0].imageUrl" (click)="showOverlay(contest)">
         </tinder-card>
       </ion-col>
     </ng-container>
