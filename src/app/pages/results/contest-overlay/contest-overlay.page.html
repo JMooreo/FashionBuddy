@@ -11,7 +11,7 @@
     <ion-row>
       <ng-container *ngIf="percentages">
         <ion-col *ngFor="let option of contest.options; let i = index" text-center>
-          <ion-row>
+          <ion-row justify-content-center>
             <tinder-card [imageUrl]="option.imageUrl">
             </tinder-card>
           </ion-row>
@@ -24,6 +24,9 @@
           </ion-row>
         </ion-col>
       </ng-container>
+    </ion-row>
+    <ion-row>
+      <canvas id="barChart"></canvas>
     </ion-row>
   </ion-grid>
 </ion-content>
