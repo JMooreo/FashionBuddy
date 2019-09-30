@@ -10,7 +10,7 @@
   <ion-grid class="contest-container">
     <ion-row>
       <ng-container *ngIf="percentages">
-        <ion-col *ngFor="let option of contest.options; let i = index" text-center>
+        <ion-col style="padding: 20px" *ngFor="let option of contest.options; let i = index" text-center>
           <ion-row justify-content-center>
             <tinder-card [imageUrl]="option.imageUrl">
             </tinder-card>

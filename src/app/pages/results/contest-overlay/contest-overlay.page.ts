@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ModalController, NavParams } from "@ionic/angular";
-import { Contest } from "src/app/models/contest-model";
+import { Contest, ContestOption } from "src/app/models/contest-model";
 import { Chart } from "chart.js";
 
 @Component({
@@ -9,7 +9,20 @@ import { Chart } from "chart.js";
   styleUrls: ["./contest-overlay.page.scss"]
 })
 export class ContestOverlayPage implements OnInit {
-  contest: Contest = null;
+  contestOptions = [
+    { id: "null", imageUrl: "null", votes: 0 } as ContestOption
+  ];
+
+  contest: Contest = {
+    options: this.contestOptions,
+    contestOwner: "null",
+    createDateTime: "null",
+    closeDateTime: "null",
+    occasion: "null",
+    reportCount: 0,
+    style: "null"
+  };
+
   percentages: Array<number> = [];
   BarChart = null;
 
@@ -69,18 +82,12 @@ export class ContestOverlayPage implements OnInit {
             backgroundColor: [
               "rgba(255, 99, 132, 0.2)",
               "rgba(54, 162, 235, 0.2)",
-              "rgba(255, 206, 86, 0.2)",
-              "rgba(75, 192, 192, 0.2)",
-              "rgba(153, 102, 255, 0.2)",
-              "rgba(255, 159, 64, 0.2)"
+              "rgba(255, 206, 86, 0.2)"
             ],
             borderColor: [
               "rgba(255,99,132,1)",
               "rgba(54, 162, 235, 1)",
-              "rgba(255, 206, 86, 1)",
-              "rgba(75, 192, 192, 1)",
-              "rgba(153, 102, 255, 1)",
-              "rgba(255, 159, 64, 1)"
+              "rgba(255, 206, 86, 1)"
             ],
             borderWidth: 1
           }
