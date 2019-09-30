@@ -5,14 +5,13 @@ import { Routes, RouterModule } from "@angular/router";
 
 import { IonicModule } from "@ionic/angular";
 
-import { ContestOverlayPage } from "./contest-overlay.page";
+import { ContestWinnerPage } from "./contest-winner.page";
 import { SharedComponentsModule } from "src/app/components/components.module";
-import { BarChartComponent } from "src/app/components/bar-chart/bar-chart.component";
 
 const routes: Routes = [
   {
     path: "",
-    component: ContestOverlayPage
+    component: ContestWinnerPage
   }
 ];
 
@@ -24,6 +23,6 @@ const routes: Routes = [
     SharedComponentsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ContestOverlayPage, BarChartComponent]
+  declarations: [ContestWinnerPage]
 })
-export class ContestOverlayPageModule {}
+export class ContestWinnerPageModule {}

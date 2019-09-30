@@ -20,6 +20,7 @@ import { AngularFireStorageModule } from "@angular/fire/storage";
 import { Camera } from "@ionic-native/camera/ngx";
 import { CapturedImageModalPageModule } from "./pages/upload/captured-image-modal/captured-image-modal.module";
 import { ContestOverlayPageModule } from "./pages/results/contest-overlay/contest-overlay.module";
+import { ContestWinnerPageModule } from "./pages/results/contest-winner/contest-winner.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,7 +35,8 @@ import { ContestOverlayPageModule } from "./pages/results/contest-overlay/contes
     AngularFirestoreModule,
     AngularFireStorageModule,
     CapturedImageModalPageModule,
-    ContestOverlayPageModule
+    ContestOverlayPageModule,
+    ContestWinnerPageModule
   ],
   providers: [
     StatusBar,

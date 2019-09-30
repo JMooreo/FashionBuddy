@@ -1,0 +1,18 @@
+<ion-content>
+  <ion-item class="close-button" lines="none" (click)="close()">
+    <ion-icon name="arrow-back" color="light"></ion-icon>
+    <ion-text color="light">Details</ion-text>
+  </ion-item>
+  <ion-grid>
+    <ion-row justify-content-center>
+      <ion-col size="6">
+        <tinder-card *ngIf="imageUrl" [imageUrl]="imageUrl"></tinder-card>
+      </ion-col>
+    </ion-row>
+    <ion-row justify-content-center>
+      <ion-text style="padding: 20px; font-size: 1.5rem" color="light">
+        Looks great!
+      </ion-text>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -33,11 +33,11 @@ export class ResultsPage implements OnInit {
     await event.target.complete();
   }
 
-  showOverlay(contest: Contest) {
+  showContestDetails(contest: Contest, showWinner: boolean) {
     this.modalCtrl
       .create({
         component: ContestOverlayPage,
-        componentProps: { contest }
+        componentProps: { contest, showWinner }
       })
       .then(overlayPage => {
         overlayPage.present();
