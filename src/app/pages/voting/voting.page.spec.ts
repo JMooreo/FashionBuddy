@@ -32,5 +32,5 @@ describe("VotingPage", () => {
 });
 
 class DatabaseServiceStub {
-  getAllContestsForUser() {}
+  getAllContestsUserHasNotSeenOrVotedOn() {}
 }

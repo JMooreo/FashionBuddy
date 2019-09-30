@@ -7,6 +7,7 @@ import { ContestOption, Contest } from "src/app/models/contest-model";
 import { SharedComponentsModule } from "src/app/components/components.module";
 import { Camera } from "@ionic-native/camera/ngx";
 import { StorageService } from "src/app/services/storage/storage.service";
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 describe("UploadPage", () => {
   let component: UploadPage;
@@ -21,6 +22,8 @@ describe("UploadPage", () => {
         { provide: DatabaseService, useClass: DatabaseServiceStub },
         // tslint:disable-next-line: no-use-before-declare
         { provide: StorageService, useClass: StorageServiceStub },
+        // tslint:disable-next-line: no-use-before-declare
+        { provide: AuthService, useClass: AuthServiceStub },
         Camera
       ]
     }).compileComponents();
@@ -41,4 +44,8 @@ class DatabaseServiceStub {
 
 class StorageServiceStub {
   uploadImage() {}
+}
+
+class AuthServiceStub {
+  getUserId() {}
 }

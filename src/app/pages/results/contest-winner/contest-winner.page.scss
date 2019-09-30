@@ -1,0 +1,11 @@
+ion-content {
+  --background: rgba(30,20,30,0.6);
+}
+
+.close-button {
+	--background: transparent;
+	ion-icon {
+		font-size: 2rem;
+  }
+  padding-top: 20px;
+}

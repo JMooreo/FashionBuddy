@@ -1,6 +1,7 @@
 export interface Contest {
   id?: string;
   options?: Array<ContestOption>;
+  contestOwner: string;
   createDateTime: string;
   closeDateTime: string;
   occasion: string;

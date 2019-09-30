@@ -1,0 +1,28 @@
+<ion-toolbar>
+  <ion-buttons>
+    <ion-button (click)="close()">
+      <ion-icon slot="icon-only" name="arrow-round-back"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content>
+  <ion-grid class="contest-container">
+    <ion-row>
+      <ng-container *ngIf="percentages">
+        <ion-col style="padding: 20px" *ngFor="let option of contest.options; let i = index" text-center>
+          <ion-row justify-content-center>
+            <tinder-card [imageUrl]="option.imageUrl">
+            </tinder-card>
+          </ion-row>
+          <ion-row justify-content-center>
+            <ion-text style="margin: 10px; padding: 5px; font-size: 1.5rem" [color]="i == 0 ? 'primary' : 'secondary'">
+              {{ percentages[i] | percent }}
+            </ion-text>
+          </ion-row>
+        </ion-col>
+      </ng-container>
+    </ion-row>
+    <app-bar-chart [contestData]="contest"></app-bar-chart>
+  </ion-grid>
+</ion-content>
