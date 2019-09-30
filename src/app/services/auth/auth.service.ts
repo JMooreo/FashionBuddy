@@ -10,8 +10,7 @@ export class AuthService {
   constructor(private afAuth: AngularFireAuth) {}
 
   getUserId() {
-    return "tempUserId";
-    // this.afAuth.auth.currentUser.uid;
+    return this.afAuth.auth.currentUser.uid;
   }
 
   async createUserWithEmailAndPassword(email: string, password: string) {
