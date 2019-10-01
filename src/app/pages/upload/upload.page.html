@@ -15,8 +15,8 @@
         <ion-col class="contest-column">
           <tinder-card *ngIf="croppedImages[i] != null" [imageUrl]="croppedImages[i]" (click)="selectDeleteOrCrop(i)">
           </tinder-card>
-          <ion-button *ngIf="croppedImages[i] == null" fill="clear" color="dark" class="image-placeholder-button" expand="block"
-            (click)="selectSource(i)">
+          <ion-button *ngIf="croppedImages[i] == null" fill="clear" color="dark" class="image-placeholder-button"
+            expand="block" (click)="selectSource(i)">
             <ion-icon name="camera"></ion-icon>
           </ion-button>
         </ion-col>
@@ -24,7 +24,42 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-button expand="block" (click)="createContest()">Get Some Votes</ion-button>
+        <ion-list>
+          <ion-item no-padding>
+            <ion-label no-margin>
+              <ion-icon isActive="false" name="shirt"></ion-icon> Style:
+            </ion-label>
+            <ion-select interface="popover" [(ngModel)]="style">
+              <ion-select-option value="Trendy">Trendy</ion-select-option>
+              <ion-select-option value="Casual">Casual</ion-select-option>
+              <ion-select-option value="Work">Work</ion-select-option>
+              <ion-select-option value="Comfortable">Comfortable</ion-select-option>
+              <ion-select-option value="Formal">Formal</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item lines="none" no-padding>
+            <ion-label fixed>
+              <ion-icon name="timer"></ion-icon> Voting Closes in:
+            </ion-label>
+          </ion-item>
+            <app-duration-picker (timeSelectedEvent)="onTimeSelectedEvent($event)"></app-duration-picker>
+          <ion-item-divider mode="md"></ion-item-divider>
+          <ion-item no-padding>
+            <ion-label>
+              <ion-icon name="wine"></ion-icon> Occasion:
+            </ion-label>
+            <ion-select interface="popover" [(ngModel)]="occasion">
+              <ion-select-option value="Everyday">Everyday</ion-select-option>
+              <ion-select-option value="Night Out">Night Out</ion-select-option>
+              <ion-select-option value="Party">Party</ion-select-option>
+              <ion-select-option value="Date">Date</ion-select-option>
+              <ion-select-option value="Wedding">Wedding</ion-select-option>
+              <ion-select-option value="Dance">Dance</ion-select-option>
+              <ion-select-option value="Other">Other</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+        <ion-button color="primary" expand="block" (click)="createContest()">Get Some Votes</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
