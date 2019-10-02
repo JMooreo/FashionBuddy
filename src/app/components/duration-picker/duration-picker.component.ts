@@ -12,7 +12,7 @@ import {
   styleUrls: ["./duration-picker.component.scss"]
 })
 export class DurationPickerComponent implements OnInit {
-  @Output() timeSelectedEvent = new EventEmitter<string>();
+  @Output() timeSelectedEvent = new EventEmitter<number>();
   @ViewChild("timePicker", null) timePicker;
 
   timePickerLabel = "set time";
@@ -31,7 +31,7 @@ export class DurationPickerComponent implements OnInit {
 
   onTimeSelected(value: string) {
     this.value = value;
-    const cleanValue = value.replace("min", "").trim();
+    const cleanValue = Number(value.replace("min", "").trim());
     this.emitValueSelectedEvent(cleanValue);
   }
 
@@ -42,7 +42,7 @@ export class DurationPickerComponent implements OnInit {
     const totalMinutes = hours * 60 + minutes;
 
     this.timePickerLabel = this.getFormattedTimeLabel(hours, minutes);
-    this.emitValueSelectedEvent(totalMinutes.toString());
+    this.emitValueSelectedEvent(totalMinutes);
   }
 
   getFormattedTimeLabel(hours: number, minutes: number) {
@@ -59,7 +59,7 @@ export class DurationPickerComponent implements OnInit {
     return formattedLabel;
   }
 
-  emitValueSelectedEvent(value: string) {
+  emitValueSelectedEvent(value: number) {
     this.timeSelectedEvent.emit(value);
   }
 

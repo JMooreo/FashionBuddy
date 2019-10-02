@@ -22,7 +22,7 @@ import { trigger, style, animate, transition } from "@angular/animations";
 })
 export class VotingPage implements OnInit {
   // Constants
-  ANIMATION_DELAY = 800;
+  ANIMATION_DELAY = 600;
   // Booleans
   isContestVisible = false; // default invisible for fade in
   isRefreshing = false;

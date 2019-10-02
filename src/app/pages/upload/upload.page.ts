@@ -19,9 +19,9 @@ import { AuthService } from "src/app/services/auth/auth.service";
 export class UploadPage implements OnInit {
   images = [null, null];
   croppedImages = [null, null];
-  style: string = null;
-  occasion: string = null;
-  durationInMinutes: number = null;
+  style = "Trendy";
+  occasion = "Everyday";
+  durationInMinutes = 5;
   storeCode: string = null;
 
   constructor(
@@ -131,11 +131,23 @@ export class UploadPage implements OnInit {
       });
   }
 
-  onTimeSelectedEvent($event) {
-    console.log("duration", $event);
+  onTimeSelectedEvent($event: number) {
+    this.durationInMinutes = $event;
   }
 
   isFormValid() {
+    for (const image of this.croppedImages) {
+      if (image == null) {
+        this.showAlert("Upload Failed", "You must choose 2 images");
+        return false;
+      }
+    }
+
+    if (this.durationInMinutes < 5) {
+      this.showAlert("Upload Failed", "Duration must be at least 5 minutes");
+      console.log("duration:", this.durationInMinutes);
+      return false;
+    }
     return true;
   }
 
@@ -158,7 +170,7 @@ export class UploadPage implements OnInit {
   }
 
   createContest() {
-    if (this.validateFormData()) {
+    if (this.isFormValid()) {
       const contestId = "cid=" + new Date(Date.now()).toISOString();
       const contestOptions = [];
       const userId = this.authSrv.getUserId();
@@ -167,16 +179,19 @@ export class UploadPage implements OnInit {
           contestOptions.push({ imageUrl: url, votes: 0 });
         });
 
-        const testCreateDateTime = new Date(Date.now());
-        const testCloseDateTime = new Date("2020");
+        const createDateTime = new Date(Date.now());
+        const closeDateTime = new Date(createDateTime);
+        closeDateTime.setMinutes(createDateTime.getMinutes() + this.durationInMinutes);
+        console.log(createDateTime);
+        console.log(closeDateTime);
 
         const contest = {
-          createDateTime: testCreateDateTime.toISOString(),
-          closeDateTime: testCloseDateTime.toISOString(),
+          createDateTime: createDateTime.toISOString(),
+          closeDateTime: closeDateTime.toISOString(),
           contestOwner: userId,
-          occasion: "testContest occasion",
+          occasion: this.occasion,
           reportCount: 0,
-          style: "test Style"
+          style: this.style
         };
 
         this.dbSrv
@@ -186,17 +201,6 @@ export class UploadPage implements OnInit {
           });
       });
     }
-  }
-
-  validateFormData() {
-    // must have 2 photos
-    for (const image of this.croppedImages) {
-      if (image == null) {
-        alert("must upload 2 images!");
-        return false;
-      }
-    }
-    return true;
   }
 
   async showAlert(header: string, message: string) {
