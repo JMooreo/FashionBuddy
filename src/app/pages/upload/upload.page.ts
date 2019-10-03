@@ -19,6 +19,10 @@ import { AuthService } from "src/app/services/auth/auth.service";
 export class UploadPage implements OnInit {
   images = [null, null];
   croppedImages = [null, null];
+  style = "Trendy";
+  occasion = "Everyday";
+  durationInMinutes = 5;
+  storeCode: string = null;
 
   constructor(
     private dbSrv: DatabaseService,
@@ -89,7 +93,9 @@ export class UploadPage implements OnInit {
 
   captureImage(sourceType: number, index: number) {
     const options: CameraOptions = {
-      quality: 30,
+      quality: 100,
+      targetWidth: 800,
+      targetHeight: 1800,
       sourceType,
       saveToPhotoAlbum: true,
       correctOrientation: true,
@@ -97,11 +103,16 @@ export class UploadPage implements OnInit {
       mediaType: this.camera.MediaType.PICTURE
     };
 
-    this.camera.getPicture(options).then(dataUrl => {
-      const base64Image = "data:image/jpeg;base64," + dataUrl;
-      this.images[index] = base64Image;
-      this.openCropper(base64Image, index);
-    });
+    this.camera.getPicture(options).then(
+      dataUrl => {
+        const base64Image = "data:image/jpeg;base64," + dataUrl;
+        this.images[index] = base64Image;
+        this.openCropper(base64Image, index);
+      },
+      err => {
+        alert("Failed to capture image");
+      }
+    );
   }
 
   openCropper(base64Image: string, index: number) {
@@ -118,6 +129,26 @@ export class UploadPage implements OnInit {
           }
         });
       });
+  }
+
+  onTimeSelectedEvent($event: number) {
+    this.durationInMinutes = $event;
+  }
+
+  isFormValid() {
+    for (const image of this.croppedImages) {
+      if (image == null) {
+        this.showAlert("Upload Failed", "You must choose 2 images");
+        return false;
+      }
+    }
+
+    if (this.durationInMinutes < 5) {
+      this.showAlert("Upload Failed", "Duration must be at least 5 minutes");
+      console.log("duration:", this.durationInMinutes);
+      return false;
+    }
+    return true;
   }
 
   async uploadAllImages(contestId: string): Promise<string[]> {
@@ -139,30 +170,37 @@ export class UploadPage implements OnInit {
   }
 
   createContest() {
-    const contestId = "cid=" + new Date(Date.now()).toISOString();
-    const contestOptions = [];
-    const userId = this.authSrv.getUserId();
-    this.uploadAllImages(contestId).then(downloadUrls => {
-      downloadUrls.forEach(url => {
-        contestOptions.push({ imageUrl: url, votes: 0 });
+    if (this.isFormValid()) {
+      const contestId = "cid=" + new Date(Date.now()).toISOString();
+      const contestOptions = [];
+      const userId = this.authSrv.getUserId();
+      this.uploadAllImages(contestId).then(downloadUrls => {
+        downloadUrls.forEach(url => {
+          contestOptions.push({ imageUrl: url, votes: 0 });
+        });
+
+        const createDateTime = new Date(Date.now());
+        const closeDateTime = new Date(createDateTime);
+        closeDateTime.setMinutes(createDateTime.getMinutes() + this.durationInMinutes);
+        console.log(createDateTime);
+        console.log(closeDateTime);
+
+        const contest = {
+          createDateTime: createDateTime.toISOString(),
+          closeDateTime: closeDateTime.toISOString(),
+          contestOwner: userId,
+          occasion: this.occasion,
+          reportCount: 0,
+          style: this.style
+        };
+
+        this.dbSrv
+          .createContest(contestId, contest, contestOptions)
+          .then(() => {
+            this.showAlert("Success", "Uploaded your contest!");
+          });
       });
-
-      const testCreateDateTime = new Date(Date.now());
-      const testCloseDateTime = new Date("2020");
-
-      const contest = {
-        createDateTime: testCreateDateTime.toISOString(),
-        closeDateTime: testCloseDateTime.toISOString(),
-        contestOwner: userId,
-        occasion: "testContest occasion",
-        reportCount: 0,
-        style: "test Style"
-      };
-
-      this.dbSrv.createContest(contestId, contest, contestOptions).then(() => {
-        this.showAlert("Success", "Uploaded your contest!");
-      });
-    });
+    }
   }
 
   async showAlert(header: string, message: string) {
