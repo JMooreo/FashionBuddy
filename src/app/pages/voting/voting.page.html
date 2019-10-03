@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title>
       <div text-center>
-        FashionBuddy
+        Fashion Buddy
       </div>
     </ion-title>
   </ion-toolbar>
@@ -27,7 +27,7 @@
     </ion-row>
     <ion-row *ngIf="!(contests && this.contests[0] != null)" [@inOutAnimation]>
       <ion-col text-center>
-        <ion-text>No contests to vote on :(</ion-text>
+        <ion-text style="font-size: 1.5rem">You're all caught up! <br/><a style="font-size: 1.2rem" [routerLink]="['/tabs/upload']" routerLinkActive="router-link-active" >Post an outfit</a></ion-text>
       </ion-col>
     </ion-row>
   </ion-grid>
