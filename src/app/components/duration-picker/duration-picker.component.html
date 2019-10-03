@@ -10,5 +10,5 @@
     </div>
   </ion-col>
   <ion-datetime #timePicker style="display: none" (ionChange)="parseTimePickerValue(timePickerValue)"
-    pickerFormat="H:mm" [value]="timePickerValue"></ion-datetime>
+    pickerFormat="H:mm" [(ngModel)]="timePickerValue"></ion-datetime>
 </ion-row>

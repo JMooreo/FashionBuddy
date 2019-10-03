@@ -29,7 +29,7 @@
             <ion-label no-margin>
               <ion-icon isActive="false" mode="md" name="shirt"></ion-icon> Style:
             </ion-label>
-            <ion-select interface="popover" [value]="style">
+            <ion-select interface="popover" [(ngModel)]="style">
               <ion-select-option value="Trendy">Trendy</ion-select-option>
               <ion-select-option value="Casual">Casual</ion-select-option>
               <ion-select-option value="Work">Work</ion-select-option>
@@ -41,7 +41,7 @@
             <ion-label>
               <ion-icon mode="ios" name="wine"></ion-icon> Occasion:
             </ion-label>
-            <ion-select interface="popover" [value]="occasion">
+            <ion-select interface="popover" [(ngModel)]="occasion">
               <ion-select-option value="Everyday">Everyday</ion-select-option>
               <ion-select-option value="Night Out">Night Out</ion-select-option>
               <ion-select-option value="Party">Party</ion-select-option>

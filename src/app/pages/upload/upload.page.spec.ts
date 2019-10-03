@@ -9,6 +9,7 @@ import { Camera } from "@ionic-native/camera/ngx";
 import { StorageService } from "src/app/services/storage/storage.service";
 import { AuthService } from "src/app/services/auth/auth.service";
 import { DurationPickerComponent } from "src/app/components/duration-picker/duration-picker.component";
+import { FormsModule } from "@angular/forms";
 
 describe("UploadPage", () => {
   let component: UploadPage;
@@ -17,7 +18,7 @@ describe("UploadPage", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [UploadPage, DurationPickerComponent],
-      imports: [IonicModule.forRoot(), SharedComponentsModule],
+      imports: [IonicModule.forRoot(), SharedComponentsModule, FormsModule],
       providers: [
         // tslint:disable-next-line: no-use-before-declare
         { provide: DatabaseService, useClass: DatabaseServiceStub },
