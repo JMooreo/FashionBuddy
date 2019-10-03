@@ -57,7 +57,7 @@ export class DatabaseService {
     const contests = new Array<Contest>();
     await this.contestsRef
       .where("contestOwner", "==", this.authSrv.getUserId())
-      .orderBy("createDateTime", "desc")
+      .orderBy("createDateTime")
       .limit(10) // reduce data download
       .get()
       .then(querySnapshot => {

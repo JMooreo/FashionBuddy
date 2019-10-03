@@ -7,8 +7,7 @@ import { ContestOption, Contest } from "src/app/models/contest-model";
 import { SharedComponentsModule } from "src/app/components/components.module";
 import { Camera } from "@ionic-native/camera/ngx";
 import { StorageService } from "src/app/services/storage/storage.service";
-import { AuthService } from "src/app/services/auth/auth.service";
-import { DurationPickerComponent } from "src/app/components/duration-picker/duration-picker.component";
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 describe("UploadPage", () => {
   let component: UploadPage;
@@ -16,7 +15,7 @@ describe("UploadPage", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [UploadPage, DurationPickerComponent],
+      declarations: [UploadPage],
       imports: [IonicModule.forRoot(), SharedComponentsModule],
       providers: [
         // tslint:disable-next-line: no-use-before-declare
