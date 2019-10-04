@@ -42,7 +42,9 @@ export class VotingPage implements OnInit {
 
   async firstPageLoad() {
     await this.pageLoad();
-    await this.loadingCtrl.dismiss();
+    try {
+      await this.loadingCtrl.dismiss();
+    } catch {}
     this.showAlert("Success", "You're Logged in :)");
   }
 

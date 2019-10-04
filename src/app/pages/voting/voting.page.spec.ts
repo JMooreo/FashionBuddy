@@ -5,7 +5,8 @@ import { VotingPage } from "./voting.page";
 import { TinderCardComponent } from "src/app/components/tinder-card/tinder-card.component";
 import { DatabaseService } from "src/app/services/database/database.service";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { Contest } from "src/app/models/contest-model";
+import { LocationStrategy, PathLocationStrategy, Location } from "@angular/common";
+import { RouterTestingModule } from "@angular/router/testing";
 
 describe("VotingPage", () => {
   let component: VotingPage;
@@ -14,8 +15,10 @@ describe("VotingPage", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [VotingPage, TinderCardComponent],
-      imports: [IonicModule.forRoot(), BrowserAnimationsModule],
+      imports: [IonicModule.forRoot(), BrowserAnimationsModule, RouterTestingModule],
       providers: [
+        Location,
+        { provide: LocationStrategy, useClass: PathLocationStrategy },
         // tslint:disable-next-line: no-use-before-declare
         { provide: DatabaseService, useClass: DatabaseServiceStub }
       ]
