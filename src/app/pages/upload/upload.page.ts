@@ -92,27 +92,27 @@ export class UploadPage implements OnInit {
   }
 
   captureImage(sourceType: number, index: number) {
-    const options: CameraOptions = {
-      quality: 100,
-      targetWidth: 800,
-      targetHeight: 1800,
-      sourceType,
-      saveToPhotoAlbum: true,
-      correctOrientation: true,
-      destinationType: this.camera.DestinationType.DATA_URL,
-      mediaType: this.camera.MediaType.PICTURE
-    };
+      const options: CameraOptions = {
+        quality: 100,
+        targetWidth: 800,
+        targetHeight: 1800,
+        sourceType,
+        saveToPhotoAlbum: true,
+        correctOrientation: true,
+        destinationType: this.camera.DestinationType.DATA_URL,
+        mediaType: this.camera.MediaType.PICTURE
+      };
 
-    this.camera.getPicture(options).then(
-      dataUrl => {
-        const base64Image = "data:image/jpeg;base64," + dataUrl;
-        this.images[index] = base64Image;
-        this.openCropper(base64Image, index);
-      },
-      err => {
-        alert("Failed to capture image");
-      }
-    );
+      this.camera.getPicture(options).then(
+        dataUrl => {
+          const base64Image = "data:image/jpeg;base64," + dataUrl;
+          this.images[index] = base64Image;
+          this.openCropper(base64Image, index);
+        },
+        err => {
+          this.showAlert("Error", err);
+        }
+      );
   }
 
   openCropper(base64Image: string, index: number) {
@@ -181,7 +181,9 @@ export class UploadPage implements OnInit {
 
         const createDateTime = new Date(Date.now());
         const closeDateTime = new Date(createDateTime);
-        closeDateTime.setMinutes(createDateTime.getMinutes() + this.durationInMinutes);
+        closeDateTime.setMinutes(
+          createDateTime.getMinutes() + this.durationInMinutes
+        );
         console.log(createDateTime);
         console.log(closeDateTime);
 

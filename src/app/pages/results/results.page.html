@@ -10,16 +10,28 @@
 
 <ion-content>
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content pullingText="Pull to refresh" refreshingSpinner="crescent" refreshingText="Refreshing...">
+    <ion-refresher-content pullingText="Pull to refresh" refreshingSpinner="crescent">
     </ion-refresher-content>
   </ion-refresher>
   <ion-row>
-    <ng-container *ngIf="contests">
+    <ng-container *ngIf="contests && contests.length > 0">
       <ion-col style="padding: 20px" size="6" *ngFor="let contest of contests">
         <tinder-card *ngIf="contest.options[0]?.imageUrl" [imageUrl]="contest.options[0].imageUrl"
-          (click)="showContestDetails(contest, true)">
+          (click)="showContestDetails(contest, true)" (loadedEvent)="onCardLoaded()">
         </tinder-card>
       </ion-col>
     </ng-container>
+    <ion-col *ngIf="contests && contests.length === 0">
+      <ion-card padding>
+        <ion-card-title>
+          Nothing to see here,
+        </ion-card-title>
+        <ion-card-content>
+          <ion-text>
+            <a [routerLink]="['/tabs/upload']" routerLinkActive="router-link-active">Post an outfit</a>
+            then come back here to see your results :)</ion-text>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
   </ion-row>
 </ion-content>

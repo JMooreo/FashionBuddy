@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { DatabaseService } from "src/app/services/database/database.service";
 import { Contest } from "../../models/contest-model";
-import { ModalController } from "@ionic/angular";
+import { ModalController, LoadingController } from "@ionic/angular";
 import { ContestOverlayPage } from "./contest-overlay/contest-overlay.page";
 
 @Component({
@@ -11,27 +11,52 @@ import { ContestOverlayPage } from "./contest-overlay/contest-overlay.page";
 })
 export class ResultsPage implements OnInit {
   contests = Array<Contest>();
+  refreshEvent: any;
+  loading = false;
 
   constructor(
     private dbSrv: DatabaseService,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private loadingCtrl: LoadingController
   ) {}
 
   ngOnInit() {
-    this.pageLoad();
+    this.firstPageLoad();
   }
 
-  pageLoad() {
+  async firstPageLoad() {
+    await this.presentLoading();
+    await this.pageLoad();
+    if (this.contests.length === 0) {
+      this.loadingCtrl.dismiss();
+      this.loading = false;
+    }
+  }
+
+  async pageLoad() {
     this.dbSrv.getAllContestsWhereUserIsContestOwner().then(contests => {
       this.contests = contests;
       console.log(this.contests);
+      if (this.contests.length === 0 && this.refreshEvent) {
+        this.refreshEvent.target.complete();
+      }
     });
   }
 
   async doRefresh(event) {
-    this.pageLoad();
-    await event.target.complete();
+    await this.pageLoad();
+    this.refreshEvent = event;
   }
+
+  onCardLoaded() {
+    if (this.refreshEvent) {
+      this.refreshEvent.target.complete();
+    }
+    if (this.loading) {
+      this.loadingCtrl.dismiss();
+      this.loading = false;
+  }
+}
 
   showContestDetails(contest: Contest, showWinner: boolean) {
     this.modalCtrl
@@ -42,5 +67,14 @@ export class ResultsPage implements OnInit {
       .then(overlayPage => {
         overlayPage.present();
       });
+  }
+
+  async presentLoading() {
+    this.loading = true;
+    const loading = await this.loadingCtrl.create({
+      spinner: "crescent",
+      message: "Getting outfits..."
+    });
+    return await loading.present();
   }
 }

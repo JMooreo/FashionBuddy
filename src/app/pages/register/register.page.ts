@@ -1,40 +1,42 @@
-import { Component, OnInit } from '@angular/core';
-import { NavController, AlertController } from '@ionic/angular';
-import { AuthService } from 'src/app/services/auth/auth.service';
+import { Component, OnInit } from "@angular/core";
+import { NavController, AlertController, LoadingController } from "@ionic/angular";
+import { AuthService } from "src/app/services/auth/auth.service";
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.page.html',
-  styleUrls: ['./register.page.scss']
+  selector: "app-register",
+  templateUrl: "./register.page.html",
+  styleUrls: ["./register.page.scss"]
 })
 export class RegisterPage implements OnInit {
-  email = '';
-  password = '';
-  confirmPassword = '';
+  email = "";
+  password = "";
+  confirmPassword = "";
 
   constructor(
     private navCtrl: NavController,
     public authSrv: AuthService,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    public loadingCtrl: LoadingController
   ) {}
 
   ngOnInit() {}
 
-  register() {
+  async register() {
+    await this.presentLoading();
     const { email, password, confirmPassword } = this;
 
     if (password !== confirmPassword) {
-      this.showAlert('Error', 'Passwords do not match');
-      return console.error('Passwords do not match!');
+      this.showAlert("Error", "Passwords do not match");
+      return console.error("Passwords do not match!");
     }
     this.authSrv
       .createUserWithEmailAndPassword(email, password)
       .then(callback => {
         if (callback === true) {
-          this.showAlert('Success', 'Welcome aboard!');
-          this.navigateTo('tabs');
+          this.navigateTo("tabs");
         } else {
-          this.showAlert('Error', callback.message);
+          this.loadingCtrl.dismiss();
+          this.showAlert("Error", callback.message);
         }
       });
   }
@@ -43,11 +45,19 @@ export class RegisterPage implements OnInit {
     this.navCtrl.navigateRoot(`/${pageName}`);
   }
 
+  async presentLoading() {
+    const loading = await this.loadingCtrl.create({
+      spinner: "crescent",
+      message: "Authenticating..."
+    });
+    return await loading.present();
+  }
+
   async showAlert(header: string, message: string) {
     const alert = await this.alertCtrl.create({
       header,
       message,
-      buttons: ['OK']
+      buttons: ["OK"]
     });
 
     await alert.present();
