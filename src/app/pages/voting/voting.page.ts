@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { DatabaseService } from "../../services/database/database.service";
 import { Contest } from "../../models/contest-model";
 import { trigger, style, animate, transition } from "@angular/animations";
+import { LoadingController, AlertController } from "@ionic/angular";
 
 @Component({
   selector: "app-voting",
@@ -22,17 +23,29 @@ import { trigger, style, animate, transition } from "@angular/animations";
 })
 export class VotingPage implements OnInit {
   // Constants
-  ANIMATION_DELAY = 600;
+  ANIMATION_DELAY = 100;
   // Booleans
   isContestVisible = false; // default invisible for fade in
   isRefreshing = false;
   // Objects
   contests: Array<Contest>;
 
-  constructor(private dbSrv: DatabaseService) {}
+  constructor(
+    private dbSrv: DatabaseService,
+    private loadingCtrl: LoadingController,
+    private alertCtrl: AlertController
+  ) {}
 
   ngOnInit() {
-    this.pageLoad();
+    this.firstPageLoad();
+  }
+
+  async firstPageLoad() {
+    await this.pageLoad();
+    try {
+      await this.loadingCtrl.dismiss();
+    } catch {}
+    this.showAlert("Success", "You're Logged in :)");
   }
 
   async pageLoad() {
@@ -69,5 +82,14 @@ export class VotingPage implements OnInit {
     } else {
       event.source.reset();
     }
+  }
+
+  async showAlert(header: string, message: string) {
+    const alert = await this.alertCtrl.create({
+      header,
+      message,
+      buttons: ["OK"]
+    });
+    return alert.present();
   }
 }
