@@ -1,5 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { NavController, AlertController, LoadingController } from "@ionic/angular";
+import {
+  NavController,
+  AlertController,
+  LoadingController
+} from "@ionic/angular";
 import { AuthService } from "src/app/services/auth/auth.service";
 
 @Component({
@@ -11,6 +15,7 @@ export class RegisterPage implements OnInit {
   email = "";
   password = "";
   confirmPassword = "";
+  rememberMe: boolean;
 
   constructor(
     private navCtrl: NavController,
@@ -19,7 +24,15 @@ export class RegisterPage implements OnInit {
     public loadingCtrl: LoadingController
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    try {
+      if (localStorage.getItem("rememberMe") === "true") {
+        this.email = localStorage.getItem("email");
+        this.password = localStorage.getItem("password");
+        this.rememberMe = true;
+      }
+    } catch {}
+  }
 
   async register() {
     await this.presentLoading();
@@ -27,9 +40,11 @@ export class RegisterPage implements OnInit {
 
     if (password !== confirmPassword) {
       this.showAlert("Error", "Passwords do not match");
-      return console.error("Passwords do not match!");
+      this.loadingCtrl.dismiss();
+      return;
     }
-    this.authSrv
+
+    await this.authSrv
       .createUserWithEmailAndPassword(email, password)
       .then(callback => {
         if (callback === true) {
@@ -39,6 +54,16 @@ export class RegisterPage implements OnInit {
           this.showAlert("Error", callback.message);
         }
       });
+
+    if (this.rememberMe) {
+      localStorage.setItem("rememberMe", "true");
+      localStorage.setItem("email", email);
+      localStorage.setItem("password", password);
+    } else {
+      localStorage.setItem("rememberMe", "false");
+      localStorage.setItem("email", "");
+      localStorage.setItem("password", "");
+    }
   }
 
   navigateTo(pageName: string) {

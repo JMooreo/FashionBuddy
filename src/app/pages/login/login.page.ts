@@ -1,5 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { NavController, AlertController, LoadingController } from "@ionic/angular";
+import {
+  NavController,
+  AlertController,
+  LoadingController
+} from "@ionic/angular";
 import { AuthService } from "src/app/services/auth/auth.service";
 
 @Component({
@@ -10,6 +14,7 @@ import { AuthService } from "src/app/services/auth/auth.service";
 export class LoginPage implements OnInit {
   email = "";
   password = "";
+  rememberMe: boolean;
 
   constructor(
     private navCtrl: NavController,
@@ -18,19 +23,39 @@ export class LoginPage implements OnInit {
     public loadingCtrl: LoadingController
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    try {
+      if (localStorage.getItem("rememberMe") === "true") {
+        this.email = localStorage.getItem("email");
+        this.password = localStorage.getItem("password");
+        this.rememberMe = true;
+      }
+    } catch {}
+  }
 
   async login() {
     const { email, password } = this;
     await this.presentLoading();
-    this.authSrv.signInWithEmailAndPassword(email, password).then(callback => {
-      if (callback === true) {
-        this.navigateTo("tabs");
-      } else {
-        this.loadingCtrl.dismiss();
-        this.showAlert("Error", callback.message);
-      }
-    });
+    await this.authSrv
+      .signInWithEmailAndPassword(email, password)
+      .then(callback => {
+        if (callback === true) {
+          this.navigateTo("tabs");
+        } else {
+          this.loadingCtrl.dismiss();
+          this.showAlert("Error", callback.message);
+        }
+      });
+
+    if (this.rememberMe) {
+      localStorage.setItem("rememberMe", "true");
+      localStorage.setItem("email", email);
+      localStorage.setItem("password", password);
+    } else {
+      localStorage.setItem("rememberMe", "false");
+      localStorage.setItem("email", "");
+      localStorage.setItem("password", "");
+    }
   }
 
   async navigateTo(pageName: string) {

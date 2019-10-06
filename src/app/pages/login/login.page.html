@@ -21,6 +21,11 @@
       <ion-input type="password" [(ngModel)]="password"></ion-input>
     </ion-item>
 
+    <ion-item>
+      <ion-label>Remember Me</ion-label>
+      <ion-checkbox slot="start" [(ngModel)]="rememberMe"></ion-checkbox>
+    </ion-item>
+
   </ion-list>
   <ion-button mode="ios" fill="solid" expand="block" color="dark" (click)="login()">Login</ion-button>
   <br />
