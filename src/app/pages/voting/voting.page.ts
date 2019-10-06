@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { DatabaseService } from "../../services/database/database.service";
 import { Contest } from "../../models/contest-model";
 import { trigger, style, animate, transition } from "@angular/animations";
-import { LoadingController, AlertController } from "@ionic/angular";
+import { LoadingController, AlertController, NavController } from "@ionic/angular";
 
 @Component({
   selector: "app-voting",
@@ -33,7 +33,8 @@ export class VotingPage implements OnInit {
   constructor(
     private dbSrv: DatabaseService,
     private loadingCtrl: LoadingController,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private navCtrl: NavController
   ) {}
 
   ngOnInit() {
@@ -44,8 +45,8 @@ export class VotingPage implements OnInit {
     await this.pageLoad();
     try {
       await this.loadingCtrl.dismiss();
+      this.showAlert("Success", "You're Logged in :)");
     } catch {}
-    this.showAlert("Success", "You're Logged in :)");
   }
 
   async pageLoad() {
@@ -82,6 +83,10 @@ export class VotingPage implements OnInit {
     } else {
       event.source.reset();
     }
+  }
+
+  navigateTo(pageName: string) {
+    this.navCtrl.navigateRoot(`/${pageName}`);
   }
 
   async showAlert(header: string, message: string) {

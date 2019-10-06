@@ -30,4 +30,16 @@ export class AuthService {
       return err; // error callback
     }
   }
+
+  logOut(): Promise<any> {
+    return this.afAuth.auth.signOut();
+  }
+
+  deleteUser(email: string, password: string): Promise<any> {
+    return this.afAuth.auth.signInWithEmailAndPassword(email, password).then(success => {
+      return this.afAuth.auth.currentUser.delete().then(data => {
+        return data;
+      });
+    });
+  }
 }

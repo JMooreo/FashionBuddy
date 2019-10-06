@@ -1,10 +1,20 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button disabled>
+        <ion-icon></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title>
       <div text-center>
         Fashion Buddy
       </div>
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="dark" (click)="navigateTo('settings')">
+        <ion-icon name="settings"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -27,7 +37,8 @@
     </ion-row>
     <ion-row *ngIf="!(contests && this.contests[0] != null)" [@inOutAnimation]>
       <ion-col text-center>
-        <ion-text style="font-size: 1.5rem">You're all caught up! <br/><a style="font-size: 1.2rem" [routerLink]="['/tabs/upload']" routerLinkActive="router-link-active" >Post an outfit</a></ion-text>
+        <ion-text style="font-size: 1.5rem">You're all caught up! <br /><a style="font-size: 1.2rem"
+            [routerLink]="['/tabs/upload']" routerLinkActive="router-link-active">Post an outfit</a></ion-text>
       </ion-col>
     </ion-row>
   </ion-grid>

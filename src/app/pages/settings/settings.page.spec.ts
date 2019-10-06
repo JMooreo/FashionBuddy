@@ -1,17 +1,18 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { LoginPage } from "./login.page";
+import { SettingsPage } from "./settings.page";
+import { AuthService } from "src/app/services/auth/auth.service";
 import { Location, LocationStrategy, PathLocationStrategy } from "@angular/common";
 import { UrlSerializer } from "@angular/router";
-import { AuthService } from "src/app/services/auth/auth.service";
 
-describe("LoginPage", () => {
-  let component: LoginPage;
-  let fixture: ComponentFixture<LoginPage>;
+describe("SettingsPage", () => {
+  let component: SettingsPage;
+  let fixture: ComponentFixture<SettingsPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      declarations: [SettingsPage],
       providers: [
         Location,
         UrlSerializer,
@@ -19,13 +20,12 @@ describe("LoginPage", () => {
         // tslint:disable-next-line: no-use-before-declare
         { provide: AuthService, useClass: AuthServiceStub }
       ],
-      declarations: [LoginPage],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginPage);
+    fixture = TestBed.createComponent(SettingsPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -36,5 +36,5 @@ describe("LoginPage", () => {
 });
 
 class AuthServiceStub {
-  createUserWithEmailAndPassword(email: string, password: string) {}
+  deleteUser(email: string, password: string) {}
 }
