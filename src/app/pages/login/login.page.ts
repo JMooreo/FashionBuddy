@@ -1,9 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import {
-  NavController,
-  AlertController,
-  LoadingController
-} from "@ionic/angular";
+import { NavController, AlertController, LoadingController } from "@ionic/angular";
 import { AuthService } from "src/app/services/auth/auth.service";
 
 @Component({
@@ -24,13 +20,11 @@ export class LoginPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    try {
-      if (localStorage.getItem("rememberMe") === "true") {
-        this.email = localStorage.getItem("email");
-        this.password = localStorage.getItem("password");
-        this.rememberMe = true;
-      }
-    } catch {}
+    if (localStorage.getItem("rememberMe") === "true") {
+      this.email = localStorage.getItem("email");
+      this.password = localStorage.getItem("password");
+      this.rememberMe = true;
+    }
   }
 
   async login() {
