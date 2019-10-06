@@ -30,4 +30,8 @@ export class AuthService {
       return err; // error callback
     }
   }
+
+  logOut(): Promise<any> {
+    return this.afAuth.auth.signOut();
+  }
 }

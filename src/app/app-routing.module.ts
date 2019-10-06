@@ -32,6 +32,10 @@ const routes: Routes = [
     path: "contest-winner",
     loadChildren:
       "./pages/results/contest-winner/contest-winner.module#ContestWinnerPageModule"
+  },
+  {
+    path: "settings",
+    loadChildren: "./pages/settings/settings.module#SettingsPageModule"
   }
 ];
 @NgModule({

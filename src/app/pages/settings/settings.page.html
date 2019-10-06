@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="dark" (click)="navigateTo('tabs/voting')">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      <div text-center>
+        Settings
+      </div>
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item (click)="logOut()">
+      Log out
+      <ion-icon mode="ios" slot="end" name="log-out"></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>
