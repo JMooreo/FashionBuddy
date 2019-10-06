@@ -39,7 +39,59 @@ export class SettingsPage implements OnInit {
     return alert.present();
   }
 
+  async deleteAccount() {
+    const alert = await this.alertCtrl.create({
+      header: "Log in to delete",
+      message: "Enter email and password to delete account",
+      inputs: [
+        {
+          name: "Email",
+          placeholder: "Email"
+        },
+        {
+          name: "password",
+          type: "password",
+          placeholder: "Password"
+        }
+      ],
+      buttons: [
+        {
+          text: "Done",
+          handler: data => {
+            this.authSrv
+              .deleteUser(data[0], data[1])
+              .then(() => {
+                this.showAlert(
+                  "Sorry to see you go",
+                  "We successfully deleted your account"
+                );
+                this.navigateTo("register");
+              })
+              .catch(err => this.showAlert("Error", err.message));
+          }
+        },
+        {
+          text: "Cancel",
+          role: "cancel",
+          handler: () => {}
+        }
+      ]
+    });
+
+    return alert.present();
+  }
+
   navigateTo(pageName: string) {
     this.navCtrl.navigateRoot(`/${pageName}`);
+  }
+
+  async showAlert(header: string, message: string) {
+    const alert = await this.alertCtrl.create({
+      header,
+      message,
+      buttons: ["OK"]
+    });
+
+    return alert.present();
   }
 }
