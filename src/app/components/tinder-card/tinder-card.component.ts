@@ -1,17 +1,17 @@
-import { Component, Input, AfterViewInit, Output, EventEmitter } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
   selector: "tinder-card",
   templateUrl: "./tinder-card.component.html",
   styleUrls: ["./tinder-card.component.scss"]
 })
-export class TinderCardComponent implements AfterViewInit {
+export class TinderCardComponent {
   @Input() imageUrl: string;
   @Output() loadedEvent = new EventEmitter<boolean>();
 
   constructor() {}
 
-  ngAfterViewInit() {
+  emitLoaded() {
     this.loadedEvent.emit(true);
   }
 }
