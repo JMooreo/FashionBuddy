@@ -1,7 +1,12 @@
+// The Cloud Functions for Firebase SDK to create Cloud Functions and setup triggers.
 import * as functions from "firebase-functions";
+
+// The Firebase Admin SDK to access the Firebase Realtime Database.
 import * as admin from "firebase-admin";
 admin.initializeApp();
 
+//#region Justin's function
+/*
 import { tmpdir } from "os";
 import { join, dirname } from "path";
 
@@ -92,4 +97,85 @@ export const generateThumbs = functions.storage
       );
     console.log("removing working Directory", workingDir);
     return fs.remove(workingDir);
-  });
+  });*/
+//#endregion
+
+//#region firebase deploy --only functions:contestScreening
+
+export const contestScreening = functions.firestore.document('Contests/{contestID}').onUpdate((change, context) => {
+  const db = admin.firestore()
+
+  // Retrieve the current and previous value
+  const data = change.after.data();
+  const previousData = change.before.data();
+
+  try {
+    if (data['reportCount'] === previousData['reportCount']) {
+      return null;
+    }
+    if (data['reportCount'] <= 3) {
+      return null;
+    }
+  }
+  catch (err) {
+    console.log("Hello I'm Mr.Werid:", err)
+    return null;
+  }
+
+  db.collection('ReportedContests').doc(context.params['contestID']).set({
+    closeDateTime: data['closeDateTime'],
+    contestOwner: data['contestOwner'],
+    createDateTime: data['createDateTime'],
+    occasion: data['occasion'],
+    reportCount: data['reportCount'],
+    style: data['style']
+  }).then(() => {
+    console.log("Success I guess")
+  }).catch((err) => {
+    console.log("Ok error here we meet again:", err)
+  })
+
+  return 0;
+})
+//#endregion
+
+//#region Convert Collection to Map field
+export const haha = functions.firestore.document('Conversions/{conversionID}').onCreate((snapshot, context) => {
+  // Grab the current value of what was written to the Realtime Database.
+  const original = snapshot.data();
+
+  if (original) {
+    const db = admin.firestore()
+
+    const savedVoters = {}
+
+    db.collection('Contests').get().then(querySnapshot => {
+      querySnapshot.forEach(doc => {
+        db.collection(`Contests/${doc.id}/Voters`).get().then(optionsQuerySnapshot => {
+          optionsQuerySnapshot.forEach(optionDoc => {
+            savedVoters[optionDoc.id] = optionDoc.data()
+          })
+
+          db.collection(`Contests`).doc(doc.id).update({
+            voters: savedVoters,
+          }).then(() => {
+            console.log("Success updating voters")
+          }).catch((err) => {
+            console.log("Error 1:", err)
+          })
+        }).then(() => {
+          console.log("Success updating voters")
+        }).catch((err) => {
+          console.log("Error 2:", err)
+        })
+      })
+    }).then(() => {
+      console.log("Success updating voters")
+    }).catch((err) => {
+      console.log("Error 1:", err)
+    })
+
+    return 0;
+  }
+})
+//#endregion

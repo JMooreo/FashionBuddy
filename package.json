@@ -34,9 +34,12 @@
     "chart.js": "^2.8.0",
     "cordova": "^9.0.0",
     "cordova-android": "8.0.0",
+    "cordova-ios": "5.0.1",
     "cordova-plugin-camera": "^4.1.0",
     "core-js": "^2.5.4",
     "firebase": "^6.4.2",
+    "firebase-admin": "^8.6.0",
+    "firebase-functions": "^3.2.0",
     "ngx-image-cropper": "^1.4.1",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
@@ -88,7 +91,8 @@
       }
     },
     "platforms": [
-      "android"
+      "android",
+      "ios"
     ]
   }
 }
