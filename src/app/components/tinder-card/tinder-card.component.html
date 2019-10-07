@@ -1,5 +1,5 @@
 <ion-card mode="md" no-margin style="border-radius: 10px">
   <ion-card-content no-padding>
-    <img style="object-fit: contain" [src]="imageUrl">
+    <img style="object-fit: contain" [src]="imageUrl" (load)="emitLoaded()">
   </ion-card-content>
 </ion-card>

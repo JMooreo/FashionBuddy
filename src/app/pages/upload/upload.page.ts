@@ -3,7 +3,8 @@ import { DatabaseService } from "src/app/services/database/database.service";
 import {
   ActionSheetController,
   ModalController,
-  AlertController
+  AlertController,
+  LoadingController
 } from "@ionic/angular";
 
 import { Camera, CameraOptions } from "@ionic-native/camera/ngx";
@@ -31,6 +32,7 @@ export class UploadPage implements OnInit {
     private camera: Camera,
     private modalCtrl: ModalController,
     private alertCtrl: AlertController,
+    private loadingCtrl: LoadingController,
     private actionSheetCtrl: ActionSheetController
   ) {}
 
@@ -92,27 +94,27 @@ export class UploadPage implements OnInit {
   }
 
   captureImage(sourceType: number, index: number) {
-      const options: CameraOptions = {
-        quality: 100,
-        targetWidth: 800,
-        targetHeight: 1800,
-        sourceType,
-        saveToPhotoAlbum: true,
-        correctOrientation: true,
-        destinationType: this.camera.DestinationType.DATA_URL,
-        mediaType: this.camera.MediaType.PICTURE
-      };
+    const options: CameraOptions = {
+      quality: 100,
+      targetWidth: 800,
+      targetHeight: 1800,
+      sourceType,
+      saveToPhotoAlbum: true,
+      correctOrientation: true,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      mediaType: this.camera.MediaType.PICTURE
+    };
 
-      this.camera.getPicture(options).then(
-        dataUrl => {
-          const base64Image = "data:image/jpeg;base64," + dataUrl;
-          this.images[index] = base64Image;
-          this.openCropper(base64Image, index);
-        },
-        err => {
-          this.showAlert("Error", err);
-        }
-      );
+    this.camera.getPicture(options).then(
+      dataUrl => {
+        const base64Image = "data:image/jpeg;base64," + dataUrl;
+        this.images[index] = base64Image;
+        this.openCropper(base64Image, index);
+      },
+      err => {
+        this.showAlert("Error", err);
+      }
+    );
   }
 
   openCropper(base64Image: string, index: number) {
@@ -138,14 +140,17 @@ export class UploadPage implements OnInit {
   isFormValid() {
     for (const image of this.croppedImages) {
       if (image == null) {
-        this.showAlert("Upload Failed", "You must choose 2 images");
+        this.loadingCtrl.dismiss().then(() => {
+          this.showAlert("Upload Failed", "You must choose 2 images");
+        });
         return false;
       }
     }
 
     if (this.durationInMinutes < 5) {
-      this.showAlert("Upload Failed", "Duration must be at least 5 minutes");
-      console.log("duration:", this.durationInMinutes);
+      this.loadingCtrl.dismiss().then(() => {
+        this.showAlert("Upload Failed", "Duration must be at least 5 minutes");
+      });
       return false;
     }
     return true;
@@ -169,7 +174,8 @@ export class UploadPage implements OnInit {
     return result;
   }
 
-  createContest() {
+  async createContest() {
+    await this.presentLoading();
     if (this.isFormValid()) {
       const contestId = "cid=" + new Date(Date.now()).toISOString();
       const contestOptions = [];
@@ -199,7 +205,9 @@ export class UploadPage implements OnInit {
         this.dbSrv
           .createContest(contestId, contest, contestOptions)
           .then(() => {
-            this.showAlert("Success", "Uploaded your contest!");
+            this.loadingCtrl.dismiss().then(() => {
+              this.showAlert("Success", "Uploaded your contest!");
+            });
           });
       });
     }
@@ -213,5 +221,13 @@ export class UploadPage implements OnInit {
     });
 
     await alert.present();
+  }
+
+  async presentLoading() {
+    const loading = await this.loadingCtrl.create({
+      spinner: "crescent",
+      message: "Uploading..."
+    });
+    return await loading.present();
   }
 }
