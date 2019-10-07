@@ -12,6 +12,7 @@ export class ContestOverlayPage implements OnInit {
   userHasNotSeenWinnerYet: boolean;
   percentages: Array<number> = [];
   BarChart = null;
+  outfitLabels = ["Looks great!", "Looks good"];
 
   contestOptions: Array<ContestOption> = [
     { id: "null", imageUrl: "null", votes: 0 },
