@@ -59,7 +59,7 @@ export class SettingsPage implements OnInit {
           text: "Done",
           handler: data => {
             this.authSrv
-              .deleteUser(data[0], data[1])
+              .deleteUser(data.Email, data.password)
               .then(() => {
                 this.showAlert(
                   "Sorry to see you go",

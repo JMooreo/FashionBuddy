@@ -36,6 +36,11 @@ const routes: Routes = [
   {
     path: "settings",
     loadChildren: "./pages/settings/settings.module#SettingsPageModule"
+  },
+  {
+    path: "password-reset",
+    loadChildren:
+      "./pages/password-reset/password-reset.module#PasswordResetPageModule"
   }
 ];
 @NgModule({

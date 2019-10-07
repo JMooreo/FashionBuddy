@@ -31,6 +31,15 @@ export class AuthService {
     }
   }
 
+  async sendPasswordResetEmail(email: string) {
+    try {
+    await this.afAuth.auth.sendPasswordResetEmail(email);
+    return true; // success callback
+    } catch (err) {
+      return err; // error callback
+    }
+  }
+
   logOut(): Promise<any> {
     return this.afAuth.auth.signOut();
   }
