@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { DatabaseService } from "../../services/database/database.service";
-import { Contest } from "../../models/contest-model";
+import { Contest, ContestOption } from "../../models/contest-model";
 import { trigger, style, animate, transition } from "@angular/animations";
 import { LoadingController, AlertController, NavController } from "@ionic/angular";
 
@@ -87,6 +87,39 @@ export class VotingPage implements OnInit {
 
   navigateTo(pageName: string) {
     this.navCtrl.navigateRoot(`/${pageName}`);
+  }
+
+  reportContest(contestId: string) {
+    this.hideContest();
+    this.showAlert("Report Successful", "Thanks for your help! We won't show that post anymore.");
+    const reportOption = {
+      id: "report",
+      imageUrl: "none",
+      votes: 0
+    } as ContestOption;
+    this.dbSrv.reportContest(contestId, reportOption);
+  }
+
+  async showReportAlert(contestId: string) {
+    const alert = await this.alertCtrl.create({
+      header: "Confirm",
+      message: "Would you like to report this post for inappropriate content?",
+      buttons: [
+        {
+          text: "Cancel",
+          role: "cancel",
+          cssClass: "secondary"
+        },
+        {
+          text: "Yes, Report",
+          handler: () => {
+            this.reportContest(contestId);
+          }
+        }
+      ]
+    });
+
+    return alert.present();
   }
 
   async showAlert(header: string, message: string) {
