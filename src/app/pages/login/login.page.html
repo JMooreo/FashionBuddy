@@ -29,5 +29,11 @@
   </ion-list>
   <ion-button mode="ios" fill="solid" expand="block" color="dark" (click)="login()">Login</ion-button>
   <br />
-  <ion-text color="primary" (click)="navigateTo('register')">Don't have an account? Register here</ion-text>
+  <ion-row>
+    <ion-text style="font-size: 1.2rem" color="primary" (click)="navigateTo('register')">Don't have an account? Register
+      here</ion-text>
+  </ion-row>
+  <ion-row>
+    <ion-text color="dark" (click)="navigateTo('password-reset')">Forgot password?</ion-text>
+  </ion-row>
 </ion-content>
