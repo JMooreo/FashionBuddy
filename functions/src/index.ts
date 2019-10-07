@@ -139,43 +139,43 @@ export const contestScreening = functions.firestore.document('Contests/{contestI
 })
 //#endregion
 
-//#region Convert Collection to Map field
-export const haha = functions.firestore.document('Conversions/{conversionID}').onCreate((snapshot, context) => {
-  // Grab the current value of what was written to the Realtime Database.
-  const original = snapshot.data();
+// //#region Convert Collection to Map field
+// export const haha = functions.firestore.document('Conversions/{conversionID}').onCreate((snapshot, context) => {
+//   // Grab the current value of what was written to the Realtime Database.
+//   const original = snapshot.data();
 
-  if (original) {
-    const db = admin.firestore()
+//   if (original) {
+//     const db = admin.firestore()
 
-    const savedVoters = {}
+//     const savedVoters = {}
 
-    db.collection('Contests').get().then(querySnapshot => {
-      querySnapshot.forEach(doc => {
-        db.collection(`Contests/${doc.id}/Voters`).get().then(optionsQuerySnapshot => {
-          optionsQuerySnapshot.forEach(optionDoc => {
-            savedVoters[optionDoc.id] = optionDoc.data()
-          })
+//     db.collection('Contests').get().then(querySnapshot => {
+//       querySnapshot.forEach(doc => {
+//         db.collection(`Contests/${doc.id}/Voters`).get().then(optionsQuerySnapshot => {
+//           optionsQuerySnapshot.forEach(optionDoc => {
+//             savedVoters[optionDoc.id] = optionDoc.data()
+//           })
 
-          db.collection(`Contests`).doc(doc.id).update({
-            voters: savedVoters,
-          }).then(() => {
-            console.log("Success updating voters")
-          }).catch((err) => {
-            console.log("Error 1:", err)
-          })
-        }).then(() => {
-          console.log("Success updating voters")
-        }).catch((err) => {
-          console.log("Error 2:", err)
-        })
-      })
-    }).then(() => {
-      console.log("Success updating voters")
-    }).catch((err) => {
-      console.log("Error 1:", err)
-    })
+//           db.collection(`Contests`).doc(doc.id).update({
+//             voters: savedVoters,
+//           }).then(() => {
+//             console.log("Success updating voters")
+//           }).catch((err) => {
+//             console.log("Error 1:", err)
+//           })
+//         }).then(() => {
+//           console.log("Success updating voters")
+//         }).catch((err) => {
+//           console.log("Error 2:", err)
+//         })
+//       })
+//     }).then(() => {
+//       console.log("Success updating voters")
+//     }).catch((err) => {
+//       console.log("Error 1:", err)
+//     })
 
-    return 0;
-  }
-})
-//#endregion
+//     return 0;
+//   }
+// })
+// //#endregion
