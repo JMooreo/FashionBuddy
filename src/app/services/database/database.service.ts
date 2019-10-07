@@ -85,6 +85,7 @@ export class DatabaseService {
       });
     return contests;
   }
+
   createContest(
     contestId: string,
     contest: Contest,
@@ -98,6 +99,15 @@ export class DatabaseService {
         this.setContestOwner(contestId);
       });
   }
+
+  reportContest(contestId: string, reportOption: ContestOption) {
+    this.contestsRef.doc(contestId).update({
+      reportCount: firebase.firestore.FieldValue.increment(1)
+    });
+
+    this.addVoterToContestSubcollection(contestId, reportOption);
+  }
+
 
   addContestVote(contestId: string, option: ContestOption) {
     this.addVoterToContestSubcollection(contestId, option);
