@@ -8,7 +8,9 @@
 
 <ion-content>
   <ion-grid class="contest-container">
-    <ion-row>
+    <app-results-swiper [options]="contest.options"></app-results-swiper>
+
+    <!-- <ion-row>
       <ng-container *ngIf="percentages">
         <ion-col style="padding: 20px; padding-bottom: 0px" *ngFor="let option of contest.options; let i = index"
           text-center>
@@ -28,7 +30,7 @@
           </ion-row>
         </ion-col>
       </ng-container>
-    </ion-row>
+    </ion-row> -->
     <app-bar-chart [contestData]="contest"></app-bar-chart>
   </ion-grid>
 </ion-content>

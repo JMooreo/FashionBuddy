@@ -3,11 +3,20 @@ import { DatabaseService } from "src/app/services/database/database.service";
 import { Contest } from "../../models/contest-model";
 import { ModalController, LoadingController } from "@ionic/angular";
 import { ContestOverlayPage } from "./contest-overlay/contest-overlay.page";
+import { trigger, style, animate, transition } from "@angular/animations";
 
 @Component({
   selector: "app-results",
   templateUrl: "results.page.html",
-  styleUrls: ["results.page.scss"]
+  styleUrls: ["results.page.scss"],
+  animations: [
+    trigger("inOutAnimation", [
+      transition(":enter", [
+        style({ opacity: 0 }),
+        animate("0.3s 0.3s ease-in", style({ opacity: 1 }))
+      ])
+    ])
+  ]
 })
 export class ResultsPage implements OnInit {
   contests = Array<Contest>();

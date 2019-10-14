@@ -8,6 +8,7 @@ import { IonicModule } from "@ionic/angular";
 import { ContestOverlayPage } from "./contest-overlay.page";
 import { SharedComponentsModule } from "src/app/components/components.module";
 import { BarChartComponent } from "src/app/components/bar-chart/bar-chart.component";
+import { ResultsSwiperComponent } from "src/app/components/results-swiper/results-swiper.component";
 
 const routes: Routes = [
   {
@@ -24,6 +25,6 @@ const routes: Routes = [
     SharedComponentsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ContestOverlayPage, BarChartComponent]
+  declarations: [ContestOverlayPage, BarChartComponent, ResultsSwiperComponent]
 })
 export class ContestOverlayPageModule {}

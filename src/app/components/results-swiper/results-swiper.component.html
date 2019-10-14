@@ -1,0 +1,5 @@
+<ion-slides spaceBetween="20" pager="true" [options]="slidesOpts">
+  <ion-slide *ngFor="let option of options; let i = index">
+    <tinder-card [imageUrl]="option.imageUrl"></tinder-card>
+  </ion-slide>
+</ion-slides>
