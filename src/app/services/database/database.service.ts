@@ -32,10 +32,7 @@ export class DatabaseService {
       .then(() => {
         filteredContests = contests.filter(contest => {
           // user has not seen the contest before && is not contest owner
-          return (
-            contest.seenUsers.indexOf(userId) === -1 &&
-            contest.contestOwner !== userId
-          );
+          return (contest.seenUsers.indexOf(userId) === -1 && contest.contestOwner !== userId);
         });
       });
     return filteredContests;
@@ -43,6 +40,7 @@ export class DatabaseService {
 
   async getAllContestsWhereUserIsContestOwner(startAt: number = 0) {
     const contests = new Array<Contest>();
+    let filteredContests = Array<Contest>();
     await this.contestsRef
       .where("contestOwner", "==", this.authSrv.getUserId())
       .orderBy("createDateTime", "desc")
@@ -55,8 +53,16 @@ export class DatabaseService {
             id: contest.id
           } as Contest);
         });
+      }).then(() => {
+        filteredContests = contests.map(contest => {
+          // sort descending by # of votes
+          contest.options.sort((a, b) => {
+            return b.votes - a.votes;
+          });
+          return contest;
+        });
       });
-    return contests;
+    return filteredContests;
   }
 
   createContest(contestId: string, contest: Contest): Promise<any> {
