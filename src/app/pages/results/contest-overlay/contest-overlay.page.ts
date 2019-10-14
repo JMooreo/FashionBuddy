@@ -25,6 +25,7 @@ export class ContestOverlayPage implements OnInit {
     createDateTime: "null",
     closeDateTime: "null",
     occasion: "null",
+    seenUsers: [],
     reportCount: 0,
     style: "null"
   };

@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { DatabaseService } from "../../services/database/database.service";
-import { Contest, ContestOption } from "../../models/contest-model";
+import { Contest } from "../../models/contest-model";
 import { trigger, style, animate, transition } from "@angular/animations";
 import { LoadingController, AlertController, NavController } from "@ionic/angular";
 
@@ -74,12 +74,12 @@ export class VotingPage implements OnInit {
     }, this.ANIMATION_DELAY);
   }
 
-  tinderCardDragEnded(event, contestId, option) {
+  tinderCardDragEnded(event, contestId: string, optionIndex: number) {
     const element = event.source.getRootElement().getBoundingClientRect();
     const elementHeight = element.bottom - element.top;
     if (element.y < -elementHeight / 100) {
       this.hideContest();
-      this.dbSrv.addContestVote(contestId, option);
+      this.dbSrv.addContestVote(contestId, optionIndex);
     } else {
       event.source.reset();
     }
@@ -92,12 +92,7 @@ export class VotingPage implements OnInit {
   reportContest(contestId: string) {
     this.hideContest();
     this.showAlert("Report Successful", "Thanks for your help! We won't show that post anymore.");
-    const reportOption = {
-      id: "report",
-      imageUrl: "none",
-      votes: 0
-    } as ContestOption;
-    this.dbSrv.reportContest(contestId, reportOption);
+    this.dbSrv.reportContest(contestId);
   }
 
   async showReportAlert(contestId: string) {

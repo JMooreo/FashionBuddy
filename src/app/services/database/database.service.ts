@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Contest, ContestOption } from "../../models/contest-model";
+import { Contest } from "../../models/contest-model";
 import { AuthService } from "../auth/auth.service";
 import * as firebase from "firebase/app";
 
@@ -14,43 +14,31 @@ export class DatabaseService {
   async getAllContestsUserHasNotSeenOrVotedOn() {
     const rightNow = new Date(Date.now());
     const contests = new Array<Contest>();
+    let filteredContests = Array<Contest>();
+    const userId = this.authSrv.getUserId();
     await this.contestsRef
       .where("closeDateTime", ">", rightNow.toISOString())
+      .orderBy("closeDateTime", "asc")
       // .limit(number) if necessary to reduce data download
       .get()
       .then(querySnapshot => {
         querySnapshot.forEach(contest => {
-          this.contestsRef
-            .doc(contest.id)
-            .collection("Voters")
-            .doc(this.authSrv.getUserId())
-            .get()
-            .then(voter => {
-              if (!voter.exists) {
-                // this user did not vote on contest
-                const contestOptions = new Array<ContestOption>();
-                this.contestsRef
-                  .doc(contest.id)
-                  .collection("Options")
-                  .get()
-                  .then(options => {
-                    options.forEach(option => {
-                      contestOptions.push({
-                        ...option.data(),
-                        id: option.id
-                      } as ContestOption);
-                    });
-                  });
-                contests.push({
-                  ...contest.data(),
-                  options: contestOptions,
-                  id: contest.id
-                } as Contest);
-              }
-            });
+          contests.push({
+            ...contest.data(),
+            id: contest.id
+          } as Contest);
+        });
+      })
+      .then(() => {
+        filteredContests = contests.filter(contest => {
+          // user has not seen the contest before && is not contest owner
+          return (
+            contest.seenUsers.indexOf(userId) === -1 &&
+            contest.contestOwner !== userId
+          );
         });
       });
-    return contests;
+    return filteredContests;
   }
 
   async getAllContestsWhereUserIsContestOwner(startAt: number = 0) {
@@ -62,23 +50,8 @@ export class DatabaseService {
       .get()
       .then(querySnapshot => {
         querySnapshot.forEach(contest => {
-          const contestOptions = new Array<ContestOption>();
-          this.contestsRef
-            .doc(contest.id)
-            .collection("Options")
-            .orderBy("votes", "desc")
-            .get()
-            .then(options => {
-              options.forEach(option => {
-                contestOptions.push({
-                  ...option.data(),
-                  id: option.id
-                } as ContestOption);
-              });
-            });
           contests.push({
             ...contest.data(),
-            options: contestOptions,
             id: contest.id
           } as Contest);
         });
@@ -86,79 +59,31 @@ export class DatabaseService {
     return contests;
   }
 
-  createContest(
-    contestId: string,
-    contest: Contest,
-    options: Array<ContestOption>
-  ): Promise<any> {
-    return this.contestsRef
-      .doc(contestId)
-      .set({ ...contest })
-      .then(() => {
-        this.setContestOptions(contestId, options);
-        this.setContestOwner(contestId);
-      });
+  createContest(contestId: string, contest: Contest): Promise<any> {
+    return this.contestsRef.doc(contestId).set({ ...contest });
   }
 
-  reportContest(contestId: string, reportOption: ContestOption) {
+  reportContest(contestId: string) {
     this.contestsRef.doc(contestId).update({
       reportCount: firebase.firestore.FieldValue.increment(1)
     });
 
-    this.addVoterToContestSubcollection(contestId, reportOption);
+    this.addVoteToVotersSubcollection(contestId, "report");
   }
 
-
-  addContestVote(contestId: string, option: ContestOption) {
-    this.addVoterToContestSubcollection(contestId, option);
-    this.incrementOptionVoteCount(1, contestId, option);
+  addContestVote(contestId: string, optionIndex: number) {
+    const optionName = `Option_${optionIndex + 1}`;
+    this.addVoteToVotersSubcollection(contestId, optionName);
   }
 
-  setContestOptions(contestId: string, options: Array<ContestOption>) {
-    let i = 1;
-    options.forEach(option => {
-      this.contestsRef
-        .doc(contestId)
-        .collection("Options")
-        .doc(`option_${i}`)
-        .set({ ...option });
-      i++;
-    });
-  }
-
-  setContestOwner(contestId: string) {
+  addVoteToVotersSubcollection(contestId: string, optionName: string) {
     this.contestsRef
       .doc(contestId)
       .collection("Voters")
       .doc(this.authSrv.getUserId())
       .set({
-        isContestOwner: true
-      });
-  }
-
-  addVoterToContestSubcollection(contestId: string, option: ContestOption) {
-    this.contestsRef
-      .doc(contestId)
-      .collection("Voters")
-      .doc(this.authSrv.getUserId())
-      .set({
-        contestOwner: false,
-        votedFor: option.id,
+        votedFor: optionName,
         timestamp: new Date(Date.now()).toISOString()
-      });
-  }
-
-  incrementOptionVoteCount(
-    incrementAmount: number,
-    contestId: string,
-    option: ContestOption
-  ) {
-    this.contestsRef
-      .doc(contestId)
-      .collection("Options")
-      .doc(option.id)
-      .update({
-        votes: firebase.firestore.FieldValue.increment(incrementAmount)
       });
   }
 }

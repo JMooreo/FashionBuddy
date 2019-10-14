@@ -19,6 +19,7 @@ export class BarChartComponent implements OnInit {
     closeDateTime: "null",
     occasion: "null",
     reportCount: 0,
+    seenUsers: [],
     style: "null"
   };
 

@@ -198,12 +198,14 @@ export class UploadPage implements OnInit {
           closeDateTime: closeDateTime.toISOString(),
           contestOwner: userId,
           occasion: this.occasion,
+          options: contestOptions,
           reportCount: 0,
+          seenUsers: [],
           style: this.style
         };
 
         this.dbSrv
-          .createContest(contestId, contest, contestOptions)
+          .createContest(contestId, contest)
           .then(() => {
             this.loadingCtrl.dismiss().then(() => {
               this.showAlert("Success", "Uploaded your contest!");
