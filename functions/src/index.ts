@@ -101,7 +101,7 @@ export const generateThumbs = functions.storage
 //#endregion
 
 //#region firebase deploy --only functions:contestScreening
-
+/*
 export const contestScreening = functions.firestore.document('Contests/{contestID}').onUpdate((change, context) => {
   const db = admin.firestore()
 
@@ -136,46 +136,95 @@ export const contestScreening = functions.firestore.document('Contests/{contestI
   })
 
   return 0;
-})
+})*/
 //#endregion
 
-// //#region Convert Collection to Map field
-// export const haha = functions.firestore.document('Conversions/{conversionID}').onCreate((snapshot, context) => {
-//   // Grab the current value of what was written to the Realtime Database.
-//   const original = snapshot.data();
+//#region Convert Collection to Map field
+/*
+export const convertCollection = functions.firestore.document('Conversions/{conversionID}').onCreate((snapshot, context) => {
+  // Grab the current value of what was written to the Realtime Database.
+  const original = snapshot.data();
 
-//   if (original) {
+  if (original) {
+    const db = admin.firestore()
+
+    const savedVoters = {}
+
+    db.collection('Contests').get().then(querySnapshot => {
+      querySnapshot.forEach(doc => {
+        db.collection(`Contests/${doc.id}/Voters`).get().then(optionsQuerySnapshot => {
+          optionsQuerySnapshot.forEach(optionDoc => {
+            savedVoters[optionDoc.id] = optionDoc.data()
+          })
+
+          db.collection(`Contests`).doc(doc.id).update({
+            voters: savedVoters,
+          }).then(() => {
+            console.log("Success updating voters")
+          }).catch((err) => {
+            console.log("Error 1:", err)
+          })
+        }).then(() => {
+          console.log("Success updating voters")
+        }).catch((err) => {
+          console.log("Error 2:", err)
+        })
+      })
+    }).then(() => {
+      console.log("Success updating voters")
+    }).catch((err) => {
+      console.log("Error 1:", err)
+    })
+
+    return 0;
+  }
+})*/
+//#endregion
+
+//#region Map Field Seen User
+// export const votersToArrayOneTimeOnly = functions.firestore.document('VoteConvert/{voteID}').onCreate((snapshot, context) => {
+//   return new Promise((resolve, reject) => {
 //     const db = admin.firestore()
-
-//     const savedVoters = {}
 
 //     db.collection('Contests').get().then(querySnapshot => {
 //       querySnapshot.forEach(doc => {
-//         db.collection(`Contests/${doc.id}/Voters`).get().then(optionsQuerySnapshot => {
-//           optionsQuerySnapshot.forEach(optionDoc => {
-//             savedVoters[optionDoc.id] = optionDoc.data()
+//         const seenVoters = []
+//         db.collection(`Contests/${doc.id}/Voters`).get().then(votersQuerySnapshot => {
+//           votersQuerySnapshot.forEach(voterDoc => {
+//             seenVoters.push(voterDoc.id)
 //           })
 
-//           db.collection(`Contests`).doc(doc.id).update({
-//             voters: savedVoters,
+//           db.collection('Contests').doc(doc.id).update({
+//             seenUsers: seenVoters
 //           }).then(() => {
-//             console.log("Success updating voters")
+//             console.log("Success")
+//             resolve()
 //           }).catch((err) => {
-//             console.log("Error 1:", err)
+//             console.log("error 1")
+//             reject(err)
 //           })
-//         }).then(() => {
-//           console.log("Success updating voters")
 //         }).catch((err) => {
-//           console.log("Error 2:", err)
+//           console.log("error 1")
+//           reject(err)
+//         }).catch((err) => {
+//           console.log("error 1")
+//           reject(err)
 //         })
 //       })
-//     }).then(() => {
-//       console.log("Success updating voters")
 //     }).catch((err) => {
-//       console.log("Error 1:", err)
+//       console.log("error 1")
+//       reject(err)
 //     })
-
-//     return 0;
-//   }
+//   })
 // })
-// //#endregion
+//#endregion
+
+export const syncVotersToOptions = functions.firestore.document('Contests/{contestID}/Voters/{voterID}').onCreate((snapshot, context) => {
+  return new Promise((resolve, reject) => {
+    const db = admin.firestore()
+
+    console.log(snapshot.data()['votedFor'])
+
+    resolve()
+  })
+})
