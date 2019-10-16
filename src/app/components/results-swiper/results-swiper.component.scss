@@ -1,10 +1,10 @@
-tinder-card {
+ion-card {
   box-shadow: 0px 1px 14px rgba(0, 0, 0, 0.31);
-  border-radius: 28px;
+  border-radius: 20px;
 }
 
 ion-slides {
-  padding-left: 20px;
-  padding-right: 20px;
   padding-bottom: 30px;
+  --bullet-background: radial-gradient(circle, transparent 30%, black 40%);
+  --bullet-background-active: var(--bullet-color-var)
 }

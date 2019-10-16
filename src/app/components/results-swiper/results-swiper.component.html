@@ -1,5 +1,9 @@
-<ion-slides spaceBetween="20" pager="true" [options]="slidesOpts">
+<ion-slides #slides pager="true" [options]="slidesOpts" (ionSlideTransitionStart)="slideChanged()">
   <ion-slide *ngFor="let option of options; let i = index">
-    <tinder-card [imageUrl]="option.imageUrl"></tinder-card>
+    <ion-card mode="md" [ngStyle]="{'background': borderColors[i]}">
+      <ion-card-content no-padding>
+        <img style="object-fit: contain; border-radius: 20px; padding: 2px;" [src]="option.imageUrl">
+      </ion-card-content>
+    </ion-card>
   </ion-slide>
 </ion-slides>

@@ -8,29 +8,21 @@
 
 <ion-content>
   <ion-grid class="contest-container">
-    <app-results-swiper [options]="contest.options"></app-results-swiper>
-
-    <!-- <ion-row>
-      <ng-container *ngIf="percentages">
-        <ion-col style="padding: 20px; padding-bottom: 0px" *ngFor="let option of contest.options; let i = index"
-          text-center>
-          <ion-row justify-content-center>
-            <tinder-card [imageUrl]="option.imageUrl">
-            </tinder-card>
-          </ion-row>
-          <ion-row justify-content-center>
-            <ion-text style="margin: 10px; padding: 5px; font-size: 1.2rem" color="dark">
-              {{ outfitLabels[i] }}
-            </ion-text>
-          </ion-row>
-          <ion-row justify-content-center>
-            <ion-text style="margin: 10px; padding: 5px; font-size: 1.5rem" [color]="i == 0 ? 'primary' : 'secondary'">
-              {{ percentages[i] | percent }}
-            </ion-text>
-          </ion-row>
-        </ion-col>
-      </ng-container>
-    </ion-row> -->
-    <app-bar-chart [contestData]="contest"></app-bar-chart>
+    <app-results-swiper [options]="contest.options" [borderColors]="borderColors"></app-results-swiper>
+    <ion-row justify-content-center>
+      <ion-col text-center *ngFor="let options of contest.options; let i = index">
+        <ion-text style="vertical-align: middle" [style.color]="textColors[i]">
+          <h1>
+            <ion-icon *ngIf="i === 0" name="star"></ion-icon>
+            {{ percentages[i] | percent}}
+          </h1>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <app-bar-chart [contestData]="contest"></app-bar-chart>
+      </ion-col>
+    </ion-row>
   </ion-grid>
 </ion-content>

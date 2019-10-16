@@ -11,8 +11,8 @@ import { ContestWinnerPage } from "../contest-winner/contest-winner.page";
 export class ContestOverlayPage implements OnInit {
   userHasNotSeenWinnerYet: boolean;
   percentages: Array<number> = [];
-  BarChart = null;
-  outfitLabels = ["Looks great!", "Looks good"];
+  textColors = ["#FF8F00", "#4C46FD"];
+  borderColors = ["linear-gradient(#FF8F00,#FFB800)", "linear-gradient(#4C46FD, #B074C2)", "linear-gradient(#219673, #83BE01)"];
 
   contestOptions: Array<ContestOption> = [
     { id: "null", imageUrl: "null", votes: 0 },

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, ViewChild } from "@angular/core";
 import { Contest, ContestOption } from "src/app/models/contest-model";
 import * as Chart from "chart.js";
 
@@ -11,6 +11,7 @@ export class BarChartComponent implements OnInit {
   contestOptions = [
     { id: "null", imageUrl: "null", votes: 0 } as ContestOption
   ];
+  @ViewChild("barChart", null) barChart;
 
   @Input() contestData: Contest = {
     options: this.contestOptions,
@@ -22,8 +23,6 @@ export class BarChartComponent implements OnInit {
     seenUsers: [],
     style: "null"
   };
-
-  barChart: any;
 
   constructor() {}
 
@@ -40,28 +39,37 @@ export class BarChartComponent implements OnInit {
       votesArray.push(option.votes);
       i++;
     });
-    this.barChart = new Chart("barChart", {
-      type: "bar",
+
+    const ctx = (this.barChart.nativeElement as HTMLCanvasElement).getContext("2d");
+
+    const orangeGradient = ctx.createLinearGradient(0, 0, 0, 150);
+    orangeGradient.addColorStop(0, "#FFB800");
+    orangeGradient.addColorStop(1, "#FF8F00");
+
+    const blueGradient = ctx.createLinearGradient(0, 0, 0, 150);
+    blueGradient.addColorStop(0, "#C074C2");
+    blueGradient.addColorStop(0.7, "#4C46FD");
+
+    this.barChart = new Chart(ctx, {
+      type: "doughnut",
       data: {
         labels,
         datasets: [
           {
-            data: votesArray,
+            data: votesArray.reverse(),
             backgroundColor: [
-              "rgba(167, 60, 227, 0.2)",
-              "rgba(69, 236, 214, 0.2)",
-              "rgba(255, 206, 86, 0.2)"
-            ],
-            borderColor: [
-              "rgba(167, 60, 227, 1)",
-              "rgba(69, 236, 214, 1)",
-              "rgba(255, 206, 86, 1)"
+              blueGradient,
+              orangeGradient
             ],
             borderWidth: 1
           }
         ]
       },
       options: {
+        animation: {
+          duration: 3000
+      },
+        onClick: this.doSomething,
         tooltips: {
           enabled: true
         },
@@ -75,25 +83,22 @@ export class BarChartComponent implements OnInit {
         scales: {
           yAxes: [
             {
-              gridLines: {
-                drawOnChartArea: false
-              },
-              display: false,
-              ticks: {
-                display: false,
-                beginAtZero: true
-              }
+              display: false
             }
           ],
           xAxes: [
             {
-              ticks: {
-                display: false
-              }
+              display: false
             }
           ]
         }
       }
     });
   }
+
+  doSomething(event, array) {
+    if (array[0]) {
+        console.log("Hello", array);
+    }
+}
 }
