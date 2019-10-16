@@ -1,0 +1,6 @@
+<ion-row justify-content-center>
+  <ion-button no-padding *ngFor="let selector of selectors" color="#6726CD" fill="clear"
+    (click)="onItemSelected(selector)">
+    <ion-icon mode="ios" slot="icon-only" [name]="selector <= value ? 'star' : 'star-outline'"></ion-icon>
+  </ion-button>
+</ion-row>

@@ -1,5 +1,6 @@
 import { Component, Input, ViewChild } from "@angular/core";
 import { IonSlides } from "@ionic/angular";
+import { ContestOption } from "src/app/models/contest-model";
 
 @Component({
   selector: "app-results-swiper",
@@ -7,12 +8,12 @@ import { IonSlides } from "@ionic/angular";
   styleUrls: ["./results-swiper.component.scss"]
 })
 export class ResultsSwiperComponent {
-  @Input() options: [];
+  @Input() options = [null, null] as Array<ContestOption>;
   @ViewChild("slides", null) slides: IonSlides;
   @Input() borderColors = [];
 
   slidesOpts = {
-    slidesPerView: 1.7,
+    slidesPerView: 1.8,
     centeredSlides: true,
     spaceBetween: 50,
     coverflowEffect: {
@@ -151,7 +152,10 @@ export class ResultsSwiperComponent {
 
   slideChanged() {
     this.slides.getActiveIndex().then(index => {
-      document.body.style.setProperty("--bullet-color-var", this.borderColors[index]);
+      document.body.style.setProperty(
+        "--bullet-color-var",
+        this.borderColors[index]
+      );
     });
   }
 }

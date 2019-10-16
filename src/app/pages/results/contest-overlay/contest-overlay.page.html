@@ -9,6 +9,8 @@
 <ion-content>
   <ion-grid class="contest-container">
     <app-results-swiper [options]="contest.options" [borderColors]="borderColors"></app-results-swiper>
+    <!-- <ion-card>
+      <ion-card-content> -->
     <ion-row justify-content-center>
       <ion-col text-center *ngFor="let options of contest.options; let i = index">
         <ion-text style="vertical-align: middle" [style.color]="textColors[i]">
@@ -22,6 +24,18 @@
     <ion-row>
       <ion-col>
         <app-bar-chart [contestData]="contest"></app-bar-chart>
+      </ion-col>
+    </ion-row>
+    <!-- </ion-card-content>
+    </ion-card> -->
+    <ion-row>
+      <ion-col>
+        <app-contest-info [contestData]="contest"></app-contest-info>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <app-results-submit-form (formSubmitted)="onFeedbackSubmitted($event)"></app-results-submit-form>
       </ion-col>
     </ion-row>
   </ion-grid>

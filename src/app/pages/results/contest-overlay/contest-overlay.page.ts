@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ModalController, NavParams } from "@ionic/angular";
+import { ModalController, NavParams, ToastController } from "@ionic/angular";
 import { Contest, ContestOption } from "src/app/models/contest-model";
 import { ContestWinnerPage } from "../contest-winner/contest-winner.page";
 
@@ -12,7 +12,11 @@ export class ContestOverlayPage implements OnInit {
   userHasNotSeenWinnerYet: boolean;
   percentages: Array<number> = [];
   textColors = ["#FF8F00", "#4C46FD"];
-  borderColors = ["linear-gradient(#FF8F00,#FFB800)", "linear-gradient(#4C46FD, #B074C2)", "linear-gradient(#219673, #83BE01)"];
+  borderColors = [
+    "linear-gradient(#FF8F00,#FFB800)",
+    "linear-gradient(#4C46FD, #B074C2)",
+    "linear-gradient(#219673, #83BE01)"
+  ];
 
   contestOptions: Array<ContestOption> = [
     { id: "null", imageUrl: "null", votes: 0 },
@@ -32,7 +36,8 @@ export class ContestOverlayPage implements OnInit {
 
   constructor(
     private navParams: NavParams,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private toastCtrl: ToastController
   ) {}
 
   ngOnInit() {
@@ -70,6 +75,16 @@ export class ContestOverlayPage implements OnInit {
     this.percentages = percentages;
   }
 
+  onFeedbackSubmitted(event: any) {
+    const rating = event.formData.rating;
+    if (rating !== null && rating < 3) {
+      this.showToast("Sorry", "We hope next time goes better :)");
+    } else {
+      this.showToast("Awesome!", "Thanks for the feedback :)");
+    }
+    alert(event.message);
+  }
+
   async openOutfitWinnerScreen() {
     this.modalCtrl
       .create({
@@ -79,5 +94,16 @@ export class ContestOverlayPage implements OnInit {
       .then(contestWinnerPage => {
         contestWinnerPage.present();
       });
+  }
+
+  async showToast(header: string, message: string) {
+    const toast = await this.toastCtrl.create({
+      header,
+      message,
+      color: "light",
+      duration: 1500,
+      position: "bottom"
+    });
+    toast.present();
   }
 }

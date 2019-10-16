@@ -11,7 +11,7 @@ export class BarChartComponent implements OnInit {
   contestOptions = [
     { id: "null", imageUrl: "null", votes: 0 } as ContestOption
   ];
-  @ViewChild("barChart", {static: false}) barChart;
+  @ViewChild("barChart", { static: false }) barChart;
 
   @Input() contestData: Contest = {
     options: this.contestOptions,
