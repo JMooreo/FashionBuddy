@@ -8,7 +8,10 @@ import { ContestOption } from "src/app/models/contest-model";
   styleUrls: ["./results-swiper.component.scss"]
 })
 export class ResultsSwiperComponent {
-  @Input() options = [null, null] as Array<ContestOption>;
+  @Input() options = [
+    { id: "null", imageUrl: "null", votes: 0 },
+    { id: "null", imageUrl: "null", votes: 0 }
+  ] as Array<ContestOption>;
   @ViewChild("slides", null) slides: IonSlides;
   @Input() borderColors = [];
 

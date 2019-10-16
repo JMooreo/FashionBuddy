@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { Contest } from "src/app/models/contest-model";
+import { Contest, ContestOption } from "src/app/models/contest-model";
 
 @Component({
   selector: "app-contest-info",
@@ -7,7 +7,21 @@ import { Contest } from "src/app/models/contest-model";
   styleUrls: ["./contest-info.component.scss"]
 })
 export class ContestInfoComponent implements OnInit {
-  @Input() contestData: Contest;
+  contestOptions: Array<ContestOption> = [
+    { id: "null", imageUrl: "null", votes: 0 },
+    { id: "null", imageUrl: "null", votes: 0 }
+  ];
+
+  @Input() contestData: Contest = {
+    options: this.contestOptions,
+    contestOwner: "null",
+    createDateTime: "null",
+    closeDateTime: "null",
+    occasion: "null",
+    seenUsers: [],
+    reportCount: 0,
+    style: "null"
+  };
 
   constructor() {}
 
@@ -16,7 +30,9 @@ export class ContestInfoComponent implements OnInit {
   getContestDuration() {
     const startDate = new Date(this.contestData.createDateTime);
     const endDate = new Date(this.contestData.closeDateTime);
-    const duration = new Date(endDate.getTime() - startDate.getTime() + 18000000);
+    const duration = new Date(
+      endDate.getTime() - startDate.getTime() + 18000000
+    );
 
     const hours = duration.getHours();
     const minutes = duration.getMinutes();
