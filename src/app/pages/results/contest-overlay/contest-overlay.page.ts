@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { ModalController, NavParams, ToastController } from "@ionic/angular";
 import { Contest, ContestOption } from "src/app/models/contest-model";
 import { ContestWinnerPage } from "../contest-winner/contest-winner.page";
@@ -17,9 +17,10 @@ import { trigger, style, animate, transition } from "@angular/animations";
     ])
   ]
 })
-export class ContestOverlayPage implements OnInit {
+export class ContestOverlayPage {
   userHasNotSeenWinnerYet: boolean;
   loadContestInfoAndFeedbackForm = false;
+  showChart = false;
   percentages: Array<number> = [];
   textColors = ["#FF8F00", "#4C46FD"];
   borderColors = [
@@ -50,27 +51,24 @@ export class ContestOverlayPage implements OnInit {
     private toastCtrl: ToastController
   ) {}
 
-  ngOnInit() {
-    this.pageLoad();
-    // .then(loaded => {
-    //   if (this.userHasNotSeenWinnerYet) {
-    //     this.openOutfitWinnerScreen();
-    //   }
-    // });
-  }
-
   ionViewDidEnter() {
-    this.loadContestInfoAndFeedbackForm = true;
+    this.pageLoad();
   }
 
   async pageLoad() {
-    this.contest = await this.navParams.get("contest");
-    // this.userHasNotSeenWinnerYet = await this.navParams.get("showWinner");
+    this.contest = this.navParams.get("contest");
     this.calculatePercentages();
+    this.showChart = true;
   }
 
   close() {
     this.modalCtrl.dismiss();
+  }
+
+  onChartLoaded() {
+    if (!this.loadContestInfoAndFeedbackForm) {
+      this.loadContestInfoAndFeedbackForm = true;
+    }
   }
 
   getTotalVotes() {

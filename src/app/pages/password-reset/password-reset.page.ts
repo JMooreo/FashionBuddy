@@ -32,7 +32,7 @@ export class PasswordResetPage implements OnInit {
   }
 
   async navigateTo(pageName: string) {
-    this.navCtrl.navigateRoot(`/${pageName}`);
+    this.navCtrl.navigateBack(`/${pageName}`);
   }
 
   async showAlert(header: string, message: string) {

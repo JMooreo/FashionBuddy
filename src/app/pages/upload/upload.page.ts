@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { DatabaseService } from "src/app/services/database/database.service";
 import {
   ActionSheetController,
@@ -11,19 +11,41 @@ import { Camera, CameraOptions } from "@ionic-native/camera/ngx";
 import { CapturedImageModalPage } from "./captured-image-modal/captured-image-modal.page";
 import { StorageService } from "src/app/services/storage/storage.service";
 import { AuthService } from "src/app/services/auth/auth.service";
+import { trigger, style, animate, transition } from "@angular/animations";
 
 @Component({
   selector: "app-upload",
   templateUrl: "upload.page.html",
-  styleUrls: ["upload.page.scss"]
+  styleUrls: ["upload.page.scss"],
+  animations: [
+    trigger("shortFadeIn", [
+      transition(":enter", [
+        style({ opacity: 0 }),
+        animate("0.3s ease-in", style({ opacity: 1 }))
+      ])
+    ]),
+    trigger("mediumFadeIn", [
+      transition(":enter", [
+        style({ opacity: 0 }),
+        animate("0.3s 0.1s ease-in", style({ opacity: 1 }))
+      ])
+    ]),
+    trigger("longFadeIn", [
+      transition(":enter", [
+        style({ opacity: 0 }),
+        animate("0.3s 0.2s ease-in", style({ opacity: 1 }))
+      ])
+    ])
+  ]
 })
-export class UploadPage implements OnInit {
+export class UploadPage {
   images = [null, null];
   croppedImages = [null, null];
   style = "Trendy";
   occasion = "Everyday";
   durationInMinutes = 5;
   storeCode: string = null;
+  viewEntered = false;
 
   constructor(
     private dbSrv: DatabaseService,
@@ -36,7 +58,13 @@ export class UploadPage implements OnInit {
     private actionSheetCtrl: ActionSheetController
   ) {}
 
-  ngOnInit() {}
+  ionViewDidEnter() {
+    this.viewEntered = true;
+  }
+
+  ionViewDidLeave() {
+    this.viewEntered = false;
+  }
 
   async selectSource(index: number) {
     const actionSheet = await this.actionSheetCtrl.create({

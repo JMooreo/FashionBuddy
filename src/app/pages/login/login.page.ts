@@ -53,7 +53,7 @@ export class LoginPage implements OnInit {
   }
 
   async navigateTo(pageName: string) {
-    this.navCtrl.navigateRoot(`/${pageName}`);
+    this.navCtrl.navigateForward(`/${pageName}`);
   }
 
   async presentLoading() {

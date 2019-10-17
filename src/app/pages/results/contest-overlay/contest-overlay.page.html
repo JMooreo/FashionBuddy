@@ -9,9 +9,7 @@
 <ion-content>
   <ion-grid class="contest-container">
     <app-results-swiper [options]="contest.options" [borderColors]="borderColors"></app-results-swiper>
-    <ng-container *ngIf="loadContestInfoAndFeedbackForm">
-      <!-- <ion-card>
-      <ion-card-content> -->
+    <ng-container *ngIf="showChart">
       <ion-row style="flex: 100%;" justify-content-center>
         <ion-col text-center *ngFor="let options of contest.options; let i = index">
           <div [@fadeInAnimation]>
@@ -27,20 +25,24 @@
       <ion-row style="flex: 100%;">
         <ion-col>
           <div [@fadeInAnimation]>
-            <app-bar-chart [contestData]="contest"></app-bar-chart>
+            <app-bar-chart (loadedEmitter)="onChartLoaded()" [contestData]="contest"></app-bar-chart>
           </div>
         </ion-col>
       </ion-row>
-      <!-- </ion-card-content>
-    </ion-card> -->
+    </ng-container>
+    <ng-container *ngIf="loadContestInfoAndFeedbackForm">
       <ion-row style="flex: 100%;">
         <ion-col>
+          <div [@fadeInAnimation]>
             <app-contest-info [contestData]="contest"></app-contest-info>
+          </div>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
-          <app-results-submit-form (formSubmitted)="onFeedbackSubmitted($event)"></app-results-submit-form>
+          <div [@fadeInAnimation]>
+            <app-results-submit-form (formSubmitted)="onFeedbackSubmitted($event)"></app-results-submit-form>
+          </div>
         </ion-col>
       </ion-row>
     </ng-container>

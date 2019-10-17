@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from "@angular/core";
+import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from "@angular/core";
 import { Contest, ContestOption } from "src/app/models/contest-model";
 import * as Chart from "chart.js";
 
@@ -12,6 +12,7 @@ export class BarChartComponent implements OnInit {
     { id: "null", imageUrl: "null", votes: 0 } as ContestOption
   ];
   @ViewChild("barChart", { static: false }) barChart;
+  @Output() loadedEmitter = new EventEmitter<boolean>();
 
   @Input() contestData: Contest = {
     options: this.contestOptions,
@@ -67,7 +68,13 @@ export class BarChartComponent implements OnInit {
       options: {
         animation: {
           duration: 1000,
-          animateRotate: true
+          animateRotate: true,
+          onProgress: (animation) => {
+            const progress = animation.currentStep / animation.numSteps;
+            if (progress > 0.3) {
+              this.loadedEmitter.emit(true);
+            }
+          }
         },
         tooltips: {
           enabled: true
