@@ -29,11 +29,6 @@ const routes: Routes = [
       "./pages/results/contest-overlay/contest-overlay.module#ContestOverlayPageModule"
   },
   {
-    path: "contest-winner",
-    loadChildren:
-      "./pages/results/contest-winner/contest-winner.module#ContestWinnerPageModule"
-  },
-  {
     path: "settings",
     loadChildren: "./pages/settings/settings.module#SettingsPageModule"
   },
