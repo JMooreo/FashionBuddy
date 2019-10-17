@@ -1,9 +1,10 @@
 import { Component } from "@angular/core";
 import { DatabaseService } from "src/app/services/database/database.service";
 import { Contest } from "../../models/contest-model";
-import { ModalController, LoadingController } from "@ionic/angular";
+import { ModalController } from "@ionic/angular";
 import { ContestOverlayPage } from "./contest-overlay/contest-overlay.page";
 import { trigger, style, animate, transition } from "@angular/animations";
+import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service";
 
 @Component({
   selector: "app-results",
@@ -26,7 +27,7 @@ export class ResultsPage {
   constructor(
     private dbSrv: DatabaseService,
     private modalCtrl: ModalController,
-    private loadingCtrl: LoadingController
+    private popupSrv: IonicPopupsService
   ) {}
 
   ionViewDidEnter() {
@@ -34,14 +35,14 @@ export class ResultsPage {
   }
 
   async pageLoad() {
-    await this.presentLoading();
+    await this.popupSrv.presentLoading("Getting outfits");
     this.dbSrv.getAllContestsWhereUserIsContestOwner().then(contests => {
       this.contests = contests;
       console.log(this.contests);
       if (this.contests.length === 0 && this.refreshEvent) {
         this.refreshEvent.target.complete();
       }
-      this.loadingCtrl.dismiss();
+      this.popupSrv.loadingCtrl.dismiss();
       this.loading = false;
     });
   }
@@ -56,7 +57,7 @@ export class ResultsPage {
       this.refreshEvent.target.complete();
     }
     if (this.loading) {
-      this.loadingCtrl.dismiss();
+      this.popupSrv.loadingCtrl.dismiss();
       this.loading = false;
   }
 }
@@ -70,14 +71,5 @@ export class ResultsPage {
       .then(overlayPage => {
         overlayPage.present();
       });
-  }
-
-  async presentLoading() {
-    this.loading = true;
-    const loading = await this.loadingCtrl.create({
-      spinner: "crescent",
-      message: "Getting outfits..."
-    });
-    return await loading.present();
   }
 }

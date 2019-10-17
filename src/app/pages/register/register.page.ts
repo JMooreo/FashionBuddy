@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { NavController, LoadingController } from "@ionic/angular";
+import { NavController } from "@ionic/angular";
 import { AuthService } from "src/app/services/auth/auth.service";
 import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service";
 
@@ -18,7 +18,6 @@ export class RegisterPage implements OnInit {
     private navCtrl: NavController,
     public authSrv: AuthService,
     private popupSrv: IonicPopupsService,
-    public loadingCtrl: LoadingController
   ) {}
 
   ngOnInit() {
@@ -30,12 +29,12 @@ export class RegisterPage implements OnInit {
   }
 
   async register() {
-    await this.presentLoading();
+    await this.popupSrv.presentLoading("Authenticating...");
     const { email, password, confirmPassword } = this;
 
     if (password !== confirmPassword) {
+      this.popupSrv.loadingCtrl.dismiss();
       this.popupSrv.showBasicAlert("Error", "Passwords do not match");
-      this.loadingCtrl.dismiss();
       return;
     }
 
@@ -45,7 +44,7 @@ export class RegisterPage implements OnInit {
         if (callback === true) {
           this.navigateTo("tabs");
         } else {
-          this.loadingCtrl.dismiss();
+          this.popupSrv.loadingCtrl.dismiss();
           this.popupSrv.showBasicAlert("Error", callback.message);
         }
       });
@@ -63,13 +62,5 @@ export class RegisterPage implements OnInit {
 
   navigateTo(pageName: string) {
     this.navCtrl.navigateBack(`/${pageName}`);
-  }
-
-  async presentLoading() {
-    const loading = await this.loadingCtrl.create({
-      spinner: "crescent",
-      message: "Authenticating..."
-    });
-    return await loading.present();
   }
 }

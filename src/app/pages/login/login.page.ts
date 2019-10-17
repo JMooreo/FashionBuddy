@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { NavController, LoadingController } from "@ionic/angular";
+import { NavController } from "@ionic/angular";
 import { AuthService } from "src/app/services/auth/auth.service";
 import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service";
 
@@ -17,7 +17,6 @@ export class LoginPage implements OnInit {
     private navCtrl: NavController,
     private authSrv: AuthService,
     private popupSrv: IonicPopupsService,
-    public loadingCtrl: LoadingController
   ) {}
 
   ngOnInit() {
@@ -30,14 +29,14 @@ export class LoginPage implements OnInit {
 
   async login() {
     const { email, password } = this;
-    await this.presentLoading();
+    await this.popupSrv.presentLoading("Authenticating...");
     await this.authSrv
       .signInWithEmailAndPassword(email, password)
       .then(callback => {
         if (callback === true) {
           this.navigateTo("tabs");
         } else {
-          this.loadingCtrl.dismiss();
+          this.popupSrv.loadingCtrl.dismiss();
           this.popupSrv.showBasicAlert("Error", callback.message);
         }
       });
@@ -55,13 +54,5 @@ export class LoginPage implements OnInit {
 
   async navigateTo(pageName: string) {
     this.navCtrl.navigateForward(`/${pageName}`);
-  }
-
-  async presentLoading() {
-    const loading = await this.loadingCtrl.create({
-      spinner: "crescent",
-      message: "Authenticating..."
-    });
-    return await loading.present();
   }
 }

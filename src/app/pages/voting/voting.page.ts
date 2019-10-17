@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 import { DatabaseService } from "../../services/database/database.service";
 import { Contest } from "../../models/contest-model";
 import { trigger, style, animate, transition } from "@angular/animations";
-import { LoadingController, NavController } from "@ionic/angular";
+import { NavController } from "@ionic/angular";
 import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service";
 
 @Component({
@@ -34,7 +34,6 @@ export class VotingPage {
 
   constructor(
     private dbSrv: DatabaseService,
-    private loadingCtrl: LoadingController,
     private popupSrv: IonicPopupsService,
     private navCtrl: NavController
   ) {}
@@ -42,7 +41,7 @@ export class VotingPage {
   ionViewDidEnter() {
     this.pageLoad();
     if (this.isFirstPageLoad) {
-      this.loadingCtrl.dismiss();
+      this.popupSrv.loadingCtrl.dismiss();
     }
     this.isFirstPageLoad = false;
   }
