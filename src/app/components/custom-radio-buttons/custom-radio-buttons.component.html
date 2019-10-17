@@ -1,0 +1,7 @@
+<ion-row justify-content-center>
+  <ion-col text-center size="3" *ngFor="let selector of selectors">
+    <div [class.active]="selector === value" class="selector" (click)="onItemSelected(selector)">
+      {{ selector }}
+    </div>
+  </ion-col>
+</ion-row>

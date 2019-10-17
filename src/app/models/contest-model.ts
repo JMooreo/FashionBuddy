@@ -5,6 +5,7 @@ export interface Contest {
   createDateTime: string;
   closeDateTime: string;
   occasion: string;
+  seenUsers: Array<string>;
   reportCount: number;
   style: string;
 }

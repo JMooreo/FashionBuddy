@@ -82,7 +82,7 @@ export class SettingsPage implements OnInit {
   }
 
   navigateTo(pageName: string) {
-    this.navCtrl.navigateRoot(`/${pageName}`);
+    this.navCtrl.navigateBack(`/${pageName}`);
   }
 
   async showAlert(header: string, message: string) {

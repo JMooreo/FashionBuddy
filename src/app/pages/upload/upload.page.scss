@@ -5,7 +5,8 @@
 }
 
 .contest-column {
-	min-height: 95vmin;
+  min-height: 95vw;
+  max-width: 40vw;
 }
 
 ion-item-divider {
@@ -18,8 +19,8 @@ ion-item-divider {
 }
 
 .image-placeholder-button {
-	border: 2px solid black;
-	border-radius: 10px;
+	border: 1.5px solid var(--ion-color-dark);
+	border-radius: 20px;
 	font-size: 2em;
 	height: 100%;
 	margin: 0px !important;

@@ -1,0 +1,39 @@
+<ion-card>
+  <ion-card-header>
+    <ion-text color="light">
+      Contest Info
+    </ion-text>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item-group>
+
+      <ion-item>
+        <ion-text color="dark">
+          Style:
+        </ion-text>
+        <ion-text slot="end" color="dark">
+          {{ contestData.style }}
+        </ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-text color="dark">
+          Occasion:
+        </ion-text>
+        <ion-text slot="end" color="dark">
+          {{ contestData.occasion }}
+        </ion-text>
+      </ion-item>
+
+      <ion-item lines="none">
+          <ion-text color="dark">
+            Voting Time:
+          </ion-text>
+          <ion-text slot="end" color="dark">
+            {{ getContestDuration() }}
+          </ion-text>
+        </ion-item>
+
+    </ion-item-group>
+  </ion-card-content>
+</ion-card>

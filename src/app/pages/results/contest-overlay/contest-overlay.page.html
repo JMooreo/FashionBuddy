@@ -8,27 +8,43 @@
 
 <ion-content>
   <ion-grid class="contest-container">
-    <ion-row>
-      <ng-container *ngIf="percentages">
-        <ion-col style="padding: 20px; padding-bottom: 0px" *ngFor="let option of contest.options; let i = index"
-          text-center>
-          <ion-row justify-content-center>
-            <tinder-card [imageUrl]="option.imageUrl">
-            </tinder-card>
-          </ion-row>
-          <ion-row justify-content-center>
-            <ion-text style="margin: 10px; padding: 5px; font-size: 1.2rem" color="dark">
-              {{ outfitLabels[i] }}
+    <app-results-swiper [options]="contest.options" [borderColors]="borderColors"></app-results-swiper>
+    <ng-container *ngIf="showChart">
+      <ion-row style="flex: 100%;" justify-content-center>
+        <ion-col text-center *ngFor="let options of contest.options; let i = index">
+          <div [@fadeInAnimation]>
+            <ion-text style="vertical-align: middle" [style.color]="textColors[i]">
+              <h1 style="font-size: 2rem">
+                <ion-icon *ngIf="i === 0" name="star"></ion-icon>
+                {{ percentages[i] | percent}}
+              </h1>
             </ion-text>
-          </ion-row>
-          <ion-row justify-content-center>
-            <ion-text style="margin: 10px; padding: 5px; font-size: 1.5rem" [color]="i == 0 ? 'primary' : 'secondary'">
-              {{ percentages[i] | percent }}
-            </ion-text>
-          </ion-row>
+          </div>
         </ion-col>
-      </ng-container>
-    </ion-row>
-    <app-bar-chart [contestData]="contest"></app-bar-chart>
+      </ion-row>
+      <ion-row style="flex: 100%;">
+        <ion-col>
+          <div [@fadeInAnimation]>
+            <app-bar-chart (loadedEmitter)="onChartLoaded()" [contestData]="contest"></app-bar-chart>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+    <ng-container *ngIf="loadContestInfoAndFeedbackForm">
+      <ion-row style="flex: 100%;">
+        <ion-col>
+          <div [@fadeInAnimation]>
+            <app-contest-info [contestData]="contest"></app-contest-info>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div [@fadeInAnimation]>
+            <app-results-submit-form (formSubmitted)="onFeedbackSubmitted($event)"></app-results-submit-form>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ng-container>
   </ion-grid>
 </ion-content>

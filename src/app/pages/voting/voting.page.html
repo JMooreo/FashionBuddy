@@ -26,9 +26,9 @@
   <ion-grid class="contest-container">
     <ion-row>
       <ng-container *ngIf="contests && contests[0] != null">
-        <ion-col *ngFor="let option of contests[0].options">
+        <ion-col *ngFor="let option of contests[0].options; let optionIndex = index">
           <div id="draggable-container" *ngIf="isContestVisible" [@inOutAnimation] cdkDragLockAxis="y" cdkDrag
-            (cdkDragEnded)="tinderCardDragEnded($event, contests[0].id, option)">
+            (cdkDragEnded)="tinderCardDragEnded($event, contests[0].id, optionIndex)">
             <tinder-card [imageUrl]="option.imageUrl">
             </tinder-card>
           </div>

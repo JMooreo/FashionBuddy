@@ -16,9 +16,11 @@
   <ion-row>
     <ng-container *ngIf="contests && contests.length > 0">
       <ion-col style="padding: 20px" size="6" *ngFor="let contest of contests">
-        <tinder-card *ngIf="contest.options[0]?.imageUrl" [imageUrl]="contest.options[0].imageUrl"
-          (click)="showContestDetails(contest, true)" (loadedEvent)="onCardLoaded()">
-        </tinder-card>
+        <div [@inOutAnimation]>
+          <tinder-card *ngIf="contest.options[0]?.imageUrl" [imageUrl]="contest.options[0].imageUrl"
+            (click)="showContestDetails(contest, false)" (loadedEvent)="onCardLoaded()">
+          </tinder-card>
+        </div>
       </ion-col>
     </ng-container>
     <ion-col *ngIf="contests && contests.length === 0">

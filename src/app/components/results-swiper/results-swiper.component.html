@@ -1,0 +1,9 @@
+<ion-slides #slides pager="true" [options]="slidesOpts">
+  <ion-slide *ngFor="let option of options; let i = index">
+    <ion-card mode="md" [ngStyle]="{'background': borderColors[i]}">
+      <ion-card-content no-padding>
+        <img style="object-fit: contain; border-radius: 20px; padding: 2px;" [src]="option.imageUrl">
+      </ion-card-content>
+    </ion-card>
+  </ion-slide>
+</ion-slides>

@@ -1,18 +1,33 @@
-import { Component, OnInit } from "@angular/core";
-import { ModalController, NavParams } from "@ionic/angular";
+import { Component } from "@angular/core";
+import { ModalController, NavParams, ToastController } from "@ionic/angular";
 import { Contest, ContestOption } from "src/app/models/contest-model";
 import { ContestWinnerPage } from "../contest-winner/contest-winner.page";
+import { trigger, style, animate, transition } from "@angular/animations";
 
 @Component({
   selector: "app-contest-overlay",
   templateUrl: "./contest-overlay.page.html",
-  styleUrls: ["./contest-overlay.page.scss"]
+  styleUrls: ["./contest-overlay.page.scss"],
+  animations: [
+    trigger("fadeInAnimation", [
+      transition(":enter", [
+        style({ opacity: 0 }),
+        animate("0.3s ease-in", style({ opacity: 1 }))
+      ])
+    ])
+  ]
 })
-export class ContestOverlayPage implements OnInit {
+export class ContestOverlayPage {
   userHasNotSeenWinnerYet: boolean;
+  loadContestInfoAndFeedbackForm = false;
+  showChart = false;
   percentages: Array<number> = [];
-  BarChart = null;
-  outfitLabels = ["Looks great!", "Looks good"];
+  textColors = ["#FF8F00", "#4C46FD"];
+  borderColors = [
+    "linear-gradient(#FF8F00,#FFB800)",
+    "linear-gradient(#4C46FD, #B074C2)",
+    "linear-gradient(#219673, #83BE01)"
+  ];
 
   contestOptions: Array<ContestOption> = [
     { id: "null", imageUrl: "null", votes: 0 },
@@ -25,31 +40,35 @@ export class ContestOverlayPage implements OnInit {
     createDateTime: "null",
     closeDateTime: "null",
     occasion: "null",
+    seenUsers: [],
     reportCount: 0,
     style: "null"
   };
 
   constructor(
     private navParams: NavParams,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private toastCtrl: ToastController
   ) {}
 
-  ngOnInit() {
-    this.pageLoad().then(loaded => {
-      if (this.userHasNotSeenWinnerYet) {
-        this.openOutfitWinnerScreen();
-      }
-    });
+  ionViewDidEnter() {
+    this.pageLoad();
   }
 
   async pageLoad() {
-    this.contest = await this.navParams.get("contest");
-    this.userHasNotSeenWinnerYet = await this.navParams.get("showWinner");
+    this.contest = this.navParams.get("contest");
     this.calculatePercentages();
+    this.showChart = true;
   }
 
   close() {
     this.modalCtrl.dismiss();
+  }
+
+  onChartLoaded() {
+    if (!this.loadContestInfoAndFeedbackForm) {
+      this.loadContestInfoAndFeedbackForm = true;
+    }
   }
 
   getTotalVotes() {
@@ -69,6 +88,16 @@ export class ContestOverlayPage implements OnInit {
     this.percentages = percentages;
   }
 
+  onFeedbackSubmitted(event: any) {
+    const rating = event.formData.rating;
+    if (rating !== null && rating < 3) {
+      this.showToast("Sorry", "We hope next time goes better :)");
+    } else {
+      this.showToast("Awesome!", "Thanks for the feedback :)");
+    }
+    alert(event.message);
+  }
+
   async openOutfitWinnerScreen() {
     this.modalCtrl
       .create({
@@ -78,5 +107,16 @@ export class ContestOverlayPage implements OnInit {
       .then(contestWinnerPage => {
         contestWinnerPage.present();
       });
+  }
+
+  async showToast(header: string, message: string) {
+    const toast = await this.toastCtrl.create({
+      header,
+      message,
+      color: "light",
+      duration: 1500,
+      position: "bottom"
+    });
+    toast.present();
   }
 }

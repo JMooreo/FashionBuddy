@@ -1,8 +1,13 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { DatabaseService } from "../../services/database/database.service";
-import { Contest, ContestOption } from "../../models/contest-model";
+import { Contest } from "../../models/contest-model";
 import { trigger, style, animate, transition } from "@angular/animations";
-import { LoadingController, AlertController, NavController } from "@ionic/angular";
+import {
+  LoadingController,
+  AlertController,
+  NavController,
+  ToastController
+} from "@ionic/angular";
 
 @Component({
   selector: "app-voting",
@@ -21,7 +26,7 @@ import { LoadingController, AlertController, NavController } from "@ionic/angula
     ])
   ]
 })
-export class VotingPage implements OnInit {
+export class VotingPage {
   // Constants
   ANIMATION_DELAY = 100;
   // Booleans
@@ -29,24 +34,22 @@ export class VotingPage implements OnInit {
   isRefreshing = false;
   // Objects
   contests: Array<Contest>;
+  isFirstPageLoad = true;
 
   constructor(
     private dbSrv: DatabaseService,
     private loadingCtrl: LoadingController,
     private alertCtrl: AlertController,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private toastCtrl: ToastController
   ) {}
 
-  ngOnInit() {
-    this.firstPageLoad();
-  }
-
-  async firstPageLoad() {
-    await this.pageLoad();
-    try {
-      await this.loadingCtrl.dismiss();
-      this.showAlert("Success", "You're Logged in :)");
-    } catch {}
+  ionViewDidEnter() {
+    this.pageLoad();
+    if (this.isFirstPageLoad) {
+      this.loadingCtrl.dismiss();
+    }
+    this.isFirstPageLoad = false;
   }
 
   async pageLoad() {
@@ -74,30 +77,28 @@ export class VotingPage implements OnInit {
     }, this.ANIMATION_DELAY);
   }
 
-  tinderCardDragEnded(event, contestId, option) {
+  tinderCardDragEnded(event, contestId: string, optionIndex: number) {
     const element = event.source.getRootElement().getBoundingClientRect();
     const elementHeight = element.bottom - element.top;
     if (element.y < -elementHeight / 100) {
       this.hideContest();
-      this.dbSrv.addContestVote(contestId, option);
+      this.dbSrv.addContestVote(contestId, optionIndex);
     } else {
       event.source.reset();
     }
   }
 
   navigateTo(pageName: string) {
-    this.navCtrl.navigateRoot(`/${pageName}`);
+    this.navCtrl.navigateForward(`/${pageName}`);
   }
 
   reportContest(contestId: string) {
     this.hideContest();
-    this.showAlert("Report Successful", "Thanks for your help! We won't show that post anymore.");
-    const reportOption = {
-      id: "report",
-      imageUrl: "none",
-      votes: 0
-    } as ContestOption;
-    this.dbSrv.reportContest(contestId, reportOption);
+    this.showAlert(
+      "Success",
+      "Thanks for your help! We won't show that post anymore."
+    );
+    this.dbSrv.reportContest(contestId);
   }
 
   async showReportAlert(contestId: string) {

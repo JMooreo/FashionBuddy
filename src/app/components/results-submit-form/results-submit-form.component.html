@@ -1,0 +1,23 @@
+<ion-card>
+  <ion-card-content>
+    <ion-row justify-content-center>
+      <ion-text>
+        Did you wear the winning look?
+      </ion-text>
+    </ion-row>
+    <app-custom-radio-buttons (selectedEvent)="onItemSelect($event)"></app-custom-radio-buttons>
+    <ion-row text-center justify-content-center>
+      <ion-text>
+        How satisfied were you with the winning look?
+      </ion-text>
+    </ion-row>
+    <app-star-rating (selectedEvent)="onStarSelect($event)"></app-star-rating>
+    <ion-row justify-content-center>
+      <ion-col size="6">
+        <ion-button mode="ios" fill="outline" expand="block" (click)="submitForm()">
+          Submit
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+</ion-card>

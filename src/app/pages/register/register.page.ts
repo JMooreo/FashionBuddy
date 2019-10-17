@@ -61,7 +61,7 @@ export class RegisterPage implements OnInit {
   }
 
   navigateTo(pageName: string) {
-    this.navCtrl.navigateRoot(`/${pageName}`);
+    this.navCtrl.navigateBack(`/${pageName}`);
   }
 
   async presentLoading() {
