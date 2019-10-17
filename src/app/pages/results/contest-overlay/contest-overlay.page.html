@@ -12,11 +12,11 @@
     <ng-container *ngIf="loadContestInfoAndFeedbackForm">
       <!-- <ion-card>
       <ion-card-content> -->
-      <ion-row justify-content-center>
+      <ion-row style="flex: 100%;" justify-content-center>
         <ion-col text-center *ngFor="let options of contest.options; let i = index">
           <div [@fadeInAnimation]>
             <ion-text style="vertical-align: middle" [style.color]="textColors[i]">
-              <h1>
+              <h1 style="font-size: 2rem">
                 <ion-icon *ngIf="i === 0" name="star"></ion-icon>
                 {{ percentages[i] | percent}}
               </h1>
@@ -33,7 +33,7 @@
       </ion-row>
       <!-- </ion-card-content>
     </ion-card> -->
-      <ion-row>
+      <ion-row style="flex: 100%;">
         <ion-col>
             <app-contest-info [contestData]="contest"></app-contest-info>
         </ion-col>
