@@ -69,7 +69,6 @@ export class BarChartComponent implements OnInit {
           duration: 1000,
           animateRotate: true
         },
-        onClick: this.doSomething,
         tooltips: {
           enabled: true
         },
@@ -94,11 +93,5 @@ export class BarChartComponent implements OnInit {
         }
       }
     });
-  }
-
-  doSomething(event, array) {
-    if (array[0]) {
-      console.log("Hello", array);
-    }
   }
 }

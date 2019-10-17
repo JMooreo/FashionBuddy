@@ -9,34 +9,40 @@
 <ion-content>
   <ion-grid class="contest-container">
     <app-results-swiper [options]="contest.options" [borderColors]="borderColors"></app-results-swiper>
-    <!-- <ion-card>
+    <ng-container *ngIf="loadContestInfoAndFeedbackForm">
+      <!-- <ion-card>
       <ion-card-content> -->
-    <ion-row justify-content-center>
-      <ion-col text-center *ngFor="let options of contest.options; let i = index">
-        <ion-text style="vertical-align: middle" [style.color]="textColors[i]">
-          <h1>
-            <ion-icon *ngIf="i === 0" name="star"></ion-icon>
-            {{ percentages[i] | percent}}
-          </h1>
-        </ion-text>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <app-bar-chart [contestData]="contest"></app-bar-chart>
-      </ion-col>
-    </ion-row>
-    <!-- </ion-card-content>
+      <ion-row justify-content-center>
+        <ion-col text-center *ngFor="let options of contest.options; let i = index">
+          <div [@fadeInAnimation]>
+            <ion-text style="vertical-align: middle" [style.color]="textColors[i]">
+              <h1>
+                <ion-icon *ngIf="i === 0" name="star"></ion-icon>
+                {{ percentages[i] | percent}}
+              </h1>
+            </ion-text>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row style="flex: 100%;">
+        <ion-col>
+          <div [@fadeInAnimation]>
+            <app-bar-chart [contestData]="contest"></app-bar-chart>
+          </div>
+        </ion-col>
+      </ion-row>
+      <!-- </ion-card-content>
     </ion-card> -->
-    <ion-row>
-      <ion-col>
-        <app-contest-info [contestData]="contest"></app-contest-info>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <app-results-submit-form (formSubmitted)="onFeedbackSubmitted($event)"></app-results-submit-form>
-      </ion-col>
-    </ion-row>
+      <ion-row>
+        <ion-col>
+            <app-contest-info [contestData]="contest"></app-contest-info>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <app-results-submit-form (formSubmitted)="onFeedbackSubmitted($event)"></app-results-submit-form>
+        </ion-col>
+      </ion-row>
+    </ng-container>
   </ion-grid>
 </ion-content>

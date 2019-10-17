@@ -17,8 +17,9 @@ export class ResultsSwiperComponent {
 
   slidesOpts = {
     slidesPerView: 1.8,
+    speed: 300,
     centeredSlides: true,
-    spaceBetween: 50,
+    spaceBetween: 20,
     coverflowEffect: {
       rotate: -20,
       stretch: 0,
@@ -152,13 +153,4 @@ export class ResultsSwiperComponent {
   };
 
   constructor() {}
-
-  slideChanged() {
-    this.slides.getActiveIndex().then(index => {
-      document.body.style.setProperty(
-        "--bullet-color-var",
-        this.borderColors[index]
-      );
-    });
-  }
 }
