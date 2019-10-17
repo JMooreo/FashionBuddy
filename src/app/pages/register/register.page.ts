@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { NavController, AlertController, LoadingController } from "@ionic/angular";
+import { NavController, LoadingController } from "@ionic/angular";
 import { AuthService } from "src/app/services/auth/auth.service";
+import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service";
 
 @Component({
   selector: "app-register",
@@ -16,7 +17,7 @@ export class RegisterPage implements OnInit {
   constructor(
     private navCtrl: NavController,
     public authSrv: AuthService,
-    private alertCtrl: AlertController,
+    private popupSrv: IonicPopupsService,
     public loadingCtrl: LoadingController
   ) {}
 
@@ -33,7 +34,7 @@ export class RegisterPage implements OnInit {
     const { email, password, confirmPassword } = this;
 
     if (password !== confirmPassword) {
-      this.showAlert("Error", "Passwords do not match");
+      this.popupSrv.showBasicAlert("Error", "Passwords do not match");
       this.loadingCtrl.dismiss();
       return;
     }
@@ -45,7 +46,7 @@ export class RegisterPage implements OnInit {
           this.navigateTo("tabs");
         } else {
           this.loadingCtrl.dismiss();
-          this.showAlert("Error", callback.message);
+          this.popupSrv.showBasicAlert("Error", callback.message);
         }
       });
 
@@ -70,15 +71,5 @@ export class RegisterPage implements OnInit {
       message: "Authenticating..."
     });
     return await loading.present();
-  }
-
-  async showAlert(header: string, message: string) {
-    const alert = await this.alertCtrl.create({
-      header,
-      message,
-      buttons: ["OK"]
-    });
-
-    await alert.present();
   }
 }

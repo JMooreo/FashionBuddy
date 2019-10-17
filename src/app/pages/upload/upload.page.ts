@@ -1,17 +1,13 @@
 import { Component } from "@angular/core";
 import { DatabaseService } from "src/app/services/database/database.service";
-import {
-  ActionSheetController,
-  ModalController,
-  AlertController,
-  LoadingController
-} from "@ionic/angular";
+import { ActionSheetController, ModalController, LoadingController } from "@ionic/angular";
 
 import { Camera, CameraOptions } from "@ionic-native/camera/ngx";
 import { CapturedImageModalPage } from "./captured-image-modal/captured-image-modal.page";
 import { StorageService } from "src/app/services/storage/storage.service";
 import { AuthService } from "src/app/services/auth/auth.service";
 import { trigger, style, animate, transition } from "@angular/animations";
+import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service";
 
 @Component({
   selector: "app-upload",
@@ -53,7 +49,7 @@ export class UploadPage {
     private authSrv: AuthService,
     private camera: Camera,
     private modalCtrl: ModalController,
-    private alertCtrl: AlertController,
+    private popupSrv: IonicPopupsService,
     private loadingCtrl: LoadingController,
     private actionSheetCtrl: ActionSheetController
   ) {}
@@ -140,7 +136,7 @@ export class UploadPage {
         this.openCropper(base64Image, index);
       },
       err => {
-        this.showAlert("Error", err);
+        this.popupSrv.showBasicAlert("Unexpected", err);
       }
     );
   }
@@ -169,7 +165,7 @@ export class UploadPage {
     for (const image of this.croppedImages) {
       if (image == null) {
         this.loadingCtrl.dismiss().then(() => {
-          this.showAlert("Upload Failed", "You must choose 2 images");
+          this.popupSrv.showBasicAlert("Upload Failed", "You must choose 2 images");
         });
         return false;
       }
@@ -177,7 +173,7 @@ export class UploadPage {
 
     if (this.durationInMinutes < 5) {
       this.loadingCtrl.dismiss().then(() => {
-        this.showAlert("Upload Failed", "Duration must be at least 5 minutes");
+        this.popupSrv.showBasicAlert("Upload Failed", "Duration must be at least 5 minutes");
       });
       return false;
     }
@@ -236,21 +232,11 @@ export class UploadPage {
           .createContest(contestId, contest)
           .then(() => {
             this.loadingCtrl.dismiss().then(() => {
-              this.showAlert("Success", "Uploaded your contest!");
+              this.popupSrv.showBasicAlert("Success", "Uploaded your contest!");
             });
           });
       });
     }
-  }
-
-  async showAlert(header: string, message: string) {
-    const alert = await this.alertCtrl.create({
-      header,
-      message,
-      buttons: ["OK"]
-    });
-
-    await alert.present();
   }
 
   async presentLoading() {

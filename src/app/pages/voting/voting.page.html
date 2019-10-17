@@ -42,7 +42,7 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-button *ngIf="contests && contests[0]" fill="clear" color="danger" (click)="showReportAlert(contests[0].id)">
+  <ion-button *ngIf="contests && contests[0]" fill="clear" color="danger" (click)="confirmReport(contests[0].id)" >
     <ion-icon slot="start" name="flag"></ion-icon>
     Report
   </ion-button>

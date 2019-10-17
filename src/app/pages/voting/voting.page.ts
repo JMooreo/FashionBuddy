@@ -2,12 +2,8 @@ import { Component } from "@angular/core";
 import { DatabaseService } from "../../services/database/database.service";
 import { Contest } from "../../models/contest-model";
 import { trigger, style, animate, transition } from "@angular/animations";
-import {
-  LoadingController,
-  AlertController,
-  NavController,
-  ToastController
-} from "@ionic/angular";
+import { LoadingController, NavController } from "@ionic/angular";
+import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service";
 
 @Component({
   selector: "app-voting",
@@ -39,9 +35,8 @@ export class VotingPage {
   constructor(
     private dbSrv: DatabaseService,
     private loadingCtrl: LoadingController,
-    private alertCtrl: AlertController,
-    private navCtrl: NavController,
-    private toastCtrl: ToastController
+    private popupSrv: IonicPopupsService,
+    private navCtrl: NavController
   ) {}
 
   ionViewDidEnter() {
@@ -92,17 +87,8 @@ export class VotingPage {
     this.navCtrl.navigateForward(`/${pageName}`);
   }
 
-  reportContest(contestId: string) {
-    this.hideContest();
-    this.showAlert(
-      "Success",
-      "Thanks for your help! We won't show that post anymore."
-    );
-    this.dbSrv.reportContest(contestId);
-  }
-
-  async showReportAlert(contestId: string) {
-    const alert = await this.alertCtrl.create({
+  async confirmReport(contestId: string) {
+    const alert = await this.popupSrv.alertCtrl.create({
       header: "Confirm",
       message: "Would you like to report this post for inappropriate content?",
       buttons: [
@@ -119,16 +105,15 @@ export class VotingPage {
         }
       ]
     });
-
     return alert.present();
   }
 
-  async showAlert(header: string, message: string) {
-    const alert = await this.alertCtrl.create({
-      header,
-      message,
-      buttons: ["OK"]
-    });
-    return alert.present();
+  reportContest(contestId: string) {
+    this.hideContest();
+    this.popupSrv.showBasicAlert(
+      "Success",
+      "Thanks for your help! We won't show that post anymore."
+    );
+    this.dbSrv.reportContest(contestId);
   }
 }

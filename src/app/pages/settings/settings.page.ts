@@ -1,23 +1,22 @@
-import { Component, OnInit } from "@angular/core";
-import { AlertController, NavController } from "@ionic/angular";
+import { Component } from "@angular/core";
+import { NavController } from "@ionic/angular";
 import { AuthService } from "src/app/services/auth/auth.service";
+import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service";
 
 @Component({
   selector: "app-settings",
   templateUrl: "./settings.page.html",
   styleUrls: ["./settings.page.scss"]
 })
-export class SettingsPage implements OnInit {
+export class SettingsPage {
   constructor(
-    private alertCtrl: AlertController,
+    private popupSrv: IonicPopupsService,
     private authSrv: AuthService,
     private navCtrl: NavController
   ) {}
 
-  ngOnInit() {}
-
   async logOut() {
-    const alert = await this.alertCtrl.create({
+    const alert = await this.popupSrv.alertCtrl.create({
       header: "Logout",
       message: "Are you sure you want to logout?",
       buttons: [
@@ -40,7 +39,7 @@ export class SettingsPage implements OnInit {
   }
 
   async deleteAccount() {
-    const alert = await this.alertCtrl.create({
+    const alert = await this.popupSrv.alertCtrl.create({
       header: "Log in to delete",
       message: "Enter email and password to delete account",
       inputs: [
@@ -61,13 +60,13 @@ export class SettingsPage implements OnInit {
             this.authSrv
               .deleteUser(data.Email, data.password)
               .then(() => {
-                this.showAlert(
+                this.popupSrv.showBasicAlert(
                   "Sorry to see you go",
                   "We successfully deleted your account"
                 );
                 this.navigateTo("register");
               })
-              .catch(err => this.showAlert("Error", err.message));
+              .catch(err => this.popupSrv.showBasicAlert("Error", err.message));
           }
         },
         {
@@ -83,15 +82,5 @@ export class SettingsPage implements OnInit {
 
   navigateTo(pageName: string) {
     this.navCtrl.navigateBack(`/${pageName}`);
-  }
-
-  async showAlert(header: string, message: string) {
-    const alert = await this.alertCtrl.create({
-      header,
-      message,
-      buttons: ["OK"]
-    });
-
-    return alert.present();
   }
 }
