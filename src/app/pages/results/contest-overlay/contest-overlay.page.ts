@@ -100,9 +100,9 @@ export class ContestOverlayPage {
     const toast = await this.toastCtrl.create({
       header,
       message,
-      color: "light",
       duration: 1500,
-      position: "bottom"
+      position: "bottom",
+      mode: "ios"
     });
     toast.present();
   }

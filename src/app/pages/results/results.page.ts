@@ -21,7 +21,6 @@ import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service
 export class ResultsPage {
   contests = Array<Contest>();
   refreshEvent: any;
-  loading = false;
 
   constructor(
     private dbSrv: DatabaseService,
@@ -33,16 +32,12 @@ export class ResultsPage {
   }
 
   async pageLoad() {
-    await this.popupSrv.presentLoading("Getting outfits");
-    this.dbSrv.getAllContestsWhereUserIsContestOwner().then(contests => {
-      this.contests = contests;
-      console.log(this.contests);
-      if (this.contests.length === 0 && this.refreshEvent) {
-        this.refreshEvent.target.complete();
-      }
-      this.popupSrv.loadingCtrl.dismiss();
-      this.loading = false;
-    });
+    await this.popupSrv.presentLoading("Getting outfits...");
+    this.contests = await this.dbSrv.getAllContestsWhereUserIsContestOwner();
+    if (this.contests.length === 0 && this.refreshEvent) {
+      this.refreshEvent.target.complete();
+    }
+    this.popupSrv.loadingCtrl.dismiss();
   }
 
   async doRefresh(event) {
@@ -54,11 +49,7 @@ export class ResultsPage {
     if (this.refreshEvent) {
       this.refreshEvent.target.complete();
     }
-    if (this.loading) {
-      this.popupSrv.loadingCtrl.dismiss();
-      this.loading = false;
   }
-}
 
   showContestDetails(contest: Contest, showWinner: boolean) {
     this.popupSrv.modalCtrl

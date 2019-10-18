@@ -15,7 +15,8 @@ export class IonicPopupsService {
       const alert = await this.alertCtrl.create({
         header,
         message,
-        buttons
+        buttons,
+        mode: "ios"
       });
       return alert.present();
   }
@@ -23,7 +24,8 @@ export class IonicPopupsService {
   async presentLoading(message: string, spinner: any = "crescent") {
     const loading = await this.loadingCtrl.create({
       spinner,
-      message
+      message,
+      mode: "ios"
     });
     return loading.present();
   }

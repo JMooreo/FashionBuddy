@@ -40,7 +40,6 @@ export class UploadPage {
   style = "Trendy";
   occasion = "Everyday";
   durationInMinutes = 5;
-  storeCode: string = null;
   viewEntered = false;
 
   constructor(
@@ -83,7 +82,8 @@ export class UploadPage {
           text: "Cancel",
           role: "cancel"
         }
-      ]
+      ],
+      mode: "ios"
     });
     await actionSheet.present();
   }
@@ -134,7 +134,7 @@ export class UploadPage {
         this.openCropper(base64Image, index);
       },
       err => {
-        this.popupSrv.showBasicAlert("Unexpected", err);
+        this.popupSrv.showBasicAlert("Unexpected Event", err);
       }
     );
   }
@@ -212,8 +212,6 @@ export class UploadPage {
         closeDateTime.setMinutes(
           createDateTime.getMinutes() + this.durationInMinutes
         );
-        console.log(createDateTime);
-        console.log(closeDateTime);
 
         const contest = {
           createDateTime: createDateTime.toISOString(),

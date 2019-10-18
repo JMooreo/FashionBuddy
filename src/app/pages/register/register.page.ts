@@ -17,7 +17,7 @@ export class RegisterPage implements OnInit {
   constructor(
     private navCtrl: NavController,
     public authSrv: AuthService,
-    private popupSrv: IonicPopupsService,
+    private popupSrv: IonicPopupsService
   ) {}
 
   ngOnInit() {
@@ -50,14 +50,16 @@ export class RegisterPage implements OnInit {
       });
 
     if (this.rememberMe) {
-      localStorage.setItem("rememberMe", "true");
-      localStorage.setItem("email", email);
-      localStorage.setItem("password", password);
+      this.storeLocalData("true", email, password);
     } else {
-      localStorage.setItem("rememberMe", "false");
-      localStorage.setItem("email", "");
-      localStorage.setItem("password", "");
+      this.storeLocalData("false", "", "");
     }
+  }
+
+  storeLocalData(rememberMe: string, email: string, password: string) {
+    localStorage.setItem("rememberMe", rememberMe);
+    localStorage.setItem("email", email);
+    localStorage.setItem("password", password);
   }
 
   navigateTo(pageName: string) {

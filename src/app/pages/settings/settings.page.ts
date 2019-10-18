@@ -32,7 +32,8 @@ export class SettingsPage {
           text: "Cancel",
           role: "cancel"
         }
-      ]
+      ],
+      mode: "ios"
     });
 
     return alert.present();
@@ -74,7 +75,8 @@ export class SettingsPage {
           role: "cancel",
           handler: () => {}
         }
-      ]
+      ],
+      mode: "ios"
     });
 
     return alert.present();

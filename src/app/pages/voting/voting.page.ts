@@ -23,14 +23,10 @@ import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service
   ]
 })
 export class VotingPage {
-  // Constants
-  ANIMATION_DELAY = 100;
-  // Booleans
-  isContestVisible = false; // default invisible for fade in
-  isRefreshing = false;
-  // Objects
-  contests: Array<Contest>;
+  animationDelay = 100;
+  isContestVisible = false;
   isFirstPageLoad = true;
+  contests: Array<Contest>;
 
   constructor(
     private dbSrv: DatabaseService,
@@ -42,8 +38,8 @@ export class VotingPage {
     this.pageLoad();
     if (this.isFirstPageLoad) {
       this.popupSrv.loadingCtrl.dismiss();
+      this.isFirstPageLoad = false;
     }
-    this.isFirstPageLoad = false;
   }
 
   async pageLoad() {
@@ -53,10 +49,8 @@ export class VotingPage {
   }
 
   async doRefresh(event) {
-    this.isRefreshing = true;
     await this.pageLoad();
     await event.target.complete();
-    this.isRefreshing = false;
   }
 
   setContestVisibility(visibility: boolean) {
@@ -68,7 +62,7 @@ export class VotingPage {
     setTimeout(() => {
       this.contests.shift();
       this.setContestVisibility(true);
-    }, this.ANIMATION_DELAY);
+    }, this.animationDelay);
   }
 
   tinderCardDragEnded(event, contestId: string, optionIndex: number) {
@@ -102,7 +96,8 @@ export class VotingPage {
             this.reportContest(contestId);
           }
         }
-      ]
+      ],
+      mode: "ios"
     });
     return alert.present();
   }
