@@ -1,7 +1,6 @@
 import { Component } from "@angular/core";
 import { DatabaseService } from "src/app/services/database/database.service";
 import { Contest } from "../../models/contest-model";
-import { ModalController } from "@ionic/angular";
 import { ContestOverlayPage } from "./contest-overlay/contest-overlay.page";
 import { trigger, style, animate, transition } from "@angular/animations";
 import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service";
@@ -26,7 +25,6 @@ export class ResultsPage {
 
   constructor(
     private dbSrv: DatabaseService,
-    private modalCtrl: ModalController,
     private popupSrv: IonicPopupsService
   ) {}
 
@@ -63,7 +61,7 @@ export class ResultsPage {
 }
 
   showContestDetails(contest: Contest, showWinner: boolean) {
-    this.modalCtrl
+    this.popupSrv.modalCtrl
       .create({
         component: ContestOverlayPage,
         componentProps: { contest, showWinner }

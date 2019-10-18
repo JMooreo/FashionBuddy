@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { DatabaseService } from "src/app/services/database/database.service";
-import { ActionSheetController, ModalController, LoadingController } from "@ionic/angular";
+import { ActionSheetController } from "@ionic/angular";
 
 import { Camera, CameraOptions } from "@ionic-native/camera/ngx";
 import { CapturedImageModalPage } from "./captured-image-modal/captured-image-modal.page";
@@ -48,9 +48,7 @@ export class UploadPage {
     private storageSrv: StorageService,
     private authSrv: AuthService,
     private camera: Camera,
-    private modalCtrl: ModalController,
     private popupSrv: IonicPopupsService,
-    private loadingCtrl: LoadingController,
     private actionSheetCtrl: ActionSheetController
   ) {}
 
@@ -142,7 +140,7 @@ export class UploadPage {
   }
 
   openCropper(base64Image: string, index: number) {
-    this.modalCtrl
+    this.popupSrv.modalCtrl
       .create({
         component: CapturedImageModalPage,
         componentProps: { base64Image }
@@ -164,7 +162,7 @@ export class UploadPage {
   isFormValid() {
     for (const image of this.croppedImages) {
       if (image == null) {
-        this.loadingCtrl.dismiss().then(() => {
+        this.popupSrv.loadingCtrl.dismiss().then(() => {
           this.popupSrv.showBasicAlert("Upload Failed", "You must choose 2 images");
         });
         return false;
@@ -172,7 +170,7 @@ export class UploadPage {
     }
 
     if (this.durationInMinutes < 5) {
-      this.loadingCtrl.dismiss().then(() => {
+      this.popupSrv.loadingCtrl.dismiss().then(() => {
         this.popupSrv.showBasicAlert("Upload Failed", "Duration must be at least 5 minutes");
       });
       return false;
@@ -199,7 +197,7 @@ export class UploadPage {
   }
 
   async createContest() {
-    await this.presentLoading();
+    await this.popupSrv.presentLoading("Uploading...");
     if (this.isFormValid()) {
       const contestId = "cid=" + new Date(Date.now()).toISOString();
       const contestOptions = [];
@@ -231,19 +229,11 @@ export class UploadPage {
         this.dbSrv
           .createContest(contestId, contest)
           .then(() => {
-            this.loadingCtrl.dismiss().then(() => {
+            this.popupSrv.loadingCtrl.dismiss().then(() => {
               this.popupSrv.showBasicAlert("Success", "Uploaded your contest!");
             });
           });
       });
     }
-  }
-
-  async presentLoading() {
-    const loading = await this.loadingCtrl.create({
-      spinner: "crescent",
-      message: "Uploading..."
-    });
-    return await loading.present();
   }
 }
