@@ -68,14 +68,9 @@ export class BarChartComponent implements OnInit {
       },
       options: {
         animation: {
-          duration: 1000,
+          duration: 800,
           animateRotate: true,
-          onProgress: (animation) => {
-            const progress = animation.currentStep / animation.numSteps;
-            if (progress > 0.3) {
-              this.loadedEmitter.emit(true);
-            }
-          }
+          onComplete: () => this.loadedEmitter.emit(true),
         },
         tooltips: {
           enabled: true
