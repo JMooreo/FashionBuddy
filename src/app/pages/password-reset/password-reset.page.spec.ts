@@ -3,12 +3,9 @@ import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
 import { PasswordResetPage } from "./password-reset.page";
 import { UrlSerializer } from "@angular/router";
-import {
-  LocationStrategy,
-  PathLocationStrategy,
-  Location
-} from "@angular/common";
+import { LocationStrategy, PathLocationStrategy, Location } from "@angular/common";
 import { AuthService } from "src/app/services/auth/auth.service";
+import { AngularDelegate, ModalController } from "@ionic/angular";
 
 describe("PasswordResetPage", () => {
   let component: PasswordResetPage;
@@ -20,6 +17,8 @@ describe("PasswordResetPage", () => {
       providers: [
         Location,
         UrlSerializer,
+        AngularDelegate,
+        ModalController,
         { provide: LocationStrategy, useClass: PathLocationStrategy },
         // tslint:disable-next-line: no-use-before-declare
         { provide: AuthService, useClass: AuthServiceStub }
