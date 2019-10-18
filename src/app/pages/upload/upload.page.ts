@@ -35,8 +35,8 @@ import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service
   ]
 })
 export class UploadPage {
-  images = [null, null];
-  croppedImages = [null, null];
+  images = [null, "https://via.placeholder.com/200x450"];
+  croppedImages = [null, "https://via.placeholder.com/200x450"];
   style = "Trendy";
   occasion = "Everyday";
   durationInMinutes = 5;
@@ -110,7 +110,8 @@ export class UploadPage {
           text: "Cancel",
           role: "cancel"
         }
-      ]
+      ],
+      mode: "ios"
     });
     await actionSheet.present();
   }
