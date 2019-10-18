@@ -2,12 +2,8 @@ import { Component } from "@angular/core";
 import { DatabaseService } from "../../services/database/database.service";
 import { Contest } from "../../models/contest-model";
 import { trigger, style, animate, transition } from "@angular/animations";
-import {
-  LoadingController,
-  AlertController,
-  NavController,
-  ToastController
-} from "@ionic/angular";
+import { NavController } from "@ionic/angular";
+import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service";
 
 @Component({
   selector: "app-voting",
@@ -27,29 +23,23 @@ import {
   ]
 })
 export class VotingPage {
-  // Constants
-  ANIMATION_DELAY = 100;
-  // Booleans
-  isContestVisible = false; // default invisible for fade in
-  isRefreshing = false;
-  // Objects
-  contests: Array<Contest>;
+  animationDelay = 100;
+  isContestVisible = false;
   isFirstPageLoad = true;
+  contests: Array<Contest>;
 
   constructor(
     private dbSrv: DatabaseService,
-    private loadingCtrl: LoadingController,
-    private alertCtrl: AlertController,
-    private navCtrl: NavController,
-    private toastCtrl: ToastController
+    private popupSrv: IonicPopupsService,
+    private navCtrl: NavController
   ) {}
 
   ionViewDidEnter() {
     this.pageLoad();
     if (this.isFirstPageLoad) {
-      this.loadingCtrl.dismiss();
+      this.popupSrv.loadingCtrl.dismiss();
+      this.isFirstPageLoad = false;
     }
-    this.isFirstPageLoad = false;
   }
 
   async pageLoad() {
@@ -59,10 +49,8 @@ export class VotingPage {
   }
 
   async doRefresh(event) {
-    this.isRefreshing = true;
     await this.pageLoad();
     await event.target.complete();
-    this.isRefreshing = false;
   }
 
   setContestVisibility(visibility: boolean) {
@@ -74,7 +62,7 @@ export class VotingPage {
     setTimeout(() => {
       this.contests.shift();
       this.setContestVisibility(true);
-    }, this.ANIMATION_DELAY);
+    }, this.animationDelay);
   }
 
   tinderCardDragEnded(event, contestId: string, optionIndex: number) {
@@ -92,17 +80,8 @@ export class VotingPage {
     this.navCtrl.navigateForward(`/${pageName}`);
   }
 
-  reportContest(contestId: string) {
-    this.hideContest();
-    this.showAlert(
-      "Success",
-      "Thanks for your help! We won't show that post anymore."
-    );
-    this.dbSrv.reportContest(contestId);
-  }
-
-  async showReportAlert(contestId: string) {
-    const alert = await this.alertCtrl.create({
+  async confirmReport(contestId: string) {
+    const alert = await this.popupSrv.alertCtrl.create({
       header: "Confirm",
       message: "Would you like to report this post for inappropriate content?",
       buttons: [
@@ -117,18 +96,18 @@ export class VotingPage {
             this.reportContest(contestId);
           }
         }
-      ]
+      ],
+      mode: "ios"
     });
-
     return alert.present();
   }
 
-  async showAlert(header: string, message: string) {
-    const alert = await this.alertCtrl.create({
-      header,
-      message,
-      buttons: ["OK"]
-    });
-    return alert.present();
+  reportContest(contestId: string) {
+    this.hideContest();
+    this.popupSrv.showBasicAlert(
+      "Success",
+      "Thanks for your help! We won't show that post anymore."
+    );
+    this.dbSrv.reportContest(contestId);
   }
 }

@@ -20,27 +20,23 @@ const routes: Routes = [
   },
   {
     path: "captured-image-modal",
-    loadChildren:
-      "./pages/upload/captured-image-modal/captured-image-modal.module#CapturedImageModalPageModule"
+    loadChildren: () =>
+      import("./pages/upload/captured-image-modal/captured-image-modal.module").then(m => m.CapturedImageModalPageModule)
   },
   {
     path: "contest-overlay",
-    loadChildren:
-      "./pages/results/contest-overlay/contest-overlay.module#ContestOverlayPageModule"
-  },
-  {
-    path: "contest-winner",
-    loadChildren:
-      "./pages/results/contest-winner/contest-winner.module#ContestWinnerPageModule"
+    loadChildren: () =>
+      import("./pages/results/contest-overlay/contest-overlay.module").then(m => m.ContestOverlayPageModule)
   },
   {
     path: "settings",
-    loadChildren: "./pages/settings/settings.module#SettingsPageModule"
+    loadChildren: () =>
+      import("./pages/settings/settings.module").then(m => m.SettingsPageModule)
   },
   {
     path: "password-reset",
-    loadChildren:
-      "./pages/password-reset/password-reset.module#PasswordResetPageModule"
+    loadChildren: () =>
+      import("./pages/password-reset/password-reset.module").then(m => m.PasswordResetPageModule)
   }
 ];
 @NgModule({

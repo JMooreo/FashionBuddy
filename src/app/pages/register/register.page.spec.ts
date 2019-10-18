@@ -1,13 +1,13 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { RegisterPage } from './register.page';
-import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
-import { UrlSerializer } from '@angular/router';
-import { AuthService } from 'src/app/services/auth/auth.service';
+import { RegisterPage } from "./register.page";
+import { Location, LocationStrategy, PathLocationStrategy } from "@angular/common";
+import { UrlSerializer } from "@angular/router";
+import { AuthService } from "src/app/services/auth/auth.service";
+import { ModalController, AngularDelegate } from '@ionic/angular';
 
-
-describe('RegisterPage', () => {
+describe("RegisterPage", () => {
   let component: RegisterPage;
   let fixture: ComponentFixture<RegisterPage>;
 
@@ -16,14 +16,15 @@ describe('RegisterPage', () => {
       providers: [
         Location,
         UrlSerializer,
+        AngularDelegate,
+        ModalController,
         { provide: LocationStrategy, useClass: PathLocationStrategy },
         // tslint:disable-next-line: no-use-before-declare
         { provide: AuthService, useClass: AuthServiceStub }
       ],
       declarations: [RegisterPage],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    })
-    .compileComponents();
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -32,11 +33,11 @@ describe('RegisterPage', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
 
 class AuthServiceStub {
- createUserWithEmailAndPassword(email: string, password: string) {}
+  createUserWithEmailAndPassword(email: string, password: string) {}
 }

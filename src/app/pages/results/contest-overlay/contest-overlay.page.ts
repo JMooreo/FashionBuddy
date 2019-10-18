@@ -1,7 +1,6 @@
 import { Component } from "@angular/core";
 import { ModalController, NavParams, ToastController } from "@ionic/angular";
 import { Contest, ContestOption } from "src/app/models/contest-model";
-import { ContestWinnerPage } from "../contest-winner/contest-winner.page";
 import { trigger, style, animate, transition } from "@angular/animations";
 
 @Component({
@@ -18,7 +17,6 @@ import { trigger, style, animate, transition } from "@angular/animations";
   ]
 })
 export class ContestOverlayPage {
-  userHasNotSeenWinnerYet: boolean;
   loadContestInfoAndFeedbackForm = false;
   showChart = false;
   percentages: Array<number> = [];
@@ -98,24 +96,13 @@ export class ContestOverlayPage {
     alert(event.message);
   }
 
-  async openOutfitWinnerScreen() {
-    this.modalCtrl
-      .create({
-        component: ContestWinnerPage,
-        componentProps: { imageUrl: this.contest.options[0].imageUrl }
-      })
-      .then(contestWinnerPage => {
-        contestWinnerPage.present();
-      });
-  }
-
   async showToast(header: string, message: string) {
     const toast = await this.toastCtrl.create({
       header,
       message,
-      color: "light",
       duration: 1500,
-      position: "bottom"
+      position: "bottom",
+      mode: "ios"
     });
     toast.present();
   }

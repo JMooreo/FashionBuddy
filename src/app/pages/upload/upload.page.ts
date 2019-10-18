@@ -1,17 +1,13 @@
 import { Component } from "@angular/core";
 import { DatabaseService } from "src/app/services/database/database.service";
-import {
-  ActionSheetController,
-  ModalController,
-  AlertController,
-  LoadingController
-} from "@ionic/angular";
+import { ActionSheetController } from "@ionic/angular";
 
 import { Camera, CameraOptions } from "@ionic-native/camera/ngx";
 import { CapturedImageModalPage } from "./captured-image-modal/captured-image-modal.page";
 import { StorageService } from "src/app/services/storage/storage.service";
 import { AuthService } from "src/app/services/auth/auth.service";
 import { trigger, style, animate, transition } from "@angular/animations";
+import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service";
 
 @Component({
   selector: "app-upload",
@@ -41,10 +37,9 @@ import { trigger, style, animate, transition } from "@angular/animations";
 export class UploadPage {
   images = [null, null];
   croppedImages = [null, null];
-  style = "Trendy";
-  occasion = "Everyday";
+  style = "Casual";
+  occasion = "Work";
   durationInMinutes = 5;
-  storeCode: string = null;
   viewEntered = false;
 
   constructor(
@@ -52,9 +47,7 @@ export class UploadPage {
     private storageSrv: StorageService,
     private authSrv: AuthService,
     private camera: Camera,
-    private modalCtrl: ModalController,
-    private alertCtrl: AlertController,
-    private loadingCtrl: LoadingController,
+    private popupSrv: IonicPopupsService,
     private actionSheetCtrl: ActionSheetController
   ) {}
 
@@ -89,7 +82,8 @@ export class UploadPage {
           text: "Cancel",
           role: "cancel"
         }
-      ]
+      ],
+      mode: "ios"
     });
     await actionSheet.present();
   }
@@ -116,7 +110,8 @@ export class UploadPage {
           text: "Cancel",
           role: "cancel"
         }
-      ]
+      ],
+      mode: "ios"
     });
     await actionSheet.present();
   }
@@ -140,13 +135,13 @@ export class UploadPage {
         this.openCropper(base64Image, index);
       },
       err => {
-        this.showAlert("Error", err);
+        this.popupSrv.showBasicAlert("Unexpected Event", err);
       }
     );
   }
 
   openCropper(base64Image: string, index: number) {
-    this.modalCtrl
+    this.popupSrv.modalCtrl
       .create({
         component: CapturedImageModalPage,
         componentProps: { base64Image }
@@ -168,16 +163,16 @@ export class UploadPage {
   isFormValid() {
     for (const image of this.croppedImages) {
       if (image == null) {
-        this.loadingCtrl.dismiss().then(() => {
-          this.showAlert("Upload Failed", "You must choose 2 images");
+        this.popupSrv.loadingCtrl.dismiss().then(() => {
+          this.popupSrv.showBasicAlert("Upload Failed", "You must choose 2 images");
         });
         return false;
       }
     }
 
     if (this.durationInMinutes < 5) {
-      this.loadingCtrl.dismiss().then(() => {
-        this.showAlert("Upload Failed", "Duration must be at least 5 minutes");
+      this.popupSrv.loadingCtrl.dismiss().then(() => {
+        this.popupSrv.showBasicAlert("Upload Failed", "Duration must be at least 5 minutes");
       });
       return false;
     }
@@ -203,7 +198,7 @@ export class UploadPage {
   }
 
   async createContest() {
-    await this.presentLoading();
+    await this.popupSrv.presentLoading("Uploading...");
     if (this.isFormValid()) {
       const contestId = "cid=" + new Date(Date.now()).toISOString();
       const contestOptions = [];
@@ -218,8 +213,6 @@ export class UploadPage {
         closeDateTime.setMinutes(
           createDateTime.getMinutes() + this.durationInMinutes
         );
-        console.log(createDateTime);
-        console.log(closeDateTime);
 
         const contest = {
           createDateTime: createDateTime.toISOString(),
@@ -235,29 +228,11 @@ export class UploadPage {
         this.dbSrv
           .createContest(contestId, contest)
           .then(() => {
-            this.loadingCtrl.dismiss().then(() => {
-              this.showAlert("Success", "Uploaded your contest!");
+            this.popupSrv.loadingCtrl.dismiss().then(() => {
+              this.popupSrv.showBasicAlert("Success", "Uploaded your contest!");
             });
           });
       });
     }
-  }
-
-  async showAlert(header: string, message: string) {
-    const alert = await this.alertCtrl.create({
-      header,
-      message,
-      buttons: ["OK"]
-    });
-
-    await alert.present();
-  }
-
-  async presentLoading() {
-    const loading = await this.loadingCtrl.create({
-      spinner: "crescent",
-      message: "Uploading..."
-    });
-    return await loading.present();
   }
 }

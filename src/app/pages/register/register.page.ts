@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { NavController, AlertController, LoadingController } from "@ionic/angular";
+import { NavController } from "@ionic/angular";
 import { AuthService } from "src/app/services/auth/auth.service";
+import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service";
 
 @Component({
   selector: "app-register",
@@ -16,8 +17,7 @@ export class RegisterPage implements OnInit {
   constructor(
     private navCtrl: NavController,
     public authSrv: AuthService,
-    private alertCtrl: AlertController,
-    public loadingCtrl: LoadingController
+    private popupSrv: IonicPopupsService
   ) {}
 
   ngOnInit() {
@@ -29,12 +29,12 @@ export class RegisterPage implements OnInit {
   }
 
   async register() {
-    await this.presentLoading();
+    await this.popupSrv.presentLoading("Authenticating...");
     const { email, password, confirmPassword } = this;
 
     if (password !== confirmPassword) {
-      this.showAlert("Error", "Passwords do not match");
-      this.loadingCtrl.dismiss();
+      this.popupSrv.loadingCtrl.dismiss();
+      this.popupSrv.showBasicAlert("Error", "Passwords do not match");
       return;
     }
 
@@ -44,41 +44,25 @@ export class RegisterPage implements OnInit {
         if (callback === true) {
           this.navigateTo("tabs");
         } else {
-          this.loadingCtrl.dismiss();
-          this.showAlert("Error", callback.message);
+          this.popupSrv.loadingCtrl.dismiss();
+          this.popupSrv.showBasicAlert("Error", callback.message);
         }
       });
 
     if (this.rememberMe) {
-      localStorage.setItem("rememberMe", "true");
-      localStorage.setItem("email", email);
-      localStorage.setItem("password", password);
+      this.storeLocalData("true", email, password);
     } else {
-      localStorage.setItem("rememberMe", "false");
-      localStorage.setItem("email", "");
-      localStorage.setItem("password", "");
+      this.storeLocalData("false", "", "");
     }
+  }
+
+  storeLocalData(rememberMe: string, email: string, password: string) {
+    localStorage.setItem("rememberMe", rememberMe);
+    localStorage.setItem("email", email);
+    localStorage.setItem("password", password);
   }
 
   navigateTo(pageName: string) {
     this.navCtrl.navigateBack(`/${pageName}`);
-  }
-
-  async presentLoading() {
-    const loading = await this.loadingCtrl.create({
-      spinner: "crescent",
-      message: "Authenticating..."
-    });
-    return await loading.present();
-  }
-
-  async showAlert(header: string, message: string) {
-    const alert = await this.alertCtrl.create({
-      header,
-      message,
-      buttons: ["OK"]
-    });
-
-    await alert.present();
   }
 }

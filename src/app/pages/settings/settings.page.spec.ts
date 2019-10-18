@@ -5,6 +5,7 @@ import { SettingsPage } from "./settings.page";
 import { AuthService } from "src/app/services/auth/auth.service";
 import { Location, LocationStrategy, PathLocationStrategy } from "@angular/common";
 import { UrlSerializer } from "@angular/router";
+import { ModalController, AngularDelegate } from "@ionic/angular";
 
 describe("SettingsPage", () => {
   let component: SettingsPage;
@@ -16,6 +17,8 @@ describe("SettingsPage", () => {
       providers: [
         Location,
         UrlSerializer,
+        ModalController,
+        AngularDelegate,
         { provide: LocationStrategy, useClass: PathLocationStrategy },
         // tslint:disable-next-line: no-use-before-declare
         { provide: AuthService, useClass: AuthServiceStub }

@@ -5,6 +5,7 @@ import { LoginPage } from "./login.page";
 import { Location, LocationStrategy, PathLocationStrategy } from "@angular/common";
 import { UrlSerializer } from "@angular/router";
 import { AuthService } from "src/app/services/auth/auth.service";
+import { AngularDelegate, ModalController } from "@ionic/angular";
 
 describe("LoginPage", () => {
   let component: LoginPage;
@@ -15,6 +16,8 @@ describe("LoginPage", () => {
       providers: [
         Location,
         UrlSerializer,
+        AngularDelegate,
+        ModalController,
         { provide: LocationStrategy, useClass: PathLocationStrategy },
         // tslint:disable-next-line: no-use-before-declare
         { provide: AuthService, useClass: AuthServiceStub }
