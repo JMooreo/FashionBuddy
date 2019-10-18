@@ -35,8 +35,8 @@ import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service
   ]
 })
 export class UploadPage {
-  images = [null, "https://via.placeholder.com/200x450"];
-  croppedImages = [null, "https://via.placeholder.com/200x450"];
+  images = [null, null];
+  croppedImages = [null, null];
   style = "Casual";
   occasion = "Work";
   durationInMinutes = 5;
