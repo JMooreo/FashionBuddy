@@ -16,10 +16,10 @@ export class ResultsSwiperComponent {
   @Input() borderColors = [];
 
   slidesOpts = {
-    slidesPerView: 1.8,
+    slidesPerView: 1.9,
     speed: 300,
     centeredSlides: true,
-    spaceBetween: 20,
+    spaceBetween: 40,
     coverflowEffect: {
       rotate: -20,
       stretch: 0,

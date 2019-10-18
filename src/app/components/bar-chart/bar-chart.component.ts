@@ -13,6 +13,7 @@ export class BarChartComponent implements OnInit {
   ];
   @ViewChild("barChart", { static: false }) barChart;
   @Output() loadedEmitter = new EventEmitter<boolean>();
+  @Input() height = "125";
 
   @Input() contestData: Contest = {
     options: this.contestOptions,
