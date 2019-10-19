@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { NavController } from "@ionic/angular";
 import { AuthService } from "src/app/services/auth/auth.service";
 import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service";
+import { DatabaseService } from "src/app/services/database/database.service";
 
 @Component({
   selector: "app-login",
@@ -16,6 +17,7 @@ export class LoginPage implements OnInit {
   constructor(
     private navCtrl: NavController,
     private authSrv: AuthService,
+    private dbSrv: DatabaseService,
     private popupSrv: IonicPopupsService,
   ) {}
 
@@ -34,18 +36,21 @@ export class LoginPage implements OnInit {
       .signInWithEmailAndPassword(email, password)
       .then(callback => {
         if (callback === true) {
+          this.dbSrv.updateCloudMessagingToken();
+          this.dbSrv.updateUserLastActiveDate();
           this.navigateTo("tabs");
+
+          if (this.rememberMe) {
+            this.storeLocalData("true", email, password);
+          } else {
+            this.storeLocalData("false", "", "");
+          }
+
         } else {
           this.popupSrv.loadingCtrl.dismiss();
           this.popupSrv.showBasicAlert("Error", callback.message);
         }
       });
-
-    if (this.rememberMe) {
-      this.storeLocalData("true", email, password);
-    } else {
-      this.storeLocalData("false", "", "");
-    }
   }
 
   storeLocalData(rememberMe: string, email: string, password: string) {

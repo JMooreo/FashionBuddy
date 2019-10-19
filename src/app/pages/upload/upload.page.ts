@@ -164,7 +164,10 @@ export class UploadPage {
     for (const image of this.croppedImages) {
       if (image == null) {
         this.popupSrv.loadingCtrl.dismiss().then(() => {
-          this.popupSrv.showBasicAlert("Upload Failed", "You must choose 2 images");
+          this.popupSrv.showBasicAlert(
+            "Upload Failed",
+            "You must choose 2 images"
+          );
         });
         return false;
       }
@@ -172,7 +175,10 @@ export class UploadPage {
 
     if (this.durationInMinutes < 5) {
       this.popupSrv.loadingCtrl.dismiss().then(() => {
-        this.popupSrv.showBasicAlert("Upload Failed", "Duration must be at least 5 minutes");
+        this.popupSrv.showBasicAlert(
+          "Upload Failed",
+          "Duration must be at least 5 minutes"
+        );
       });
       return false;
     }
@@ -225,13 +231,15 @@ export class UploadPage {
           style: this.style
         };
 
-        this.dbSrv
-          .createContest(contestId, contest)
-          .then(() => {
-            this.popupSrv.loadingCtrl.dismiss().then(() => {
-              this.popupSrv.showBasicAlert("Success", "Uploaded your contest!");
-            });
+        this.dbSrv.createContest(contestId, contest).then(() => {
+          this.popupSrv.loadingCtrl.dismiss().then(() => {
+            this.popupSrv.showBasicAlert("Success", "Uploaded your contest!");
           });
+        });
+        this.dbSrv.updateUserStylesAndOccasions(
+          contest.style,
+          contest.occasion
+        );
       });
     }
   }

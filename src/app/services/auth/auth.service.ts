@@ -44,11 +44,7 @@ export class AuthService {
     return this.afAuth.auth.signOut();
   }
 
-  deleteUser(email: string, password: string): Promise<any> {
-    return this.afAuth.auth.signInWithEmailAndPassword(email, password).then(success => {
-      return this.afAuth.auth.currentUser.delete().then(data => {
-        return data;
-      });
-    });
+  deleteUserFromAuth(): Promise<any> {
+    return this.afAuth.auth.currentUser.delete();
   }
 }

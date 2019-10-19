@@ -23,10 +23,10 @@ import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service
   ]
 })
 export class VotingPage {
-  animationDelay = 100;
+  animationDelay = 400;
   isContestVisible = false;
   isFirstPageLoad = true;
-  contests: Array<Contest>;
+  contests: Array<Contest> = [];
 
   constructor(
     private dbSrv: DatabaseService,
@@ -37,15 +37,21 @@ export class VotingPage {
   ionViewDidEnter() {
     this.pageLoad();
     if (this.isFirstPageLoad) {
-      this.popupSrv.loadingCtrl.dismiss();
+      this.popupSrv.loadingCtrl.dismiss().catch(() => {
+        console.warn(
+          "Can't dismiss loading because it doesn't exist. This message is shown if you bypass the login screen"
+        );
+      });
       this.isFirstPageLoad = false;
     }
   }
 
   async pageLoad() {
-    this.setContestVisibility(false);
-    this.contests = await this.dbSrv.getAllContestsUserHasNotSeenOrVotedOn();
-    this.setContestVisibility(true);
+    if (this.contests.length === 0) {
+      this.setContestVisibility(false);
+      this.contests = await this.dbSrv.getAllContestsUserHasNotSeenOrVotedOn();
+      this.setContestVisibility(true);
+    }
   }
 
   async doRefresh(event) {
@@ -62,6 +68,10 @@ export class VotingPage {
     setTimeout(() => {
       this.contests.shift();
       this.setContestVisibility(true);
+
+      if (this.contests.length === 0) {
+        this.dbSrv.updateUserFeedIsEmpty(true);
+      }
     }, this.animationDelay);
   }
 

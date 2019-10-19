@@ -20,7 +20,7 @@ import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service
 })
 export class ResultsPage {
   contests = Array<Contest>();
-  refreshEvent: any;
+  refreshEvent: any = null;
 
   constructor(
     private dbSrv: DatabaseService,
@@ -40,13 +40,13 @@ export class ResultsPage {
     this.popupSrv.loadingCtrl.dismiss();
   }
 
-  async doRefresh(event) {
+  async doRefresh(event: any) {
+    this.refreshEvent = await event;
     await this.pageLoad();
-    this.refreshEvent = event;
   }
 
   onCardLoaded() {
-    if (this.refreshEvent) {
+    if (this.refreshEvent != null) {
       this.refreshEvent.target.complete();
     }
   }

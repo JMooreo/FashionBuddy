@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { NavController } from "@ionic/angular";
 import { AuthService } from "src/app/services/auth/auth.service";
 import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service";
+import { DatabaseService } from "src/app/services/database/database.service";
 
 @Component({
   selector: "app-settings",
@@ -12,7 +13,8 @@ export class SettingsPage {
   constructor(
     private popupSrv: IonicPopupsService,
     private authSrv: AuthService,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private dbSrv: DatabaseService
   ) {}
 
   async logOut() {
@@ -58,7 +60,7 @@ export class SettingsPage {
         {
           text: "Done",
           handler: data => {
-            this.authSrv
+            this.dbSrv
               .deleteUser(data.Email, data.password)
               .then(() => {
                 this.popupSrv.showBasicAlert(

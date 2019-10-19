@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { NavController } from "@ionic/angular";
 import { AuthService } from "src/app/services/auth/auth.service";
 import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service";
+import { DatabaseService } from "src/app/services/database/database.service";
 
 @Component({
   selector: "app-register",
@@ -9,6 +10,7 @@ import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service
   styleUrls: ["./register.page.scss"]
 })
 export class RegisterPage implements OnInit {
+  name = "";
   email = "";
   password = "";
   confirmPassword = "";
@@ -17,6 +19,7 @@ export class RegisterPage implements OnInit {
   constructor(
     private navCtrl: NavController,
     public authSrv: AuthService,
+    private dbSrv: DatabaseService,
     private popupSrv: IonicPopupsService
   ) {}
 
@@ -30,7 +33,7 @@ export class RegisterPage implements OnInit {
 
   async register() {
     await this.popupSrv.presentLoading("Authenticating...");
-    const { email, password, confirmPassword } = this;
+    const { name, email, password, confirmPassword } = this;
 
     if (password !== confirmPassword) {
       this.popupSrv.loadingCtrl.dismiss();
@@ -42,18 +45,24 @@ export class RegisterPage implements OnInit {
       .createUserWithEmailAndPassword(email, password)
       .then(callback => {
         if (callback === true) {
+          this.dbSrv.addUserToDatabase(
+            name,
+            this.authSrv.getUserId(),
+            email
+          );
           this.navigateTo("tabs");
+
+          if (this.rememberMe) {
+            this.storeLocalData("true", email, password);
+          } else {
+            this.storeLocalData("false", "", "");
+          }
+
         } else {
           this.popupSrv.loadingCtrl.dismiss();
           this.popupSrv.showBasicAlert("Error", callback.message);
         }
       });
-
-    if (this.rememberMe) {
-      this.storeLocalData("true", email, password);
-    } else {
-      this.storeLocalData("false", "", "");
-    }
   }
 
   storeLocalData(rememberMe: string, email: string, password: string) {
@@ -63,6 +72,10 @@ export class RegisterPage implements OnInit {
   }
 
   navigateTo(pageName: string) {
-    this.navCtrl.navigateBack(`/${pageName}`);
+    if (pageName === "tabs") {
+      this.navCtrl.navigateForward(`/${pageName}`);
+    } else {
+      this.navCtrl.navigateBack(`/${pageName}`);
+    }
   }
 }
