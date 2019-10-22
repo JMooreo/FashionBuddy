@@ -36,7 +36,6 @@ export class LoginPage implements OnInit {
       .signInWithEmailAndPassword(email, password)
       .then(callback => {
         if (callback === true) {
-          this.dbSrv.updateCloudMessagingToken();
           this.dbSrv.updateUserLastActiveDate();
           this.navigateTo("tabs");
 

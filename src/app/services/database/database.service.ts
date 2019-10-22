@@ -3,6 +3,7 @@ import { Contest } from "../../models/contest-model";
 import { UserDocument } from "../../models/user-document";
 import { AuthService } from "../auth/auth.service";
 import * as firebase from "firebase/app";
+import { FcmService } from "../fcm/fcm.service";
 
 @Injectable({
   providedIn: "root"
@@ -12,7 +13,10 @@ export class DatabaseService {
   usersRef = firebase.firestore().collection("Users");
   logisticsRef = firebase.firestore().collection("Logistics");
 
-  constructor(private authSrv: AuthService) {}
+  constructor(
+    private authSrv: AuthService,
+    private fcmSrv: FcmService,
+  ) {}
 
   async getAllContestsUserHasNotSeenOrVotedOn() {
     const rightNow = new Date(Date.now());
@@ -73,12 +77,13 @@ export class DatabaseService {
     return filteredContests;
   }
 
-  addUserToDatabase(firstName: string, userId: string, email: string) {
+  async addUserToDatabase(firstName: string, userId: string, email: string) {
     const rightNow = new Date();
 
     const userDoc: UserDocument = {
       firstName,
       email,
+      messagingToken: "",
       isFeedEmpty: false,
       signUpDate: rightNow,
       lastActive: rightNow,
@@ -90,6 +95,12 @@ export class DatabaseService {
     };
 
     this.usersRef.doc(userId).set({ ...userDoc });
+    this.updateCloudMessagingToken(userId);
+  }
+
+  async updateCloudMessagingToken(userId: string) { // asks for permission
+    const messagingToken = await this.fcmSrv.getCloudMessagingToken();
+    this.usersRef.doc(userId).update({ messagingToken });
   }
 
   updateUserFeedIsEmpty(isFeedEmpty: boolean) {
@@ -109,10 +120,6 @@ export class DatabaseService {
       styles: firebase.firestore.FieldValue.arrayUnion(style),
       occasions: firebase.firestore.FieldValue.arrayUnion(occasion)
     });
-  }
-
-  updateCloudMessagingToken() {
-    console.log("TODO IMPLEMENT NOTIFICATIONS");
   }
 
   createContest(contestId: string, contest: Contest): Promise<any> {

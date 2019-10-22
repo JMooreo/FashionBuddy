@@ -1,5 +1,6 @@
 export interface UserDocument {
   id?: string;
+  messagingToken: string;
   firstName: string;
   email: string;
   isFeedEmpty: boolean;
