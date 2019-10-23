@@ -3,6 +3,10 @@ import { Contest } from "../../models/contest-model";
 import { UserDocument } from "../../models/user-document";
 import { AuthService } from "../auth/auth.service";
 import * as firebase from "firebase/app";
+import "firebase/firestore";
+import { environment } from "src/environments/environment";
+firebase.initializeApp(environment.firebaseConfig);
+
 import { FcmService } from "../fcm/fcm.service";
 
 @Injectable({

@@ -9,7 +9,6 @@ import { StatusBar } from "@ionic-native/status-bar/ngx";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { DatabaseService } from "./services/database/database.service";
 
 import { AngularFireModule } from "@angular/fire";
 import { environment } from "src/environments/environment";
@@ -22,6 +21,7 @@ import { CapturedImageModalPageModule } from "./pages/upload/captured-image-moda
 import { ContestOverlayPageModule } from "./pages/results/contest-overlay/contest-overlay.module";
 import { FcmService } from "./services/fcm/fcm.service";
 import { AuthService } from "./services/auth/auth.service";
+import { DatabaseService } from "./services/database/database.service";
 
 @NgModule({
   declarations: [AppComponent],
