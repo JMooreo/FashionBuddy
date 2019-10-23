@@ -11,7 +11,7 @@ const messaging = firebase.messaging();
 // [END initialize_firebase_in_sw]
 
 // Handle notifications when the app is in the foreground
-messaging.onMessage((payload) => {
+messaging.onMessage(payload => {
   console.log('Message received. ', payload);
   // ...
 });
@@ -20,7 +20,7 @@ messaging.onMessage((payload) => {
 // background (Web app is closed or not in browser focus) then you should
 // implement this optional method.
 // [START background_handler]
-messaging.setBackgroundMessageHandler(function(payload) {
+messaging.setBackgroundMessageHandler(payload => {
   console.log(
     "[firebase-messaging-sw.js] Received background message ",
     payload
