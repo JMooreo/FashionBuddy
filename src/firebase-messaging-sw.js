@@ -9,13 +9,6 @@ firebase.initializeApp({
 // messages.
 const messaging = firebase.messaging();
 // [END initialize_firebase_in_sw]
-
-// Handle notifications when the app is in the foreground
-messaging.onMessage(payload => {
-  console.log('Message received. ', payload);
-  // ...
-});
-
 // If you would like to customize notifications that are received in the
 // background (Web app is closed or not in browser focus) then you should
 // implement this optional method.
