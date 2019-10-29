@@ -22,6 +22,7 @@ import { ContestOverlayPageModule } from "./pages/results/contest-overlay/contes
 import { FcmService } from "./services/fcm/fcm.service";
 import { AuthService } from "./services/auth/auth.service";
 import { DatabaseService } from "./services/database/database.service";
+import { FCM } from "@ionic-native/fcm/ngx";
 
 @NgModule({
   declarations: [AppComponent],
@@ -43,6 +44,7 @@ import { DatabaseService } from "./services/database/database.service";
     SplashScreen,
     DatabaseService,
     FcmService,
+    FCM,
     AuthService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Camera
