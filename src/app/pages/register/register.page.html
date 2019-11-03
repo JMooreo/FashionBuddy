@@ -1,38 +1,45 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      <div text-center>
-        Fashion Buddy
-      </div>
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content padding id="master-register">
+  <ion-grid>
+    <ion-row>
+      <img id="img-logo" src="../../../assets/icon/fbuddy-main-logo.svg">
+    </ion-row>
+    <ion-row id="prompt-login-register" justify-content-center>
+      <ion-col>
+        <ion-item id="semi-box-login" color="none" lines="none">
+          <ion-text color="dark" (click)="navigateTo('login')">Log In</ion-text>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item id="semi-box-register" color="none" lines="none">
+          <ion-text color="dark"><b>Register</b></ion-text>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-<ion-content padding>
-  <ion-list>
+  <ion-grid id="box-register">
+    <ion-row>
+      <ion-col>
+        <ion-item class="box-test-input" lines="none">
+          <ion-input class="input-box" type="text" placeholder="Email Address" [(ngModel)]="email"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="text" [(ngModel)]="email"></ion-input>
-    </ion-item>
+        <ion-item class="box-test-input" lines="none">
+          <ion-input class="input-box" type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" [(ngModel)]="password"></ion-input>
-    </ion-item>
+        <ion-item class="box-test-input" lines="none">
+          <ion-input class="input-box" type="password" placeholder="Confirm Password" [(ngModel)]="confirmPassword">
+          </ion-input>
+        </ion-item>
+        <ion-item class="Remember-Me" lines="none">
+          <ion-label>Remember Me</ion-label>
+          <ion-checkbox slot="start" [(ngModel)]="rememberMe"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+    </ion-row>
 
-    <ion-item>
-      <ion-label position="floating">Confirm Password</ion-label>
-      <ion-input type="password" [(ngModel)]="confirmPassword"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Remember Me</ion-label>
-      <ion-checkbox slot="start" [(ngModel)]="rememberMe"></ion-checkbox>
-    </ion-item>
-
-  </ion-list>
-  <ion-button mode="ios" fill="solid" expand="block" color="dark" (click)="register()">Sign Up</ion-button>
-  <br />
-  <ion-text color="primary" (click)="navigateTo('login')">Already have an account? Log-in instead</ion-text>
+    <ion-button mode="ios" id="btn-Register" fill="solid" expand="block" shape="round" (click)="register()">Register
+    </ion-button>
+  </ion-grid>
 </ion-content>
