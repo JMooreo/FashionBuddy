@@ -7,12 +7,6 @@
   </feature>
 
 
-  <feature name="FCMPlugin">
-    <param name="android-package" value="com.gae.scaffolder.plugin.FCMPlugin"/>
-    <param name="onload" value="true"/>
-  </feature>
-
-
   <feature name="Device">
     <param name="android-package" value="org.apache.cordova.device.Device"/>
   </feature>
