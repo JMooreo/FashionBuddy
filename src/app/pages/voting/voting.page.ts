@@ -110,4 +110,8 @@ export class VotingPage {
     );
     this.dbSrv.reportContest(contestId);
   }
+
+  goToTest(){
+    this.navCtrl.navigateForward("/test-page")
+  }
 }
