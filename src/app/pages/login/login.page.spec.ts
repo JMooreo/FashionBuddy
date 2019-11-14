@@ -2,10 +2,15 @@ import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
 import { LoginPage } from "./login.page";
-import { Location, LocationStrategy, PathLocationStrategy } from "@angular/common";
+import {
+  Location,
+  LocationStrategy,
+  PathLocationStrategy
+} from "@angular/common";
 import { UrlSerializer } from "@angular/router";
 import { AuthService } from "src/app/services/auth/auth.service";
 import { AngularDelegate, ModalController } from "@ionic/angular";
+import { FCM } from "@ionic-native/fcm/ngx";
 
 describe("LoginPage", () => {
   let component: LoginPage;
@@ -18,6 +23,7 @@ describe("LoginPage", () => {
         UrlSerializer,
         AngularDelegate,
         ModalController,
+        FCM,
         { provide: LocationStrategy, useClass: PathLocationStrategy },
         // tslint:disable-next-line: no-use-before-declare
         { provide: AuthService, useClass: AuthServiceStub }

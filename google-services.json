@@ -30,6 +30,13 @@
             {
               "client_id": "117341324508248948335",
               "client_type": 3
+            },
+            {
+              "client_id": "669845790704-ddo5no28q4ueq2cb8319ld691fk6n4qu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.fashionbuddyapp.fashionbuddy"
+              }
             }
           ]
         }
