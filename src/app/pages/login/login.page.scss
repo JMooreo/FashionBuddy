@@ -42,7 +42,8 @@
 
  
 #master-login {
-  --background: linear-gradient(199.99deg, #fff4f8 -12.68%, #ded8ff 127.44%);
+  --background: #fff url('../../../assets/icon/login-background-gradients.svg') no-repeat center center / cover;
+  //--background: linear-gradient(199.99deg, #fff4f8 -12.68%, #ded8ff 127.44%);
 }
 
 #box-login {
