@@ -23,10 +23,8 @@ export class DurationPickerComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    const initDate = new Date();
-    initDate.setHours(0);
-    initDate.setMinutes(10);
-    this.timePickerValue = initDate.toString();
+    this.setDefaultTimeSelectorDuration();
+    this.emitValueSelectedEvent(5);
   }
 
   onTimeSelected(value: string) {
@@ -41,8 +39,10 @@ export class DurationPickerComponent implements OnInit {
     const minutes = date.getMinutes();
     const totalMinutes = hours * 60 + minutes;
 
-    this.timePickerLabel = this.getFormattedTimeLabel(hours, minutes);
-    this.emitValueSelectedEvent(totalMinutes);
+    if (totalMinutes !== 0) {
+      this.timePickerLabel = this.getFormattedTimeLabel(hours, minutes);
+      this.emitValueSelectedEvent(totalMinutes);
+    }
   }
 
   getFormattedTimeLabel(hours: number, minutes: number) {
@@ -61,6 +61,16 @@ export class DurationPickerComponent implements OnInit {
 
   emitValueSelectedEvent(value: number) {
     this.timeSelectedEvent.emit(value);
+  }
+
+  async setDefaultTimeSelectorDuration() {
+    const initDate = new Date();
+    const value = this.timePickerValue;
+    initDate.setHours(0);
+    initDate.setMinutes(0);
+    if (value === "") {
+      this.timePickerValue = initDate.toString();
+    }
   }
 
   openTimeSelector() {

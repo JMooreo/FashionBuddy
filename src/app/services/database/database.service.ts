@@ -1,15 +1,23 @@
 import { Injectable } from "@angular/core";
 import { Contest } from "../../models/contest-model";
+import { UserDocument } from "../../models/user-document";
 import { AuthService } from "../auth/auth.service";
 import * as firebase from "firebase/app";
+import "firebase/firestore";
+import { environment } from "src/environments/environment";
+firebase.initializeApp(environment.firebaseConfig);
+
+import { FcmService } from "../fcm/fcm.service";
 
 @Injectable({
   providedIn: "root"
 })
 export class DatabaseService {
   contestsRef = firebase.firestore().collection("Contests");
+  usersRef = firebase.firestore().collection("Users");
+  devicesRef = firebase.firestore().collection("Devices");
 
-  constructor(private authSrv: AuthService) {}
+  constructor(private authSrv: AuthService, private fcmSrv: FcmService) {}
 
   async getAllContestsUserHasNotSeenOrVotedOn() {
     const rightNow = new Date(Date.now());
@@ -32,9 +40,13 @@ export class DatabaseService {
       .then(() => {
         filteredContests = contests.filter(contest => {
           // user has not seen the contest before && is not contest owner
-          return (contest.seenUsers.indexOf(userId) === -1 && contest.contestOwner !== userId);
+          return (
+            contest.seenUsers.indexOf(userId) === -1 &&
+            contest.contestOwner !== userId
+          );
         });
       });
+    this.updateUserFeedIsEmpty(filteredContests.length === 0);
     return filteredContests;
   }
 
@@ -53,7 +65,8 @@ export class DatabaseService {
             id: contest.id
           } as Contest);
         });
-      }).then(() => {
+      })
+      .then(() => {
         filteredContests = contests.map(contest => {
           // sort descending by # of votes
           contest.options.sort((a, b) => {
@@ -63,6 +76,45 @@ export class DatabaseService {
         });
       });
     return filteredContests;
+  }
+
+  async addUserToDatabase(firstName: string, userId: string, email: string) {
+    const rightNow = new Date();
+
+    const userDoc: UserDocument = {
+      firstName,
+      email,
+      isFeedEmpty: false,
+      signUpDate: rightNow,
+      lastActive: rightNow,
+      points: 0,
+      status: "Fashion Buddy",
+      styles: [],
+      occasions: [],
+      deletedAccount: false
+    };
+
+    this.usersRef.doc(userId).set({ ...userDoc });
+    this.setCloudMessagingTokenOfNewDevice(userId);
+  }
+
+  async setCloudMessagingTokenOfNewDevice(userId: string) {
+    const token = await this.fcmSrv.getCloudMessagingToken();
+    if (token != null) {
+      this.devicesRef.doc(token).set({ token, userId });
+    }
+  }
+
+  updateUserFeedIsEmpty(isFeedEmpty: boolean) {
+    this.usersRef.doc(this.authSrv.getUserId()).update({
+      isFeedEmpty
+    });
+  }
+
+  updateUserLastActiveDate() {
+    this.usersRef.doc(this.authSrv.getUserId()).update({
+      lastActive: new Date()
+    });
   }
 
   createContest(contestId: string, contest: Contest): Promise<any> {
@@ -91,5 +143,26 @@ export class DatabaseService {
         votedFor: optionName,
         timestamp: new Date(Date.now()).toISOString()
       });
+  }
+
+  markUserAccountAsDeleted(userId: string) {
+    this.usersRef.doc(userId).update({
+      deletedAccount: true
+    });
+  }
+
+  async deleteUser(email: string, password: string) {
+    const userId = this.authSrv.getUserId();
+    const callback = await this.authSrv.signInWithEmailAndPassword(
+      email,
+      password
+    );
+    if (callback === true) {
+      this.authSrv.deleteUserFromAuth();
+      this.markUserAccountAsDeleted(userId);
+      return Promise.resolve("success");
+    } else {
+      return Promise.reject(callback);
+    }
   }
 }
