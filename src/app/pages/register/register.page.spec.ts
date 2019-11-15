@@ -10,7 +10,7 @@ import {
 import { UrlSerializer } from "@angular/router";
 import { AuthService } from "src/app/services/auth/auth.service";
 import { ModalController, AngularDelegate } from "@ionic/angular";
-import { FCM } from "@ionic-native/fcm/ngx";
+import { FCM } from '@ionic-native/fcm/ngx';
 
 describe("RegisterPage", () => {
   let component: RegisterPage;

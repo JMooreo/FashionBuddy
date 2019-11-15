@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { DatabaseService } from "../../services/database/database.service";
 import { Contest } from "../../models/contest-model";
 import { trigger, style, animate, transition } from "@angular/animations";
-import { NavController } from "@ionic/angular";
+import { NavController, Platform } from "@ionic/angular";
 import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service";
 import { FcmService } from "src/app/services/fcm/fcm.service";
 
@@ -23,7 +23,7 @@ import { FcmService } from "src/app/services/fcm/fcm.service";
     ])
   ]
 })
-export class VotingPage implements OnInit{
+export class VotingPage implements OnInit {
   animationDelay = 400;
   isContestVisible = false;
   isFirstPageLoad = true;
@@ -33,11 +33,14 @@ export class VotingPage implements OnInit{
     private dbSrv: DatabaseService,
     private popupSrv: IonicPopupsService,
     private navCtrl: NavController,
-    private fcmSrv: FcmService
+    private fcmSrv: FcmService,
+    private plt: Platform
   ) {}
 
   ngOnInit() {
-    this.fcmSrv.doNotificationSetup();
+    if (this.plt.is("cordova")) {
+      this.fcmSrv.doNotificationSetup();
+    }
   }
 
   ionViewDidEnter() {
