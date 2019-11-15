@@ -14,13 +14,7 @@ This is the new repo for FashionBuddy that uses Ionic 4+
 3. Run ionic environment `ionic serve`
 
 # How To Test on a Device
-We can use
-1. Capacitor
-     * Android
-        * `ionic capacitor run android` builds and opens the project in Android Studio
-     * iOS
-        * `ionic capacitor run ios` builds and opens the project in XCode
-2. Cordova
+1. Cordova (recommended)
     * Android
         * Put device in developer mode
         * Enable USB debugging
@@ -28,6 +22,11 @@ We can use
     * iOS
         * `ionic cordova build ios`
         * Open xcodeproj in XCode and run
+2. Capacitor
+     * Android
+        * `ionic capacitor run android` builds and opens the project in Android Studio
+     * iOS
+        * `ionic capacitor run ios` builds and opens the project in XCode
 
 # Troubleshooting
 Err: `node sass module not found` Solution: `npm i node-sass`
