@@ -2,6 +2,8 @@ import { Component } from "@angular/core";
 import { ModalController, NavParams, ToastController } from "@ionic/angular";
 import { Contest, ContestOption } from "src/app/models/contest-model";
 import { trigger, style, animate, transition } from "@angular/animations";
+import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service";
+import { DatabaseService } from "src/app/services/database/database.service";
 
 @Component({
   selector: "app-contest-overlay",
@@ -46,7 +48,9 @@ export class ContestOverlayPage {
   constructor(
     private navParams: NavParams,
     private modalCtrl: ModalController,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+    private popupSrv: IonicPopupsService,
+    private dbSrv: DatabaseService
   ) {}
 
   ionViewDidEnter() {
@@ -86,14 +90,17 @@ export class ContestOverlayPage {
     this.percentages = percentages;
   }
 
-  onFeedbackSubmitted(event: any) {
+  async onFeedbackSubmitted(event: any) {
+    await this.popupSrv.presentLoading("Uploading...");
+    await this.dbSrv.uploadContestFeedback(event.formData, this.contest.id);
+    await this.popupSrv.loadingCtrl.dismiss();
+
     const rating = event.formData.rating;
     if (rating !== null && rating < 3) {
       this.showToast("Sorry", "We hope next time goes better :)");
     } else {
       this.showToast("Awesome!", "Thanks for the feedback :)");
     }
-    alert(event.message);
   }
 
   async showToast(header: string, message: string) {
