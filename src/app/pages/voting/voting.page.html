@@ -24,8 +24,8 @@
     </ion-refresher-content>
   </ion-refresher>
   <ion-grid class="contest-container">
-    <ion-row>
-      <ng-container *ngIf="contests && contests[0] != null">
+    <ng-container *ngIf="contests && contests[0] != null">
+      <ion-row>
         <ion-col *ngFor="let option of contests[0].options; let optionIndex = index">
           <div id="draggable-container" *ngIf="isContestVisible" [@inOutAnimation] cdkDragLockAxis="y" cdkDrag
             (cdkDragEnded)="tinderCardDragEnded($event, contests[0].id, optionIndex)">
@@ -33,8 +33,15 @@
             </tinder-card>
           </div>
         </ion-col>
-      </ng-container>
-    </ion-row>
+      </ion-row>
+      <ion-row>
+        <ion-button *ngIf="isContestVisible" [@inOutAnimation] fill="clear" color="danger"
+          (click)="confirmReport(contests[0].id)">
+          <ion-icon slot="start" name="flag"></ion-icon>
+          Report
+        </ion-button>
+      </ion-row>
+    </ng-container>
     <ion-row *ngIf="!(contests && this.contests[0] != null)" [@inOutAnimation]>
       <ion-col text-center>
         <ion-text style="font-size: 1.5rem">You're all caught up! <br /><a style="font-size: 1.2rem"
@@ -42,8 +49,4 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-button *ngIf="contests && contests[0]" [@inOutAnimation] fill="clear" color="danger" (click)="confirmReport(contests[0].id)" >
-    <ion-icon slot="start" name="flag"></ion-icon>
-    Report
-  </ion-button>
 </ion-content>
