@@ -118,13 +118,6 @@ export class DatabaseService {
     });
   }
 
-  updateUserStylesAndOccasions(style: string, occasion: string) {
-    this.usersRef.doc(this.authSrv.getUserId()).update({
-      styles: firebase.firestore.FieldValue.arrayUnion(style),
-      occasions: firebase.firestore.FieldValue.arrayUnion(occasion)
-    });
-  }
-
   createContest(contestId: string, contest: Contest): Promise<any> {
     return this.contestsRef.doc(contestId).set({ ...contest });
   }

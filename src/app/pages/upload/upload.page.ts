@@ -236,10 +236,6 @@ export class UploadPage {
             this.popupSrv.showBasicAlert("Success", "Uploaded your contest!");
           });
         });
-        this.dbSrv.updateUserStylesAndOccasions(
-          contest.style,
-          contest.occasion
-        );
       });
     }
   }
