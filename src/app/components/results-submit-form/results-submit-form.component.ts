@@ -1,5 +1,4 @@
 import { Component, Output, EventEmitter } from "@angular/core";
-import { LoadingController } from "@ionic/angular";
 
 @Component({
   selector: "app-results-submit-form",
@@ -11,7 +10,7 @@ export class ResultsSubmitFormComponent {
   userDidWearOutfit: boolean = null;
   winningOutfitRating: number = null;
 
-  constructor(private loadingCtrl: LoadingController) {}
+  constructor() {}
 
   onItemSelect(event: string) {
     this.userDidWearOutfit = event === "Yes" ? true : false;
@@ -22,24 +21,11 @@ export class ResultsSubmitFormComponent {
   }
 
   submitForm() {
-    this.presentLoading();
-    setTimeout(() => { // this.dbSrv.storeinDatabase().then(() => {
-      this.loadingCtrl.dismiss();
-      this.formSubmitted.emit({
-        message: "Form submission not implemented yet",
-        formData: {
-          woreOutfit: this.userDidWearOutfit,
-          rating: this.winningOutfitRating
-        }
-      });
-    }, 2000);
-  }
-
-  async presentLoading() {
-    const loading = await this.loadingCtrl.create({
-      spinner: "crescent",
-      message: "Uploading..."
+    this.formSubmitted.emit({
+      formData: {
+        woreOutfit: this.userDidWearOutfit,
+        rating: this.winningOutfitRating
+      }
     });
-    return await loading.present();
   }
 }

@@ -4,6 +4,7 @@ import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { ContestOverlayPage } from "./contest-overlay.page";
 import { NavParams, ModalController, AngularDelegate } from "@ionic/angular";
 import { Contest, ContestOption } from "src/app/models/contest-model";
+import { DatabaseService } from 'src/app/services/database/database.service';
 
 describe("ContestOverlayPage", () => {
   let component: ContestOverlayPage;
@@ -16,7 +17,9 @@ describe("ContestOverlayPage", () => {
         ModalController,
         AngularDelegate,
         // tslint:disable-next-line: no-use-before-declare
-        { provide: NavParams, useClass: MockNavParams }
+        { provide: NavParams, useClass: MockNavParams },
+        // tslint:disable-next-line: no-use-before-declare
+        { provide: DatabaseService, useClass: DatabaseServiceStub }
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
@@ -53,4 +56,8 @@ class MockNavParams {
 
     return data[param];
   }
+}
+
+class DatabaseServiceStub {
+  uploadContestFeedback(formData: any, contestId: string) {}
 }

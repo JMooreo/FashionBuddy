@@ -16,6 +16,7 @@ export class DatabaseService {
   contestsRef = firebase.firestore().collection("Contests");
   usersRef = firebase.firestore().collection("Users");
   devicesRef = firebase.firestore().collection("Devices");
+  contestFeedbackRef = firebase.firestore().collection("ContestFeedback");
 
   constructor(private authSrv: AuthService, private fcmSrv: FcmService) {}
 
@@ -119,6 +120,10 @@ export class DatabaseService {
 
   createContest(contestId: string, contest: Contest): Promise<any> {
     return this.contestsRef.doc(contestId).set({ ...contest });
+  }
+
+  uploadContestFeedback(formData: any, contestId: string): Promise<any> {
+    return this.contestFeedbackRef.doc(contestId).set({ ...formData });
   }
 
   reportContest(contestId: string) {
