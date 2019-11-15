@@ -15,7 +15,6 @@ import { FcmService } from "../fcm/fcm.service";
 export class DatabaseService {
   contestsRef = firebase.firestore().collection("Contests");
   usersRef = firebase.firestore().collection("Users");
-  logisticsRef = firebase.firestore().collection("Logistics");
 
   constructor(
     private authSrv: AuthService,

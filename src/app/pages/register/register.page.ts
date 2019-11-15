@@ -3,6 +3,7 @@ import { NavController } from "@ionic/angular";
 import { AuthService } from "src/app/services/auth/auth.service";
 import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service";
 import { DatabaseService } from "src/app/services/database/database.service";
+import { FcmService } from "src/app/services/fcm/fcm.service";
 
 @Component({
   selector: "app-register",
@@ -20,7 +21,8 @@ export class RegisterPage implements OnInit {
     private navCtrl: NavController,
     public authSrv: AuthService,
     private dbSrv: DatabaseService,
-    private popupSrv: IonicPopupsService
+    private popupSrv: IonicPopupsService,
+    private fcmSrv: FcmService
   ) {}
 
   ngOnInit() {
@@ -45,11 +47,7 @@ export class RegisterPage implements OnInit {
       .createUserWithEmailAndPassword(email, password)
       .then(callback => {
         if (callback === true) {
-          this.dbSrv.addUserToDatabase(
-            name,
-            this.authSrv.getUserId(),
-            email
-          );
+          this.dbSrv.addUserToDatabase(name, this.authSrv.getUserId(), email);
           this.navigateTo("tabs");
 
           if (this.rememberMe) {
@@ -57,12 +55,13 @@ export class RegisterPage implements OnInit {
           } else {
             this.storeLocalData("false", "", "");
           }
-
         } else {
           this.popupSrv.loadingCtrl.dismiss();
           this.popupSrv.showBasicAlert("Error", callback.message);
         }
       });
+
+    this.fcmSrv.doNotificationSetup();
   }
 
   storeLocalData(rememberMe: string, email: string, password: string) {
