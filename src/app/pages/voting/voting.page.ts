@@ -1,9 +1,10 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { DatabaseService } from "../../services/database/database.service";
 import { Contest } from "../../models/contest-model";
 import { trigger, style, animate, transition } from "@angular/animations";
 import { NavController } from "@ionic/angular";
 import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service";
+import { FcmService } from "src/app/services/fcm/fcm.service";
 
 @Component({
   selector: "app-voting",
@@ -22,7 +23,7 @@ import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service
     ])
   ]
 })
-export class VotingPage {
+export class VotingPage implements OnInit{
   animationDelay = 400;
   isContestVisible = false;
   isFirstPageLoad = true;
@@ -31,8 +32,13 @@ export class VotingPage {
   constructor(
     private dbSrv: DatabaseService,
     private popupSrv: IonicPopupsService,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private fcmSrv: FcmService
   ) {}
+
+  ngOnInit() {
+    this.fcmSrv.doNotificationSetup();
+  }
 
   ionViewDidEnter() {
     this.pageLoad();
