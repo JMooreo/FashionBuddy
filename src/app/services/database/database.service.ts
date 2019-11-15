@@ -15,11 +15,9 @@ import { FcmService } from "../fcm/fcm.service";
 export class DatabaseService {
   contestsRef = firebase.firestore().collection("Contests");
   usersRef = firebase.firestore().collection("Users");
+  devicesRef = firebase.firestore().collection("Devices");
 
-  constructor(
-    private authSrv: AuthService,
-    private fcmSrv: FcmService,
-  ) {}
+  constructor(private authSrv: AuthService, private fcmSrv: FcmService) {}
 
   async getAllContestsUserHasNotSeenOrVotedOn() {
     const rightNow = new Date(Date.now());
@@ -86,7 +84,6 @@ export class DatabaseService {
     const userDoc: UserDocument = {
       firstName,
       email,
-      messagingToken: "",
       isFeedEmpty: false,
       signUpDate: rightNow,
       lastActive: rightNow,
@@ -98,12 +95,14 @@ export class DatabaseService {
     };
 
     this.usersRef.doc(userId).set({ ...userDoc });
-    this.updateCloudMessagingToken(userId);
+    this.setCloudMessagingTokenOfNewDevice(userId);
   }
 
-  async updateCloudMessagingToken(userId: string) { // asks for permission
-    const messagingToken = await this.fcmSrv.getCloudMessagingToken();
-    this.usersRef.doc(userId).update({ messagingToken });
+  async setCloudMessagingTokenOfNewDevice(userId: string) {
+    const token = await this.fcmSrv.getCloudMessagingToken();
+    if (token != null) {
+      this.devicesRef.doc(token).set({ token, userId });
+    }
   }
 
   updateUserFeedIsEmpty(isFeedEmpty: boolean) {
