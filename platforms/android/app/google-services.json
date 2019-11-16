@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "669845790704",
+    "firebase_url": "https://fashionbuddy-e21c3.firebaseio.com",
+    "project_id": "fashionbuddy-e21c3",
+    "storage_bucket": "fashionbuddy-e21c3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:669845790704:android:c509bf767e8e253392c735",
+        "android_client_info": {
+          "package_name": "com.moorelabs.fashionbuddy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "669845790704-6cv0sl3nia0j497bnljf9n0qr49cgt0o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9YolEjj6MH8oxBSZMYVKE4cd3HPD26xE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "117341324508248948335",
+              "client_type": 3
+            },
+            {
+              "client_id": "669845790704-ddo5no28q4ueq2cb8319ld691fk6n4qu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.fashionbuddyapp.fashionbuddy"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
