@@ -6,19 +6,19 @@
       </ion-button>
     </ion-buttons>
     <ion-title>
-      <div text-center>
+      <div class="ion-text-center">
         Settings
       </div>
     </ion-title>
     <ion-buttons slot="end">
-        <ion-button disabled>
-          <ion-icon></ion-icon>
-        </ion-button>
-      </ion-buttons>
+      <ion-button disabled>
+        <ion-icon></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content class="ion-padding">
   <ion-list>
     <ion-item (click)="logOut()">
       Log out
@@ -28,12 +28,17 @@
       <ion-text color="danger">Delete Account</ion-text>
     </ion-item>
   </ion-list>
+  <ion-row class="version-stamp">
+    <ion-col>
+      Version: {{ versionNumber || "cordova not available" }}
+    </ion-col>
+  </ion-row>
 </ion-content>
 
 <ion-footer>
   <ion-toolbar>
     <ion-title>
-      <div style="font-size: 1rem" text-center>
+      <div style="font-size: 1rem" class="ion-text-center">
         <a href="https://fashionbuddyapp.com/privacy-policy.html">Privacy Policy</a>
       </div>
     </ion-title>

@@ -1,0 +1,271 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.moorelabs.fashionbuddy"
+4    android:hardwareAccelerated="true"
+5    android:versionCode="30000"
+6    android:versionName="3.0.0" >
+7
+8    <uses-sdk
+9        android:minSdkVersion="19"
+9-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml
+10        android:targetSdkVersion="28" />
+10-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml
+11
+12    <supports-screens
+12-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:3:5-191
+13        android:anyDensity="true"
+13-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:3:23-48
+14        android:largeScreens="true"
+14-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:3:49-76
+15        android:normalScreens="true"
+15-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:3:77-105
+16        android:resizeable="true"
+16-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:3:106-131
+17        android:smallScreens="true"
+17-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:3:132-159
+18        android:xlargeScreens="true" />
+18-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:3:160-188
+19
+20    <uses-permission android:name="android.permission.INTERNET" />
+20-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:4:5-67
+20-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:4:22-64
+21    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+21-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:28:5-81
+21-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:28:22-78
+22    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+22-->[com.google.android.gms:play-services-measurement-api:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\c6344bef22ebcb86f92eb3680530e211\play-services-measurement-api-16.5.0\AndroidManifest.xml:23:5-79
+22-->[com.google.android.gms:play-services-measurement-api:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\c6344bef22ebcb86f92eb3680530e211\play-services-measurement-api-16.5.0\AndroidManifest.xml:23:22-76
+23    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+23-->[com.google.android.gms:play-services-measurement-api:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\c6344bef22ebcb86f92eb3680530e211\play-services-measurement-api-16.5.0\AndroidManifest.xml:24:5-68
+23-->[com.google.android.gms:play-services-measurement-api:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\c6344bef22ebcb86f92eb3680530e211\play-services-measurement-api-16.5.0\AndroidManifest.xml:24:22-65
+24    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+24-->[com.google.firebase:firebase-iid:18.0.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\ae832279c2e4e7612a0d1c1e224f47c5\firebase-iid-18.0.0\AndroidManifest.xml:26:5-82
+24-->[com.google.firebase:firebase-iid:18.0.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\ae832279c2e4e7612a0d1c1e224f47c5\firebase-iid-18.0.0\AndroidManifest.xml:26:22-79
+25    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+25-->[com.google.android.gms:play-services-measurement:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\a7b90ff20ea85539ea8f676febc68d2c\play-services-measurement-16.5.0\AndroidManifest.xml:26:5-110
+25-->[com.google.android.gms:play-services-measurement:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\a7b90ff20ea85539ea8f676febc68d2c\play-services-measurement-16.5.0\AndroidManifest.xml:26:22-107
+26
+27    <application
+27-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:5:5-27:19
+28        android:hardwareAccelerated="true"
+28-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:5:18-52
+29        android:icon="@mipmap/ic_launcher"
+29-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:5:53-87
+30        android:label="@string/app_name"
+30-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:5:88-120
+31        android:networkSecurityConfig="@xml/network_security_config"
+31-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:5:121-181
+32        android:supportsRtl="true" >
+32-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:5:182-208
+33        <meta-data
+33-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:6:9-144
+34            android:name="com.google.firebase.messaging.default_notification_icon"
+34-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:6:20-90
+35            android:resource="@drawable/ic_stat_fcm_push_icon" />
+35-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:6:91-141
+36
+37        <activity
+37-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:7:9-12:20
+38            android:name="com.moorelabs.fashionbuddy.MainActivity"
+38-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:7:205-232
+39            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
+39-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:7:19-135
+40            android:label="@string/activity_name"
+40-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:7:136-173
+41            android:launchMode="singleTop"
+41-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:7:174-204
+42            android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
+42-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:7:233-295
+43            android:windowSoftInputMode="adjustResize" >
+43-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:7:296-338
+44            <intent-filter android:label="@string/launcher_name" >
+44-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:8:13-11:29
+44-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:8:28-65
+45                <action android:name="android.intent.action.MAIN" />
+45-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:9:17-69
+45-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:9:25-66
+46
+47                <category android:name="android.intent.category.LAUNCHER" />
+47-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:10:17-77
+47-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:10:27-74
+48            </intent-filter>
+49        </activity>
+50
+51        <provider
+52            android:name="org.apache.cordova.camera.FileProvider"
+52-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:13:127-180
+53            android:authorities="com.moorelabs.fashionbuddy.provider"
+53-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:13:19-66
+54            android:exported="false"
+54-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:13:67-91
+55            android:grantUriPermissions="true" >
+55-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:13:92-126
+56            <meta-data
+56-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:14:13-123
+57                android:name="android.support.FILE_PROVIDER_PATHS"
+57-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:14:24-74
+58                android:resource="@xml/camera_provider_paths" />
+58-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:14:75-120
+59        </provider>
+60
+61        <activity
+61-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:16:9-21:20
+62            android:name="com.gae.scaffolder.plugin.FCMPluginActivity"
+62-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:16:74-132
+63            android:exported="true"
+63-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:16:19-42
+64            android:launchMode="singleTop" >
+64-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:16:43-73
+65            <intent-filter>
+65-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:17:13-20:29
+66                <action android:name="FCM_PLUGIN_ACTIVITY" />
+66-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:18:17-62
+66-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:18:25-59
+67
+68                <category android:name="android.intent.category.DEFAULT" />
+68-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:19:17-76
+68-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:19:27-73
+69            </intent-filter>
+70        </activity>
+71
+72        <service
+72-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:22:9-26:19
+73            android:name="com.gae.scaffolder.plugin.MyFirebaseMessagingService"
+73-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:22:18-85
+74            android:stopWithTask="false" >
+74-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:22:86-114
+75            <intent-filter>
+75-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:23:13-25:29
+76                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+76-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:24:17-78
+76-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:24:25-75
+77            </intent-filter>
+78        </service>
+79        <!--
+80             FirebaseMessagingService performs security checks at runtime,
+81             but set to not exported to explicitly avoid allowing another app to call it.
+82        -->
+83        <service
+83-->[com.google.firebase:firebase-messaging:18.0.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\55f8c0a7248986e43055c9db03337ed9\firebase-messaging-18.0.0\AndroidManifest.xml:28:9-34:19
+84            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+84-->[com.google.firebase:firebase-messaging:18.0.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\55f8c0a7248986e43055c9db03337ed9\firebase-messaging-18.0.0\AndroidManifest.xml:29:13-82
+85            android:exported="false" >
+85-->[com.google.firebase:firebase-messaging:18.0.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\55f8c0a7248986e43055c9db03337ed9\firebase-messaging-18.0.0\AndroidManifest.xml:30:13-37
+86            <intent-filter android:priority="-500" >
+86-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:23:13-25:29
+87                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+87-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:24:17-78
+87-->C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:24:25-75
+88            </intent-filter>
+89        </service>
+90        <service
+90-->[com.google.android.gms:play-services-measurement-api:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\c6344bef22ebcb86f92eb3680530e211\play-services-measurement-api-16.5.0\AndroidManifest.xml:27:9-33:19
+91            android:name="com.google.firebase.components.ComponentDiscoveryService"
+91-->[com.google.android.gms:play-services-measurement-api:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\c6344bef22ebcb86f92eb3680530e211\play-services-measurement-api-16.5.0\AndroidManifest.xml:28:13-84
+92            android:exported="false" >
+92-->[com.google.android.gms:play-services-measurement-api:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\c6344bef22ebcb86f92eb3680530e211\play-services-measurement-api-16.5.0\AndroidManifest.xml:29:13-37
+93            <meta-data
+93-->[com.google.android.gms:play-services-measurement-api:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\c6344bef22ebcb86f92eb3680530e211\play-services-measurement-api-16.5.0\AndroidManifest.xml:30:13-32:85
+94                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+94-->[com.google.android.gms:play-services-measurement-api:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\c6344bef22ebcb86f92eb3680530e211\play-services-measurement-api-16.5.0\AndroidManifest.xml:31:17-139
+95                android:value="com.google.firebase.components.ComponentRegistrar" />
+95-->[com.google.android.gms:play-services-measurement-api:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\c6344bef22ebcb86f92eb3680530e211\play-services-measurement-api-16.5.0\AndroidManifest.xml:32:17-82
+96            <meta-data
+96-->[com.google.firebase:firebase-iid:18.0.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\ae832279c2e4e7612a0d1c1e224f47c5\firebase-iid-18.0.0\AndroidManifest.xml:32:13-34:85
+97                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+97-->[com.google.firebase:firebase-iid:18.0.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\ae832279c2e4e7612a0d1c1e224f47c5\firebase-iid-18.0.0\AndroidManifest.xml:33:17-96
+98                android:value="com.google.firebase.components.ComponentRegistrar" />
+98-->[com.google.firebase:firebase-iid:18.0.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\ae832279c2e4e7612a0d1c1e224f47c5\firebase-iid-18.0.0\AndroidManifest.xml:34:17-82
+99        </service>
+100
+101        <receiver
+101-->[com.google.firebase:firebase-iid:18.0.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\ae832279c2e4e7612a0d1c1e224f47c5\firebase-iid-18.0.0\AndroidManifest.xml:37:9-44:20
+102            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+102-->[com.google.firebase:firebase-iid:18.0.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\ae832279c2e4e7612a0d1c1e224f47c5\firebase-iid-18.0.0\AndroidManifest.xml:38:13-78
+103            android:exported="true"
+103-->[com.google.firebase:firebase-iid:18.0.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\ae832279c2e4e7612a0d1c1e224f47c5\firebase-iid-18.0.0\AndroidManifest.xml:39:13-36
+104            android:permission="com.google.android.c2dm.permission.SEND" >
+104-->[com.google.firebase:firebase-iid:18.0.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\ae832279c2e4e7612a0d1c1e224f47c5\firebase-iid-18.0.0\AndroidManifest.xml:40:13-73
+105            <intent-filter>
+105-->[com.google.firebase:firebase-iid:18.0.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\ae832279c2e4e7612a0d1c1e224f47c5\firebase-iid-18.0.0\AndroidManifest.xml:41:13-43:29
+106                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+106-->[com.google.firebase:firebase-iid:18.0.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\ae832279c2e4e7612a0d1c1e224f47c5\firebase-iid-18.0.0\AndroidManifest.xml:42:17-81
+106-->[com.google.firebase:firebase-iid:18.0.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\ae832279c2e4e7612a0d1c1e224f47c5\firebase-iid-18.0.0\AndroidManifest.xml:42:25-78
+107            </intent-filter>
+108        </receiver>
+109
+110        <provider
+110-->[com.google.firebase:firebase-common:17.0.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\17e9b183fb99bc048c24c67c6afa4e47\firebase-common-17.0.0\AndroidManifest.xml:12:9-16:39
+111            android:name="com.google.firebase.provider.FirebaseInitProvider"
+111-->[com.google.firebase:firebase-common:17.0.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\17e9b183fb99bc048c24c67c6afa4e47\firebase-common-17.0.0\AndroidManifest.xml:13:13-77
+112            android:authorities="com.moorelabs.fashionbuddy.firebaseinitprovider"
+112-->[com.google.firebase:firebase-common:17.0.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\17e9b183fb99bc048c24c67c6afa4e47\firebase-common-17.0.0\AndroidManifest.xml:14:13-72
+113            android:exported="false"
+113-->[com.google.firebase:firebase-common:17.0.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\17e9b183fb99bc048c24c67c6afa4e47\firebase-common-17.0.0\AndroidManifest.xml:15:13-37
+114            android:initOrder="100" />
+114-->[com.google.firebase:firebase-common:17.0.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\17e9b183fb99bc048c24c67c6afa4e47\firebase-common-17.0.0\AndroidManifest.xml:16:13-36
+115
+116        <activity
+116-->[com.google.android.gms:play-services-base:16.0.1] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\919abf3f5c043fe43ce39056b98cdb51\play-services-base-16.0.1\AndroidManifest.xml:23:9-26:75
+117            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+117-->[com.google.android.gms:play-services-base:16.0.1] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\919abf3f5c043fe43ce39056b98cdb51\play-services-base-16.0.1\AndroidManifest.xml:24:13-79
+118            android:exported="false"
+118-->[com.google.android.gms:play-services-base:16.0.1] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\919abf3f5c043fe43ce39056b98cdb51\play-services-base-16.0.1\AndroidManifest.xml:25:13-37
+119            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+119-->[com.google.android.gms:play-services-base:16.0.1] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\919abf3f5c043fe43ce39056b98cdb51\play-services-base-16.0.1\AndroidManifest.xml:26:13-72
+120
+121        <receiver
+121-->[com.google.android.gms:play-services-measurement:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\a7b90ff20ea85539ea8f676febc68d2c\play-services-measurement-16.5.0\AndroidManifest.xml:29:9-33:20
+122            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+122-->[com.google.android.gms:play-services-measurement:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\a7b90ff20ea85539ea8f676febc68d2c\play-services-measurement-16.5.0\AndroidManifest.xml:30:13-85
+123            android:enabled="true"
+123-->[com.google.android.gms:play-services-measurement:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\a7b90ff20ea85539ea8f676febc68d2c\play-services-measurement-16.5.0\AndroidManifest.xml:31:13-35
+124            android:exported="false" >
+124-->[com.google.android.gms:play-services-measurement:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\a7b90ff20ea85539ea8f676febc68d2c\play-services-measurement-16.5.0\AndroidManifest.xml:32:13-37
+125        </receiver>
+126        <receiver
+126-->[com.google.android.gms:play-services-measurement:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\a7b90ff20ea85539ea8f676febc68d2c\play-services-measurement-16.5.0\AndroidManifest.xml:34:9-42:20
+127            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+127-->[com.google.android.gms:play-services-measurement:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\a7b90ff20ea85539ea8f676febc68d2c\play-services-measurement-16.5.0\AndroidManifest.xml:35:13-100
+128            android:enabled="true"
+128-->[com.google.android.gms:play-services-measurement:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\a7b90ff20ea85539ea8f676febc68d2c\play-services-measurement-16.5.0\AndroidManifest.xml:36:13-35
+129            android:exported="true"
+129-->[com.google.android.gms:play-services-measurement:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\a7b90ff20ea85539ea8f676febc68d2c\play-services-measurement-16.5.0\AndroidManifest.xml:37:13-36
+130            android:permission="android.permission.INSTALL_PACKAGES" >
+130-->[com.google.android.gms:play-services-measurement:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\a7b90ff20ea85539ea8f676febc68d2c\play-services-measurement-16.5.0\AndroidManifest.xml:38:13-69
+131            <intent-filter>
+131-->[com.google.android.gms:play-services-measurement:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\a7b90ff20ea85539ea8f676febc68d2c\play-services-measurement-16.5.0\AndroidManifest.xml:39:13-41:29
+132                <action android:name="com.android.vending.INSTALL_REFERRER" />
+132-->[com.google.android.gms:play-services-measurement:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\a7b90ff20ea85539ea8f676febc68d2c\play-services-measurement-16.5.0\AndroidManifest.xml:40:17-79
+132-->[com.google.android.gms:play-services-measurement:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\a7b90ff20ea85539ea8f676febc68d2c\play-services-measurement-16.5.0\AndroidManifest.xml:40:25-76
+133            </intent-filter>
+134        </receiver>
+135
+136        <service
+136-->[com.google.android.gms:play-services-measurement:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\a7b90ff20ea85539ea8f676febc68d2c\play-services-measurement-16.5.0\AndroidManifest.xml:44:9-47:40
+137            android:name="com.google.android.gms.measurement.AppMeasurementService"
+137-->[com.google.android.gms:play-services-measurement:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\a7b90ff20ea85539ea8f676febc68d2c\play-services-measurement-16.5.0\AndroidManifest.xml:45:13-84
+138            android:enabled="true"
+138-->[com.google.android.gms:play-services-measurement:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\a7b90ff20ea85539ea8f676febc68d2c\play-services-measurement-16.5.0\AndroidManifest.xml:46:13-35
+139            android:exported="false" />
+139-->[com.google.android.gms:play-services-measurement:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\a7b90ff20ea85539ea8f676febc68d2c\play-services-measurement-16.5.0\AndroidManifest.xml:47:13-37
+140        <service
+140-->[com.google.android.gms:play-services-measurement:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\a7b90ff20ea85539ea8f676febc68d2c\play-services-measurement-16.5.0\AndroidManifest.xml:48:9-52:72
+141            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+141-->[com.google.android.gms:play-services-measurement:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\a7b90ff20ea85539ea8f676febc68d2c\play-services-measurement-16.5.0\AndroidManifest.xml:49:13-87
+142            android:enabled="true"
+142-->[com.google.android.gms:play-services-measurement:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\a7b90ff20ea85539ea8f676febc68d2c\play-services-measurement-16.5.0\AndroidManifest.xml:50:13-35
+143            android:exported="false"
+143-->[com.google.android.gms:play-services-measurement:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\a7b90ff20ea85539ea8f676febc68d2c\play-services-measurement-16.5.0\AndroidManifest.xml:51:13-37
+144            android:permission="android.permission.BIND_JOB_SERVICE" />
+144-->[com.google.android.gms:play-services-measurement:16.5.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\a7b90ff20ea85539ea8f676febc68d2c\play-services-measurement-16.5.0\AndroidManifest.xml:52:13-69
+145
+146        <meta-data
+146-->[com.google.android.gms:play-services-basement:16.2.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\eb5ad033973a47810762274995bd7327\play-services-basement-16.2.0\AndroidManifest.xml:23:9-25:69
+147            android:name="com.google.android.gms.version"
+147-->[com.google.android.gms:play-services-basement:16.2.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\eb5ad033973a47810762274995bd7327\play-services-basement-16.2.0\AndroidManifest.xml:24:13-58
+148            android:value="@integer/google_play_services_version" />
+148-->[com.google.android.gms:play-services-basement:16.2.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\eb5ad033973a47810762274995bd7327\play-services-basement-16.2.0\AndroidManifest.xml:25:13-66
+149    </application>
+150
+151</manifest>
