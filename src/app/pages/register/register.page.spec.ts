@@ -10,7 +10,8 @@ import {
 import { UrlSerializer } from "@angular/router";
 import { AuthService } from "src/app/services/auth/auth.service";
 import { ModalController, AngularDelegate } from "@ionic/angular";
-import { FCM } from '@ionic-native/fcm/ngx';
+import { FCM } from "@ionic-native/fcm/ngx";
+import { AppVersion } from "@ionic-native/app-version/ngx";
 
 describe("RegisterPage", () => {
   let component: RegisterPage;
@@ -24,6 +25,7 @@ describe("RegisterPage", () => {
         AngularDelegate,
         ModalController,
         FCM,
+        AppVersion,
         { provide: LocationStrategy, useClass: PathLocationStrategy },
         // tslint:disable-next-line: no-use-before-declare
         { provide: AuthService, useClass: AuthServiceStub }

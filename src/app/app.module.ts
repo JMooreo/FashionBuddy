@@ -23,6 +23,7 @@ import { FcmService } from "./services/fcm/fcm.service";
 import { AuthService } from "./services/auth/auth.service";
 import { DatabaseService } from "./services/database/database.service";
 import { FCM } from "@ionic-native/fcm/ngx";
+import { AppVersion } from "@ionic-native/app-version/ngx";
 
 @NgModule({
   declarations: [AppComponent],
@@ -45,6 +46,7 @@ import { FCM } from "@ionic-native/fcm/ngx";
     DatabaseService,
     FcmService,
     FCM,
+    AppVersion,
     AuthService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Camera

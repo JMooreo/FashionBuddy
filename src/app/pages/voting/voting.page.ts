@@ -39,6 +39,17 @@ export class VotingPage implements OnInit {
 
   ngOnInit() {
     if (this.plt.is("cordova")) {
+      // Check If App Is Outdated
+      this.dbSrv.checkAppVersion().then(data => {
+        if (data.isOutOfDate) {
+          this.popupSrv.showBasicAlert(
+            "Update",
+            `Please update Fashion Buddy to the latest version (${data.latestVersion})`
+          );
+        }
+      });
+
+      // Start Notification Listeners
       this.fcmSrv.doNotificationSetup();
     }
   }

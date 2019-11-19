@@ -11,6 +11,7 @@ import { UrlSerializer } from "@angular/router";
 import { AuthService } from "src/app/services/auth/auth.service";
 import { AngularDelegate, ModalController } from "@ionic/angular";
 import { FCM } from "@ionic-native/fcm/ngx";
+import { AppVersion } from '@ionic-native/app-version/ngx';
 
 describe("LoginPage", () => {
   let component: LoginPage;
@@ -24,6 +25,7 @@ describe("LoginPage", () => {
         AngularDelegate,
         ModalController,
         FCM,
+        AppVersion,
         { provide: LocationStrategy, useClass: PathLocationStrategy },
         // tslint:disable-next-line: no-use-before-declare
         { provide: AuthService, useClass: AuthServiceStub }

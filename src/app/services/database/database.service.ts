@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { Contest } from "../../models/contest-model";
 import { UserDocument } from "../../models/user-document";
 import { AuthService } from "../auth/auth.service";
+import { AppVersion } from "@ionic-native/app-version/ngx";
 import * as firebase from "firebase/app";
 import "firebase/firestore";
 import { environment } from "src/environments/environment";
@@ -17,8 +18,18 @@ export class DatabaseService {
   usersRef = firebase.firestore().collection("Users");
   devicesRef = firebase.firestore().collection("Devices");
   contestFeedbackRef = firebase.firestore().collection("ContestFeedback");
+  logisticsRef = firebase.firestore().collection("Logistics");
 
-  constructor(private authSrv: AuthService, private fcmSrv: FcmService) {}
+  constructor(private authSrv: AuthService, private fcmSrv: FcmService, private appVersion: AppVersion) {}
+
+  async checkAppVersion() {
+    const doc = await this.logisticsRef.doc("version").get();
+    const currentVersion = await this.appVersion.getVersionNumber();
+    return {
+      latestVersion: doc.data().latestVersion,
+      isOutOfDate: currentVersion < doc.data().latestVersion
+    };
+  }
 
   async getAllContestsUserHasNotSeenOrVotedOn() {
     const rightNow = new Date(Date.now());
