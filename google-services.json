@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:669845790704:android:c509bf767e8e253392c735",
+        "mobilesdk_app_id": "1:669845790704:android:72d449178f97929492c735",
         "android_client_info": {
-          "package_name": "com.moorelabs.fashionbuddy"
+          "package_name": "com.fashionbuddyapp.fashionbuddy"
         }
       },
       "oauth_client": [

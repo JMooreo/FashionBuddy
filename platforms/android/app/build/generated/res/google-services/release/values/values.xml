@@ -4,7 +4,7 @@
     <string name="firebase_database_url" translatable="false">https://fashionbuddy-e21c3.firebaseio.com</string>
     <string name="gcm_defaultSenderId" translatable="false">669845790704</string>
     <string name="google_api_key" translatable="false">AIzaSyD9YolEjj6MH8oxBSZMYVKE4cd3HPD26xE</string>
-    <string name="google_app_id" translatable="false">1:669845790704:android:c509bf767e8e253392c735</string>
+    <string name="google_app_id" translatable="false">1:669845790704:android:72d449178f97929492c735</string>
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyD9YolEjj6MH8oxBSZMYVKE4cd3HPD26xE</string>
     <string name="google_storage_bucket" translatable="false">fashionbuddy-e21c3.appspot.com</string>
     <string name="project_id" translatable="false">fashionbuddy-e21c3</string>

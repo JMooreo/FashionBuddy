@@ -1,51 +1,43 @@
 [
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_googleg_standard_color_18.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable-xhdpi-v4\\googleg_standard_color_18.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable-xhdpi-v4\\googleg_standard_color_18.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_notification_bg_low_pressed.9.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\6931bc3fe5868b0ab5606c1192ce8d93\\support-compat-27.1.1\\res\\drawable-hdpi-v4\\notification_bg_low_pressed.9.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\drawable-hdpi-v4\\notification_bg_low_pressed.9.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-port-xxhdpi_screen.png.flat",
         "source": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\src\\main\\res\\drawable-port-xxhdpi\\screen.png"
     },
     {
-        "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-land-xxxhdpi_ic_stat_fcm_push_icon.png.flat",
-        "source": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\src\\main\\res\\drawable-land-xxxhdpi\\ic_stat_fcm_push_icon.png"
-    },
-    {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout_notification_template_big_media_narrow.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cd7b4eabd84b01e2dff0fd7f369073b4\\support-media-compat-27.1.1\\res\\layout\\notification_template_big_media_narrow.xml"
-    },
-    {
-        "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-land-xxhdpi_ic_stat_fcm_push_icon.png.flat",
-        "source": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\src\\main\\res\\drawable-land-xxhdpi\\ic_stat_fcm_push_icon.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\d328aa16859c1ae53a6c48fcd848633a\\res\\layout\\notification_template_big_media_narrow.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable-xxhdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable-xxhdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_notify_panel_notification_icon_bg.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\6931bc3fe5868b0ab5606c1192ce8d93\\support-compat-27.1.1\\res\\drawable-mdpi-v4\\notify_panel_notification_icon_bg.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\drawable-mdpi-v4\\notify_panel_notification_icon_bg.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_notification_bg_low_normal.9.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\6931bc3fe5868b0ab5606c1192ce8d93\\support-compat-27.1.1\\res\\drawable-hdpi-v4\\notification_bg_low_normal.9.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\drawable-hdpi-v4\\notification_bg_low_normal.9.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_googleg_disabled_color_18.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable-xhdpi-v4\\googleg_disabled_color_18.png"
-    },
-    {
-        "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout-v16_notification_template_custom_big.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\6931bc3fe5868b0ab5606c1192ce8d93\\support-compat-27.1.1\\res\\layout-v16\\notification_template_custom_big.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable-xhdpi-v4\\googleg_disabled_color_18.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout_notification_template_big_media_narrow_custom.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cd7b4eabd84b01e2dff0fd7f369073b4\\support-media-compat-27.1.1\\res\\layout\\notification_template_big_media_narrow_custom.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\d328aa16859c1ae53a6c48fcd848633a\\res\\layout\\notification_template_big_media_narrow_custom.xml"
+    },
+    {
+        "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout-v16_notification_template_custom_big.xml.flat",
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\layout-v16\\notification_template_custom_big.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\mipmap-xhdpi_ic_launcher.png.flat",
@@ -53,35 +45,35 @@
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable-mdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable-mdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\6931bc3fe5868b0ab5606c1192ce8d93\\support-compat-27.1.1\\res\\drawable-xhdpi-v4\\notification_bg_low_pressed.9.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\drawable-xhdpi-v4\\notification_bg_low_pressed.9.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_notification_bg_low_pressed.9.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\6931bc3fe5868b0ab5606c1192ce8d93\\support-compat-27.1.1\\res\\drawable-mdpi-v4\\notification_bg_low_pressed.9.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\drawable-mdpi-v4\\notification_bg_low_pressed.9.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\mipmap-xxhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable-hdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
+        "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_googleg_standard_color_18.png.flat",
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable-hdpi-v4\\googleg_standard_color_18.png"
     },
     {
-        "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_googleg_standard_color_18.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable-hdpi-v4\\googleg_standard_color_18.png"
+        "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable-hdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable_common_google_signin_btn_icon_light_normal.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable\\common_google_signin_btn_icon_light_normal.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable\\common_google_signin_btn_icon_light_normal.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout_notification_media_action.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cd7b4eabd84b01e2dff0fd7f369073b4\\support-media-compat-27.1.1\\res\\layout\\notification_media_action.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\d328aa16859c1ae53a6c48fcd848633a\\res\\layout\\notification_media_action.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-land-mdpi_screen.png.flat",
@@ -89,19 +81,19 @@
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_notification_bg_normal.9.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\6931bc3fe5868b0ab5606c1192ce8d93\\support-compat-27.1.1\\res\\drawable-hdpi-v4\\notification_bg_normal.9.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\drawable-hdpi-v4\\notification_bg_normal.9.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout-v21_notification_template_icon_group.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\6931bc3fe5868b0ab5606c1192ce8d93\\support-compat-27.1.1\\res\\layout-v21\\notification_template_icon_group.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\layout-v21\\notification_template_icon_group.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout-v21_notification_action_tombstone.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\6931bc3fe5868b0ab5606c1192ce8d93\\support-compat-27.1.1\\res\\layout-v21\\notification_action_tombstone.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\layout-v21\\notification_action_tombstone.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\mipmap-mdpi_ic_launcher.png.flat",
@@ -109,7 +101,7 @@
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable-hdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable-hdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-land-ldpi_screen.png.flat",
@@ -117,47 +109,47 @@
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\color_common_google_signin_btn_tint.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\color\\common_google_signin_btn_tint.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\color\\common_google_signin_btn_tint.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_common_google_signin_btn_icon_dark_normal_background.9.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable-mdpi-v4\\common_google_signin_btn_icon_dark_normal_background.9.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable-mdpi-v4\\common_google_signin_btn_icon_dark_normal_background.9.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\6931bc3fe5868b0ab5606c1192ce8d93\\support-compat-27.1.1\\res\\drawable-xhdpi-v4\\notify_panel_notification_icon_bg.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\drawable-xhdpi-v4\\notify_panel_notification_icon_bg.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_notification_bg_low_normal.9.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\6931bc3fe5868b0ab5606c1192ce8d93\\support-compat-27.1.1\\res\\drawable-mdpi-v4\\notification_bg_low_normal.9.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\drawable-mdpi-v4\\notification_bg_low_normal.9.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout_notification_template_media.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cd7b4eabd84b01e2dff0fd7f369073b4\\support-media-compat-27.1.1\\res\\layout\\notification_template_media.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\d328aa16859c1ae53a6c48fcd848633a\\res\\layout\\notification_template_media.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable-mdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable-mdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable-hdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable-hdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout_notification_template_big_media_custom.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cd7b4eabd84b01e2dff0fd7f369073b4\\support-media-compat-27.1.1\\res\\layout\\notification_template_big_media_custom.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\d328aa16859c1ae53a6c48fcd848633a\\res\\layout\\notification_template_big_media_custom.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout_notification_media_cancel_action.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cd7b4eabd84b01e2dff0fd7f369073b4\\support-media-compat-27.1.1\\res\\layout\\notification_media_cancel_action.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\d328aa16859c1ae53a6c48fcd848633a\\res\\layout\\notification_media_cancel_action.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable_common_google_signin_btn_text_disabled.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable\\common_google_signin_btn_text_disabled.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable\\common_google_signin_btn_text_disabled.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-port-mdpi_screen.png.flat",
@@ -165,23 +157,23 @@
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi-v4_common_google_signin_btn_icon_dark_normal_background.9.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable-xxhdpi-v4\\common_google_signin_btn_icon_dark_normal_background.9.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable-xxhdpi-v4\\common_google_signin_btn_icon_dark_normal_background.9.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout_notification_template_big_media.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cd7b4eabd84b01e2dff0fd7f369073b4\\support-media-compat-27.1.1\\res\\layout\\notification_template_big_media.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\d328aa16859c1ae53a6c48fcd848633a\\res\\layout\\notification_template_big_media.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable_notification_icon_background.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\6931bc3fe5868b0ab5606c1192ce8d93\\support-compat-27.1.1\\res\\drawable\\notification_icon_background.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\drawable\\notification_icon_background.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout_notification_template_lines_media.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cd7b4eabd84b01e2dff0fd7f369073b4\\support-media-compat-27.1.1\\res\\layout\\notification_template_lines_media.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\d328aa16859c1ae53a6c48fcd848633a\\res\\layout\\notification_template_lines_media.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable-xxhdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable-xxhdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_screen.png.flat",
@@ -193,19 +185,19 @@
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout_notification_template_media_custom.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cd7b4eabd84b01e2dff0fd7f369073b4\\support-media-compat-27.1.1\\res\\layout\\notification_template_media_custom.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\d328aa16859c1ae53a6c48fcd848633a\\res\\layout\\notification_template_media_custom.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_notification_bg_normal_pressed.9.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\6931bc3fe5868b0ab5606c1192ce8d93\\support-compat-27.1.1\\res\\drawable-hdpi-v4\\notification_bg_normal_pressed.9.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\drawable-hdpi-v4\\notification_bg_normal_pressed.9.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable_common_google_signin_btn_icon_light_focused.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable\\common_google_signin_btn_icon_light_focused.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable\\common_google_signin_btn_icon_light_focused.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable_common_google_signin_btn_icon_dark_focused.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable\\common_google_signin_btn_icon_dark_focused.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable\\common_google_signin_btn_icon_dark_focused.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-port-ldpi_screen.png.flat",
@@ -217,43 +209,39 @@
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable_common_google_signin_btn_text_dark_normal.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable\\common_google_signin_btn_text_dark_normal.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable\\common_google_signin_btn_text_dark_normal.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout_notification_action_tombstone.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\6931bc3fe5868b0ab5606c1192ce8d93\\support-compat-27.1.1\\res\\layout\\notification_action_tombstone.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\layout\\notification_action_tombstone.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable_notification_tile_bg.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\6931bc3fe5868b0ab5606c1192ce8d93\\support-compat-27.1.1\\res\\drawable\\notification_tile_bg.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\drawable\\notification_tile_bg.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable_notification_bg_low.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\6931bc3fe5868b0ab5606c1192ce8d93\\support-compat-27.1.1\\res\\drawable\\notification_bg_low.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\drawable\\notification_bg_low.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout_notification_action.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\6931bc3fe5868b0ab5606c1192ce8d93\\support-compat-27.1.1\\res\\layout\\notification_action.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\layout\\notification_action.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_notification_bg_normal.9.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\6931bc3fe5868b0ab5606c1192ce8d93\\support-compat-27.1.1\\res\\drawable-xhdpi-v4\\notification_bg_normal.9.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\drawable-xhdpi-v4\\notification_bg_normal.9.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_notify_panel_notification_icon_bg.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\6931bc3fe5868b0ab5606c1192ce8d93\\support-compat-27.1.1\\res\\drawable-hdpi-v4\\notify_panel_notification_icon_bg.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\drawable-hdpi-v4\\notify_panel_notification_icon_bg.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable_notification_bg.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\6931bc3fe5868b0ab5606c1192ce8d93\\support-compat-27.1.1\\res\\drawable\\notification_bg.xml"
-    },
-    {
-        "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_ic_stat_fcm_push_icon.png.flat",
-        "source": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\src\\main\\res\\drawable-hdpi\\ic_stat_fcm_push_icon.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\drawable\\notification_bg.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable_common_google_signin_btn_text_light_focused.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable\\common_google_signin_btn_text_light_focused.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable\\common_google_signin_btn_text_light_focused.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-land-xhdpi_screen.png.flat",
@@ -261,7 +249,7 @@
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable-mdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable-mdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_screen.png.flat",
@@ -273,11 +261,11 @@
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_notification_bg_low_normal.9.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\6931bc3fe5868b0ab5606c1192ce8d93\\support-compat-27.1.1\\res\\drawable-xhdpi-v4\\notification_bg_low_normal.9.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\drawable-xhdpi-v4\\notification_bg_low_normal.9.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\color_common_google_signin_btn_text_light.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\color\\common_google_signin_btn_text_light.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\color\\common_google_signin_btn_text_light.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\xml_network_security_config.xml.flat",
@@ -285,7 +273,7 @@
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout_notification_template_part_time.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\6931bc3fe5868b0ab5606c1192ce8d93\\support-compat-27.1.1\\res\\layout\\notification_template_part_time.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\layout\\notification_template_part_time.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-land-xxhdpi_screen.png.flat",
@@ -293,7 +281,7 @@
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_notification_bg_normal.9.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\6931bc3fe5868b0ab5606c1192ce8d93\\support-compat-27.1.1\\res\\drawable-mdpi-v4\\notification_bg_normal.9.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\drawable-mdpi-v4\\notification_bg_normal.9.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\mipmap-hdpi_ic_launcher.png.flat",
@@ -304,16 +292,12 @@
         "source": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\src\\main\\res\\drawable-land-xxxhdpi\\screen.png"
     },
     {
-        "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-land-xhdpi_ic_stat_fcm_push_icon.png.flat",
-        "source": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\src\\main\\res\\drawable-land-xhdpi\\ic_stat_fcm_push_icon.png"
-    },
-    {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable_common_google_signin_btn_icon_dark.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable\\common_google_signin_btn_icon_dark.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable\\common_google_signin_btn_icon_dark.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable_common_google_signin_btn_text_dark_focused.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable\\common_google_signin_btn_text_dark_focused.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable\\common_google_signin_btn_text_dark_focused.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-ldpi_screen.png.flat",
@@ -321,27 +305,27 @@
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_googleg_standard_color_18.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable-mdpi-v4\\googleg_standard_color_18.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable-mdpi-v4\\googleg_standard_color_18.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable-xxhdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable-xxhdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable_common_google_signin_btn_icon_disabled.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable\\common_google_signin_btn_icon_disabled.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable\\common_google_signin_btn_icon_disabled.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_common_full_open_on_phone.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable-xhdpi-v4\\common_full_open_on_phone.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable-xhdpi-v4\\common_full_open_on_phone.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable_common_google_signin_btn_text_dark.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable\\common_google_signin_btn_text_dark.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable\\common_google_signin_btn_text_dark.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_notification_bg_normal_pressed.9.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\6931bc3fe5868b0ab5606c1192ce8d93\\support-compat-27.1.1\\res\\drawable-mdpi-v4\\notification_bg_normal_pressed.9.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\drawable-mdpi-v4\\notification_bg_normal_pressed.9.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\mipmap-ldpi_ic_launcher.png.flat",
@@ -353,11 +337,7 @@
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout-v21_notification_template_custom_big.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\6931bc3fe5868b0ab5606c1192ce8d93\\support-compat-27.1.1\\res\\layout-v21\\notification_template_custom_big.xml"
-    },
-    {
-        "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-land-mdpi_ic_stat_fcm_push_icon.png.flat",
-        "source": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\src\\main\\res\\drawable-land-mdpi\\ic_stat_fcm_push_icon.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\layout-v21\\notification_template_custom_big.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\xml_config.xml.flat",
@@ -369,7 +349,7 @@
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_common_google_signin_btn_icon_dark_normal_background.9.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_dark_normal_background.9.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_dark_normal_background.9.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-port-hdpi_screen.png.flat",
@@ -377,11 +357,11 @@
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi-v4_googleg_standard_color_18.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable-xxhdpi-v4\\googleg_standard_color_18.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable-xxhdpi-v4\\googleg_standard_color_18.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-v21_notification_action_background.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\6931bc3fe5868b0ab5606c1192ce8d93\\support-compat-27.1.1\\res\\drawable-v21\\notification_action_background.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\drawable-v21\\notification_action_background.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-land-hdpi_screen.png.flat",
@@ -389,7 +369,7 @@
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi-v4_googleg_disabled_color_18.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable-xxhdpi-v4\\googleg_disabled_color_18.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable-xxhdpi-v4\\googleg_disabled_color_18.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\xml_camera_provider_paths.xml.flat",
@@ -397,31 +377,31 @@
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_common_full_open_on_phone.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable-hdpi-v4\\common_full_open_on_phone.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable-hdpi-v4\\common_full_open_on_phone.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable_common_google_signin_btn_text_light_normal.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable\\common_google_signin_btn_text_light_normal.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable\\common_google_signin_btn_text_light_normal.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable_common_google_signin_btn_icon_light.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable\\common_google_signin_btn_icon_light.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable\\common_google_signin_btn_icon_light.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_common_google_signin_btn_icon_dark_normal_background.9.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable-hdpi-v4\\common_google_signin_btn_icon_dark_normal_background.9.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable-hdpi-v4\\common_google_signin_btn_icon_dark_normal_background.9.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout_notification_template_part_chronometer.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\6931bc3fe5868b0ab5606c1192ce8d93\\support-compat-27.1.1\\res\\layout\\notification_template_part_chronometer.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\layout\\notification_template_part_chronometer.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable_common_google_signin_btn_icon_dark_normal.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable\\common_google_signin_btn_icon_dark_normal.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable\\common_google_signin_btn_icon_dark_normal.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-port-xxxhdpi_screen.png.flat",
@@ -429,30 +409,30 @@
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_googleg_disabled_color_18.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable-mdpi-v4\\googleg_disabled_color_18.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable-mdpi-v4\\googleg_disabled_color_18.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\color_common_google_signin_btn_text_dark.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\color\\common_google_signin_btn_text_dark.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\color\\common_google_signin_btn_text_dark.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_googleg_disabled_color_18.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable-hdpi-v4\\googleg_disabled_color_18.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable-hdpi-v4\\googleg_disabled_color_18.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_notification_bg_normal_pressed.9.png.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\6931bc3fe5868b0ab5606c1192ce8d93\\support-compat-27.1.1\\res\\drawable-xhdpi-v4\\notification_bg_normal_pressed.9.png"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\drawable-xhdpi-v4\\notification_bg_normal_pressed.9.png"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable_common_google_signin_btn_text_light.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\drawable\\common_google_signin_btn_text_light.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\drawable\\common_google_signin_btn_text_light.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout-v21_notification_action.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\6931bc3fe5868b0ab5606c1192ce8d93\\support-compat-27.1.1\\res\\layout-v21\\notification_action.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\layout-v21\\notification_action.xml"
     },
     {
         "merged": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout_notification_template_icon_group.xml.flat",
-        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\6931bc3fe5868b0ab5606c1192ce8d93\\support-compat-27.1.1\\res\\layout\\notification_template_icon_group.xml"
+        "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\layout\\notification_template_icon_group.xml"
     }
 ]

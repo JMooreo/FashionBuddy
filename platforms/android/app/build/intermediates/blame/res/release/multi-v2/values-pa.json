@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-pa\\values-pa.xml",
             "map": [
                 {
-                    "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\919abf3f5c043fe43ce39056b98cdb51\\play-services-base-16.0.1\\res\\values-pa\\values.xml",
+                    "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\values-pa\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -21,24 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\eb5ad033973a47810762274995bd7327\\play-services-basement-16.2.0\\res\\values-pa\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "209",
-                        "endOffsets": "456"
-                    },
-                    "to": {
-                        "startLines": "10",
-                        "startColumns": "4",
-                        "startOffsets": "1275",
-                        "endColumns": "209",
-                        "endOffsets": "1480"
-                    }
-                },
-                {
-                    "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\55f8c0a7248986e43055c9db03337ed9\\firebase-messaging-18.0.0\\res\\values-pa\\values.xml",
+                    "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\af0ce1f168c0bc0eb557951c3dc25272\\res\\values-pa\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -55,7 +38,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\6931bc3fe5868b0ab5606c1192ce8d93\\support-compat-27.1.1\\res\\values-pa\\values-pa.xml",
+                    "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\959a2ce7717a36ec8f36363b21a0a9fe\\res\\values-pa\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "209",
+                        "endOffsets": "456"
+                    },
+                    "to": {
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "1275",
+                        "endColumns": "209",
+                        "endOffsets": "1480"
+                    }
+                },
+                {
+                    "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\values-pa\\values-pa.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
