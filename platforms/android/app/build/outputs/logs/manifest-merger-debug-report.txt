@@ -1,20 +1,20 @@
 -- Merging decision tree log ---
 provider#org.apache.cordova.camera.FileProvider
-INJECTED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:12:9-14:20
+INJECTED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:13:9-15:20
 	android:grantUriPermissions
-		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:12:92-126
+		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:13:92-126
 	android:authorities
 		INJECTED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:12:19-66
+		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:13:19-66
 	android:exported
-		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:12:67-91
+		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:13:67-91
 	android:name
-		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:12:127-180
+		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:13:127-180
 manifest
-ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:2:1-28:12
+ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:2:1-29:12
 MERGED from [com.google.firebase:firebase-core:16.0.9] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\714ed9825daf4ee1aee18cc43d62911f\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-messaging:18.0.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\af0ce1f168c0bc0eb557951c3dc25272\AndroidManifest.xml:17:1-37:12
 MERGED from [:CordovaLib] C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\CordovaLib\build\intermediates\library_manifest\debug\AndroidManifest.xml:20:1-27:12
@@ -44,9 +44,9 @@ MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Gradle\gradle-5.6.2\caches
 MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\f5e9bc58f3a65a33da6eb08ce942fd1a\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\6ee2776fe878d3ea191e8fee5bd39d37\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\892ca6fe389a726b418973da0d00f651\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:2:1-29:12
 	package
 		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:2:102-144
 		INJECTED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml
@@ -92,7 +92,7 @@ MERGED from [com.google.android.gms:play-services-measurement-sdk-api:16.5.0] C:
 	android:name
 		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:4:22-64
 application
-ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:5:5-26:19
+ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:5:5-27:19
 MERGED from [com.google.firebase:firebase-core:16.0.9] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\714ed9825daf4ee1aee18cc43d62911f\AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-core:16.0.9] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\714ed9825daf4ee1aee18cc43d62911f\AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-messaging:18.0.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\af0ce1f168c0bc0eb557951c3dc25272\AndroidManifest.xml:22:5-35:19
@@ -139,66 +139,72 @@ MERGED from [com.google.android.gms:play-services-basement:16.2.0] C:\Gradle\gra
 		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:5:53-87
 	android:networkSecurityConfig
 		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:5:121-181
+meta-data#com.google.firebase.messaging.default_notification_icon
+ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:6:9-139
+	android:resource
+		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:6:91-136
+	android:name
+		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:6:20-90
 activity#com.fashionbuddyapp.fashionbuddy.MainActivity
-ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:6:9-11:20
+ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:7:9-12:20
 	android:label
-		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:6:136-173
+		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:7:136-173
 	android:launchMode
-		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:6:174-204
+		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:7:174-204
 	android:windowSoftInputMode
-		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:6:296-338
+		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:7:296-338
 	android:configChanges
-		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:6:19-135
+		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:7:19-135
 	android:theme
-		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:6:233-295
+		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:7:233-295
 	android:name
-		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:6:205-232
+		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:7:205-232
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:7:13-10:29
+ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:8:13-11:29
 	android:label
-		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:7:28-65
+		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:8:28-65
 action#android.intent.action.MAIN
-ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:8:17-69
+ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:9:17-69
 	android:name
-		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:8:25-66
+		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:9:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:9:17-77
+ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:10:17-77
 	android:name
-		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:9:27-74
+		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:10:27-74
 activity#com.gae.scaffolder.plugin.FCMPluginActivity
-ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:15:9-20:20
+ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:16:9-21:20
 	android:launchMode
-		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:15:43-73
+		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:16:43-73
 	android:exported
-		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:15:19-42
+		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:16:19-42
 	android:name
-		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:15:74-132
+		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:16:74-132
 intent-filter#action:name:FCM_PLUGIN_ACTIVITY+category:name:android.intent.category.DEFAULT
-ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:16:13-19:29
+ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:17:13-20:29
 action#FCM_PLUGIN_ACTIVITY
-ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:17:17-62
+ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:18:17-62
 	android:name
-		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:17:25-59
+		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:18:25-59
 category#android.intent.category.DEFAULT
-ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:18:17-76
+ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:19:17-76
 	android:name
-		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:18:27-73
+		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:19:27-73
 service#com.gae.scaffolder.plugin.MyFirebaseMessagingService
-ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:21:9-25:19
+ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:22:9-26:19
 	android:stopWithTask
-		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:21:86-114
+		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:22:86-114
 	android:name
-		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:21:18-85
+		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:22:18-85
 intent-filter#action:name:com.google.firebase.MESSAGING_EVENT
-ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:22:13-24:29
+ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:23:13-25:29
 action#com.google.firebase.MESSAGING_EVENT
-ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:23:17-78
+ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:24:17-78
 	android:name
-		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:23:25-75
+		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:24:25-75
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:27:5-81
+ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:28:5-81
 	android:name
-		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:27:22-78
+		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:28:22-78
 uses-sdk
 INJECTED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml
@@ -272,11 +278,11 @@ INJECTED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\a
 		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:13:13-123
+ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:14:13-123
 	android:resource
-		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:13:75-120
+		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:14:75-120
 	android:name
-		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:13:24-74
+		ADDED from C:\Users\Justi\Documents\FashionBuddy-New\FashionBuddy\platforms\android\app\src\main\AndroidManifest.xml:14:24-74
 service#com.google.firebase.messaging.FirebaseMessagingService
 ADDED from [com.google.firebase:firebase-messaging:18.0.0] C:\Gradle\gradle-5.6.2\caches\transforms-2\files-2.1\af0ce1f168c0bc0eb557951c3dc25272\AndroidManifest.xml:28:9-34:19
 	android:exported
