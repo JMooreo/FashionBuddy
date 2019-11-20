@@ -4,24 +4,7 @@
             "outputFile": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rGB\\values-en-rGB.xml",
             "map": [
                 {
-                    "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\values-en-rGB\\values-en-rGB.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "21",
-                        "startColumns": "4",
-                        "startOffsets": "2865",
-                        "endColumns": "100",
-                        "endOffsets": "2961"
-                    }
-                },
-                {
-                    "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\values-en-rGB\\values.xml",
+                    "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\70c2504d52033f3c6cd8d223d8cc4c4f\\res\\values-en-rGB\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -38,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\af0ce1f168c0bc0eb557951c3dc25272\\res\\values-en-rGB\\values.xml",
+                    "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\372c0bb29eae853a3dfac15d440acf49\\res\\values-en-rGB\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -55,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\959a2ce7717a36ec8f36363b21a0a9fe\\res\\values-en-rGB\\values.xml",
+                    "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\56f27f2dabab3ff9ca2de4e848fe689b\\res\\values-en-rGB\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -69,6 +52,23 @@
                         "startOffsets": "1245",
                         "endColumns": "196",
                         "endOffsets": "1437"
+                    }
+                },
+                {
+                    "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\9e46e47fbbe91a5818cb96df5501e6ab\\res\\values-en-rGB\\values-en-rGB.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "21",
+                        "startColumns": "4",
+                        "startOffsets": "2865",
+                        "endColumns": "100",
+                        "endOffsets": "2961"
                     }
                 }
             ]

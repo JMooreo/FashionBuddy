@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\Justi\\Documents\\FashionBuddy-New\\FashionBuddy\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-bn\\values-bn.xml",
             "map": [
                 {
-                    "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\af0ce1f168c0bc0eb557951c3dc25272\\res\\values-bn\\values.xml",
+                    "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\372c0bb29eae853a3dfac15d440acf49\\res\\values-bn\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -21,7 +21,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\959a2ce7717a36ec8f36363b21a0a9fe\\res\\values-bn\\values.xml",
+                    "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\70c2504d52033f3c6cd8d223d8cc4c4f\\res\\values-bn\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "245,352,543,669,778,974,1094,1232,1361,1565,1672,1859,1985,2178,2352,2438,2531",
+                        "endColumns": "106,190,125,108,195,119,137,128,203,106,186,125,192,173,85,92,114",
+                        "endOffsets": "351,542,668,777,973,1093,1231,1360,1564,1671,1858,1984,2177,2351,2437,2530,2645"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,216,407,537,650,846,970,1112,1456,1660,1771,1958,2088,2281,2459,2549,2646",
+                        "endColumns": "110,190,129,112,195,123,141,132,203,110,186,129,192,177,89,96,118",
+                        "endOffsets": "211,402,532,645,841,965,1107,1240,1655,1766,1953,2083,2276,2454,2544,2641,2760"
+                    }
+                },
+                {
+                    "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\56f27f2dabab3ff9ca2de4e848fe689b\\res\\values-bn\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -38,7 +55,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\cb54414963c94023c8c328c966c6395a\\res\\values-bn\\values-bn.xml",
+                    "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\9e46e47fbbe91a5818cb96df5501e6ab\\res\\values-bn\\values-bn.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -52,23 +69,6 @@
                         "startOffsets": "2869",
                         "endColumns": "100",
                         "endOffsets": "2965"
-                    }
-                },
-                {
-                    "source": "C:\\Gradle\\gradle-5.6.2\\caches\\transforms-2\\files-2.1\\7b075a16682d9998a734e32e1254d84c\\res\\values-bn\\values.xml",
-                    "from": {
-                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
-                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-                        "startOffsets": "245,352,543,669,778,974,1094,1232,1361,1565,1672,1859,1985,2178,2352,2438,2531",
-                        "endColumns": "106,190,125,108,195,119,137,128,203,106,186,125,192,173,85,92,114",
-                        "endOffsets": "351,542,668,777,973,1093,1231,1360,1564,1671,1858,1984,2177,2351,2437,2530,2645"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,216,407,537,650,846,970,1112,1456,1660,1771,1958,2088,2281,2459,2549,2646",
-                        "endColumns": "110,190,129,112,195,123,141,132,203,110,186,129,192,177,89,96,118",
-                        "endOffsets": "211,402,532,645,841,965,1107,1240,1655,1766,1953,2083,2276,2454,2544,2641,2760"
                     }
                 }
             ]

@@ -82,7 +82,7 @@ int drawable common_google_signin_btn_text_light_normal 0x7f050011
 int drawable common_google_signin_btn_text_light_normal_background 0x7f050012
 int drawable googleg_disabled_color_18 0x7f050013
 int drawable googleg_standard_color_18 0x7f050014
-int drawable ic_fcm_push_icon 0x7f050015
+int drawable ic_stat_fcm_push_icon 0x7f050015
 int drawable notification_action_background 0x7f050016
 int drawable notification_bg 0x7f050017
 int drawable notification_bg_low 0x7f050018
