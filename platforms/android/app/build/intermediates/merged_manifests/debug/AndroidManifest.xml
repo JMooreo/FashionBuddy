@@ -33,7 +33,7 @@
         android:supportsRtl="true" >
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@drawable/ic_fcm_push_icon" />
+            android:resource="@drawable/ic_stat_fcm_push_icon" />
 
         <activity
             android:name="com.fashionbuddyapp.fashionbuddy.MainActivity"
