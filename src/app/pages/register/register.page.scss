@@ -1,90 +1,93 @@
-#box-register {
-  margin-bottom: 15vw;
-  margin-left: 7%;
-  margin-right: 7%;
-  display: block;
-  background: linear-gradient(67.75deg, #f3fff6 -55.76%, #f1feff 170.35%);
-  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.05);
-  border-radius: 16px;
+#master-register {
+  --background: #fff url("/assets/icon/register-background-gradients.svg") no-repeat center center / cover;
 }
-
-.box-test-input {
-  background: #ffffff;
-  box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
-  border-radius: 12px;
-  margin-bottom: 5%;
-  margin-top: 4%;
-  margin-left: 5%;
-  margin-right: 5%;
-  padding: none;
+#box-logo {
+  margin-top: 10vh;
 }
-
 #img-logo {
-  margin-top: 30%;
   margin-left: auto;
   margin-right: auto;
   height: 40%;
   width: 40%;
 }
-
-#btn-Register {
-  --background: #2dc0ad;
-  box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.25);
-  border-radius: 47px;
-  margin-top: 5%;
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-bottom: 5%;
-  font-size: 4.5vw;
-  padding-bottom: 0.1%;
+#box-main {
+  margin-top: 7vh;
+  margin-bottom: 7vh;
 }
-
-.input-box {
-  --placeholder-opacity: 0.7;
-  --placeholder-color: #828080;
-  font-size: 3.9vw;
-  --color: black;
-}
-
-.Remember-Me {
-  font-size: 3.75vw;
-  --background: transparent;
-  --color: #828080;
-}
-
-#master-register {
-  --background: #fff url('../../../assets/icon/register-background-gradients.svg') no-repeat center center / cover;
-  //--background: linear-gradient(205.8deg, rgba(235, 255, 233, 0.9) -15.1%, rgba(215, 252, 255, 0.9) 155%);
-}
-
 #prompt-login-register {
-  margin-top: 15%;
+  margin-bottom: 0.8vh;
   background: transparent;
   margin-left: 15vw;
   margin-right: 15vw;
 }
-
 #semi-box-login {
   display: block;
-  padding-bottom: none;
-  font-size: 5vw;
+  padding-bottom: 0.1vh;
   margin-left: auto;
   margin-right: auto;
-  //margin-right: 4vw;
   background: transparent;
-  font-size: 5vw;
+  border-bottom: 0.5vh solid transparent;
+  border-radius: 0.8vw;
+  font-size: 1.18rem;
   text-align: center;
 }
 
 #semi-box-register {
   display: block;
-  padding-bottom: none;
+  padding-bottom: 0.1vh;
   margin-left: auto;
   margin-right: auto;
-  //margin-right: 4vw;
   background: transparent;
   border-bottom: 1.25vw solid #45ecd6;
-  border-radius: 0.9vw;
-  font-size: 5vw;
+  border-radius: 0.8vw;
+  font-size: 1.18rem;
   text-align: center;
 }
+#box-register {
+  margin-left: 6%;
+  margin-right: 6%;
+  display: block;
+  background: linear-gradient(67.75deg, #f3fff6 -55.76%, #f1feff 170.35%);
+  box-shadow: 3px 5px 19px 5px rgba(0, 0, 0, 0.05);
+  border-radius: 6.5%;
+}
+
+// box-input should scale relatively to font-size within so keep it all as rem.
+.box-input {
+  background: #ffffff;
+  border-radius: 1rem;
+  margin-bottom: 1.1rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding: none;
+}
+.input-box {
+  --placeholder-opacity: 0.7;
+  --placeholder-color: #828080;
+  font-size: 1rem;
+  --color: black;
+}
+
+.Remember-Me {
+  font-size: 1rem;
+  --background: transparent;
+  --color: #828080;
+}
+
+// To satisfy the design of the button, we will keep margins in form of %
+#btn-Register {
+  --background: #2dc0ad;
+  box-shadow: 0px 0.4rem 1rem rgba(0, 0, 0, 0.25);
+  border-radius: 15rem;
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 5%;
+  font-size: 1.1rem;
+  padding-bottom: 0.3%;
+}
+
+
+
+
