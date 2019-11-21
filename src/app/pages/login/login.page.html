@@ -1,46 +1,45 @@
 <ion-content padding id="master-login">
-  <ion-grid>
+  <ion-grid id="box-logo">
     <ion-row>
-        <img id="img-logo" src="../../../assets/icon/fbuddy-main-logo.svg">
-    </ion-row> 
-    <ion-row class="prompt-login-register" justify-content-center>
+      <img id="img-logo" src="/assets/icon/fbuddy-main-logo.svg">
+    </ion-row>
+  </ion-grid>
+  <ion-grid id="box-main">
+    <ion-row class="prompt-login-register">
       <ion-col>
-        <ion-item id="semi-box-login" color="none" lines="none">
-          <ion-text color="dark" justify-content-center><b>Log In</b> </ion-text>
+        <ion-item color="none" lines="none">
+          <ion-text id="semi-box-login" color="dark"><b>Log In</b> </ion-text>
         </ion-item>
       </ion-col>
       <ion-col>
-        <ion-item id="semi-box-register" color="none" lines="none">
-          <ion-text color="dark" (click)="navigateTo('register')">
+        <ion-item color="none" lines="none">
+          <ion-text id="semi-box-register" color="dark" (click)="navigateTo('register')">
             Register
           </ion-text>
         </ion-item>
       </ion-col>
     </ion-row>
+    <ion-grid id="box-login">
+      <ion-row>
+        <ion-col>
+          <ion-item class="box-input" lines="none">
+            <ion-input class="input-box" type="text" placeholder="Email Address" [(ngModel)]="email"></ion-input>
+          </ion-item>
+
+          <ion-item class="box-input" lines="none">
+            <ion-input class="input-box" type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
+          </ion-item>
+          <ion-item class="Remember-Me" lines="none">
+            <ion-label>Remember Me</ion-label>
+            <ion-checkbox slot="start" [(ngModel)]="rememberMe"></ion-checkbox>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-button mode="ios" fill="solid" expand="block" shape="round" id="btn-Login" (click)="login()">Log In
+      </ion-button>
+      <ion-row>
+        <ion-text class="text-forgotpw" color="dark" (click)="navigateTo('password-reset')">Forgot password?</ion-text>
+      </ion-row>
+    </ion-grid>
   </ion-grid>
-  <ion-grid id="box-login">
-
-    <ion-row>
-      <ion-col>
-        <ion-item class="box-test-input" lines="none">
-          <ion-input class="input-box" type="text" placeholder="Email Address" [(ngModel)]="email"></ion-input>
-        </ion-item>
-
-        <ion-item class="box-test-input" lines="none">
-          <ion-input class="input-box" type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
-        </ion-item>
-        <ion-item class="Remember-Me" lines="none">
-          <ion-label>Remember Me</ion-label>
-          <ion-checkbox slot="start" [(ngModel)]="rememberMe"></ion-checkbox>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-button mode="ios" fill="solid" expand="block" shape="round" id="btn-Login" (click)="login()">Log In
-    </ion-button>
-    <ion-row>
-      <ion-text class="text-forgotpw" color="dark" (click)="navigateTo('password-reset')">Forgot password?</ion-text>
-    </ion-row>
-  </ion-grid>
-
-
 </ion-content>
