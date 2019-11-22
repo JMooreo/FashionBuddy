@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      <div text-center>
+      <div class="ion-text-center">
         Upload
       </div>
     </ion-title>
@@ -9,7 +9,7 @@
 </ion-header>
 <ion-content>
   <ion-grid class="contest-container">
-    <ion-row justify-content-center>
+    <ion-row class="ion-justify-content-center">
       <ng-container *ngFor="let image of images; let i = index">
         <ion-col class="contest-column">
           <div style="height: 100%" *ngIf="viewEntered" [@shortFadeIn]>
@@ -27,8 +27,8 @@
       <ion-col>
         <div *ngIf="viewEntered" [@mediumFadeIn]>
           <ion-list>
-            <ion-item no-padding>
-              <ion-label no-margin>
+            <ion-item class="ion-no-padding">
+              <ion-label class="ion-no-margin">
                 <ion-icon isActive="false" mode="md" name="shirt"></ion-icon> Style:
               </ion-label>
               <ion-select interface="popover" [(ngModel)]="style">
@@ -39,7 +39,7 @@
                 <ion-select-option value="Comfortable">Comfortable</ion-select-option>
               </ion-select>
             </ion-item>
-            <ion-item no-padding>
+            <ion-item class="ion-no-padding">
               <ion-label>
                 <ion-icon mode="ios" name="wine"></ion-icon> Occasion:
               </ion-label>
@@ -52,7 +52,7 @@
                 <ion-select-option value="Everyday">Everyday</ion-select-option>
               </ion-select>
             </ion-item>
-            <ion-item lines="none" no-padding>
+            <ion-item lines="none" class="ion-no-padding">
               <ion-label fixed>
                 <ion-icon mode="ios" name="timer"></ion-icon> Voting Closes in:
               </ion-label>
