@@ -41,6 +41,12 @@ export class RegisterPage implements OnInit {
       return;
     }
 
+    if (this.name === "") {
+      this.popupSrv.loadingCtrl.dismiss();
+      this.popupSrv.showBasicAlert("Error", "Please enter your name", "secondary-alert");
+      return;
+    }
+
     if (password !== confirmPassword) {
       this.popupSrv.loadingCtrl.dismiss();
       this.popupSrv.showBasicAlert("Error", "Passwords do not match", "secondary-alert");
