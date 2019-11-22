@@ -1,0 +1,97 @@
+#master-register {
+  --background: #fff url("/assets/icon/register-background-gradients.svg") no-repeat center center / cover;
+}
+
+#box-logo {
+  margin-top: 8vh;
+}
+
+#img-logo {
+  margin-left: auto;
+  margin-right: auto;
+  height: 40%;
+  width: 40%;
+}
+
+#box-main {
+  position: sticky;
+  left: 0px;
+  right: 0px;
+  top: 34vh;
+}
+
+#prompt-login-register {
+  margin-bottom: 0.8vh;
+  background: transparent;
+  margin-left: 15vw;
+  margin-right: 15vw;
+}
+
+#semi-box-login {
+  padding-bottom: 0.1vh;
+  margin-left: auto;
+  margin-right: auto;
+  background: transparent;
+  border-bottom: 5px solid transparent;
+  border-radius: 3px;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+#semi-box-register {
+  padding-bottom: 0.1vh;
+  margin-left: auto;
+  margin-right: auto;
+  background: transparent;
+  border-bottom: 5px solid var(--ion-color-secondary);
+  border-radius: 3px;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+#box-register {
+  margin-left: 6%;
+  margin-right: 6%;
+  background: linear-gradient(67.75deg, #f3fff6 -55.76%, #f1feff 170.35%);
+  box-shadow: 3px 5px 19px 5px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+}
+
+// box-input should scale relatively to font-size within so keep it all as rem.
+.box-input {
+  background: #ffffff;
+  border-radius: 10px;
+  margin-bottom: 1.1rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding: none;
+}
+
+.input-box {
+  --placeholder-opacity: 0.7;
+  --placeholder-color: #828080;
+  font-size: 1rem;
+  --color: black;
+}
+
+.Remember-Me {
+  font-size: 1rem;
+  --background: transparent;
+  --color: #828080;
+}
+
+// To satisfy the design of the button, we will keep margins in form of %
+#btn-Register {
+  --box-shadow: 0px 0.4rem 1rem rgba(0, 0, 0, 0.25);
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 5%;
+  font-size: 1.1rem;
+  padding-bottom: 0.3%;
+}
+
+
+
+
