@@ -9,11 +9,15 @@ import { AppComponent } from "./app.component";
 import { RouterTestingModule } from "@angular/router/testing";
 
 describe("AppComponent", () => {
-  let statusBarSpy2, statusBarSpy, splashScreenSpy, platformReadySpy, platformSpy;
+  let statusBarSpy, splashScreenSpy, platformReadySpy, platformSpy;
 
   beforeEach(async(() => {
-    statusBarSpy2 = jasmine.createSpyObj("StatusBar", ["backgroundColorByName"]);
-    statusBarSpy = jasmine.createSpyObj("StatusBar", ["styleDefault"]);
+    statusBarSpy = jasmine.createSpyObj("StatusBar", [
+      "styleDefault",
+      "overlaysWebView",
+      "backgroundColorByName",
+      "overlaysWebView"
+    ]);
     splashScreenSpy = jasmine.createSpyObj("SplashScreen", ["hide"]);
     platformReadySpy = Promise.resolve();
     platformSpy = jasmine.createSpyObj("Platform", { ready: platformReadySpy });
@@ -40,9 +44,9 @@ describe("AppComponent", () => {
     TestBed.createComponent(AppComponent);
     expect(platformSpy.ready).toHaveBeenCalled();
     await platformReadySpy;
-    // expect(statusBarSpy2.backgroundColorByName).toHaveBeenCalled();
-    // expect(statusBarSpy.styleDefault).toHaveBeenCalled();
-    // expect(splashScreenSpy.hide).toHaveBeenCalled();
+    expect(statusBarSpy.backgroundColorByName).toHaveBeenCalled();
+    expect(statusBarSpy.styleDefault).toHaveBeenCalled();
+    expect(splashScreenSpy.hide).toHaveBeenCalled();
   });
 
   // TODO: add more tests!

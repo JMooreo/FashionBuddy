@@ -14,7 +14,7 @@ This is the new repo for FashionBuddy that uses Ionic 4+
 * Err: `ionic is not a command` Solution: Run `npm i -g ionic`
 
 # Working on New Features
-1. Ensure you are on the `master` branch and run `git pull` to get the latest updates
+1. Ensure you are on the `master` branch and run `git pull` and `npm install` to get the latest updates. If you get a permission error, try `sudo npm install` or `npm install -g`
 2. Run `git checkout -b "<your-branch-name-here">` to start a new branch Ex: `git checkout -b "rewards-page-update"`
 3. Now you are free to make any changes to the code
 4. When you are happy with your progress, run `git add .` which stages all of your changes. 
@@ -26,7 +26,7 @@ This is the new repo for FashionBuddy that uses Ionic 4+
 # Merging New Features
 1. Before making a pull request
     * If you installed node modules, make sure that there are no outdated mandatory peer dependencies
-    * Use a code formatter `(Ctrl K + F)` to correct indentation and clean up line length
+    * Use a code formatter. In VSCode the shortcut is `(Ctrl K + F)` to correct indentation and clean up line length
     * Go through each file and verify that every change was intentional. The less comments you need, the better. Use longer function names that are more specific
     * Verify that there are no unused imports
     * Verify that every feature works as intended in a test environment `ionic serve` (build on device when necessary)
@@ -42,8 +42,8 @@ This is the new repo for FashionBuddy that uses Ionic 4+
         * `ionic cordova run android` runs a development build on your phone, bypassing Android Studio
     * iOS
         * `ionic cordova build ios`
-        * Open xcodeproj in XCode and run
-2. Capacitor
+        * Open xcode WORKSPACE in XCode and run. You'll get an error if you open the xcodeproj
+2. Capacitor (some native plugins may not work correctly? Capacitor is in beta)
      * Android
         * `ionic capacitor run android` builds and opens the project in Android Studio
      * iOS
