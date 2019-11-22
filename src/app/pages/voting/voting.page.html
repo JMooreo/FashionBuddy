@@ -6,7 +6,7 @@
       </ion-button>
     </ion-buttons>
     <ion-title>
-      <div text-center>
+      <div class="ion-text-center">
         Fashion Buddy
       </div>
     </ion-title>
@@ -18,7 +18,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content class="ion-padding">
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content pullingText="Pull to refresh" refreshingSpinner="crescent">
     </ion-refresher-content>
@@ -43,7 +43,7 @@
       </ion-row>
     </ng-container>
     <ion-row *ngIf="!(contests && this.contests[0] != null)" [@inOutAnimation]>
-      <ion-col text-center>
+      <ion-col class="ion-text-center">
         <ion-text style="font-size: 1.5rem">You're all caught up! <br /><a style="font-size: 1.2rem"
             [routerLink]="['/tabs/upload']" routerLinkActive="router-link-active">Post an outfit</a></ion-text>
       </ion-col>

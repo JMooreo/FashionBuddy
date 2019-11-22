@@ -10,8 +10,8 @@
   <ion-grid class="contest-container">
     <app-results-swiper [options]="contest.options" [borderColors]="borderColors"></app-results-swiper>
     <ng-container *ngIf="showChart">
-      <ion-row style="flex: 100%;" justify-content-center>
-        <ion-col no-padding text-center *ngFor="let options of contest.options; let i = index">
+      <ion-row class="ion-justify-content-center" style="flex: 100%;">
+        <ion-col class="option-col" *ngFor="let options of contest.options; let i = index">
           <div [@fadeInAnimation]>
             <ion-text style="vertical-align: middle; font-size: 1.7rem" [style.color]="textColors[i]">
               <ion-icon *ngIf="i === 0" name="star"></ion-icon>
