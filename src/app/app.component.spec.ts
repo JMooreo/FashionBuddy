@@ -15,8 +15,7 @@ describe("AppComponent", () => {
     statusBarSpy = jasmine.createSpyObj("StatusBar", [
       "styleDefault",
       "overlaysWebView",
-      "backgroundColorByName",
-      "overlaysWebView"
+      "backgroundColorByName"
     ]);
     splashScreenSpy = jasmine.createSpyObj("SplashScreen", ["hide"]);
     platformReadySpy = Promise.resolve();
