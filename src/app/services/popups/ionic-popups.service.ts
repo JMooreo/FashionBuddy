@@ -1,5 +1,9 @@
 import { Injectable } from "@angular/core";
-import { AlertController, LoadingController, ModalController } from "@ionic/angular";
+import {
+  AlertController,
+  LoadingController,
+  ModalController
+} from "@ionic/angular";
 
 @Injectable({
   providedIn: "root"
@@ -9,16 +13,16 @@ export class IonicPopupsService {
     public alertCtrl: AlertController,
     public loadingCtrl: LoadingController,
     public modalCtrl: ModalController
-    ) {}
+  ) {}
 
-  async showBasicAlert(header: string, message: string, buttons = ["OK"]) {
-      const alert = await this.alertCtrl.create({
-        header,
-        message,
-        buttons,
-        mode: "ios"
-      });
-      return alert.present();
+  async showBasicAlert(header: string, message: string, cssClass = "primary") {
+    const alert = await this.alertCtrl.create({
+      header,
+      message,
+      buttons: [{ text: "OK", cssClass }],
+      mode: "ios"
+    });
+    return alert.present();
   }
 
   async presentLoading(message: string, spinner: any = "crescent") {

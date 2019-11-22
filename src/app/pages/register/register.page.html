@@ -6,13 +6,13 @@
   </ion-grid>
   <ion-grid id="box-main">
     <ion-row id="prompt-login-register">
-      <ion-col>
-        <ion-item color="none" lines="none">
+      <ion-col no-padding>
+        <ion-item color="none" lines="none" no-padding>
           <ion-text id="semi-box-login" color="dark" (click)="navigateTo('login')">Log In</ion-text>
         </ion-item>
       </ion-col>
-      <ion-col>
-        <ion-item color="none" lines="none">
+      <ion-col no-padding>
+        <ion-item color="none" lines="none" no-padding>
           <ion-text id="semi-box-register" color="dark"><b>Register</b></ion-text>
         </ion-item>
       </ion-col>
@@ -20,27 +20,27 @@
     <ion-grid id="box-register">
       <ion-row>
         <ion-col>
-          <ion-item class="box-test-input" lines="none">
-            <ion-input type="text" placeholder="Name" [(ngModel)]="name"></ion-input>
+          <ion-item class="box-input" lines="none">
+            <ion-input class="input-box" type="text" placeholder="Name" [(ngModel)]="name"></ion-input>
           </ion-item>
-          <ion-item class="box-test-input" lines="none">
-            <ion-input type="text" placeholder="" [(ngModel)]="email"></ion-input>
+          <ion-item class="box-input" lines="none">
+            <ion-input class="input-box" type="text" placeholder="Email Address" [(ngModel)]="email"></ion-input>
           </ion-item>
-          <ion-item class="box-test-input" lines="none">
+          <ion-item class="box-input" lines="none">
             <ion-input class="input-box" type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
           </ion-item>
-          <ion-item class="box-test-input" lines="none">
+          <ion-item class="box-input" lines="none">
             <ion-input class="input-box" type="password" placeholder="Confirm Password" [(ngModel)]="confirmPassword">
             </ion-input>
           </ion-item>
           <ion-item class="Remember-Me" lines="none">
             <ion-label>Remember Me</ion-label>
-            <ion-checkbox color="secondary" slot="start" [(ngModel)]="rememberMe"></ion-checkbox>
+            <ion-checkbox mode="ios" color="secondary" slot="start" [(ngModel)]="rememberMe"></ion-checkbox>
           </ion-item>
         </ion-col>
       </ion-row>
-
-      <ion-button mode="ios" id="btn-Register" fill="solid" expand="block" shape="round" (click)="register()">Register
+      <ion-button mode="ios" id="btn-Register" fill="solid" expand="block" shape="round" color="secondary"
+        (click)="register()">Register
       </ion-button>
     </ion-grid>
   </ion-grid>

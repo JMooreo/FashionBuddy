@@ -6,13 +6,13 @@
   </ion-grid>
   <ion-grid id="box-main">
     <ion-row class="prompt-login-register">
-      <ion-col>
-        <ion-item color="none" lines="none">
+      <ion-col no-padding>
+        <ion-item color="none" lines="none" no-padding>
           <ion-text id="semi-box-login" color="dark"><b>Log In</b> </ion-text>
         </ion-item>
       </ion-col>
-      <ion-col>
-        <ion-item color="none" lines="none">
+      <ion-col no-padding>
+        <ion-item color="none" lines="none" no-padding>
           <ion-text id="semi-box-register" color="dark" (click)="navigateTo('register')">
             Register
           </ion-text>
@@ -31,11 +31,11 @@
           </ion-item>
           <ion-item class="Remember-Me" lines="none">
             <ion-label>Remember Me</ion-label>
-            <ion-checkbox slot="start" [(ngModel)]="rememberMe"></ion-checkbox>
+            <ion-checkbox mode="ios" slot="start" [(ngModel)]="rememberMe"></ion-checkbox>
           </ion-item>
         </ion-col>
       </ion-row>
-      <ion-button mode="ios" fill="solid" expand="block" shape="round" id="btn-Login" (click)="login()">Log In
+      <ion-button id="btn-Login" mode="ios" fill="solid" expand="block" shape="round" (click)="login()">Log In
       </ion-button>
       <ion-row>
         <ion-text class="text-forgotpw" color="dark" (click)="navigateTo('password-reset')">Forgot password?</ion-text>
