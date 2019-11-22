@@ -9,6 +9,7 @@ import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service
   styleUrls: ["./register.page.scss"]
 })
 export class RegisterPage implements OnInit {
+  name = "";
   email = "";
   password = "";
   confirmPassword = "";
@@ -32,9 +33,15 @@ export class RegisterPage implements OnInit {
     await this.popupSrv.presentLoading("Authenticating...");
     const { email, password, confirmPassword } = this;
 
+    if (this.name === "") {
+      this.popupSrv.loadingCtrl.dismiss();
+      this.popupSrv.showBasicAlert("Error", "Please enter your name", "secondary-alert");
+      return;
+    }
+
     if (password !== confirmPassword) {
       this.popupSrv.loadingCtrl.dismiss();
-      this.popupSrv.showBasicAlert("Error", "Passwords do not match");
+      this.popupSrv.showBasicAlert("Error", "Passwords do not match", "secondary-alert");
       return;
     }
 
@@ -45,7 +52,7 @@ export class RegisterPage implements OnInit {
           this.navigateTo("tabs");
         } else {
           this.popupSrv.loadingCtrl.dismiss();
-          this.popupSrv.showBasicAlert("Error", callback.message);
+          this.popupSrv.showBasicAlert("Error", callback.message, "secondary-alert");
         }
       });
 
