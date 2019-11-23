@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 import { FCM } from "@ionic-native/fcm/ngx";
 import { IonicPopupsService } from "../popups/ionic-popups.service";
-import { AuthService } from "../auth/auth.service";
 
 @Injectable({
   providedIn: "root"
@@ -13,13 +12,9 @@ export class FcmService {
   ) {}
 
   doNotificationSetup() {
-    this.fcm.onTokenRefresh().subscribe(token => { // Listen For Token Refreshes
-      console.log("Token Refreshed", token);
-    });
-
     this.fcm.onNotification().subscribe(data => { // Listen For Notifications
       if (!data.wasTapped) { // App Was Open
-        this.popupSrv.showBasicAlert(data.title, data.body);
+        this.popupSrv.makeToast(data.title, data.body);
       }
     });
   }
