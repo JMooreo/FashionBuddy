@@ -27,7 +27,8 @@ export class VotingPage implements OnInit {
   animationDelay = 400;
   isContestVisible = false;
   isFirstPageLoad = true;
-  contests: Array<Contest> = [];
+  contests: Contest[] = [];
+  localSeenContests: string[] = [];
 
   constructor(
     private dbSrv: DatabaseService,
@@ -39,8 +40,7 @@ export class VotingPage implements OnInit {
 
   ngOnInit() {
     if (this.plt.is("cordova")) {
-      // Check If App Is Outdated
-      this.dbSrv.checkAppVersion().then(data => {
+      this.dbSrv.checkAppVersion().then(data => { // Check If App Is Outdated
         if (data.isOutOfDate) {
           this.popupSrv.showBasicAlert(
             "Update",
@@ -48,9 +48,7 @@ export class VotingPage implements OnInit {
           );
         }
       });
-
-      // Start Notification Listeners
-      this.fcmSrv.doNotificationSetup();
+      this.fcmSrv.doNotificationSetup(); // Start Notification Listeners
     }
   }
 
@@ -69,7 +67,12 @@ export class VotingPage implements OnInit {
   async pageLoad() {
     if (this.contests.length === 0) {
       this.setContestVisibility(false);
-      this.contests = await this.dbSrv.getAllContestsUserHasNotSeenOrVotedOn();
+      const unSeenContestsFromDatabase = await this.dbSrv.getAllContestsUserHasNotSeenOrVotedOn();
+      this.contests = unSeenContestsFromDatabase.map(contest => { // Check Local Cache Too
+        if (!(this.localSeenContests.includes(contest.id))) {
+          return contest;
+        }
+      });
       this.setContestVisibility(true);
     }
   }
@@ -86,7 +89,7 @@ export class VotingPage implements OnInit {
   hideContest() {
     this.setContestVisibility(false);
     setTimeout(() => {
-      this.contests.shift();
+      this.localSeenContests.push(this.contests.shift().id); // remove from the list, add id to cache
       this.setContestVisibility(true);
 
       if (this.contests.length === 0) {
