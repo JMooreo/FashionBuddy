@@ -131,10 +131,6 @@ export class DatabaseService {
   }
 
   reportContest(contestId: string) {
-    this.contestsRef.doc(contestId).update({
-      reportCount: firebase.firestore.FieldValue.increment(1)
-    });
-
     this.addVoteToVotersSubcollection(contestId, "report");
   }
 

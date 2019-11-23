@@ -12,6 +12,7 @@ import {
 } from "@angular/common";
 import { RouterTestingModule } from "@angular/router/testing";
 import { FCM } from "@ionic-native/fcm/ngx";
+import { AuthService } from "src/app/services/auth/auth.service";
 
 describe("VotingPage", () => {
   let component: VotingPage;
@@ -30,7 +31,10 @@ describe("VotingPage", () => {
         FCM,
         { provide: LocationStrategy, useClass: PathLocationStrategy },
         // tslint:disable-next-line: no-use-before-declare
-        { provide: DatabaseService, useClass: DatabaseServiceStub }
+        { provide: DatabaseService, useClass: DatabaseServiceStub },
+        // tslint:disable-next-line: no-use-before-declare
+        { provide: AuthService, useClass: AuthServiceStub }
+
       ]
     }).compileComponents();
 
@@ -46,4 +50,8 @@ describe("VotingPage", () => {
 
 class DatabaseServiceStub {
   getAllContestsUserHasNotSeenOrVotedOn() {}
+}
+
+class AuthServiceStub {
+  getUserId() {}
 }

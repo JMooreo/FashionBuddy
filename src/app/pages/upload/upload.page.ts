@@ -49,8 +49,7 @@ export class UploadPage {
     private authSrv: AuthService,
     private camera: Camera,
     private popupSrv: IonicPopupsService,
-    private actionSheetCtrl: ActionSheetController,
-    private fcmSrv: FcmService
+    private actionSheetCtrl: ActionSheetController
   ) {}
 
   ionViewDidEnter() {
@@ -208,7 +207,6 @@ export class UploadPage {
   async createContest() {
     await this.popupSrv.presentLoading("Uploading...");
     if (this.isFormValid()) {
-      this.fcmSrv.subscribeToPostNotifications(false);
       const contestId = "cid=" + new Date(Date.now()).toISOString();
       const contestOptions = [];
       const userId = this.authSrv.getUserId();
@@ -237,7 +235,6 @@ export class UploadPage {
         this.dbSrv.createContest(contestId, contest).then(() => {
           this.popupSrv.loadingCtrl.dismiss().then(() => {
             this.popupSrv.showBasicAlert("Success", "Uploaded your contest!");
-            this.fcmSrv.subscribeToPostNotifications(true);
           });
         });
       });
