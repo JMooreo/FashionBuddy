@@ -2,7 +2,8 @@ import { Injectable } from "@angular/core";
 import {
   AlertController,
   LoadingController,
-  ModalController
+  ModalController,
+  ToastController
 } from "@ionic/angular";
 
 @Injectable({
@@ -12,7 +13,8 @@ export class IonicPopupsService {
   constructor(
     public alertCtrl: AlertController,
     public loadingCtrl: LoadingController,
-    public modalCtrl: ModalController
+    public modalCtrl: ModalController,
+    public toastCtrl: ToastController
   ) {}
 
   async showBasicAlert(header: string, message: string, cssClass = "primary") {
@@ -32,5 +34,21 @@ export class IonicPopupsService {
       mode: "ios"
     });
     return loading.present();
+  }
+
+  async makeToast(header: string, message: string, position: any = "top") {
+    const toast = await this.toastCtrl.create({
+      header,
+      message,
+      position,
+      mode: "ios",
+      buttons: [
+        {
+          text: "Close",
+          role: "cancel",
+        }
+      ]
+    });
+    return toast.present();
   }
 }
