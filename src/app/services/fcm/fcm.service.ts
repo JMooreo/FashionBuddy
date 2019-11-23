@@ -1,31 +1,39 @@
 import { Injectable } from "@angular/core";
 import { FCM } from "@ionic-native/fcm/ngx";
 import { IonicPopupsService } from "../popups/ionic-popups.service";
+import { AuthService } from "../auth/auth.service";
 
 @Injectable({
   providedIn: "root"
 })
 export class FcmService {
-  constructor(private fcm: FCM, private popupSrv: IonicPopupsService) {}
+  constructor(
+    private fcm: FCM,
+    private popupSrv: IonicPopupsService
+  ) {}
 
   doNotificationSetup() {
-    // Subscribe to Post Notifications
-    this.fcm.subscribeToTopic("post-notifications");
-
-    // Listen For Token Refreshes
-    this.fcm.onTokenRefresh().subscribe(token => {
+    this.fcm.onTokenRefresh().subscribe(token => { // Listen For Token Refreshes
       console.log("Token Refreshed", token);
     });
 
-    // Listen For Notifications
-    this.fcm.onNotification().subscribe(data => {
-      if (!data.wasTapped) { // notification in foreground
-        this.popupSrv.showBasicAlert(
-          data.title,
-          data.body
-        );
+    this.fcm.onNotification().subscribe(data => { // Listen For Notifications
+      if (!data.wasTapped) { // App Was Open
+        this.popupSrv.showBasicAlert(data.title, data.body);
       }
     });
+  }
+
+  subscribeToPostNotifications(feedIsEmpty: boolean) {
+    if (feedIsEmpty) { // Subscribe to post notifications
+      this.fcm.subscribeToTopic("post-notifications");
+    } else {
+      try {
+        this.fcm.unsubscribeFromTopic("post-notifications");
+      } catch (err) {
+        console.log("couldn't unsubscribe from post-notifications", err);
+      }
+    }
   }
 
   async getCloudMessagingToken(): Promise<string> {

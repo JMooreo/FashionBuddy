@@ -121,6 +121,8 @@ export class DatabaseService {
     this.usersRef.doc(this.authSrv.getUserId()).update({
       isFeedEmpty
     });
+
+    this.fcmSrv.subscribeToPostNotifications(isFeedEmpty);
   }
 
   updateUserLastActiveDate() {
