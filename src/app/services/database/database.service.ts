@@ -16,7 +16,6 @@ import { FcmService } from "../fcm/fcm.service";
 export class DatabaseService {
   contestsRef = firebase.firestore().collection("Contests");
   usersRef = firebase.firestore().collection("Users");
-  devicesRef = firebase.firestore().collection("Devices");
   contestFeedbackRef = firebase.firestore().collection("ContestFeedback");
   logisticsRef = firebase.firestore().collection("Logistics");
 
@@ -107,14 +106,6 @@ export class DatabaseService {
     };
 
     this.usersRef.doc(userId).set({ ...userDoc });
-    this.setCloudMessagingTokenOfNewDevice(userId);
-  }
-
-  async setCloudMessagingTokenOfNewDevice(userId: string) {
-    const token = await this.fcmSrv.getCloudMessagingToken();
-    if (token != null) {
-      this.devicesRef.doc(token).set({ token, userId });
-    }
   }
 
   updateUserFeedIsEmpty(isFeedEmpty: boolean) {
