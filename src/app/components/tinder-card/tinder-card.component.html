@@ -1,5 +1,12 @@
-<ion-card mode="md" class="ion-no-margin" style="border-radius: 20px">
-  <ion-card-content class="ion-no-padding">
+<ion-card mode="md" class="main-card">
+  <ng-container *ngIf="!showOverlay">
     <img style="object-fit: contain" [src]="imageUrl" (load)="emitLoaded()">
-  </ion-card-content>
+  </ng-container>
+  <ng-container *ngIf="showOverlay">
+    <ion-backdrop></ion-backdrop>
+    <ion-item mode="ios" class="overlay-text">
+      <ion-icon size="small" slot="start" name="lock" color="white"></ion-icon>{{ timeLeft }}
+    </ion-item>
+    <img class="overlay-image" [src]="imageUrl" (load)="emitLoaded()">
+  </ng-container>
 </ion-card>
