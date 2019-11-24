@@ -27,6 +27,28 @@ export class IonicPopupsService {
     return alert.present();
   }
 
+  async askForName(): Promise<string> {
+    let firstName = "";
+    const alert = await this.alertCtrl.create({
+      header: "Record Outdated",
+      message: "We're missing your first name",
+      inputs: [
+        {
+          name: "name",
+          placeholder: "First Name"
+        }
+      ],
+      buttons: [{ text: "OK", handler: data => {
+        firstName = data.name;
+      }
+       }],
+      mode: "ios"
+    });
+    await alert.present();
+    await alert.onDidDismiss();
+    return firstName;
+  }
+
   async presentLoading(message: string, spinner: any = "crescent") {
     const loading = await this.loadingCtrl.create({
       spinner,

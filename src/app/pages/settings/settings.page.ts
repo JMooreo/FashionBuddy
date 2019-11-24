@@ -60,7 +60,7 @@ export class SettingsPage implements OnInit {
       message: "Enter email and password to delete account",
       inputs: [
         {
-          name: "Email",
+          name: "email",
           placeholder: "Email"
         },
         {
@@ -74,7 +74,7 @@ export class SettingsPage implements OnInit {
           text: "Done",
           handler: data => {
             this.dbSrv
-              .deleteUser(data.Email, data.password)
+              .deleteUser(data.email, data.password)
               .then(() => {
                 this.popupSrv.showBasicAlert(
                   "Sorry to see you go",

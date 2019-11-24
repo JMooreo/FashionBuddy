@@ -19,7 +19,11 @@ export class DatabaseService {
   contestFeedbackRef = firebase.firestore().collection("ContestFeedback");
   logisticsRef = firebase.firestore().collection("Logistics");
 
-  constructor(private authSrv: AuthService, private fcmSrv: FcmService, private appVersion: AppVersion) {}
+  constructor(
+    private authSrv: AuthService,
+    private fcmSrv: FcmService,
+    private appVersion: AppVersion
+  ) {}
 
   async checkAppVersion() {
     const doc = await this.logisticsRef.doc("version").get();
@@ -95,7 +99,7 @@ export class DatabaseService {
     const userDoc: UserDocument = {
       firstName,
       email,
-      isFeedEmpty: false,
+      isFeedEmpty: true,
       signUpDate: rightNow,
       lastActive: rightNow,
       points: 0,
@@ -109,9 +113,14 @@ export class DatabaseService {
   }
 
   updateUserFeedIsEmpty(isFeedEmpty: boolean) {
-    this.usersRef.doc(this.authSrv.getUserId()).update({
-      isFeedEmpty
-    });
+    this.usersRef
+      .doc(this.authSrv.getUserId())
+      .update({
+        isFeedEmpty
+      })
+      .catch(err => {
+        console.warn("Couldn't update if the user feed empty because the user does not exist in Firestore.");
+      });
 
     this.fcmSrv.subscribeToPostNotifications(isFeedEmpty);
   }
@@ -148,6 +157,11 @@ export class DatabaseService {
         votedFor: optionName,
         timestamp: new Date(Date.now()).toISOString()
       });
+  }
+
+  async checkIfUserExistsInDatabase(): Promise<boolean> {
+    const userDoc = await this.usersRef.doc(this.authSrv.getUserId()).get();
+    return userDoc.exists;
   }
 
   markUserAccountAsDeleted(userId: string) {
