@@ -9,7 +9,7 @@ import { DatabaseService } from "src/app/services/database/database.service";
   templateUrl: "./register.page.html",
   styleUrls: ["./register.page.scss"]
 })
-export class RegisterPage implements OnInit {
+export class RegisterPage {
   name = "";
   email = "";
   password = "";
@@ -22,14 +22,6 @@ export class RegisterPage implements OnInit {
     private dbSrv: DatabaseService,
     private popupSrv: IonicPopupsService,
   ) {}
-
-  ngOnInit() {
-    if (localStorage.getItem("rememberMe") === "true") {
-      this.email = localStorage.getItem("email");
-      this.password = localStorage.getItem("password");
-      this.rememberMe = true;
-    }
-  }
 
   async register() {
     await this.popupSrv.presentLoading("Authenticating...");
