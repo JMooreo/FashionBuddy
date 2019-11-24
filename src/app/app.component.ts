@@ -22,8 +22,9 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.statusBar.overlaysWebView(false);
-      this.statusBar.backgroundColorByName("white");
+      if (this.platform.is("android")) {
+        this.statusBar.backgroundColorByName("white");
+      }
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       if (this.platform.backButton) {

@@ -19,7 +19,7 @@ describe("AppComponent", () => {
     ]);
     splashScreenSpy = jasmine.createSpyObj("SplashScreen", ["hide"]);
     platformReadySpy = Promise.resolve();
-    platformSpy = jasmine.createSpyObj("Platform", { ready: platformReadySpy });
+    platformSpy = jasmine.createSpyObj("Platform", { ready: platformReadySpy, is: platformReadySpy });
 
     TestBed.configureTestingModule({
       declarations: [AppComponent],
@@ -43,7 +43,6 @@ describe("AppComponent", () => {
     TestBed.createComponent(AppComponent);
     expect(platformSpy.ready).toHaveBeenCalled();
     await platformReadySpy;
-    expect(statusBarSpy.backgroundColorByName).toHaveBeenCalled();
     expect(statusBarSpy.styleDefault).toHaveBeenCalled();
     expect(splashScreenSpy.hide).toHaveBeenCalled();
   });
