@@ -40,9 +40,16 @@ export class ResultsPage {
     this.popupSrv.loadingCtrl.dismiss();
   }
 
+  async refresh() {
+    this.contests = await this.dbSrv.getAllContestsWhereUserIsContestOwner();
+    if (this.contests.length === 0 && this.refreshEvent) {
+      this.refreshEvent.target.complete();
+    }
+  }
+
   async doRefresh(event: any) {
     this.refreshEvent = await event;
-    await this.pageLoad();
+    await this.refresh();
   }
 
   onCardLoaded() {
@@ -51,11 +58,11 @@ export class ResultsPage {
     }
   }
 
-  showContestDetails(contest: Contest, showWinner: boolean) {
+  showContestDetails(contest: Contest) {
     this.popupSrv.modalCtrl
       .create({
         component: ContestOverlayPage,
-        componentProps: { contest, showWinner }
+        componentProps: { contest }
       })
       .then(overlayPage => {
         overlayPage.present();

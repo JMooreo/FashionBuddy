@@ -20,7 +20,6 @@ import { DatabaseService } from "src/app/services/database/database.service";
 })
 export class ContestOverlayPage {
   loadContestInfoAndFeedbackForm = false;
-  showChart = false;
   viewEntered = false;
   percentages: Array<number> = [];
   textColors = ["#FF8F00", "#4C46FD"];
@@ -66,7 +65,6 @@ export class ContestOverlayPage {
   async pageLoad() {
     this.contest = this.navParams.get("contest");
     this.calculatePercentages();
-    this.showChart = true;
   }
 
   close() {
@@ -88,12 +86,17 @@ export class ContestOverlayPage {
   }
 
   calculatePercentages() {
-    const totalVotes = this.getTotalVotes();
-    const percentages = Array<number>();
-    this.contest.options.forEach(option => {
-      percentages.push(option.votes / totalVotes);
-    });
-    this.percentages = percentages;
+    let totalVotes = this.getTotalVotes();
+    if (totalVotes === 0) {
+      totalVotes = 1;
+      this.percentages = [0.5, 0.5];
+    } else {
+      const percentages = Array<number>();
+      this.contest.options.forEach(option => {
+        percentages.push(option.votes / totalVotes);
+      });
+      this.percentages = percentages;
+    }
   }
 
   async onFeedbackSubmitted(event: any) {

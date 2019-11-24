@@ -17,8 +17,8 @@
     <ng-container *ngIf="contests && contests.length > 0">
       <ion-col style="padding: 20px" size="6" *ngFor="let contest of contests">
         <div [@inOutAnimation]>
-          <tinder-card *ngIf="contest.options[0]?.imageUrl" [imageUrl]="contest.options[0].imageUrl"
-            (click)="showContestDetails(contest, false)" (loadedEvent)="onCardLoaded()">
+          <tinder-card *ngIf="contest.options[0]?.imageUrl" [imageUrl]="contest.options[0].imageUrl" [closeDateTime]="contest.closeDateTime"
+            (click)="showContestDetails(contest)" (loadedEvent)="onCardLoaded()">
           </tinder-card>
         </div>
       </ion-col>
