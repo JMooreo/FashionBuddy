@@ -36,7 +36,15 @@ export class LoginPage implements OnInit {
       .signInWithEmailAndPassword(email, password)
       .then(callback => {
         if (callback === true) {
-          this.dbSrv.updateUserLastActiveDate();
+          this.dbSrv.checkIfUserExistsInDatabase().then((userExists) => {
+            if (userExists) {
+              this.dbSrv.updateUserLastActiveDate();
+            } else {
+              this.popupSrv.askForName().then(name => {
+                this.dbSrv.addUserToDatabase(name, this.authSrv.getUserId(), email);
+              });
+            }
+          });
           this.navigateTo("tabs");
 
           if (this.rememberMe) {

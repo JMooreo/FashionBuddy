@@ -67,12 +67,16 @@ export class VotingPage implements OnInit {
   async pageLoad() {
     if (this.contests.length === 0) {
       this.setContestVisibility(false);
-      const unSeenContestsFromDatabase = await this.dbSrv.getAllContestsUserHasNotSeenOrVotedOn();
-      this.contests = unSeenContestsFromDatabase.map(contest => { // Check Local Cache Too
-        if (!(this.localSeenContests.includes(contest.id))) {
-          return contest;
-        }
-      });
+      try {
+        const unSeenContestsFromDatabase = await this.dbSrv.getAllContestsUserHasNotSeenOrVotedOn();
+        this.contests = unSeenContestsFromDatabase.map(contest => { // Check Local Cache Too
+          if (!(this.localSeenContests.includes(contest.id))) {
+            return contest;
+          }
+        });
+      } catch (err) {
+        console.warn("Couldn't Get User ID because the login screen was bypassed. Refresh the page.");
+      }
       this.setContestVisibility(true);
     }
   }
@@ -93,7 +97,11 @@ export class VotingPage implements OnInit {
       this.setContestVisibility(true);
 
       if (this.contests.length === 0) {
-        this.dbSrv.updateUserFeedIsEmpty(true);
+        try {
+          this.dbSrv.updateUserFeedIsEmpty(true);
+        } catch {
+          console.warn("Couldn't update user feed because user doesn't exist in database yet.");
+        }
       }
     }, this.animationDelay);
   }
