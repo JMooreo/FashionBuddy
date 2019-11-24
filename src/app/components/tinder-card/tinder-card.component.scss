@@ -7,12 +7,9 @@
   --background: var(--ion-color-primary);
   text-align: center;
   color: white;
-  position: relative;
-  z-index: 2;
 }
 
 .overlay-image {
   object-fit: contain;
   opacity: 0.5;
-  position: relative;
 }
