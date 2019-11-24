@@ -8,7 +8,6 @@ import { StorageService } from "src/app/services/storage/storage.service";
 import { AuthService } from "src/app/services/auth/auth.service";
 import { trigger, style, animate, transition } from "@angular/animations";
 import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service";
-import { FcmService } from "src/app/services/fcm/fcm.service";
 
 @Component({
   selector: "app-upload",

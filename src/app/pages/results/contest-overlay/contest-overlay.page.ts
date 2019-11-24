@@ -21,6 +21,7 @@ import { DatabaseService } from "src/app/services/database/database.service";
 export class ContestOverlayPage {
   loadContestInfoAndFeedbackForm = false;
   showChart = false;
+  viewEntered = false;
   percentages: Array<number> = [];
   textColors = ["#FF8F00", "#4C46FD"];
   borderColors = [
@@ -55,6 +56,11 @@ export class ContestOverlayPage {
 
   ionViewDidEnter() {
     this.pageLoad();
+    this.viewEntered = true;
+  }
+
+  ionViewDidLeave() {
+    this.viewEntered = false;
   }
 
   async pageLoad() {
