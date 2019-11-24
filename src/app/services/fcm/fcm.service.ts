@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { FCM } from "@ionic-native/fcm/ngx";
 import { IonicPopupsService } from "../popups/ionic-popups.service";
 import { AuthService } from "../auth/auth.service";
+import { Platform } from "@ionic/angular";
 
 @Injectable({
   providedIn: "root"
@@ -10,14 +11,19 @@ export class FcmService {
   constructor(
     private fcm: FCM,
     private popupSrv: IonicPopupsService,
-    private authSrv: AuthService
+    private authSrv: AuthService,
+    private plt: Platform
   ) {}
 
   doNotificationSetup() {
     this.fcm.onNotification().subscribe(data => { // Listen For Notifications
       if (!data.wasTapped) { // App Was Open
-        if (data.userId !== this.authSrv.getUserId()) {
-          this.popupSrv.makeToast(data.title, data.body);
+        if (this.plt.is("android")) {
+          if (data.userId !== this.authSrv.getUserId()) {
+            this.popupSrv.makeToast(data.title, data.body);
+          }
+        } else if (this.plt.is("ios")) {
+          this.popupSrv.makeToast(data.aps.alert.title, data.aps.alert.body);
         }
       }
     });
