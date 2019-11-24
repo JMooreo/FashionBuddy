@@ -1,12 +1,12 @@
 export const environment = {
   production: true,
   firebaseConfig: {
-    apiKey: "AIzaSyCrdksp7ENPzGSUyjbFP3lR6hvTOjfaAp4",
-    authDomain: "fashionbuddy-e21c3.firebaseapp.com",
-    databaseURL: "https://fashionbuddy-e21c3.firebaseio.com",
-    projectId: "fashionbuddy-e21c3",
-    storageBucket: "fashionbuddy-e21c3.appspot.com",
-    messagingSenderId: "669845790704",
-    appId: "1:669845790704:web:105383d75169286e",
+    apiKey: "AIzaSyDMT3Lc6KRVRweTAjiHmv4NbEp8jMivhE0",
+    authDomain: "fashionbuddy-ea0d9.firebaseapp.com",
+    databaseURL: "https://fashionbuddy-ea0d9.firebaseio.com",
+    projectId: "fashionbuddy-ea0d9",
+    storageBucket: "fashionbuddy-ea0d9.appspot.com",
+    messagingSenderId: "389372354353",
+    appId: "1:389372354353:web:41fa80991c2ee6e8eb1a10"
   }
 };

@@ -4,6 +4,7 @@ import { AuthService } from "src/app/services/auth/auth.service";
 import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service";
 import { DatabaseService } from "src/app/services/database/database.service";
 import { AppVersion } from "@ionic-native/app-version/ngx";
+import { environment } from "src/environments/environment";
 
 @Component({
   selector: "app-settings",
@@ -25,7 +26,7 @@ export class SettingsPage implements OnInit {
   ngOnInit() {
     if (this.plt.is("cordova")) {
       this.appVersion.getVersionNumber().then(version => {
-        this.versionNumber = version;
+        this.versionNumber = `${version}-${environment.production ? "Prod" : "Dev"}`;
       });
     }
   }
