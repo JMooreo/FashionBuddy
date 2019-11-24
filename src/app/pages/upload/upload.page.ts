@@ -64,18 +64,18 @@ export class UploadPage {
       header: "Select Image source",
       buttons: [
         {
-          text: "Load from Library",
+          text: "Take Picture",
+          handler: () => {
+            this.captureImage(this.camera.PictureSourceType.CAMERA, index);
+          }
+        },
+        {
+          text: "Choose From Photos",
           handler: () => {
             this.captureImage(
               this.camera.PictureSourceType.PHOTOLIBRARY,
               index
             );
-          }
-        },
-        {
-          text: "Use Camera",
-          handler: () => {
-            this.captureImage(this.camera.PictureSourceType.CAMERA, index);
           }
         },
         {
