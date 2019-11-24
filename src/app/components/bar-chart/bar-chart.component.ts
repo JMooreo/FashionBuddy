@@ -38,9 +38,13 @@ export class BarChartComponent implements OnInit {
     let i = 1;
     const labels = [];
     const votesArray = [];
+    let noVotes = true;
     this.contestData.options.forEach(option => {
       labels.push(`Outfit ${i}`);
       votesArray.push(option.votes);
+      if (option.votes > 0) {
+        noVotes = false;
+      }
       i++;
     });
 
@@ -60,7 +64,7 @@ export class BarChartComponent implements OnInit {
         labels,
         datasets: [
           {
-            data: votesArray.reverse(),
+            data: noVotes ? [1, 1] : votesArray.reverse(),
             backgroundColor: [blueGradient, orangeGradient],
             borderWidth: 1
           }
