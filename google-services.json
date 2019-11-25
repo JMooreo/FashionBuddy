@@ -1,41 +1,42 @@
 {
   "project_info": {
-    "project_number": "669845790704",
-    "firebase_url": "https://fashionbuddy-e21c3.firebaseio.com",
-    "project_id": "fashionbuddy-e21c3",
-    "storage_bucket": "fashionbuddy-e21c3.appspot.com"
+    "project_number": "389372354353",
+    "firebase_url": "https://fashionbuddy-ea0d9.firebaseio.com",
+    "project_id": "fashionbuddy-ea0d9",
+    "storage_bucket": "fashionbuddy-ea0d9.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:669845790704:android:223061e0277dacbe92c735",
+        "mobilesdk_app_id": "1:389372354353:android:b2a696d99c58a335",
         "android_client_info": {
-          "package_name": "com.fashionbuddyapp.dev"
+          "package_name": "com.fashionbuddyapp.fashionbuddy"
         }
       },
       "oauth_client": [
         {
-          "client_id": "669845790704-6cv0sl3nia0j497bnljf9n0qr49cgt0o.apps.googleusercontent.com",
+          "client_id": "389372354353-6fjtacveqsermou78l8plkibm6u3vqsj.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD9YolEjj6MH8oxBSZMYVKE4cd3HPD26xE"
+          "current_key": "AIzaSyCS5wwavFvysWdx66wP3Fuu8Z4spqsJ_SI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "117341324508248948335",
+              "client_id": "389372354353-6fjtacveqsermou78l8plkibm6u3vqsj.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "669845790704-ddo5no28q4ueq2cb8319ld691fk6n4qu.apps.googleusercontent.com",
+              "client_id": "389372354353-891sm4opljop21phrh90l009ovqm842o.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.fashionbuddyapp.dev"
+                "bundle_id": "com.fashionbuddyapp.fashionbuddy",
+                "app_store_id": "1372478592"
               }
             }
           ]
