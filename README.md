@@ -14,14 +14,15 @@ This is the new repo for FashionBuddy that uses Ionic 4+
 * Err: `ionic is not a command` Solution: Run `npm i -g ionic`
 
 # Working on New Features
-1. Ensure you are on the `master` branch and run `git pull` and `npm install` to get the latest updates. If you get a permission error, try `sudo npm install` or `npm install -g`
+1. Ensure you are on the `Feature-Testing` branch and run `git pull` to get the latest updates. Sometimes there are changes to the package.json which means a plugin was installed. In order to get these changes too, run `sudo npm install` or `npm install -g`
 2. Run `git checkout -b "<your-branch-name-here">` to start a new branch Ex: `git checkout -b "rewards-page-update"`
 3. Now you are free to make any changes to the code
 4. When you are happy with your progress, run `git add .` which stages all of your changes. 
 5. Then run `git commit -m "<your-message-here>"` Ex: `git commit -m "Improved Page Load Times"`. This saves all the changes you made to your local git history and the message helps other developers know what changed when. Commit often.
 6. If you type `git log` you can see all of the previous commits in the git history (press q to exit the git log)
 7. Run `git push` to upload your branch to GitHub so that other developers can see your code
-8. Run `git checkout master` to go back to `master` and start a new branch. Eat. Code. Sleep. Repeat.
+8. Run `git checkout Feature-Testing` to go back to `Feature-Testing` and start a new branch. Eat. Code. Sleep. Repeat.
+Note: Since `master` is production, we don't touch it until we've tested the code. And if you start a branch from `master` then you will have the production environment code changes on your branch, which we don't want to merge into `Feature-Testing`
 
 # Merging New Features
 1. Before making a pull request
