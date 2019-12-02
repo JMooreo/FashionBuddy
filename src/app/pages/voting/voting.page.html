@@ -26,6 +26,16 @@
   <ion-grid class="contest-container">
     <ng-container *ngIf="contests && contests[0] != null">
       <ion-row>
+        <div class="primary-tag">
+          <ion-text color="light">{{ contests[0].style }}</ion-text>
+        </div>
+      </ion-row>
+      <ion-row>
+        <div class="secondary-tag">
+          <ion-text color="light"> {{ contests[0].occasion }}</ion-text>
+        </div>
+      </ion-row>
+      <ion-row>
         <ion-col *ngFor="let option of contests[0].options; let optionIndex = index">
           <div id="draggable-container" *ngIf="isContestVisible" [@inOutAnimation] cdkDragLockAxis="y" cdkDrag
             (cdkDragEnded)="tinderCardDragEnded($event, contests[0].id, optionIndex)">
