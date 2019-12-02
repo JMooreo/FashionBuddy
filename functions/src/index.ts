@@ -75,21 +75,47 @@ export const generateThumbs = functions.storage
         action: "read",
         expires: "03-09-2491"
       });
+
     console.log("updating cloud firestore imageUrls", contestId, optionName);
-    await db
+
+    const contestDoc = await db
       .collection("Contests")
       .doc(contestId)
-      .collection("Options")
-      .doc(optionName)
-      .update({ imageUrl: signedUrls[0] })
-      .then(
-        success => {
-          console.log("Successful firebase update");
-        },
-        error => {
-          console.error(error);
-        }
-      );
-    console.log("removing working Directory", workingDir);
+      .get();
+    console.log("Contest Doc = ", contestDoc);
+    const contestData = contestDoc.data();
+    console.log("Contest Data = ", contestData);
+    if (contestData && contestData.options) {
+      const optionId = parseInt(optionName.split("_")[1]);
+      console.log("optionId = ", optionId);
+      let optionToRemove = {};
+        contestData.options.forEach((option: { imageUrl: string; votes: number }) => {
+          if (option.imageUrl.includes(optionName)) {
+            optionToRemove = option;
+          }
+        });
+
+        console.log("Attempting to remove option", optionToRemove);
+
+        await db
+          .collection("Contests")
+          .doc(contestId)
+          .update({
+            options: admin.firestore.FieldValue.arrayRemove({
+              ...optionToRemove
+            })
+          });
+
+        const optionToAdd = { ...optionToRemove, imageUrl: signedUrls[0] };
+
+        console.log("Attempting to add option", optionToAdd);
+
+        await db
+          .collection("Contests")
+          .doc(contestId)
+          .update({
+            options: admin.firestore.FieldValue.arrayUnion({ ...optionToAdd })
+          });
+    }
     return fs.remove(workingDir);
   });
