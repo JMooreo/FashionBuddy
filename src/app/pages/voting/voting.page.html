@@ -26,14 +26,10 @@
   <ion-grid class="contest-container">
     <ng-container *ngIf="contests && contests[0] != null">
       <ion-row>
-        <div class="primary-tag">
-          <ion-text color="light">{{ contests[0].style }}</ion-text>
-        </div>
+        <ion-text color="dark"><b>{{ contests[0].style }}</b></ion-text>
       </ion-row>
       <ion-row>
-        <div class="secondary-tag">
-          <ion-text color="light"> {{ contests[0].occasion }}</ion-text>
-        </div>
+        <ion-text color="dark"> {{ contests[0].occasion }}</ion-text>
       </ion-row>
       <ion-row>
         <ion-col *ngFor="let option of contests[0].options; let optionIndex = index">
