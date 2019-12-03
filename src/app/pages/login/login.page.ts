@@ -3,6 +3,7 @@ import { NavController } from "@ionic/angular";
 import { AuthService } from "src/app/services/auth/auth.service";
 import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service";
 import { DatabaseService } from "src/app/services/database/database.service";
+import { EventLoggerService } from "src/app/event-logger.service";
 
 @Component({
   selector: "app-login",
@@ -19,6 +20,7 @@ export class LoginPage implements OnInit {
     private authSrv: AuthService,
     private dbSrv: DatabaseService,
     private popupSrv: IonicPopupsService,
+    public logger: EventLoggerService
   ) {}
 
   ngOnInit() {
@@ -45,6 +47,9 @@ export class LoginPage implements OnInit {
               });
             }
           });
+
+          this.logger.logButton("btn_login_tapped", "Login_Page");
+
           this.navigateTo("tabs");
 
           if (this.rememberMe) {

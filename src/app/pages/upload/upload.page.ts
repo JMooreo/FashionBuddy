@@ -8,6 +8,7 @@ import { StorageService } from "src/app/services/storage/storage.service";
 import { AuthService } from "src/app/services/auth/auth.service";
 import { trigger, style, animate, transition } from "@angular/animations";
 import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service";
+import { EventLoggerService } from "src/app/event-logger.service";
 
 @Component({
   selector: "app-upload",
@@ -48,8 +49,9 @@ export class UploadPage {
     private authSrv: AuthService,
     private camera: Camera,
     private popupSrv: IonicPopupsService,
-    private actionSheetCtrl: ActionSheetController
-  ) {}
+    private actionSheetCtrl: ActionSheetController,
+    public logger: EventLoggerService
+  ) { }
 
   ionViewDidEnter() {
     this.viewEntered = true;
@@ -158,6 +160,7 @@ export class UploadPage {
 
   onTimeSelectedEvent($event: number) {
     this.durationInMinutes = $event;
+    this.logger.logButton(this.durationInMinutes.toString() + "minutes selected", "Upload_Page");
   }
 
   isFormValid() {
@@ -220,6 +223,9 @@ export class UploadPage {
           createDateTime.getMinutes() + this.durationInMinutes
         );
 
+        this.logger.logButton(this.occasion.toString() + "occasion selected", "Upload_Page");
+        this.logger.logButton(this.style.toString() + "style selected", "Upload_Page");
+
         const contest = {
           createDateTime: createDateTime.toISOString(),
           closeDateTime: closeDateTime.toISOString(),
@@ -233,6 +239,7 @@ export class UploadPage {
 
         this.dbSrv.createContest(contestId, contest).then(() => {
           this.popupSrv.loadingCtrl.dismiss().then(() => {
+            this.logger.logButton("btn_get_some_votes", "Upload_Page");
             this.popupSrv.showBasicAlert("Success", "Uploaded your contest!");
           });
         });

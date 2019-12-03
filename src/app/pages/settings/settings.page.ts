@@ -5,6 +5,7 @@ import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service
 import { DatabaseService } from "src/app/services/database/database.service";
 import { AppVersion } from "@ionic-native/app-version/ngx";
 import { environment } from "src/environments/environment";
+import { EventLoggerService } from "src/app/event-logger.service";
 
 @Component({
   selector: "app-settings",
@@ -20,14 +21,16 @@ export class SettingsPage implements OnInit {
     private navCtrl: NavController,
     private dbSrv: DatabaseService,
     private appVersion: AppVersion,
-    private plt: Platform
-  ) {}
+    private plt: Platform,
+    public logger: EventLoggerService
+  ) { }
 
   ngOnInit() {
     if (this.plt.is("cordova")) {
       this.appVersion.getVersionNumber().then(version => {
         this.versionNumber = `${version}-${environment.production ? "Prod" : "Dev"}`;
       });
+      this.logger.logButton("btn_settings", "Settings_Page");
     }
   }
 
@@ -89,7 +92,7 @@ export class SettingsPage implements OnInit {
         {
           text: "Cancel",
           role: "cancel",
-          handler: () => {}
+          handler: () => { }
         }
       ],
       mode: "ios"

@@ -4,6 +4,7 @@ import { Contest } from "../../models/contest-model";
 import { ContestOverlayPage } from "./contest-overlay/contest-overlay.page";
 import { trigger, style, animate, transition } from "@angular/animations";
 import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service";
+import { EventLoggerService } from "src/app/event-logger.service";
 
 @Component({
   selector: "app-results",
@@ -24,10 +25,12 @@ export class ResultsPage {
 
   constructor(
     private dbSrv: DatabaseService,
-    private popupSrv: IonicPopupsService
-  ) {}
+    private popupSrv: IonicPopupsService,
+    public logger: EventLoggerService
+  ) { }
 
   ionViewDidEnter() {
+    this.logger.logButton("btn_result_screen", "Result_Page");
     this.pageLoad();
   }
 

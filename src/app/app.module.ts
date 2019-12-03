@@ -25,6 +25,8 @@ import { DatabaseService } from "./services/database/database.service";
 import { FCM } from "@ionic-native/fcm/ngx";
 import { AppVersion } from "@ionic-native/app-version/ngx";
 
+import { FirebaseAnalytics } from "@ionic-native/firebase-analytics/ngx";
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -49,7 +51,8 @@ import { AppVersion } from "@ionic-native/app-version/ngx";
     AppVersion,
     AuthService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    Camera
+    Camera,
+    FirebaseAnalytics
   ],
   bootstrap: [AppComponent]
 })

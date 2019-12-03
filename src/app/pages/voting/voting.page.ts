@@ -5,6 +5,7 @@ import { trigger, style, animate, transition } from "@angular/animations";
 import { NavController, Platform } from "@ionic/angular";
 import { IonicPopupsService } from "src/app/services/popups/ionic-popups.service";
 import { FcmService } from "src/app/services/fcm/fcm.service";
+import { EventLoggerService } from "src/app/event-logger.service";
 
 @Component({
   selector: "app-voting",
@@ -35,7 +36,8 @@ export class VotingPage implements OnInit {
     private popupSrv: IonicPopupsService,
     private navCtrl: NavController,
     private fcmSrv: FcmService,
-    private plt: Platform
+    private plt: Platform,
+    public logger: EventLoggerService
   ) {}
 
   ngOnInit() {
@@ -49,6 +51,8 @@ export class VotingPage implements OnInit {
         }
       });
       this.fcmSrv.doNotificationSetup(); // Start Notification Listeners
+
+      this.logger.logButton("btn_home_screen", "Voting_Page");
     }
   }
 
@@ -118,6 +122,7 @@ export class VotingPage implements OnInit {
   }
 
   navigateTo(pageName: string) {
+    this.logger.logButton("btn_post_an_outfit", "Voting_Page");
     this.navCtrl.navigateForward(`/${pageName}`);
   }
 
