@@ -1,11 +1,12 @@
-<ion-toolbar>
-  <ion-buttons>
-    <ion-button (click)="close()">
-      <ion-icon slot="icon-only" name="arrow-round-back"></ion-icon>
-    </ion-button>
-  </ion-buttons>
-</ion-toolbar>
-
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-button (click)="close()">
+        <ion-icon id="back-btn" slot="icon-only" name="arrow-round-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 <ion-content>
   <div *ngIf="viewEntered" [@fadeInAnimation]>
     <app-results-swiper [options]="contest.options" [borderColors]="borderColors"></app-results-swiper>
