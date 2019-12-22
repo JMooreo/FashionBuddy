@@ -8,6 +8,17 @@ import { join, dirname } from "path";
 import * as sharp from "sharp";
 import * as fs from "fs-extra";
 
+const VisualRecognitionV3 = require('ibm-watson/visual-recognition/v3');
+const { IamAuthenticator } = require('ibm-watson/auth');
+
+const visualRecognition = new VisualRecognitionV3({
+  version: '2018-03-19',
+  authenticator: new IamAuthenticator({
+    apikey: 'SpZ7UhooJuAGCPAUFs8SX87A_zlbSR7xXEc8E2hjd-6f',
+  }),
+  url: 'https://api.us-south.visual-recognition.watson.cloud.ibm.com/instances/b2808d59-0d0a-44f4-9e6d-1b560a360718',
+});
+
 export const generateThumbs = functions.storage
   .object()
   .onFinalize(async object => {
@@ -120,7 +131,9 @@ export const generateThumbs = functions.storage
     return fs.remove(workingDir);
   });
 
-function sendNotificationToTopic(topic: string, snapshot: FirebaseFirestore.DocumentSnapshot) {
+
+
+export const sendNotificationToTopic = (topic: string, snapshot: FirebaseFirestore.DocumentSnapshot) => {
   const time = new Date()
 
   const currentHour = time.getHours()
@@ -140,6 +153,8 @@ function sendNotificationToTopic(topic: string, snapshot: FirebaseFirestore.Docu
       title = "The moon is lovely tonight!";
       break;
   }
+
+  title = "This is exciting!!!"
 
   if (snapshot.data() !== undefined) {
     const message = {
@@ -164,8 +179,118 @@ function sendNotificationToTopic(topic: string, snapshot: FirebaseFirestore.Docu
   }
 }
 
-export const sendNewContestNotification = functions.firestore.document('Contests/{contestID}').onCreate((snapshot) => {
-  sendNotificationToTopic('post-notifications', snapshot)
+export const areImagesOnConstestLegal = function (snapshot: FirebaseFirestore.DocumentSnapshot) {
+  return new Promise((resolve, reject) => {
+    const firstImageURL = snapshot.data()['options'][0]['imageUrl']
+    const secondImageURL = snapshot.data()['options'][1]['imageUrl']
+
+    const firstClassifyParams = {
+      url: firstImageURL,
+    };
+
+    const secondClassifyParams = {
+      url: secondImageURL,
+    };
+
+    /* Make sure the classified image have a clothing type keyword */
+    const validKeywords = ['garment', 'jacket', 'skirt', 'breeches', 'trouser', 'pants', 'clothing', 'fabric', 'dress', 'shorts', 'footwear', 'outfit', 'revers', 'polo', 'shirt', 'sleeve', 'T-shirt', 'waistcoat', 'cardigan', 'jacket', 'sweater', 'vest', 'pocket', 'flannel', 'tartan', 'lumberjack', 'coat', 'overgarment', 'shoes']
+
+    let isValidOne = false
+    let isValidTwo = false
+
+    visualRecognition.classify(firstClassifyParams).then(firstResponse => {
+      visualRecognition.classify(secondClassifyParams).then(secondResponse => {
+        const firstClassifiedImages = firstResponse.result;
+        const secondClassifiedImages = secondResponse.result;
+
+        if (firstClassifiedImages['images'].length === 0 || secondClassifiedImages['images'].length === 0) { resolve(false) }
+        if (firstClassifiedImages['images'][0]['classifiers'][0].length === 0 || secondClassifiedImages['images'][0]['classifiers'][0].length === 0) { resolve(false) }
+        if (firstClassifiedImages['images'][0]['classifiers'][0]['classes'].length === 0 || secondClassifiedImages['images'][0]['classifiers'][0]['classes'].length === 0) { resolve(false) }
+
+        const allClassesFirst = firstClassifiedImages['images'][0]['classifiers'][0]['classes'].map(detectedClass => {
+          return detectedClass['class']
+        })
+
+        const allClassesSecond = secondClassifiedImages['images'][0]['classifiers'][0]['classes'].map(detectedClass => {
+          return detectedClass['class']
+        })
+
+        allClassesFirst.forEach(detectedClass => {
+          if (isValidOne) { return }
+          validKeywords.forEach(validKey => {
+            if (detectedClass.toLowerCase().includes(validKey.toLowerCase())) {
+              isValidOne = true
+            }
+          })
+        })
+
+        allClassesSecond.forEach(detectedClass => {
+          if (isValidTwo) { return }
+          validKeywords.forEach(validKey => {
+            if (detectedClass.toLowerCase().includes(validKey.toLowerCase())) {
+              isValidTwo = true
+            }
+          })
+        })
+
+        if (isValidOne && isValidTwo) {
+          resolve(true)
+        }
+        else {
+          resolve(false)
+        }
+      }).catch(err => {
+        console.log('error:', err);
+        reject(err)
+      });
+    }).catch(err => {
+      console.log('error:', err);
+      reject(err)
+    });
+  })
+
+}
+
+export const sendNewContestNotification = functions.firestore.document('Contests/{contestID}').onCreate((snapshot, context) => {
+  return new Promise((resolve, reject) => {
+    areImagesOnConstestLegal(snapshot).then((is_valid) => {
+      console.log("Should I send notification:", is_valid)
+
+      if (is_valid) {
+        /* ! Tell everyone */
+        sendNotificationToTopic('post-notifications', snapshot)
+      }
+      else {
+        /* Move the contest to a new place */
+        const db = admin.firestore();
+
+        db.collection('SuspectedContests').doc(context.params['contestID']).set({
+          closeDateTime: snapshot.data()['closeDateTime'],
+          contestOwner: snapshot.data()['contestOwner'],
+          createDateTime: snapshot.data()['createDateTime'],
+          occasion: snapshot.data()['occasion'],
+          reportCount: snapshot.data()['reportCount'],
+          style: snapshot.data()['style'],
+          options: snapshot.data()['options'],
+          seenUsers: snapshot.data()['seenUsers']
+        }).then(async () => {
+          console.log("Deleting document")
+          db.collection('Contests').doc(context.params['contestID']).delete().then(() => {
+            resolve()
+          }).catch((err) => {
+            console.log("Ok error here we meet again:", err);
+            reject(err);
+          })
+        }).catch((err) => {
+          console.log("Ok error here we meet again:", err);
+          reject(err);
+        });
+      }
+    }).catch((err) => {
+      console.log("Ok error here we meet again:", err);
+      reject(err);
+    })
+  })
 })
 
 export const syncVotersToOptions = functions.firestore.document('Contests/{contestID}/Voters/{voterID}').onCreate((snapshot, context) => {
