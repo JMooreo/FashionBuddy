@@ -126,50 +126,55 @@ import { sendNotificationToTopic } from './NotiSender'
 import { areImagesOnConstestLegal } from './ContestPicFilter'
 
 export const sendNewContestNotification = functions.firestore.document('Contests/{contestID}').onCreate(async (snapshot, context) => {
-  sendNotificationToTopic('post-notifications', snapshot)
+  //#region Current code on server
+  // sendNotificationToTopic('post-notifications', snapshot)
 
-  return null
-  // // * Check the 2 images if they are related to fashion
-  // const is_valid = await areImagesOnConstestLegal(snapshot)
+  // return null
+  //#endregion
 
-  // console.log("Google says the 2 images are valid:", is_valid)
+  //#region Code needs Justin's approval
+  // * Check the 2 images if they are related to fashion
+  const is_valid = await areImagesOnConstestLegal(snapshot)
 
-  // if (is_valid) { sendNotificationToTopic('post-notifications', snapshot); return null }
-  // else if (is_valid === null) { console.log("Google has bad news"); return null }
-  // else {
-  //   // * Move the contest to a new place 
-  //   const db = admin.firestore();
+  console.log("Google says the 2 images are valid:", is_valid)
 
-  //   console.log("Move the contest to a new place")
+  if (is_valid) { sendNotificationToTopic('post-notifications', snapshot); return null }
+  else if (is_valid === null) { console.log("Google has bad news"); return null }
+  else {
+    // * Move the contest to a new place 
+    const db = admin.firestore();
 
-  //   // * Just to be safe
-  //   if (snapshot.data()['closeDateTime'] === undefined) { console.log("snapshot.data()['closeDateTime'] is undefined"); return }
-  //   if (snapshot.data()['contestOwner'] === undefined) { console.log("snapshot.data()['contestOwner'] is undefined"); return }
-  //   if (snapshot.data()['createDateTime'] === undefined) { console.log("snapshot.data()['createDateTime'] is undefined"); return }
-  //   if (snapshot.data()['occasion'] === undefined) { console.log("snapshot.data()['occasion'] is undefined"); return }
-  //   if (snapshot.data()['reportCount'] === undefined) { console.log("snapshot.data()['reportCount'] is undefined"); return }
-  //   if (snapshot.data()['style'] === undefined) { console.log("snapshot.data()['style'] is undefined"); return }
-  //   if (snapshot.data()['options'] === undefined) { console.log("snapshot.data()['options'] is undefined"); return }
-  //   if (snapshot.data()['seenUsers'] === undefined) { console.log("snapshot.data()['seenUsers'] is undefined"); return }
+    console.log("Move the contest to a new place")
 
-  //   // * Move it to SuspectedContests
-  //   await db.collection('SuspectedContests').doc(context.params['contestID']).set({
-  //     closeDateTime: snapshot.data()['closeDateTime'],
-  //     contestOwner: snapshot.data()['contestOwner'],
-  //     createDateTime: snapshot.data()['createDateTime'],
-  //     occasion: snapshot.data()['occasion'],
-  //     reportCount: snapshot.data()['reportCount'],
-  //     style: snapshot.data()['style'],
-  //     options: snapshot.data()['options'],
-  //     seenUsers: snapshot.data()['seenUsers']
-  //   })
+    // * Just to be safe
+    if (snapshot.data()['closeDateTime'] === undefined) { console.log("snapshot.data()['closeDateTime'] is undefined"); return }
+    if (snapshot.data()['contestOwner'] === undefined) { console.log("snapshot.data()['contestOwner'] is undefined"); return }
+    if (snapshot.data()['createDateTime'] === undefined) { console.log("snapshot.data()['createDateTime'] is undefined"); return }
+    if (snapshot.data()['occasion'] === undefined) { console.log("snapshot.data()['occasion'] is undefined"); return }
+    if (snapshot.data()['reportCount'] === undefined) { console.log("snapshot.data()['reportCount'] is undefined"); return }
+    if (snapshot.data()['style'] === undefined) { console.log("snapshot.data()['style'] is undefined"); return }
+    if (snapshot.data()['options'] === undefined) { console.log("snapshot.data()['options'] is undefined"); return }
+    if (snapshot.data()['seenUsers'] === undefined) { console.log("snapshot.data()['seenUsers'] is undefined"); return }
 
-  //   // * Delete the document to wait for checking
-  //   console.log("Deleting document")
-  //   await db.collection('Contests').doc(context.params['contestID']).delete()
+    // * Move it to SuspectedContests
+    await db.collection('SuspectedContests').doc(context.params['contestID']).set({
+      closeDateTime: snapshot.data()['closeDateTime'],
+      contestOwner: snapshot.data()['contestOwner'],
+      createDateTime: snapshot.data()['createDateTime'],
+      occasion: snapshot.data()['occasion'],
+      reportCount: snapshot.data()['reportCount'],
+      style: snapshot.data()['style'],
+      options: snapshot.data()['options'],
+      seenUsers: snapshot.data()['seenUsers']
+    })
 
-  //   return null
-  // }
+    // * Delete the document to wait for checking
+    console.log("Deleting document")
+    await db.collection('Contests').doc(context.params['contestID']).delete()
+
+    return null
+    //#endregion
+  }
 })
 //#endregion
 
