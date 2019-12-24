@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { DatabaseService } from "src/app/services/database/database.service";
 import { ActionSheetController } from "@ionic/angular";
-
+import { NavController } from "@ionic/angular";
 import { Camera, CameraOptions } from "@ionic-native/camera/ngx";
 import { CapturedImageModalPage } from "./captured-image-modal/captured-image-modal.page";
 import { StorageService } from "src/app/services/storage/storage.service";
@@ -48,8 +48,9 @@ export class UploadPage {
     private authSrv: AuthService,
     private camera: Camera,
     private popupSrv: IonicPopupsService,
-    private actionSheetCtrl: ActionSheetController
-  ) {}
+    private actionSheetCtrl: ActionSheetController,
+    private navCtrl: NavController
+  ) { }
 
   ionViewDidEnter() {
     this.viewEntered = true;
@@ -233,6 +234,7 @@ export class UploadPage {
 
         this.dbSrv.createContest(contestId, contest).then(() => {
           this.popupSrv.loadingCtrl.dismiss().then(() => {
+            this.navCtrl.navigateBack(`/tabs/results`);
             this.popupSrv.showBasicAlert("Success", "Uploaded your contest!");
           });
         });

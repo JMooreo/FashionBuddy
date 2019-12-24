@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { IonicModule } from "@ionic/angular";
-
+import { RouterTestingModule } from "@angular/router/testing";
 import { UploadPage } from "./upload.page";
 import { DatabaseService } from "src/app/services/database/database.service";
 import { ContestOption, Contest } from "src/app/models/contest-model";
@@ -18,7 +18,7 @@ describe("UploadPage", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [UploadPage, DurationPickerComponent],
-      imports: [IonicModule.forRoot(), SharedComponentsModule, FormsModule],
+      imports: [IonicModule.forRoot(), SharedComponentsModule, FormsModule, RouterTestingModule],
       providers: [
         // tslint:disable-next-line: no-use-before-declare
         { provide: DatabaseService, useClass: DatabaseServiceStub },
