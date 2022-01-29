@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  firebaseConfig: '[REDATCED]'
+  firebaseConfig: '[REDACTED]'
 };
 
 /*
